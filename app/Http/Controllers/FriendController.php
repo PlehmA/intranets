@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Chat;
+use App\Friend;
+use Auth;
 use Illuminate\Http\Request;
 
-class ChatController extends Controller
+class FriendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,27 +37,34 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $friend = new Friend;
+        $friend->user_id = Auth::user()->id;
+        $friend->friend_id = $request->friend_id;
+        $friend->save();
+
+        Session::flash('success', Auth::user()->name.' fue añadido a tu lista de amigos.');
+        return redirect()->back();
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Chat  $chat
+     * @param  \App\Friend  $friend
      * @return \Illuminate\Http\Response
      */
-    public function show(Chat $chat)
+    public function show(Friend $friend)
     {
-        return view('chat.show');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Chat  $chat
+     * @param  \App\Friend  $friend
      * @return \Illuminate\Http\Response
      */
-    public function edit(Chat $chat)
+    public function edit(Friend $friend)
     {
         //
     }
@@ -65,10 +73,10 @@ class ChatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Chat  $chat
+     * @param  \App\Friend  $friend
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Chat $chat)
+    public function update(Request $request, Friend $friend)
     {
         //
     }
@@ -76,10 +84,10 @@ class ChatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Chat  $chat
+     * @param  \App\Friend  $friend
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chat $chat)
+    public function destroy(Friend $friend)
     {
         //
     }

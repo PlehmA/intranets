@@ -32,4 +32,12 @@ Route::post('update', 'ConfigController@update')->name('update');
 
 Route::get('calendar', 'CalendarController@index')->name('calendar');
 
-Route::get('chat', 'ChatController@index')->name('chat');
+Route::get('/chat', 'ChatController@index')->middleware('auth')->name('chat.index');
+
+Route::get('/chat/{id}', 'ChatController@show')->middleware('auth')->name('chat.show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/friend', 'FriendController@index')->middleware('auth');
