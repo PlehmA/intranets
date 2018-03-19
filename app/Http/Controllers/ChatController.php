@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Chat;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -45,9 +47,10 @@ class ChatController extends Controller
      * @param  \App\Chat  $chat
      * @return \Illuminate\Http\Response
      */
-    public function show(Chat $chat)
+    public function show($id)
     {
-        return view('chat.show');
+        $friend = User::find($id);
+        return view('chat.show')->withFriend($friend);
     }
 
     /**
