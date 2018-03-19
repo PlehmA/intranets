@@ -9,6 +9,7 @@
         @forelse($friends as $friend)
         <div class="panel panel-body">
             {{ $friend->name }}
+            <a
         </div>
             @empty
             <div class="panel panel-body">

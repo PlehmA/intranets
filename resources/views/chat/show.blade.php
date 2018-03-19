@@ -1,14 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div>
-        <div>
-            <div>
+    <div class="continue">
+        <div class="col-lg-offset-3 col-lg-6">
+            <div class="panel">
                 <div>
                     <div>
-
-                        <div>
-                            {{ $friend->name }}
-                        </div>
 
                     </div>
                 </div>
