@@ -7,10 +7,7 @@
         <p><u>Amigos Conectados</u></p>
         </div>
         @forelse($friends as $friend)
-        <div class="panel panel-body">
-            {{ $friend->name }}
-            <a
-        </div>
+            <a href="{{ route('chat.show', $friend->id) }}" class="panel panel-body">{{ $friend->name }}</a>
             @empty
             <div class="panel panel-body">
                 <p>No tienes amigos conectados.</p>
