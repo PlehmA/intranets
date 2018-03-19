@@ -3,10 +3,11 @@
     <div class="continue">
         <div class="col-lg-offset-3 col-lg-6">
             <div class="panel">
-                <div>
-                    <div>
+                <div class="panel panel-heading">
+                    {{ $friend->name }} <a href="{{ route('chat.index') }}" class="btn btn-default">Atras</a>
+                </div>
+                <div class="panel panel-body">
 
-                    </div>
                 </div>
             </div>
         </div>
