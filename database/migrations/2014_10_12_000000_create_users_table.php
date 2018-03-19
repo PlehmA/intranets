@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('puesto');
             $table->string('email');
             $table->ipAddress('ip_maquina');
+            $table->string('foto');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

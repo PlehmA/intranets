@@ -2,24 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Storage;
 
-
-/**
- * Class ConfigController
- * @package App\Http\Controllers
- */
-class ConfigController extends Controller
+class ChatController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +13,7 @@ class ConfigController extends Controller
      */
     public function index()
     {
-        return view('configuracion');
+        return view('chat');
     }
 
     /**
@@ -48,11 +34,7 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $request->image->storeAs('public', Auth::user()->username.'.jpg');
-
-        }
-        return back()->with('status1', 'Foto modificada correctamente!');
+        //
     }
 
     /**
@@ -84,15 +66,9 @@ class ConfigController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-
-       $input = $request->input('newPass');
-        $hashedinput = bcrypt($input);
-        DB::table('users')
-            ->where('id', Auth::user()->id)
-            ->update(['password' => $hashedinput]);
-        return back()->with('status', 'Datos de perfil modificados!');
+        //
     }
 
     /**

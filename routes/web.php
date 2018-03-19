@@ -25,3 +25,11 @@ Route::post('login', 'Auth\LoginController@login')->name('login');
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('configuracion', 'ConfigController@index')->name('configuracion');
+
+Route::post('upload', 'ConfigController@store')->name('upload');
+
+Route::post('update', 'ConfigController@update')->name('update');
+
+Route::get('calendar', 'CalendarController@index')->name('calendar');
+
+Route::get('chat', 'ChatController@index')->name('chat');

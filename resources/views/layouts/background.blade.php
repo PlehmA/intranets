@@ -19,6 +19,19 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <script src="https://static.chatwee-api.com/v2/script.js"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var chatId = "594421f6bd616d6a2ba3d0e8";
+            var chatweeManager = new ChatweeLib.ChatweeManager(chatId);
+            chatweeManager.SetChatProperty("desktopDisplayMode", "embedded");
+            chatweeManager.SetChatProperty("embeddedModeSizing", "auto");
+            chatweeManager.SetChatProperty("embeddedModeContainerSelector", "#chatwee-widget");
+            chatweeManager.Run();
+        });
+
+    </script>
 </head>
 
 <body>
@@ -202,7 +215,7 @@
         <div class="content">
             <div class="container-fluid">
 
-                @yield('content')
+                @yield('contents')
 
             </div>
         </div>
@@ -219,12 +232,13 @@
 <script src="{{ asset('js/perfect-scrollbar.jquery.min.js') }}"></script>
 <!--  Notifications Plugin    -->
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
-<!--  Google Maps Plugin    -->
-
 <!-- Material Dashboard javascript methods -->
 <script src="{{ asset('js/material-dashboard.js?v=1.2.0') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
+<script>
+    var socket = io.connect('http://localhost:8080');
+</script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js

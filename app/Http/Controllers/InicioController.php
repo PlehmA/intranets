@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class InicioController extends Controller
 {
 
+
     public function index()
     {
 
@@ -22,6 +23,8 @@ class InicioController extends Controller
 
                 if (Auth::loginUsingId($identificacion))
                 {
+                    Session::put('ip', $ip);
+
                     return redirect()->route('dashboard');
                 }
             }

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'fecha_nacimiento' => '30/07/1987',
             'puesto' => 'Departamento de Sistemas',
             'email' => 'sistemas@odontopraxis.com.ar',
+            'foto' => 'fotos/polach.jpg',
             'ip_maquina' => '192.168.20.146',
             'password' => bcrypt('polacoputo'),
         ]);
