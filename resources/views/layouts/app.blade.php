@@ -103,8 +103,9 @@
     Tip 2: you can also add an image using data-image tag
 -->
         <div class="logo">
+            img
             <a href="{{ route('dashboard') }}" class="simple-text">
-                Odontopraxis
+                UiTalks
             </a>
         </div>
         <div class="sidebar-wrapper">
@@ -184,6 +185,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="{{ route('dashboard') }}"> Intranet </a>
+                    <a class="navbar-brand" href="{{ route('chat.index') }}"><i class="fa fa-envelope"></i></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">

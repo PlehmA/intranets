@@ -30,15 +30,15 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function fiendsOfMine()
+    public function friendsOfMine()
     {
         return $this->belongsToMany('App\User', 'friends', 'user_id', 'friend_id');
     }
-    public function fiendsOf()
+    public function friendsOf()
     {
         return $this->belongsToMany('App\User', 'friends', 'friend_id', 'user_id');
     }
     public function friends(){
-        return $this->fiendsOfMine->merge($this->fiendsOf);
+        return $this->friendsOfMine->merge($this->friendsOf);
     }
 }
