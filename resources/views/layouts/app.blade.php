@@ -92,8 +92,9 @@
         box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
     }
     .caja-5 {
-        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19); }
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
+
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/sidebar-1.jpg') }}">
@@ -103,15 +104,12 @@
     Tip 2: you can also add an image using data-image tag
 -->
         <div class="logo">
-            img
-            <a href="{{ route('dashboard') }}" class="simple-text">
-                UiTalks
-            </a>
+            <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="#">
+                    <a href="{{ route('correo.index') }}">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>
@@ -175,7 +173,7 @@
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute">
+        <nav class="navbar navbar-transparent navbar-absolute"style="margin-left: 5rem; border-bottom: #d1ecf1; border-bottom-style: solid;" max-width="100%">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -184,8 +182,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('dashboard') }}"> Intranet </a>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}"><i class="fa fa-envelope"></i></a>
+                    <a class="navbar-brand" href="{{ route('chat.index') }}"  style="color: ;"><i class="fa fa-comments fa-3x" style=" border-radius: 2rem"></i></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">

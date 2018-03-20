@@ -41,3 +41,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/friend', 'FriendController@index')->middleware('auth');
+
+Route::get('correo', 'CorreoController@index')->middleware('auth')->name('correo.index');
