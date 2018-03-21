@@ -173,7 +173,7 @@
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute" style="border-bottom: #d1ecf1; border-bottom-style: solid;" max-width="100%">
+        <nav class="navbar navbar-transparent navbar-absolute" style="border-bottom: #000000; border-bottom-style: solid; margin-bottom: 10rem">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -182,7 +182,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}"><img src="{{ asset('images/mail.png') }}" alt="" class="img-responsive" style="height: 5rem; width: 5rem;"></a>
+                    <a class="navbar-brand" href="{{ route('chat.index') }}"><i class="material-icons">mail_outline</i></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
