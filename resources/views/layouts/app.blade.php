@@ -182,7 +182,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}"  style="color: ;"><i class="fa fa-comments fa-3x" style=" border-radius: 2rem"></i></a>
+                    <a class="navbar-brand" href="{{ route('chat.index') }}"><img src="{{ asset('images/mail.png') }}" alt="" class="img-responsive" style="height: 5rem; width: 5rem;"></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">

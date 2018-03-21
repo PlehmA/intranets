@@ -14,6 +14,10 @@ class CorreoController extends Controller
      */
     public function index()
     {
+        $client = new Google_Client();
+        $client->setApplicationName("My Application");
+        $client->setDeveloperKey("AIzaSyADnmd9J1fyCNGjlOR64RGXD5lv5Dnhhig");
+        $service = new Google_Service_Books($client);
         return view('correo.index');
     }
 
