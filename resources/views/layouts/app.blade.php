@@ -173,7 +173,7 @@
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute"style="margin-left: 5rem; border-bottom: #d1ecf1; border-bottom-style: solid;" max-width="100%">
+        <nav class="navbar navbar-transparent navbar-absolute" style="border-bottom: #d1ecf1; border-bottom-style: solid;" max-width="100%">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -190,7 +190,7 @@
                         <div class="dropdown">
                             <button onclick="myFunction()" class="dropbtn">{{ Auth::user()->name }}</button>
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="#">Log Out</a>
+                                <a href="{{ url('/logout') }}">Log Out</a>
                             </div>
                         </div>
                     </ul>

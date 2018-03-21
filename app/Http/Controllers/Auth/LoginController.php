@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Auth;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 
@@ -22,6 +23,7 @@ class LoginController extends Controller
             $user= DB::table('users')
                 ->where($credentials)
                 ->get();
+
             return redirect()->route('dashboard', compact('user'));
         }else{
             return back()
@@ -29,5 +31,23 @@ class LoginController extends Controller
                 ->withInput(request(['username']));
         }
 
+    }
+    public function showLoginForm()
+    {
+        return view('/welcome');
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect('login');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard();
     }
 }

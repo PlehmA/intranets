@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Correo;
+use Google_Client;
+use Google_Service_Gmail;
 use Illuminate\Http\Request;
 
 class CorreoController extends Controller
@@ -17,7 +19,7 @@ class CorreoController extends Controller
         $client = new Google_Client();
         $client->setApplicationName("My Application");
         $client->setDeveloperKey("AIzaSyADnmd9J1fyCNGjlOR64RGXD5lv5Dnhhig");
-        $service = new Google_Service_Books($client);
+
         return view('correo.index');
     }
 

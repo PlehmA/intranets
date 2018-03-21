@@ -22,6 +22,8 @@ Route::get('hogar', function () {
 
 Route::post('login', 'Auth\LoginController@login')->name('login');
 
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('configuracion', 'ConfigController@index')->name('configuracion');
