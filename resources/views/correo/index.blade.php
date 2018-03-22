@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('correo.app')
 @section('content')
     <div class="container-fluid container-font">
         <div class="row">
-            <div class="col-lg-1">
+
+            <div class="pull-right col-md-12">
                 <b>1-100 de 100</b>
-            </div>
-            <div class="pull-right">
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li>
