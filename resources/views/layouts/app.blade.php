@@ -175,7 +175,7 @@
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent">
+        <nav class="navbar" style="border-style: solid">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
