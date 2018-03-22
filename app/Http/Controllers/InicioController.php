@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 
 class InicioController extends Controller
 {
@@ -23,7 +25,7 @@ class InicioController extends Controller
 
                 if (Auth::loginUsingId($identificacion))
                 {
-                    Session::put('ip', $ip);
+
 
                     return redirect()->route('dashboard');
                 }

@@ -19,6 +19,8 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
 
 <body>
@@ -173,7 +175,7 @@
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent navbar-absolute" style="border-bottom: #000000; border-bottom-style: solid; margin-bottom: 10rem">
+        <nav class="navbar navbar-transparent">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -182,7 +184,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}"><i class="material-icons">mail_outline</i></a>
+                    <a class="navbar-brand" href="{{ route('chat.index') }}" style="width: 50px"><i class="material-icons" style="font-size: 50px;">mail_outline</i></a>
+                    <a class="navbar-brand" href="{{ route('chat.index') }}" style="width: 50px; margin-left: 3rem"><i class="material-icons" style="font-size: 50px;">contact_mail</i></a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
