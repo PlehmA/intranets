@@ -2,11 +2,10 @@
 
 @section('content')
 
-    <form class="form-horizontal">
-        <fieldset>
+    <legend>Ingreso de Personal</legend>
+<div class="panel">
 
-            <!-- Form Name -->
-            <legend>Form Name</legend>
+    <form class="form-horizontal" enctype="multipart/form-data">
 
             <!-- Text input-->
             <div class="form-group">
@@ -116,14 +115,13 @@
 
                 </div>
             </div>
-
-            <!-- File Button -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="imagen">Foto</label>
-                <div class="col-md-4">
-                    <input id="imagen" name="imagen" class="input-file" type="file">
+                <div class="panel-body">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="file" name="image" class="inputfile">
                 </div>
             </div>
+
 
             <!-- Button (Double) -->
             <div class="form-group">
@@ -134,6 +132,8 @@
                 </div>
             </div>
 
-        </fieldset>
+
     </form>
+</div>
+
     @endsection

@@ -96,7 +96,9 @@
     .caja-5 {
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
-
+.inputfile {
+    display: block;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/sidebar-1.jpg') }}">
