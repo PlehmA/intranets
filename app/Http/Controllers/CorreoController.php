@@ -17,8 +17,11 @@ class CorreoController extends Controller
     public function index()
     {
         $client = new Google_Client();
-        $client->setApplicationName("My Application");
-        $client->setDeveloperKey("AIzaSyADnmd9J1fyCNGjlOR64RGXD5lv5Dnhhig");
+        $client->setAuthConfig('client_secrets.json');
+        $client->setAccessType("offline");        // offline access
+        $client->setIncludeGrantedScopes(true);   // incremental auth
+        $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+        $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 
         return view('correo.index');
     }

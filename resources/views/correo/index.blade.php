@@ -1,10 +1,7 @@
 @extends('correo.app')
 @section('content')
     <div class="container-font">
-        <button id="authorize-button" style="display: none;">Authorize</button>
-        <button id="signout-button" style="display: none;">Sign Out</button>
 
-        <pre id="content"></pre>
         <div class="row">
 
             <div class="col-md-12">
