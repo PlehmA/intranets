@@ -175,7 +175,7 @@
                     <li>
                         <a href="{{ route('rrhh.index') }}">
                             <i class="material-icons text-gray">people</i>
-                            <p>Ingreso personal</p>
+                            <p>Recursos Humanos</p>
                         </a>
                     </li>
                     @endif

@@ -174,8 +174,8 @@
                 @if(Auth::user()->rol_usuario == 5)
                     <li>
                         <a href="{{ route('rrhh.index') }}">
-                            <i class="material-icons text-gray">settings</i>
-                            <p>Ingreso personal</p>
+                            <i class="material-icons text-gray">people</i>
+                            <p>Recursos Humanos</p>
                         </a>
                     </li>
                 @endif
@@ -211,7 +211,11 @@
         </nav>
         <div class="content">
             <div class="container-fluid">
-
+                <ol class="breadcrumb">
+                    <li><a href="{{ route('rrhh.index') }}">Ingreso de Personal</a></li>
+                    <li><a href="{{ route('rrhh.personal') }}">Listado del Personal</a></li>
+                    <li class="active">Data</li>
+                </ol>
                 @yield('content')
 
             </div>
