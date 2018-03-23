@@ -8,8 +8,9 @@
                 <tr style="height: 50px">
                     <td>
                         <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <input type="checkbox" value=""> <span class="caret"></span>
+                            <button type="button" class="btn"><input type="checkbox" value=""></button>
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 1.5rem;">
+                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
