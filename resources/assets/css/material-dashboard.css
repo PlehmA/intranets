@@ -940,8 +940,6 @@ h2.title {
 }
 
 .main-panel>.content {
-    margin-top: 70px;
-    padding: 30px 15px;
     min-height: calc(100% - 123px);
 }
 
@@ -955,7 +953,6 @@ h2.title {
 
 .btn,
 .navbar .navbar-nav>li>a.btn {
-    border: none;
     border-radius: 3px;
     position: relative;
     padding: 12px 30px;
@@ -1150,7 +1147,6 @@ fieldset[disabled] .navbar .navbar-nav>li>a.btn.btn-default.active {
 .btn.btn-default.btn-simple,
 .navbar .navbar-nav>li>a.btn.btn-simple,
 .navbar .navbar-nav>li>a.btn.btn-default.btn-simple {
-    background-color: transparent;
     color: #999999;
     box-shadow: none;
 }

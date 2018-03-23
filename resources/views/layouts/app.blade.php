@@ -174,7 +174,7 @@
                 @if(Auth::user()->rol_usuario == 5)
                     <li>
                         <a href="{{ route('rrhh.index') }}">
-                            <i class="material-icons text-gray">settings</i>
+                            <i class="material-icons text-gray">people</i>
                             <p>Ingreso personal</p>
                         </a>
                     </li>
@@ -183,7 +183,7 @@
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar" style="border-style: solid">
+        <nav class="navbar" data-color="purple" data-image="{{ asset('img/sidebar-1.jpg') }}">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
