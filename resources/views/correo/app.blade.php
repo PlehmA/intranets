@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+
 </head>
 
 <body>
@@ -196,7 +196,7 @@
                         <div class="dropdown">
                             <button onclick="myFunction()" class="dropbtn">{{ Auth::user()->name }}</button>
                             <div id="myDropdown" class="dropdown-content">
-                                <a href="{{ url('/logout') }}">Log Out</a>
+                                <a href="{{ url('/logout') }}" id="signout-button">Log Out</a>
                             </div>
                         </div>
                     </ul>
@@ -213,6 +213,122 @@
         </div>
     </div>
 </div>
+<p>Gmail API Quickstart</p>
+
+<!--Add buttons to initiate auth sequence and sign out-->
+
+<script type="text/javascript">
+    // Client ID and API key from the Developer Console
+    var CLIENT_ID = '843507301250-6gushtvs46thsta17mna1arscnlep45h.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyCufHu4Wpsxksnxc5guWPrIAqoK7tmqqpo';
+
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
+
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = 'https://www.googleapis.com/auth/gmail.readonly';
+
+    var authorizeButton = document.getElementById('authorize-button');
+    var signoutButton = document.getElementById('signout-button');
+
+    /**
+     *  On load, called to load the auth2 library and API client library.
+     */
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+
+    /**
+     *  Initializes the API client library and sets up sign-in state
+     *  listeners.
+     */
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+            // Handle the initial sign-in state.
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            authorizeButton.onclick = handleAuthClick;
+            signoutButton.onclick = handleSignoutClick;
+        });
+    }
+
+    /**
+     *  Called when the signed in status changes, to update the UI
+     *  appropriately. After a sign-in, the API is called.
+     */
+    function updateSigninStatus(isSignedIn) {
+        if (isSignedIn) {
+            authorizeButton.style.display = 'none';
+            signoutButton.style.display = 'block';
+            listLabels();
+        } else {
+            authorizeButton.style.display = 'block';
+            signoutButton.style.display = 'none';
+        }
+    }
+
+    /**
+     *  Sign in the user upon button click.
+     */
+    function handleAuthClick(event) {
+        gapi.auth2.getAuthInstance().signIn();
+    }
+
+    /**
+     *  Sign out the user upon button click.
+     */
+    function handleSignoutClick(event) {
+        gapi.auth2.getAuthInstance().signOut();
+    }
+
+    /**
+     * Append a pre element to the body containing the given message
+     * as its text node. Used to display the results of the API call.
+     *
+     * @param {string} message Text to be placed in pre element.
+     */
+    function appendPre(message) {
+        var pre = document.getElementById('content');
+        var textContent = document.createTextNode(message + '\n');
+        pre.appendChild(textContent);
+    }
+
+    /**
+     * Print all Labels in the authorized user's inbox. If no labels
+     * are found an appropriate message is printed.
+     */
+    function listLabels() {
+        gapi.client.gmail.users.labels.list({
+            'userId': 'me'
+        }).then(function(response) {
+            var labels = response.result.labels;
+            appendPre('Labels:');
+
+            if (labels && labels.length > 0) {
+                for (i = 0; i < labels.length; i++) {
+                    var label = labels[i];
+                    appendPre(label.name)
+                }
+            } else {
+                appendPre('No Labels found.');
+            }
+        });
+    }
+
+</script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 <!--   Core JS Files   -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/material.min.js') }}" type="text/javascript"></script>
@@ -230,12 +346,16 @@
 <script src="{{ asset('js/demo.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
     $( function() {
-        $( "#tabs" ).tabs();
+        $( "#tabs" ).tabs({
+            active: 0
+        });
+
     } );
+
 </script>
 <script type="text/javascript">
     $(document).ready(function() {

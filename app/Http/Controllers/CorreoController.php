@@ -50,7 +50,7 @@ class CorreoController extends Controller
      * @param  \App\Correo  $correo
      * @return \Illuminate\Http\Response
      */
-    public function show(Correo $correo)
+    public function show()
     {
         //
     }
@@ -88,4 +88,5 @@ class CorreoController extends Controller
     {
         //
     }
+
 }
