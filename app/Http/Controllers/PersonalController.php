@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Correo;
-use Google_Client;
-use Google_Service_Gmail;
 use Illuminate\Http\Request;
 
-class CorreoController extends Controller
+class PersonalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +13,7 @@ class CorreoController extends Controller
      */
     public function index()
     {
-        return view('correo.index');
+        return view('rrhh.index');
     }
 
     /**
@@ -43,10 +40,10 @@ class CorreoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Correo  $correo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
         //
     }
@@ -54,10 +51,10 @@ class CorreoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Correo  $correo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Correo $correo)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +63,10 @@ class CorreoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Correo  $correo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Correo $correo)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,12 +74,11 @@ class CorreoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Correo  $correo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Correo $correo)
+    public function destroy($id)
     {
         //
     }
-
 }

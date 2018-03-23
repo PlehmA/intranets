@@ -23,8 +23,11 @@ class CreateUsersTable extends Migration
             $table->date('fecha_nacimiento');
             $table->string('puesto');
             $table->string('email');
+            $table->string('email_personal')->nullable();
             $table->ipAddress('ip_maquina');
             $table->string('foto');
+            $table->string('telefono_particular')->nullable();
+            $table->string('telefono_celular')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
