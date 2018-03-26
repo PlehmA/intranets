@@ -41,7 +41,9 @@ class PersonalController extends Controller
             $request->image->storeAs('public',$request->input('username').'.jpg');
 
         }
+        $rol = $request->input('rol_usuario');
 
+        $puesto = DB::table('puestos')->where('id', $rol)->first();
         $password = $request->input('password');
         $enc_pass = bcrypt($password);
         if ($request->has('username', 'rol_usuario'))
@@ -60,7 +62,9 @@ class PersonalController extends Controller
             'telefono_celular' => $request->input('telefono_part'),
             'remember_token' => $request->input('_token'),
             'password' => $enc_pass,
-            'foto' => 'fotos/'.$request->input('username').'.jpg',
+            'foto' => 'storage/'.$request->input('username').'.jpg',
+            'puesto' => $puesto->nombre_puesto,
+
 
         ]);
 
@@ -74,9 +78,11 @@ class PersonalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $users = DB::table('users')->paginate(20);
+
+        return view('rrhh.personal', ['users' => $users]);
     }
 
     /**

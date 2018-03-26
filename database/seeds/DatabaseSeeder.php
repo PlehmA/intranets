@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('puestos')->insert([
             'id' => 3,
-            'nombre_puesto' => 'Sistemas',
+            'nombre_puesto' => 'Departamento de Sistemas',
         ]);
         DB::table('puestos')->insert([
             'id' => 4,

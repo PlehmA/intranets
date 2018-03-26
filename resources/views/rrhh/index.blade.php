@@ -2,9 +2,14 @@
 
 @section('content')
 
+
     <legend>Ingreso de Personal</legend>
 <div class="panel">
-
+    @if (session('status1'))
+        <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
+            {{ session('status1') }}
+        </div>
+    @endif
     <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('ingpersonal') }}">
 
             <!-- Text input-->
@@ -28,7 +33,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="password"></label>
                 <div class="col-md-4">
-                    <input id="password" name="password" type="text" placeholder="Usuario" class="form-control input-md" required="">
+                    <input id="password" name="password" type="password" placeholder="Contraseña" class="form-control input-md" required="">
 
                 </div>
             </div>

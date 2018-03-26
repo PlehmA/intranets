@@ -176,7 +176,7 @@
                 </li>
                 @if(Auth::user()->rol_usuario == 5)
                     <li>
-                        <a href="{{ route('rrhh.index') }}">
+                        <a href="{{ route('rrhh.personal') }}">
                             <i class="material-icons text-gray">people</i>
                             <p>Recursos Humanos</p>
                         </a>
