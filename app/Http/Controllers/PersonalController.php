@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PersonalController extends Controller
 {
@@ -34,7 +36,41 @@ class PersonalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if ($request->hasFile('image')) {
+            $request->image->storeAs('public',$request->input('username').'.jpg');
+
+        }
+
+        $password = $request->input('password');
+        $enc_pass = bcrypt($password);
+        if ($request->has('username', 'rol_usuario'))
+        {
+        DB::table('users')->insert([
+            'name' => $request->input('name'),
+            'username' => $request->input('username'),
+            'rol_usuario' => $request->input('rol_usuario'),
+            'num_legajo' => $request->input('legajo'),
+            'fecha_ingreso' => $request->input('fecha_ingreso'),
+            'fecha_nacimiento' => $request->input('fecha_nacimiento'),
+            'email' => $request->input('email'),
+            'email_personal' => $request->input('email_personal'),
+            'ip_maquina' => $request->input('ip_maquina'),
+            'telefono_particular' => $request->input('telefono_per'),
+            'telefono_celular' => $request->input('telefono_part'),
+            'remember_token' => $request->input('_token'),
+            'password' => $enc_pass,
+            'foto' => 'fotos/'.$request->input('username').'.jpg',
+            'name' => $request->input('name'),
+            'name' => $request->input('name'),
+            'name' => $request->input('name'),
+            'name' => $request->input('name'),
+            'name' => $request->input('name'),
+
+        ]);
+
+        }
+        return back()->with('status1', 'Datos ingresados correctamente!');
     }
 
     /**

@@ -48,11 +48,7 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->hasFile('image')) {
-            $request->image->storeAs('public', Auth::user()->username.'.jpg');
-
-        }
-        return back()->with('status1', 'Foto modificada correctamente!');
+        //
     }
 
     /**

@@ -5,7 +5,7 @@
     <legend>Ingreso de Personal</legend>
 <div class="panel">
 
-    <form class="form-horizontal" enctype="multipart/form-data">
+    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('ingpersonal') }}">
 
             <!-- Text input-->
             <div class="form-group">
@@ -25,6 +25,13 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="password"></label>
+                <div class="col-md-4">
+                    <input id="password" name="password" type="text" placeholder="Usuario" class="form-control input-md" required="">
+
+                </div>
+            </div>
             <!-- Select Basic -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="rol_usuario"></label>
@@ -48,25 +55,34 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="legajo"></label>
                 <div class="col-md-4">
-                    <input id="legajo" name="legajo" type="text" placeholder="Número de Legajo" class="form-control input-md" required="">
+                    <input id="legajo" name="legajo" type="number" placeholder="Número de Legajo" class="form-control input-md" required="">
 
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <label class="control-label" for="fecha_ingreso">Fecha de Ingreso: </label>
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <input id="fecha_ingreso" name="fecha_ingreso" type="date" placeholder="Fecha de Ingreso" class="form-control input-md">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <label class="control-label" for="fecha_ingreso">Fecha de Nacimiento: </label>
                 </div>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="fecha_ingreso"></label>
-                <div class="col-md-4">
-                    <input id="fecha_ingreso" name="fecha_ingreso" type="text" placeholder="Fecha de Ingreso" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="fecha_nacimiento"></label>
-                <div class="col-md-4">
-                    <input id="fecha_nacimiento" name="fecha_nacimiento" type="text" placeholder="Fecha de Nacimiento" class="form-control input-md">
+                <div class="col-md-offset-4 col-md-4">
+                    <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" placeholder="Fecha de Nacimiento" class="form-control input-md">
 
                 </div>
             </div>
@@ -75,7 +91,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email"></label>
                 <div class="col-md-4">
-                    <input id="email" name="email" type="text" placeholder="Correo Corporativo" class="form-control input-md" required="">
+                    <input id="email" name="email" type="email" placeholder="Correo Corporativo" class="form-control input-md" required="">
 
                 </div>
             </div>
@@ -84,7 +100,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="email_personal"></label>
                 <div class="col-md-4">
-                    <input id="email_personal" name="email_personal" type="text" placeholder="Correo Personal" class="form-control input-md">
+                    <input id="email_personal" name="email_personal" type="email" placeholder="Correo Personal" class="form-control input-md">
 
                 </div>
             </div>
@@ -115,10 +131,13 @@
 
                 </div>
             </div>
+
             <div class="form-group">
-                <div class="panel-body">
+                <div class="col-md-offset-4 col-md-4">
+                    <label class="label label-placeholder">Foto:</label>
+                    <hr>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="file" name="image" class="inputfile">
+                    <input type="file" name="image">
                 </div>
             </div>
 
@@ -127,8 +146,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-8">
-                    <button id="submit" name="submit" class="btn btn-success">Enviar</button>
-                    <button id="reset" name="reset" class="btn btn-danger">Borrar</button>
+                    <input type="submit" name="submit" class="btn btn-success" value="Enviar">
+                    <input type="reset" name="reset" class="btn btn-danger" value="Borrar">
                 </div>
             </div>
 
