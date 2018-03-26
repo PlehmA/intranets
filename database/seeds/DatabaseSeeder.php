@@ -24,5 +24,46 @@ class DatabaseSeeder extends Seeder
             'ip_maquina' => '192.168.20.146',
             'password' => bcrypt('polacoputo'),
         ]);
+
+        DB::table('puestos')->insert([
+            'id' => 1,
+            'nombre_puesto' => 'Presidencia',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 2,
+            'nombre_puesto' => 'Gerencia',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 3,
+            'nombre_puesto' => 'Sistemas',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 4,
+            'nombre_puesto' => 'Call-Center',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 5,
+            'nombre_puesto' => 'Recursos Humanos',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 6,
+            'nombre_puesto' => 'Auditoria',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 7,
+            'nombre_puesto' => 'Profesionales',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 8,
+            'nombre_puesto' => 'Desarrollo',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 9,
+            'nombre_puesto' => 'Administración',
+        ]);
+        DB::table('puestos')->insert([
+            'id' => 10,
+            'nombre_puesto' => 'Recepción',
+        ]);
     }
 }

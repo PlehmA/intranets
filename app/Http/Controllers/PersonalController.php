@@ -61,11 +61,6 @@ class PersonalController extends Controller
             'remember_token' => $request->input('_token'),
             'password' => $enc_pass,
             'foto' => 'fotos/'.$request->input('username').'.jpg',
-            'name' => $request->input('name'),
-            'name' => $request->input('name'),
-            'name' => $request->input('name'),
-            'name' => $request->input('name'),
-            'name' => $request->input('name'),
 
         ]);
 

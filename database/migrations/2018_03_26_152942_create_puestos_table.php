@@ -15,6 +15,7 @@ class CreatePuestosTable extends Migration
     {
         Schema::create('puestos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre_puesto');
             $table->timestamps();
         });
     }
