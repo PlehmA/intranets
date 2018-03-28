@@ -8,6 +8,7 @@
            <table class="table table-sm table-striped">
                <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombre y Apellido</th>
                     <th>Usuario</th>
                     <th>Num. Legajo</th>
@@ -22,6 +23,7 @@
                <tbody>
                @foreach($users as $user)
                     <tr>
+                        <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->num_legajo }}</td>
@@ -29,7 +31,7 @@
                         <td>{{ $user->fecha_nacimiento }}</td>
                         <td>{{ $user->puesto }}</td>
                         <td>{{ $user->email }}</td>
-                        <td><button class="btn btn-info btn-sm">Editar</button></td>
+                        <td><a href="" class="btn btn-info btn-sm">Editar</a></td>
                         <td><button class="btn btn-danger btn-sm">Borrar</button></td>
                     </tr>
                    @endforeach

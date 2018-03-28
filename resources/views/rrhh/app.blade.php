@@ -112,7 +112,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="{{ route('correo.index') }}">
+                    <a href="https://accounts.google.com/ServiceLogin/signinchooser?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>

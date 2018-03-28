@@ -105,7 +105,7 @@ class PersonalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return view('rrhh.editar');
     }
 
     /**
