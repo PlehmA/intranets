@@ -93,7 +93,10 @@ class PersonalController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::where('id', $id)
+            ->first();
+
+        return view('rrhh.editar', compact('users', 'id'));
     }
 
     /**
@@ -105,7 +108,11 @@ class PersonalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view('rrhh.editar');
+        $user = User::find($id);
+        $user = $request->all();
+        $user->save();
+        return back()->with('actualizacion', 'Actualización completa');
+
     }
 
     /**

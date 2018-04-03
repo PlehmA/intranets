@@ -52,4 +52,6 @@ Route::get('personal', 'PersonalController@show')->middleware('auth')->name('rrh
 
 Route::post('ingpersonal', 'PersonalController@store')->name('ingpersonal');
 
-Route::get('editar/{id}', 'PersonalController@update')->name('editar');
+Route::get('/edit/users/{id}','PersonalController@edit')->name('rrhh.editar');
+
+Route::post('/edit/users/{id}','PersonalController@update');

@@ -31,7 +31,7 @@
                         <td>{{ $user->fecha_nacimiento }}</td>
                         <td>{{ $user->puesto }}</td>
                         <td>{{ $user->email }}</td>
-                        <td><a href="" class="btn btn-info btn-sm">Editar</a></td>
+                        <td><a href="{{action('PersonalController@update', $user->id)}}" class="btn btn-info btn-sm">Editar</a></td>
                         <td><button class="btn btn-danger btn-sm">Borrar</button></td>
                     </tr>
                    @endforeach

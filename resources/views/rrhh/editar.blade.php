@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <legend>Ingreso de Personal</legend>
+    <legend>Editar datos del personal</legend>
     <div class="panel">
         @if (session('status1'))
             <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
