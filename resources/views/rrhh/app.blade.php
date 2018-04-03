@@ -269,8 +269,6 @@ toggle between hiding and showing the dropdown content */
         }
     }
 </script>
-<script type="text/javascript">
-  $("div.id_100 select").val("{{ $users->rol_usuario }}");
-</script>
+
 </body>
 </html>
