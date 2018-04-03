@@ -10,13 +10,13 @@
                 {{ session('status1') }}
             </div>
         @endif
-        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('ingpersonal') }}">
+        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ action('PersonalController@update', $id) }}">
 
             <!-- Text input-->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="name"></label>
                 <div class="col-md-4">
-                    <input id="name" name="name" type="text" placeholder="Nombre Completo" class="form-control input-md">
+                    <input id="name" name="name" type="text" placeholder="{{ $users->name }}" class="form-control input-md">
 
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="username"></label>
                 <div class="col-md-4">
-                    <input id="username" name="username" type="text" placeholder="Usuario" class="form-control input-md">
+                    <input id="username" name="username" type="text" placeholder="{{ $users->username }}" class="form-control input-md">
 
                 </div>
             </div>
