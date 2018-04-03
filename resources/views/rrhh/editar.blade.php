@@ -4,6 +4,7 @@
 
 
     <legend>Editar datos del personal</legend>
+
     <div class="panel">
         @if (session('status1'))
             <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
@@ -40,8 +41,8 @@
             <!-- Select Basic -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="rol_usuario"></label>
-                <div class="col-md-4">
-                    <select id="rol_usuario" name="rol_usuario" class="form-control">
+                <div class="col-md-4" id="id_100">
+                    <select id="rol_usuario" name="rol_usuario" class="form-control" value="{{ $users->rol_usuario }}">
                         <option value="1">Presidencia</option>
                         <option value="2">Gerencia</option>
                         <option value="3">Sistemas</option>
@@ -60,7 +61,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="legajo"></label>
                 <div class="col-md-4">
-                    <input id="legajo" name="legajo" type="number" placeholder="Número de Legajo" class="form-control input-md">
+                    <input id="legajo" name="legajo" type="number" placeholder="{{ $users->num_legajo }}" class="form-control input-md">
 
                 </div>
             </div>
@@ -73,7 +74,7 @@
             <!-- Text input-->
             <div class="form-group">
                 <div class="col-md-offset-4 col-md-4">
-                    <input id="fecha_ingreso" name="fecha_ingreso" type="date" placeholder="Fecha de Ingreso" class="form-control input-md">
+                    <input id="fecha_ingreso" name="fecha_ingreso" type="date" placeholder="{{ $users->legajo }}" class="form-control input-md">
 
                 </div>
             </div>
