@@ -21,12 +21,12 @@
         background-size: cover;
     }
     .botoncito {
-      background: url({{ url('img/botoningreso.jpg') }});
-      background-size: 280px 80px;
+      background: url({{ url('img/botoningreso.png') }});
+      background-size: 190px 60px;
     }
     .btn {
-      width: 280px;
-      height: 80px;
+      width: 190px;
+      height: 60px;
     }
 </style>
 <div id="app">
