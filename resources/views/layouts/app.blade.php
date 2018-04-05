@@ -104,7 +104,7 @@
     }
     .navbar .but-menu {
       width: 100px;
-      height: 90px;
+      height: 80px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       display: inline-block;
       margin-left: 3px;
@@ -116,7 +116,7 @@
     }
 </style>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="{{ asset('img/sidebar-1.jpg') }}">
+    <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
         <!--
     Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -225,26 +225,16 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Single button -->
-                        <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">{{ Auth::user()->name }}</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="{{ url('/logout') }}">Log Out</a>
-                            </div>
-                        </div>
-
-                        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
-
-  <!-- Dropdown Structure -->
+                        <a class='dropdown-trigger1 btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                        <!-- Dropdown Structure -->
                         <ul id='dropdown1' class='dropdown-content'>
-                          <li><a href="#!">one</a></li>
+                          <li><a href="{{ url('/logout') }}">Log Out</a></li>
                         </ul>
-
-                          <div class="dropdown">
-                              <button onclick="myFunction1()" class="dropbtn"><i class="fas fa-angle-down"></i></button>
-                              <div id="myDropdown1" class="dropdown-content">
-                                  <a href="">Configuración</a>
-                              </div>
-                          </div>
+                        <a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="fas fa-angle-down"></i></a>
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown2' class='dropdown-content'>
+                          <li><a href="#!">Configuración</a></li>
+                        </ul>
                     </ul>
 
                 </div>
@@ -284,52 +274,11 @@
 
     });
 </script>
-<script>
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
-<script>
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-    function myFunction1() {
-        document.getElementById("myDropdown1").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
 <script type="text/javascript">
    $('.dropdown-trigger').dropdown();
+</script>
+<script type="text/javascript">
+   $('.dropdown-trigger1').dropdown();
 </script>
 </body>
 </html>

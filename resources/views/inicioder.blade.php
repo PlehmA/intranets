@@ -17,7 +17,9 @@
 <body>
 <style>
     body {
-        background: url({{ url('/images/balloon.jpg') }});
+        background: url({{ url('/img/logueolimpio.jpg') }}) no-repeat;
+
+        background-size: cover; 
     }
 </style>
 <div id="app">
