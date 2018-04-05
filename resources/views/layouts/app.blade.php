@@ -28,7 +28,7 @@
 <style>
     /* Dropdown Button */
     .dropbtn {
-        background-color: #ddd;
+        background-color: #e5e6e7;
         color: #767676;
         padding: 16px;
         font-size: 16px;
@@ -40,7 +40,7 @@
 
     /* Dropdown button on hover & focus */
     .dropbtn:hover, .dropbtn:focus {
-        background-color: #ddd;
+        background-color: #e5e6e7;
     }
 
     /* The container <div> - needed to position the dropdown content */
@@ -53,7 +53,7 @@
     .dropdown-content {
         display: none;
         position: absolute;
-        background-color: #ddd;
+        background-color: #e5e6e7;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -97,7 +97,23 @@
     .caja-5 {
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
+    .navbar {
+      min-height: 100px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      background-color: #f1f3f5;
+    }
+    .navbar .but-menu {
+      width: 100px;
+      height: 90px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      display: inline-block;
+      margin-left: 3px;
+      margin-right: 3px;
 
+    }
+    .navbar a .but-menu {
+      padding-left: 5px;
+    }
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/sidebar-1.jpg') }}">
@@ -193,8 +209,18 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}" style="width: 50px"><i class="material-icons" style="font-size: 50px;">mail_outline</i></a>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}" style="width: 50px; margin-left: 3rem"><i class="material-icons" style="font-size: 50px;">contact_mail</i></a>
+                    <div class="row">
+                      <a class="navbar-brand but-menu" href="{{ route('chat.index') }}">
+                      <div class="col-md-1">
+                        <i class="material-icons" style="font-size: 50px;">mail_outline</i>
+                      </div>
+                      </a>
+                      <a class="navbar-brand but-menu" href="{{ route('chat.index') }}">
+                      <div class="col-md-1">
+                        <i class="material-icons" style="font-size: 50px;">contact_mail</i>
+                      </div>
+                      </a>
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
