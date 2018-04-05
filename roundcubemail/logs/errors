@@ -1,0 +1,15 @@
+[05-Apr-2018 20:58:48 +0200]: <2kph9u25> DB Error: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ in C:\xampp\htdocs\intranet3\roundcubemail\program\lib\Roundcube\rcube_db.php on line 175 (GET /intranet3/roundcubemail/)
+[05-Apr-2018 20:58:48 +0200]: <2kph9u25> PHP Error: config.inc.php was not found. (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:00:57 +0200]: <2kph9u25> DB Error: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ in C:\xampp\htdocs\intranet3\roundcubemail\program\lib\Roundcube\rcube_db.php on line 175 (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:00:57 +0200]: <2kph9u25> PHP Error: config.inc.php was not found. (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:01:08 +0200]: <2kph9u25> DB Error: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ in C:\xampp\htdocs\intranet3\roundcubemail\program\lib\Roundcube\rcube_db.php on line 175 (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:01:08 +0200]: <2kph9u25> PHP Error: config.inc.php was not found. (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:04:22 +0200]: <2kph9u25> DB Error: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ in C:\xampp\htdocs\intranet3\roundcubemail\program\lib\Roundcube\rcube_db.php on line 175 (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:04:22 +0200]: <2kph9u25> PHP Error: config.inc.php was not found. (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:04:30 +0200]: <2kph9u25> DB Error: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+ in C:\xampp\htdocs\intranet3\roundcubemail\program\lib\Roundcube\rcube_db.php on line 175 (GET /intranet3/roundcubemail/)
+[05-Apr-2018 21:04:30 +0200]: <2kph9u25> PHP Error: config.inc.php was not found. (GET /intranet3/roundcubemail/)
