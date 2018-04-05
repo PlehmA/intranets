@@ -17,18 +17,27 @@
 <body>
 <style>
     body {
-        background: url({{ url('/images/balloon.jpg') }});
+        background: url({{ url('/img/logueoproporcionado.jpg') }}) no-repeat;
+        background-size: cover;
+    }
+    .botoncito {
+      background: url({{ url('img/botoningreso.jpg') }});
+      background-size: 280px 80px;
+    }
+    .btn {
+      width: 280px;
+      height: 80px;
     }
 </style>
 <div id="app">
 
     <main class="py-4">
         <div class="container">
-            <div class="col-sm-8" style="margin-top: 50%; margin-left: 40%">
+            <div class="col-sm-8" style="margin-top: 45%; margin-left: 35%">
                 <form action="{{ url('inicio') }}" method="post">
                     @csrf
                     <input type="hidden" name="ipVisitor" value="{{ $_SERVER['REMOTE_ADDR'] }}">
-                    <input type="submit" class="btn btn-outline-light" value="Ingreso a la Intranet">
+                    <input type="submit" class="btn botoncito" value="">
                 </form>
             </div>
         </div>

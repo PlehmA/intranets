@@ -12,21 +12,37 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 <body>
 <style>
+* {
+  font-family: 'Roboto', sans-serif;
+}
     body {
-        background: url({{ url('/img/logueolimpio.jpg') }}) no-repeat;
-
-        background-size: cover; 
+        background: url({{ url('img/logueoproporcionado.jpg') }}) no-repeat;
+        max-height: 1920px;
+        background-size: cover;
+    }
+    .tarj-login {
+      margin-top: 30%;
+      margin-left: 25%;
+    }
+    .botoncito {
+      background: url({{ url('img/botoningreso.jpg') }});
+      background-size: 140px 40px;
+    }
+    .btn {
+      width: 140px;
+      height: 40px;
     }
 </style>
 <div id="app">
     <div class="container">
-        <div class="mt-5 col-6 float-right">
-            <div class="card card-header text-white">
-                Login Manual
+        <div class="col-md-6 tarj-login">
+            <div class="card card-header">
+                Acceso
             </div>
             <div class="card card-header">
                 <form action="{{ route('login') }}" method="POST">
@@ -40,7 +56,7 @@
                     </div>
                     {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                     <div class="form-group mx-auto text-center">
-                        <input type="submit" class="btn" name="submit">
+                        <input type="submit" class="btn botoncito" name="submit" value="">
                     </div>
 
                 </form>

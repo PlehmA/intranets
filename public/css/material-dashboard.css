@@ -782,8 +782,6 @@ h2.title {
     width: 100%;
     height: 100%;
     content: "";
-    display: block;
-    background: #FFFFFF;
     opacity: .93;
 }
 
