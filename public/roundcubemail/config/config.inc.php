@@ -25,7 +25,7 @@ $config = array();
 // For examples see http://pear.php.net/manual/en/package.database.mdb2.intro-dsn.php
 // NOTE: for SQLite use absolute path (Linux): 'sqlite:////full/path/to/sqlite.db?mode=0646'
 //       or (Windows): 'sqlite:///C:/full/path/to/sqlite.db'
-$config['db_dsnw'] = 'mysql://roundcube:pass@localhost/roundcubemail';
+$config['db_dsnw'] = 'pgsql://postgres:Odon1234@192.168.0.5/roundcubemail';
 
 // The IMAP host chosen to perform the log-in.
 // Leave blank to show a textbox at login, give a list of hosts
@@ -37,7 +37,7 @@ $config['db_dsnw'] = 'mysql://roundcube:pass@localhost/roundcubemail';
 // %d - domain (http hostname $_SERVER['HTTP_HOST'] without the first part)
 // %s - domain name after the '@' from e-mail address provided at login screen
 // For example %n = mail.domain.tld, %t = domain.tld
-$config['default_host'] = 'localhost';
+$config['default_host'] = 'mail.odontopraxis.com.ar';
 
 // SMTP server host (for sending mails).
 // Enter hostname with prefix tls:// to use STARTTLS, or use
@@ -49,7 +49,7 @@ $config['default_host'] = 'localhost';
 // %d - domain (http hostname $_SERVER['HTTP_HOST'] without the first part)
 // %z - IMAP domain (IMAP hostname without the first part)
 // For example %n = mail.domain.tld, %t = domain.tld
-$config['smtp_server'] = 'localhost';
+$config['smtp_server'] = 'mail.odontopraxis.com.ar';
 
 // SMTP port (default is 25; use 587 for STARTTLS or 465 for the
 // deprecated SSL over SMTP (aka SMTPS))
