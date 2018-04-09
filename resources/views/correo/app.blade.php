@@ -114,7 +114,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="https://accounts.google.com/ServiceLogin/signinchooser?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin" target="_blank">
+                    <a href="rainloop" target="_blank">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>
@@ -199,15 +199,23 @@
                     <a class="navbar-brand" href="{{ route('chat.index') }}" style="width: 50px; margin-left: 3rem"><i class="material-icons" style="font-size: 50px;">contact_mail</i></a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Single button -->
-                        <div class="dropdown">
-                            <button onclick="myFunction()" class="dropbtn">{{ Auth::user()->name }}</button>
-                            <div id="myDropdown" class="dropdown-content">
-                                <a href="{{ url('/logout') }}">Log Out</a>
-                            </div>
-                        </div>
-                    </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                      <!-- Avatar image -->
+                      <div class="col-sm-2 col-md-3">
+                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle">
+                      </div>
+                      <!-- Single button -->
+                      <a class='dropdown-trigger1 btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                      <!-- Dropdown Structure -->
+                      <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
+                      </ul>
+                      <a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="fas fa-angle-down"></i></a>
+                      <!-- Dropdown Structure -->
+                      <ul id='dropdown2' class='dropdown-content'>
+                        <li><a href="#!">Configuración</a></li>
+                      </ul>
+                  </ul>
 
                 </div>
             </div>

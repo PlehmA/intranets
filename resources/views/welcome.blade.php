@@ -13,9 +13,13 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <style>
+* {
+  font-family: 'Roboto', sans-serif;
+}
     body {
         background: url({{ url('/img/logueoproporcionado.jpg') }}) no-repeat;
         background-size: cover;

@@ -128,7 +128,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="roundcubemail" target="_blank">
+                    <a href="rainloop" target="_blank">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>
@@ -224,6 +224,10 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
+                        <!-- Avatar image -->
+                        <div class="col-sm-2 col-md-3">
+                          <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle">
+                        </div>
                         <!-- Single button -->
                         <a class='dropdown-trigger1 btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
                         <!-- Dropdown Structure -->

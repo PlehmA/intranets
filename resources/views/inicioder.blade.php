@@ -30,7 +30,7 @@
       margin-left: 25%;
     }
     .botoncito {
-      background: url({{ url('img/botoningreso.jpg') }});
+      background: url({{ url('img/botoningreso.png') }});
       background-size: 140px 40px;
     }
     .btn {
