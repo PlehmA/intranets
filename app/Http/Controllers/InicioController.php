@@ -25,12 +25,15 @@ class InicioController extends Controller
 
                 if (Auth::loginUsingId($identificacion))
                 {
-
-
                     return redirect()->route('dashboard');
                 }
             }
 
 
+    }
+
+    public function show()
+    {
+      return view('inicioder');
     }
 }

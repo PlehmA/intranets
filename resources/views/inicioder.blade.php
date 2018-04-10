@@ -45,6 +45,11 @@
                 Acceso
             </div>
             <div class="card card-header">
+              @if (session('errorses'))
+                  <div class="container alert alert-warning text-center" role="alert" data-dismiss="alert">
+                      {{ session('errorses') }}
+                  </div>
+              @endif
                 <form action="{{ route('login') }}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group mx-auto text-center" {{ $errors->has('email') ? 'has-error' : '' }}>

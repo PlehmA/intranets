@@ -4,14 +4,13 @@
 
     <div class="cajaloca caja-2 animated zoomIn">
         <div class="header">
-            <h3 class="text-center">Cambio de Contraseña</h3>
+            <h5 class="text-center">Cambio de Contraseña</h5>
         </div>
         <div class="form-group">
                 {!! Form::open(['route' => 'update']) !!}
             <div class="row">
                 <div class="col-md-offset-4 col-lg-6">
-                    {!! Form::label('Contraseña: ') !!}
-                    {!! Form::password('newPass') !!}
+                    {!! Form::password('newPass', ['placeholder' => 'Contraseña']) !!}
                     {!! Form::submit('Cambiar', ['class' => 'btn btn-warning btn-sm']) !!}
                 </div>
             </div>

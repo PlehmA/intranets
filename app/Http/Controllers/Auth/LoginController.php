@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function login(Request $request)
     {
         $credentials = $this->validate(request(), [
             'username' => 'required|string',
@@ -25,11 +25,18 @@ class LoginController extends Controller
                 ->get();
 
             return redirect()->route('dashboard', compact('user'));
-        }else{
-            return back()
-                ->withErrors(['username' => trans('auth.failed')])
-                ->withInput(request(['username']));
         }
+
+        $user= DB::table('users')
+            ->where($credentials)
+            ->count();
+
+        if($user == 0)
+        {
+          return redirect('inicioder')->with('errorses', 'Usuario y/o Contraseña incorrectos.');
+        }
+
+
 
     }
     public function showLoginForm()

@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 Route::post('inicio', 'InicioController@index');
 
+Route::get('inicioder', 'InicioController@show');
+
 Route::get('hogar', function () {
     return view('hogar');
 });
