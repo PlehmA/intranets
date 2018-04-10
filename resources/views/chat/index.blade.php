@@ -6,7 +6,7 @@
   			<div class="wrap">
   				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
   				<p>Mike Ross</p>
-  				<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
+  				
   				<div id="status-options">
   					<ul>
   						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
@@ -15,7 +15,7 @@
   						<li id="status-offline"><span class="status-circle"></span> <p>Offline</p></li>
   					</ul>
   				</div>
-  				
+
   			</div>
   		</div>
   		<div id="search">
@@ -104,41 +104,20 @@
   						</div>
   					</div>
   				</li>
-  				<li class="contact">
-  					<div class="wrap">
-  						<span class="contact-status"></span>
-  						<img src="http://emilcarlsson.se/assets/charlesforstman.png" alt="" />
-  						<div class="meta">
-  							<p class="name">Charles Forstman</p>
-  							<p class="preview">Mike, this isn't over.</p>
-  						</div>
-  					</div>
-  				</li>
-  				<li class="contact">
-  					<div class="wrap">
-  						<span class="contact-status"></span>
-  						<img src="http://emilcarlsson.se/assets/jonathansidwell.png" alt="" />
-  						<div class="meta">
-  							<p class="name">Jonathan Sidwell</p>
-  							<p class="preview"><span>You:</span> That's bullshit. This deal is solid.</p>
-  						</div>
-  					</div>
-  				</li>
   			</ul>
   		</div>
   		<div id="bottom-bar">
   			<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
   			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
   		</div>
-  	</div>
+  	</div> <!-- End Side Panel -->
+
   	<div class="content">
   		<div class="contact-profile">
   			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
   			<p>Harvey Specter</p>
   			<div class="social-media">
-  				<i class="fa fa-facebook" aria-hidden="true"></i>
-  				<i class="fa fa-twitter" aria-hidden="true"></i>
-  				 <i class="fa fa-instagram" aria-hidden="true"></i>
+
   			</div>
   		</div>
   		<div class="messages">
