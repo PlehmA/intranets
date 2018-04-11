@@ -4,9 +4,9 @@
   	<div id="sidepanel">
   		<div id="profile">
   			<div class="wrap">
-  				<img id="profile-img" src="http://emilcarlsson.se/assets/mikeross.png" class="online" alt="" />
-  				<p>Mike Ross</p>
-  				
+  				<img id="profile-img" src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" class="online" alt="" />
+  				<p>{{ Auth::user()->name }}</p>
+
   				<div id="status-options">
   					<ul>
   						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
@@ -19,7 +19,6 @@
   			</div>
   		</div>
   		<div id="search">
-  			<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
   			<input type="text" placeholder="Search contacts..." />
   		</div>
   		<div id="contacts">
@@ -107,8 +106,7 @@
   			</ul>
   		</div>
   		<div id="bottom-bar">
-  			<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
-  			<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
+
   		</div>
   	</div> <!-- End Side Panel -->
 
@@ -159,7 +157,7 @@
   		<div class="message-input">
   			<div class="wrap">
   			<input type="text" placeholder="Write your message..." />
-  			<i class="fa fa-paperclip attachment" aria-hidden="true"></i>
+
   			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
   			</div>
   		</div>

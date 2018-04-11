@@ -15,9 +15,12 @@ class CreateChatsTable extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('friend_id')->unsigned();
-            $table->longText('chat');
+            $table->integer('user_envia_id')->unsigned();
+            $table->integer('user_recibe_id')->unsigned();
+            $table->string('user_envia_name');
+            $table->string('user_recibe_name');
+            $table->time('hora_msj');
+            $table->longText('mensaje');
             $table->timestamps();
         });
     }

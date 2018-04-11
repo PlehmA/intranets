@@ -287,7 +287,8 @@
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
 </script>
-<script >$(".messages").animate({ scrollTop: $(document).height() }, "fast");
+<script >
+$(".messages").animate({ scrollTop: $(document).height() }, "fast");
 
 $("#profile-img").click(function() {
 	$("#status-options").toggleClass("active");

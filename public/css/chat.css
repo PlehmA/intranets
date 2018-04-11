@@ -193,6 +193,7 @@ body {
   padding: 15px 0 30px 18px;
   display: block;
   cursor: pointer;
+  overflow: scroll;
 }
 @media screen and (max-width: 735px) {
   #frame #sidepanel #profile .wrap #status-options ul li {
