@@ -16,8 +16,8 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $friends = Auth::user()->friends();
-        return view('chat.index')->withFriends($friends);
+        $messages = Chat::orderBy('hora_msj', 'DESC');
+        return view('chat.index', compact($messages));
     }
 
     /**
@@ -50,7 +50,7 @@ class ChatController extends Controller
     public function show($id)
     {
         $friend = User::find($id);
-        return view('chat.show')->withFriend($friend);
+        return view('chat.show');
     }
 
     /**

@@ -19,7 +19,7 @@
   			</div>
   		</div>
   		<div id="search">
-  			<input type="text" placeholder="Search contacts..." />
+  			<input type="text" placeholder="Buscar..." />
   		</div>
   		<div id="contacts">
   			<ul>
@@ -120,6 +120,7 @@
   		</div>
   		<div class="messages">
   			<ul>
+
   				<li class="sent">
   					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
   					<p>How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!</p>
