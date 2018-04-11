@@ -195,8 +195,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}" style="width: 50px"><i class="material-icons" style="font-size: 50px;">mail_outline</i></a>
-                    <a class="navbar-brand" href="{{ route('chat.index') }}" style="width: 50px; margin-left: 3rem"><i class="material-icons" style="font-size: 50px;">contact_mail</i></a>
+                    <a class="navbar-brand" href="{{ route('chats.index') }}" style="width: 50px"><i class="material-icons" style="font-size: 50px;">mail_outline</i></a>
+                    <a class="navbar-brand" href="{{ route('chats.index') }}" style="width: 50px; margin-left: 3rem"><i class="material-icons" style="font-size: 50px;">contact_mail</i></a>
                 </div>
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
@@ -248,6 +248,9 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{{ asset('js/chats.js') }}">
+
+</script>
 <script>
     $( function() {
         $( "#tabs" ).tabs({

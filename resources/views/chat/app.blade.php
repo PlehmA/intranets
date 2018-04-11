@@ -212,12 +212,12 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="row">
-                      <a class="navbar-brand but-menu" href="{{ route('chat.index') }}">
+                      <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
                       <div class="col-md-1">
                         <i class="material-icons" style="font-size: 50px;">mail_outline</i>
                       </div>
                       </a>
-                      <a class="navbar-brand but-menu" href="{{ route('chat.index') }}">
+                      <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
                       <div class="col-md-1">
                         <i class="material-icons" style="font-size: 50px;">contact_mail</i>
                       </div>
@@ -327,6 +327,7 @@ function newMessage() {
 	if($.trim(message) == '') {
 		return false;
 	}
+
 	$('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
 	$('.message-input input').val(null);
 	$('.contact.active .preview').html('<span>You: </span>' + message);

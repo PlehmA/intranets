@@ -36,9 +36,7 @@ Route::post('update', 'ConfigController@update')->name('update');
 
 Route::get('calendar', 'CalendarController@index')->name('calendar');
 
-Route::get('/chat', 'ChatController@index')->middleware('auth')->name('chat.index');
-
-Route::get('/chat/{id}', 'ChatController@show')->middleware('auth')->name('chat.show');
+Route::resource('chats', 'ChatController');
 
 Auth::routes();
 
