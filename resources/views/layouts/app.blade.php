@@ -103,13 +103,9 @@
       background-color: #f1f3f5;
     }
     .navbar .but-menu {
-      width: 100px;
-      height: 80px;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       display: inline-block;
       margin-left: 3px;
       margin-right: 3px;
-
     }
     .navbar a .but-menu {
       padding-left: 5px;
@@ -212,7 +208,7 @@
                     <div class="row">
                       <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
                       <div class="col-md-1">
-                        <i class="material-icons" style="font-size: 50px;">mail_outline</i>
+                        <img src="{{ asset('images/email.png') }}" alt="">
                       </div>
                       </a>
                       <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">

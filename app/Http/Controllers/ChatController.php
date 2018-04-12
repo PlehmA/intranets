@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Chat;
 use App\User;
 use Auth;
@@ -16,9 +17,9 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'DESC');
-        $recieve_message = Chat::orderBy('hora_msj', 'DESC')->where(Auth::user()->id, 'user_recibe_id');
-        $send_message = Chat::orderBy('hora_msj', 'DESC')->where(Auth::user()->id, 'user_envia_id');
+        $users = DB::table('users')->orderBy('id', 'DESC')->where('id', '<>', Auth::user()->id)->get();
+        $recieve_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where('user_recibe_id', Auth::user()->id)->get();
+        $send_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where('user_envia_id', Auth::user()->id)->get();
         return view('chat.index', compact(['send_message', 'users', 'recieve_message']));
     }
 
