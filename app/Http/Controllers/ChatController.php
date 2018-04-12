@@ -16,8 +16,10 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $messages = Chat::orderBy('hora_msj', 'DESC');
-        return view('chat.index', compact($messages));
+        $users = User::orderBy('id', 'DESC');
+        $recieve_message = Chat::orderBy('hora_msj', 'DESC')->where(Auth::user()->id, 'user_recibe_id');
+        $send_message = Chat::orderBy('hora_msj', 'DESC')->where(Auth::user()->id, 'user_envia_id');
+        return view('chat.index', compact(['send_message', 'users', 'recieve_message']));
     }
 
     /**
