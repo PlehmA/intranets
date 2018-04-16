@@ -1,15 +1,89 @@
-@extends('layouts.app')
-@section('content')
-    <div class="continue">
-        <div class="col-lg-offset-3 col-lg-6">
-            <div class="panel">
-                <div class="panel-heading">
-                    {{ $friend->name }} <a href="{{ route('chat.index') }}" class="btn btn-default">Atras</a>
-                </div>
-                <div class="panel-body">
+@extends('chat.app')
+@section('chatent')
+  @if (Auth::check())
+    <div id="frame">
+    	<div id="sidepanel">
+    		<div id="profile">
+    			<div class="wrap">
+    				<img id="profile-img" src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" class="online" alt="" />
+    				<p>{{ Auth::user()->name }}</p>
 
-                </div>
-            </div>
-        </div>
+    				<div id="status-options">
+    					<ul>
+    						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
+    						<li id="status-away" class=""><span class="status-circle"></span> <p>Away</p></li>
+    						<li id="status-busy" class=""><span class="status-circle"></span> <p>Busy</p></li>
+    						<li id="status-offline" class=""><span class="status-circle"></span> <p>Offline</p></li>
+    					</ul>
+    				</div>
+
+    			</div>
+    		</div>
+    		<div id="search">
+    			<input type="text" placeholder="Buscar..." />
+    		</div>
+    		<div id="contacts">
+    			<ul>
+            @foreach ($users as $user)
+              <a href="{{ action('ChatController@show', $user->id) }}" style="text-decoration: none; color: white;">
+                <ul>
+                      <li class="contact">
+                        <div class="wrap">
+                          <span class="contact-status {{ $user->estado }}"></span>
+                          <img src="{{ url('storage/'.$user->username.'.jpg') }}" alt="" />
+                          <div class="meta">
+                            <p class="name">{{ $user->name }}</p>
+                            <p class="preview">You just got LITT up, Mike.</p>
+                          </div>
+                        </div>
+                      </li>
+          			</ul>
+              </a>
+          @endforeach
+    			</ul>
+    		</div>
+
+    	</div> <!-- End Side Panel -->
+
+    	<div class="content">
+
+          <div class="contact-profile">
+            <img src="{{ asset($usuario->foto) }}" alt="" />
+            <p>{{ $usuario->name }}</p>
+          </div>
+
+
+    		<div class="messages">
+    			<ul>
+
+              <li class="sent">
+      					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+      					<p></p>
+      				</li>
+
+
+              <li class="replies">
+      					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+      					<p></p>
+      				</li>
+
+    			</ul>
+
+    		</div>
+
+    		<div class="message-input">
+    			<div class="wrap">
+            <form class="" action="" method="POST">
+              <input type="hidden" name="" value="">
+              <input type="hidden" name="" value="">
+              <input type="text" placeholder="Write your message..." />
+        			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </form>
+    			</div>
+    		</div>
+    	</div>
+
     </div>
+    <center><a href="{{ route('chats.index') }}" class="btn teal center-align">VOLVER</a></center>
+  @endif
 @endsection

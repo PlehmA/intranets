@@ -272,7 +272,6 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script src="{{ asset('js/chat.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
@@ -350,6 +349,33 @@ $('.contact').click(function(){
    $(this).toggleClass('active');
 });
 
+</script>
+<script>
+$(document).ready(function() {
+
+  function showUser(id){
+    document.location.href = 'chats.show' + id;
+  }
+  function newMessage() {
+    message = $(".message-input input").val();
+    if($.trim(message) == '') {
+      return false;
+    }
+
+  $.ajax({
+    url: 'chats.store',
+    type: 'POST',
+    dataType: 'json',
+    data: {param1: 'value1'}
+  });
+  .done(function() {
+    console.log("success");
+  });
+  $('.submit').click(function() {
+    newMessage();
+  });
+});
+}
 </script>
 </body>
 </html>

@@ -52,8 +52,17 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('chat.index');
+        $users = DB::table('users')->orderBy('id', 'DESC')->where('id', '<>', Auth::user()->id)->get();
+        $recieve_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where([
+    ['user_recibe_id', '=', Auth::user()->id],
+    ['user_envia_id', '<>', $id],
+      ])->get();
+        $send_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where([
+         ['user_envia_id', '=', Auth::user()->id],
+         ['user_recibe_id', '=', $id],
+          ])->get();
+          $usuario = User::findOrFail($id);
+        return view('chat.show', compact(['send_message', 'users', 'recieve_message', 'usuario']));
     }
 
     /**

@@ -23,56 +23,27 @@
     			<input type="text" placeholder="Buscar..." />
     		</div>
     		<div id="contacts">
-    			<ul>
             @foreach ($users as $user)
-              <li class="contact" onclick="activo()">
-                <div class="wrap">
-                  <span class="contact-status {{ $user->estado }}"></span>
-                  <img src="{{ url('storage/'.$user->username.'.jpg') }}" alt="" />
-                  <div class="meta">
-                    <p class="name">{{ $user->name }}</p>
-                    <p class="preview">You just got LITT up, Mike.</p>
-                  </div>
-                </div>
-              </li>
-            @endforeach
-    			</ul>
+              <a href="{{ action('ChatController@show', $user->id) }}" style="text-decoration: none; color: white;">
+                <ul>
+                      <li class="contact">
+                        <div class="wrap">
+                          <span class="contact-status {{ $user->estado }}"></span>
+                          <img src="{{ url('storage/'.$user->username.'.jpg') }}" alt="" />
+                          <div class="meta">
+                            <p class="name">{{ $user->name }}</p>
+                            <p class="preview">You just got LITT up, Mike.</p>
+                          </div>
+                        </div>
+                      </li>
+          			</ul>
+              </a>
+          @endforeach
     		</div>
 
     	</div> <!-- End Side Panel -->
 
-    	<div class="content">
-    		<div class="contact-profile">
-    			<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-    			<p></p>
-    		</div>
-    		<div class="messages">
-    			<ul>
-            @foreach ($recieve_message as $mensajeRecibido)
-              <li class="sent">
-      					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-      					<p>{{ $mensajeRecibido->mensaje }}</p>
-      				</li>
-            @endforeach
-            @foreach ($send_message as $mensajeEnviado)
-              <li class="replies">
-      					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-      					<p>{{ $mensajeEnviado->mensaje }}</p>
-      				</li>
-            @endforeach
-    			</ul>
 
-    		</div>
-
-    		<div class="message-input">
-    			<div class="wrap">
-            <form class="" action="" method="POST">
-              <input type="text" placeholder="Write your message..." />
-        			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-            </form>
-    			</div>
-    		</div>
-    	</div>
     </div>
   @endif
 @endsection

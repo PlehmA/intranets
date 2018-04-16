@@ -1,18 +1,24 @@
-function mostrarUser(id){
-$.ajax({
-  url: 'chats.show',
-  type: 'POST',
-  dataType: 'json',
-  data: {param1: 'value1'}
-})
-.done(function() {
-  console.log("success");
-})
-.fail(function() {
-  console.log("error");
-})
-.always(function() {
-  console.log("complete");
-});
+$(document).ready(function() {
 
-}
+  function showUser(id){
+    document.location.href = 'chats.show?id=' + id;
+  }
+  function newMessage() {
+  	message = $(".message-input input").val();
+  	if($.trim(message) == '') {
+  		return false;
+  	}
+
+  $.ajax({
+    url: 'chats.store',
+    type: 'POST',
+    dataType: 'json',
+    data: {param1: 'value1'}
+  });
+  .done(function() {
+    console.log("success");
+  });
+  $('.submit').click(function() {
+    newMessage();
+  });
+});
