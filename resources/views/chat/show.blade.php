@@ -55,18 +55,18 @@
 
     		<div class="messages">
     			<ul>
-
+            @foreach ($iterable as $key)
               <li class="sent">
-      					<img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+      					<img src="{{ asset($usuario->foto) }}" alt="" />
       					<p></p>
       				</li>
-
-
+            @endforeach
+            @foreach ($iterable as $key)
               <li class="replies">
-      					<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+      					<img src="{{ asset('storage/'.Auth::user()->username.'.jpg') }}" alt="" />
       					<p></p>
       				</li>
-
+            @endforeach
     			</ul>
 
     		</div>
