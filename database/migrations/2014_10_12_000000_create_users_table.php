@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('puesto');
             $table->string('email');
             $table->string('email_personal')->nullable();
+            $table->string('contra_mail');
             $table->ipAddress('ip_maquina');
             $table->string('foto');
             $table->string('telefono_particular')->nullable();

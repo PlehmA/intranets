@@ -124,7 +124,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="rainloop" target="_blank">
+                    <a href="{{ route('correo.index') }}">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>
@@ -208,7 +208,7 @@
                     <div class="row">
                       <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
                       <div class="col-md-1">
-                        <img src="{{ asset('images/email.png') }}" alt="">
+                        <img src="{{ asset('images/email2.png') }}" alt="">
                       </div>
                       </a>
                       <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
@@ -219,24 +219,24 @@
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Avatar image -->
-                        <div class="col-sm-2 col-md-3">
-                          <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="margin-right: 0;">
-                        </div>
-                        <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
+                  <ul class="nav navbar-nav navbar-right">
+                      <!-- Avatar image -->
+                      <div class="col-sm-2 col-md-3">
+                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
+                      </div>
+                      <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
 
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown2' class='dropdown-content'>
-                          <li><a href="#!">Configuración</a></li>
-                        </ul>
-                        <a class='dropdown-trigger1 green btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                          <li><a href="{{ url('/logout') }}">Log Out</a></li>
-                        </ul>
+                      <!-- Dropdown Structure -->
+                      <ul id='dropdown2' class='dropdown-content'>
+                        <li><a href="#!">Configuración</a></li>
+                      </ul>
+                      <a class='dropdown-trigger1 green btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                      <!-- Dropdown Structure -->
+                      <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
+                      </ul>
 
-                    </ul>
+                  </ul>
 
                 </div>
             </div>

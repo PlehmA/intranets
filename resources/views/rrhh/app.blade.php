@@ -128,7 +128,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="rainloop" target="_blank">
+                    <a href="{{ route('correo.index') }}">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>
@@ -216,19 +216,20 @@
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Avatar image -->
                       <div class="col-sm-2 col-md-3">
-                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle">
+                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
                       </div>
-                      <!-- Single button -->
-                      <a class='dropdown-trigger1 btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
-                      <!-- Dropdown Structure -->
-                      <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
-                      </ul>
-                      <a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="fas fa-angle-down"></i></a>
+                      <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
+
                       <!-- Dropdown Structure -->
                       <ul id='dropdown2' class='dropdown-content'>
                         <li><a href="#!">Configuración</a></li>
                       </ul>
+                      <a class='dropdown-trigger1 green btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                      <!-- Dropdown Structure -->
+                      <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
+                      </ul>
+
                   </ul>
 
                 </div>

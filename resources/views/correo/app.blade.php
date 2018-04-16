@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
 </head>
 
@@ -102,19 +103,19 @@
 
 </style>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="{{ asset('img/sidebar-1.jpg') }}">
-        <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+  <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
+      <!--
+  Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
-    Tip 2: you can also add an image using data-image tag
+  Tip 2: you can also add an image using data-image tag
 -->
-        <div class="logo">
-            <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
-        </div>
+      <div class="logo">
+          <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
+      </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="rainloop" target="_blank">
+                    <a href="{{ route('correo.index') }}">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>
@@ -202,19 +203,20 @@
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Avatar image -->
                       <div class="col-sm-2 col-md-3">
-                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle">
+                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
                       </div>
-                      <!-- Single button -->
-                      <a class='dropdown-trigger1 btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
-                      <!-- Dropdown Structure -->
-                      <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
-                      </ul>
-                      <a class='dropdown-trigger btn' href='#' data-target='dropdown2'><i class="fas fa-angle-down"></i></a>
+                      <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
+
                       <!-- Dropdown Structure -->
                       <ul id='dropdown2' class='dropdown-content'>
                         <li><a href="#!">Configuración</a></li>
                       </ul>
+                      <a class='dropdown-trigger1 green btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                      <!-- Dropdown Structure -->
+                      <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
+                      </ul>
+
                   </ul>
 
                 </div>
@@ -246,7 +248,7 @@
 <script src="{{ asset('js/demo.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="{{ asset('js/chats.js') }}">
 

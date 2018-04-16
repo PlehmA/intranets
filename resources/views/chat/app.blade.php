@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
+
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="{{ asset('css/chat.css') }}">
@@ -130,7 +130,7 @@
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <li>
-                    <a href="rainloop" target="_blank">
+                    <a href="{{ route('correo.index') }}">
                         <i class="material-icons">email</i>
                         <p>Correo</p>
                     </a>
@@ -228,7 +228,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Avatar image -->
                         <div class="col-sm-2 col-md-3">
-                          <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="margin-right: 0;">
+                          <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
                         </div>
                         <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
 
@@ -241,9 +241,7 @@
                         <ul id='dropdown1' class='dropdown-content'>
                           <li><a href="{{ url('/logout') }}">Log Out</a></li>
                         </ul>
-
                     </ul>
-
                 </div>
             </div>
         </nav>
@@ -274,6 +272,7 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="{{ asset('js/chat.js') }}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
@@ -345,6 +344,12 @@ $(window).on('keydown', function(e) {
   }
 });
 //# sourceURL=pen.js
+</script>
+<script>
+$('.contact').click(function(){
+   $(this).toggleClass('active');
+});
+
 </script>
 </body>
 </html>
