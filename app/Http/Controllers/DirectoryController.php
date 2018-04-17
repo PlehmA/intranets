@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Directory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DirectoryController extends Controller
 {
@@ -14,7 +15,8 @@ class DirectoryController extends Controller
      */
     public function index()
     {
-        return view('directorio.index');
+      $usuarios = DB::table('users')->get();
+        return view('directorio.index', compact(['usuarios']));
     }
 
     /**
