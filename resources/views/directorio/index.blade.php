@@ -2,12 +2,10 @@
 @section('content')
   @if (Auth::check())
     <div class="row">
-    <div class="col s12">
+    <div class="col s6">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#test1" class="active">Directorio Interno</a></li>
-        <li class="tab col s3"><a href="#test2">Test 2</a></li>
-        <li class="tab col s3"><a href="#test3">Disabled Tab</a></li>
-        <li class="tab col s3"><a href="#test4">Test 4</a></li>
+        <li class="tab col s6"><a href="{{ route('directorio.index') }}" class="active">Directorio Interno</a></li>
+        <li class="tab col s6"><a href="#test2">Directorio Externo</a></li>
       </ul>
     </div>
   </div>
