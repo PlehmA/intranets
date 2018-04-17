@@ -320,21 +320,6 @@ $("#status-options ul li").click(function() {
 	$("#status-options").removeClass("active");
 });
 
-function newMessage() {
-	message = $(".message-input input").val();
-	if($.trim(message) == '') {
-		return false;
-	}
-
-	$('<li class="sent"><img src="http://emilcarlsson.se/assets/mikeross.png" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
-	$('.message-input input').val(null);
-	$('.contact.active .preview').html('<span>You: </span>' + message);
-	$(".messages").animate({ scrollTop: $(document).height() }, "fast");
-};
-
-$('.submit').click(function() {
-  newMessage();
-});
 
 $(window).on('keydown', function(e) {
   if (e.which == 13) {
@@ -350,32 +335,6 @@ $('.contact').click(function(){
 });
 
 </script>
-<script>
-$(document).ready(function() {
 
-  function showUser(id){
-    document.location.href = 'chats.show' + id;
-  }
-  function newMessage() {
-    message = $(".message-input input").val();
-    if($.trim(message) == '') {
-      return false;
-    }
-
-  $.ajax({
-    url: 'chats.store',
-    type: 'POST',
-    dataType: 'json',
-    data: {param1: 'value1'}
-  });
-  .done(function() {
-    console.log("success");
-  });
-  $('.submit').click(function() {
-    newMessage();
-  });
-});
-}
-</script>
 </body>
 </html>

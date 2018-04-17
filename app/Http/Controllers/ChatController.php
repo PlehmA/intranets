@@ -41,7 +41,17 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $chat = new Chat;
+        $chat->user_recibe_id = $request->input('user_recibe');
+        $chat->user_envia_id = $request->input('user_envia');
+        $chat->mensaje = $request->input('mensaje');
+        $chat->save();
+
+        return back();
+
+    
+
     }
 
     /**

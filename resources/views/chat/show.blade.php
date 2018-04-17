@@ -55,16 +55,16 @@
 
     		<div class="messages">
     			<ul>
-            @foreach ($iterable as $key)
+            @foreach ($send_message as $sent)
               <li class="sent">
-      					<img src="{{ asset($usuario->foto) }}" alt="" />
+      					<img src="{{ asset('storage/'.Auth::user()->username.'.jpg') }}" alt="" />
       					<p></p>
       				</li>
             @endforeach
-            @foreach ($iterable as $key)
+            @foreach ($recieve_message as $replie)
               <li class="replies">
-      					<img src="{{ asset('storage/'.Auth::user()->username.'.jpg') }}" alt="" />
-      					<p></p>
+      					<img src="{{ asset($usuario->foto) }}" alt="" />
+      					<p>{{ $replie->mensaje }}</p>
       				</li>
             @endforeach
     			</ul>
@@ -73,10 +73,10 @@
 
     		<div class="message-input">
     			<div class="wrap">
-            <form class="" action="" method="POST">
-              <input type="hidden" name="" value="">
-              <input type="hidden" name="" value="">
-              <input type="text" placeholder="Write your message..." />
+            <form class="" action="{{ route('chats.store') }}" method="POST">
+              <input type="hidden" name="user_recibe" value="{{ $usuario->id }}">
+              <input type="hidden" name="user_envia" value="{{ Auth::user()->id }}">
+              <input type="text" placeholder="Write your message..." name="mensaje" />
         			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
             </form>
     			</div>
