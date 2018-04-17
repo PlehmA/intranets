@@ -83,6 +83,7 @@
     	</div>
 
     </div>
+    <hr>
     <center><a href="{{ route('chats.index') }}" class="btn teal center-align">VOLVER</a></center>
   @endif
 @endsection
