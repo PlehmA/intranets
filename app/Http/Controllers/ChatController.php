@@ -50,7 +50,7 @@ class ChatController extends Controller
 
         return back();
 
-    
+
 
     }
 

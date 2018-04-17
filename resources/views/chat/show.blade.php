@@ -68,12 +68,11 @@
       				</li>
             @endforeach
     			</ul>
-
     		</div>
 
     		<div class="message-input">
     			<div class="wrap">
-            <form class="" action="{{ route('chats.store') }}" method="POST">
+            <form class="" action="{{ action('ChatController@store') }}" method="POST">
               <input type="hidden" name="user_recibe" value="{{ $usuario->id }}">
               <input type="hidden" name="user_envia" value="{{ Auth::user()->id }}">
               <input type="text" placeholder="Write your message..." name="mensaje" />

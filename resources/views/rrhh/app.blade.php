@@ -171,7 +171,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('directorio.index') }}">
                         <i class="material-icons">perm_contact_calendar</i>
                         <p>Directorio</p>
                     </a>

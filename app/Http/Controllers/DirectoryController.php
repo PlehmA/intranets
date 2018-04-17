@@ -14,7 +14,7 @@ class DirectoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('directorio.index');
     }
 
     /**
