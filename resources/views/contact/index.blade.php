@@ -1,10 +1,10 @@
-@extends('directorio.app')
+@extends('contact.app')
 @section('content')
   @if (Auth::check())
     <div class="container">
       <ol class="breadcrumb">
-        <li class="active">Directorio Interno</li>
-        <li><a href="{{ route('contact.index') }}">Directorio Externo</a></li>
+        <li><a href="{{ route('directorio.index') }}">Directorio Interno</a></li>
+        <li class="active">Directorio Externo</li>
       </ol>
       <table class="table highlight responsive-table table-bordered">
         <thead>
@@ -16,14 +16,14 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($usuarios as $dir)
+
             <tr>
-              <td>{{ $dir->name }}</td>
-              <td>{{ $dir->email }}</td>
-              <td>{{ $dir->puesto }}</td>
-              <td>{{ $dir->interno }}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
             </tr>
-          @endforeach
+
         </tbody>
       </table>
     </div>

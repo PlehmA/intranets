@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Directory;
+use App\Contact;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class DirectoryController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class DirectoryController extends Controller
      */
     public function index()
     {
-      $usuarios = DB::table('users')->get();
-        return view('directorio.index', compact(['usuarios']));
+        return view('contact.index');
     }
 
     /**
@@ -43,22 +41,21 @@ class DirectoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Directory  $directory
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Contact $contact)
     {
-      $contactos = DB::table('directories')->get();
-        return view('directorio.index2', compact(['contactos']));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Directory  $directory
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Directory $directory)
+    public function edit(Contact $contact)
     {
         //
     }
@@ -67,10 +64,10 @@ class DirectoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Directory  $directory
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Directory $directory)
+    public function update(Request $request, Contact $contact)
     {
         //
     }
@@ -78,10 +75,10 @@ class DirectoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Directory  $directory
+     * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Directory $directory)
+    public function destroy(Contact $contact)
     {
         //
     }
