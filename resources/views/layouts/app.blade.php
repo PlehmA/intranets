@@ -305,5 +305,12 @@ div .botonmail:hover {
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
 </script>
+<script>
+  var miliSegundos = 1800000
+  setTimeout(function(){
+    alert('Ha pasado el tiempo de sesiÃ³n, vuelva a conectarse');
+    window.location.assign('logout.php');
+  }, miliSegundos);
+</script>
 </body>
 </html>

@@ -266,7 +266,7 @@
                         <div class="col-sm-2 col-md-3">
                           <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
                         </div>
-                        <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
+                        <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down" style="color: white;"></i></a>
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown2' class='dropdown-content'>

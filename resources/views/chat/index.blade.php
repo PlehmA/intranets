@@ -42,7 +42,8 @@
     		</div>
 
     	</div> <!-- End Side Panel -->
-
+      <div class="content" style="background-image: url({{ asset('images/chatfondologo.png') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+      </div>
 
     </div>
   @endif

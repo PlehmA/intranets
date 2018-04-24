@@ -26,6 +26,9 @@
 
 <body>
 <style>
+* {
+  font-family: 'lunchtype21regular';
+}
     /* Dropdown Button */
     .dropbtn {
         background-color: #e5e6e7;
