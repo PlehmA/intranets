@@ -103,18 +103,39 @@
       min-height: 100px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       background-color: #f1f3f5;
-    }
-    .navbar .but-menu {
-      width: 100px;
-      height: 80px;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-      display: inline-block;
-      margin-left: 3px;
-      margin-right: 3px;
-
-    }
+  }
     .navbar a .but-menu {
       padding-left: 5px;
+    }
+
+    div .botonchat {
+      width: 60;
+      height: 40px;
+      margin-top: 5px;
+    }
+    div .botonmail {
+      width: 50;
+      height: 30px;
+      margin-top: 10px;
+    }
+    div .botonchat:hover {
+      -webkit-transform:scale(1.25);
+      -moz-transform:scale(1.25);
+      -ms-transform:scale(1.25);
+      -o-transform:scale(1.25);
+      transform:scale(1.25);
+    }
+    div .botonmail:hover {
+      -webkit-transform:scale(1.25);
+      -moz-transform:scale(1.25);
+      -ms-transform:scale(1.25);
+      -o-transform:scale(1.25);
+      transform:scale(1.25);
+    }
+    #input-loco {
+      background-color: #fff;
+      width: 100%;
+      margin-bottom: 0px;
     }
 </style>
 <div class="wrapper">
@@ -151,11 +172,11 @@
                         </a>
                         <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
                             <i class="material-icons">folder_open</i>
-                            <p>Mis Archivos</p>
+                            <p>Organigrama corporativo</p>
                         </a>
                         <a href="www.google.com.ar" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
                             <i class="material-icons">folder_open</i>
-                            <p>Mis Archivos</p>
+                            <p>Plantillas</p>
                         </a>
                         <br>
                     </div>
@@ -175,7 +196,7 @@
                 <li>
                     <a href="{{ route('directorio.index') }}">
                         <i class="material-icons">perm_contact_calendar</i>
-                        <p>Directorio</p>
+                        <p>Agenda</p>
                     </a>
                 </li>
                 <li>
@@ -212,16 +233,31 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="row">
-                      <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
-                      <div class="col-md-1">
-                        <i class="material-icons" style="font-size: 50px;">mail_outline</i>
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/chatclick.png') }}" alt="" class="botonchat">
+                        </a>
                       </div>
-                      </a>
-                      <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
-                      <div class="col-md-1">
-                        <i class="material-icons" style="font-size: 50px;">contact_mail</i>
+
+                      <div class="col-md-3 .botonchat">
+                        <a class="navbar-brand but-menu" href="{{ route('correo.index') }}">
+                        <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
+                        </a>
                       </div>
-                      </a>
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
+                        </a>
+                      </div>
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
+                        </a>
+                      </div>
+
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -333,8 +369,11 @@ $(window).on('keydown', function(e) {
 $('.contact').click(function(){
    $(this).toggleClass('active');
 });
-
 </script>
+<script type="text/javascript">
+  $(document).ready(function() {
 
+  });
+</script>
 </body>
 </html>

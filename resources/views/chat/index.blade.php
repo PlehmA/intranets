@@ -10,10 +10,10 @@
 
     				<div id="status-options">
     					<ul>
-    						<li id="status-online" class="active"><span class="status-circle"></span> <p>Online</p></li>
-    						<li id="status-away" class=""><span class="status-circle"></span> <p>Away</p></li>
-    						<li id="status-busy" class=""><span class="status-circle"></span> <p>Busy</p></li>
-    						<li id="status-offline" class=""><span class="status-circle"></span> <p>Offline</p></li>
+    						<li id="status-online" class="active"><span class="status-circle"></span> <p>Disponible</p></li>
+    						<li id="status-away" class=""><span class="status-circle"></span> <p>Ocupado</p></li>
+    						<li id="status-busy" class=""><span class="status-circle"></span> <p>En reunión</p></li>
+    						<li id="status-offline" class=""><span class="status-circle"></span> <p>Desconectado</p></li>
     					</ul>
     				</div>
 

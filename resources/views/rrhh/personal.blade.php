@@ -14,7 +14,7 @@
                     <th>Num. Legajo</th>
                     <th>Fecha Ingreso</th>
                     <th>Fecha Nacimiento</th>
-                    <th>Puesto</th>
+                    <th>Área</th>
                     <th>Email</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>

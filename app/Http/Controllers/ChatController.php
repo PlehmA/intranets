@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class ChatController extends Controller
 {
+  public function __construct(){
+    $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +21,7 @@ class ChatController extends Controller
     public function index()
     {
         $users = DB::table('users')->orderBy('id', 'DESC')->where('id', '<>', Auth::user()->id)->get();
-        $recieve_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where('user_recibe_id', Auth::user()->id)->get();
-        $send_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where('user_envia_id', Auth::user()->id)->get();
+
         return view('chat.index', compact(['send_message', 'users', 'recieve_message']));
     }
 
@@ -41,16 +43,23 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
+      if ($request->isMethod('post')) {
+        $user_envia = $request->input('user_envia');
+        $user_recibe  = $request->input('user_recibe');
+        $user_envia_name = $request->input('user_envia_name');
+        $mensaje = $request->input('mensaje');
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        DB::table('chats')->insert([
+          'user_envia_id' => $user_envia,
+          'user_recibe_id' => $user_recibe,
+          'user_envia_name' => $user_envia_name,
+          'mensaje' => $mensaje,
+          'hora_msj' => date('Y-m-d H:i:s'),
+        ]);
 
-        $chat = new Chat;
-        $chat->user_recibe_id = $request->input('user_recibe');
-        $chat->user_envia_id = $request->input('user_envia');
-        $chat->mensaje = $request->input('mensaje');
-        $chat->save();
 
-        return back();
-
-
+        return true;
+      }
 
     }
 
@@ -62,17 +71,13 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        $users = DB::table('users')->orderBy('id', 'DESC')->where('id', '<>', Auth::user()->id)->get();
-        $recieve_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where([
-    ['user_recibe_id', '=', Auth::user()->id],
-    ['user_envia_id', '<>', $id],
-      ])->get();
-        $send_message = DB::table('chats')->orderBy('hora_msj', 'DESC')->where([
-         ['user_envia_id', '=', Auth::user()->id],
-         ['user_recibe_id', '=', $id],
-          ])->get();
-          $usuario = User::findOrFail($id);
-        return view('chat.show', compact(['send_message', 'users', 'recieve_message', 'usuario']));
+        $usuario = User::findOrFail($id);
+        $users = DB::table('users')->orderBy('id', 'ASC')->where('id', '<>', Auth::user()->id)->get();
+        $messages = DB::table('chats')->orderBy('hora_msj', 'ASC')->whereIn('user_recibe_id', [Auth::user()->id, $usuario->id])
+                                                                  ->whereIn('user_envia_id',[Auth::user()->id, $usuario->id])
+                                                                  ->get();
+
+          return view('chat.show', compact(['users', 'messages', 'usuario']));
     }
 
     /**

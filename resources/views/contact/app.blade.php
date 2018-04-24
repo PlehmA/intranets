@@ -110,6 +110,30 @@
     .navbar a .but-menu {
       padding-left: 5px;
     }
+    div .botonchat {
+      width: 60;
+      height: 40px;
+      margin-top: 5px;
+    }
+    div .botonmail {
+      width: 50;
+      height: 30px;
+      margin-top: 10px;
+    }
+    div .botonchat:hover {
+      -webkit-transform:scale(1.25);
+      -moz-transform:scale(1.25);
+      -ms-transform:scale(1.25);
+      -o-transform:scale(1.25);
+      transform:scale(1.25);
+    }
+    div .botonmail:hover {
+      -webkit-transform:scale(1.25);
+      -moz-transform:scale(1.25);
+      -ms-transform:scale(1.25);
+      -o-transform:scale(1.25);
+      transform:scale(1.25);
+    }
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -145,7 +169,7 @@
                         </a>
                         <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
                             <i class="material-icons">folder_open</i>
-                            <p>Mis Archivos</p>
+                            <p>Organigrama corporativo</p>
                         </a>
                         <a href="www.google.com.ar" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
                             <i class="material-icons">folder_open</i>
@@ -169,7 +193,7 @@
                 <li>
                     <a href="{{ route('directorio.index') }}">
                         <i class="material-icons">perm_contact_calendar</i>
-                        <p>Directorio</p>
+                        <p>Agenda</p>
                     </a>
                 </li>
                 <li>
@@ -206,16 +230,31 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="row">
-                      <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
-                      <div class="col-md-1">
-                        <img src="{{ asset('images/email2.png') }}" alt="">
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat">
+                        </a>
                       </div>
-                      </a>
-                      <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
-                      <div class="col-md-1">
-                        <i class="material-icons" style="font-size: 50px;">contact_mail</i>
+
+                      <div class="col-md-3 .botonchat">
+                        <a class="navbar-brand but-menu" href="{{ route('correo.index') }}">
+                        <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
+                        </a>
                       </div>
-                      </a>
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
+                        </a>
+                      </div>
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
+                        </a>
+                      </div>
+
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">

@@ -481,7 +481,6 @@
   }
 }
 #frame .content {
-  float: right;
   width: 60%;
   height: 100%;
   overflow: hidden;
@@ -549,7 +548,7 @@
   display: inline-block;
   clear: both;
   float: left;
-  margin: 15px 15px 5px 15px;
+  margin: 0 15px 5px 15px;
   width: calc(100% - 25px);
   font-size: 0.9em;
 }
@@ -598,12 +597,11 @@
   position: relative;
 }
 #frame .content .message-input .wrap input {
-  font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
+  font-family: "proxima-nova", "Source Sans Pro", sans-serif;
   float: left;
   border: none;
-  width: calc(100% - 90px);
-  padding: 11px 32px 10px 8px;
-  font-size: 0.8em;
+  width: calc(100%);
+  font-size: 1em;
   color: #32465a;
 }
 @media screen and (max-width: 735px) {

@@ -3,8 +3,8 @@
   @if (Auth::check())
     <div class="container">
       <ol class="breadcrumb">
-        <li class="active">Directorio Interno</li>
-        <li><a href="{{ route('contact.index') }}">Directorio Externo</a></li>
+        <li class="active">Agenda interna</li>
+        <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
       </ol>
       <table class="table highlight responsive-table table-bordered">
         <thead>

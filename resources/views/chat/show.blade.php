@@ -45,7 +45,7 @@
 
     	</div> <!-- End Side Panel -->
 
-    	<div class="content">
+    	<div class="content" style="background-image: url({{ asset('images/recurso2.png') }}); background-size: cover;">
 
           <div class="contact-profile">
             <img src="{{ asset($usuario->foto) }}" alt="" />
@@ -55,35 +55,39 @@
 
     		<div class="messages">
     			<ul>
-            @foreach ($send_message as $sent)
-              <li class="sent">
-      					<img src="{{ asset('storage/'.Auth::user()->username.'.jpg') }}" alt="" />
-      					<p></p>
-      				</li>
+
+            @foreach ($messages as $message)
+              @if ($message->user_envia_id == Auth::user()->id && $message->user_recibe_id == $usuario->id)
+                <li class="replies">
+        					<img src="{{ asset('storage/'.Auth::user()->username.'.jpg') }}" alt="" />
+        					<p>{{ $message->mensaje }}</p>
+        				</li>
+              @endif
+              @if ($message->user_recibe_id == Auth::user()->id && $message->user_envia_id == $usuario->id)
+                <li class="sent">
+                  <img src="{{ asset($usuario->foto) }}" alt="" />
+                  <p>{{ $message->mensaje }}</p>
+                </li>
+              @endif
             @endforeach
-            @foreach ($recieve_message as $replie)
-              <li class="replies">
-      					<img src="{{ asset($usuario->foto) }}" alt="" />
-      					<p>{{ $replie->mensaje }}</p>
-      				</li>
-            @endforeach
+
     			</ul>
     		</div>
 
     		<div class="message-input">
     			<div class="wrap">
-            <form class="" action="{{ action('ChatController@store') }}" method="POST">
+            <form class="" action="{{ route('chats.store') }}" method="POST" id="form-chat">
+              {{ csrf_field() }}
               <input type="hidden" name="user_recibe" value="{{ $usuario->id }}">
               <input type="hidden" name="user_envia" value="{{ Auth::user()->id }}">
-              <input type="text" placeholder="Write your message..." name="mensaje" />
-        			<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+              <input type="hidden" name="user_recibe_name" value="{{ $usuario->name }}">
+              <input type="hidden" name="user_envia_name" value="{{ Auth::user()->name }}">
+              <input type="text" placeholder="Write your message..." name="mensaje" value="" id="input-loco" required tabindex="1" />
             </form>
     			</div>
     		</div>
     	</div>
 
     </div>
-    <hr>
-    <center><a href="{{ route('chats.index') }}" class="btn teal center-align">VOLVER</a></center>
   @endif
 @endsection

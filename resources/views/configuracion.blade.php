@@ -2,7 +2,7 @@
 @section('content')
     @if(Auth::check())
 
-    <div class="cajaloca caja-2 animated zoomIn">
+    <div class="container">
         <div class="header">
             <h5 class="text-center">Cambio de Contraseña</h5>
         </div>

@@ -114,6 +114,30 @@
 .navbar a .but-menu {
   padding-left: 5px;
 }
+div .botonchat {
+  width: 60;
+  height: 40px;
+  margin-top: 5px;
+}
+div .botonmail {
+  width: 50;
+  height: 30px;
+  margin-top: 10px;
+}
+div .botonchat:hover {
+  -webkit-transform:scale(1.25);
+  -moz-transform:scale(1.25);
+  -ms-transform:scale(1.25);
+  -o-transform:scale(1.25);
+  transform:scale(1.25);
+}
+div .botonmail:hover {
+  -webkit-transform:scale(1.25);
+  -moz-transform:scale(1.25);
+  -ms-transform:scale(1.25);
+  -o-transform:scale(1.25);
+  transform:scale(1.25);
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -209,8 +233,33 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{ route('chats.index') }}" style="width: 50px"><i class="material-icons" style="font-size: 50px;">mail_outline</i></a>
-                    <a class="navbar-brand" href="{{ route('chats.index') }}" style="width: 50px; margin-left: 3rem"><i class="material-icons" style="font-size: 50px;">contact_mail</i></a>
+                    <div class="row">
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat">
+                        </a>
+                      </div>
+
+                      <div class="col-md-3 .botonchat">
+                        <a class="navbar-brand but-menu" href="{{ route('correo.index') }}">
+                        <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
+                        </a>
+                      </div>
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
+                        </a>
+                      </div>
+
+                      <div class="col-md-3">
+                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
+                        </a>
+                      </div>
+
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">

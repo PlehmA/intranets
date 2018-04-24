@@ -171,5 +171,6 @@ class DatabaseSeeder extends Seeder
             'id' => 10,
             'nombre_puesto' => 'Recepción',
         ]);
+        
     }
 }
