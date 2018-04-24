@@ -355,25 +355,10 @@ $("#status-options ul li").click(function() {
 
 	$("#status-options").removeClass("active");
 });
-
-
-$(window).on('keydown', function(e) {
-  if (e.which == 13) {
-    newMessage();
-    return false;
-  }
-});
-//# sourceURL=pen.js
-</script>
-<script>
 $('.contact').click(function(){
    $(this).toggleClass('active');
 });
 </script>
-<script type="text/javascript">
-  $(document).ready(function() {
-
-  });
-</script>
+@yield('scripts')
 </body>
 </html>

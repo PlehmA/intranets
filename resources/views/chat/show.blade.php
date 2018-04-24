@@ -80,7 +80,6 @@
               {{ csrf_field() }}
               <input type="hidden" name="user_recibe" value="{{ $usuario->id }}">
               <input type="hidden" name="user_envia" value="{{ Auth::user()->id }}">
-              <input type="hidden" name="user_recibe_name" value="{{ $usuario->name }}">
               <input type="hidden" name="user_envia_name" value="{{ Auth::user()->name }}">
               <input type="text" placeholder="Write your message..." name="mensaje" value="" id="input-loco" required tabindex="1" />
             </form>
@@ -90,4 +89,21 @@
 
     </div>
   @endif
+@endsection
+@section('scripts')
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#form-chat").submit(function(e) {
+      event.preventDefault(e);
+      var data = $(this).serialize();
+      var form = $("#form-chat");
+      var url = form.attr("action");
+
+      $.post(url, data, function() {
+        return true;
+      });
+
+    });
+  });
+</script>
 @endsection
