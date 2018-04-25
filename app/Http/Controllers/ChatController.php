@@ -43,21 +43,21 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-      if ($request->isMethod('post')) {
+      if ($request->ajax()) {
         $user_envia = $request->input('user_envia');
         $user_recibe  = $request->input('user_recibe');
         $user_envia_name = $request->input('user_envia_name');
         $mensaje = $request->input('mensaje');
         date_default_timezone_set('America/Argentina/Buenos_Aires');
-        DB::table('chats')->insert([
+
+        \App\Chat::create([
           'user_envia_id' => $user_envia,
           'user_recibe_id' => $user_recibe,
           'user_envia_name' => $user_envia_name,
           'mensaje' => $mensaje,
           'hora_msj' => date('Y-m-d H:i:s'),
         ]);
-
-
+  
         return back();
       }
 

@@ -94,11 +94,11 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $("#form-chat").submit(function(e) {
-      event.preventDefault(e);
+      event.preventDefault();
       var data = $(this).serialize();
       var form = $("#form-chat");
       var url = form.attr("action");
-
+      alert(url);
       $.post(url, data, function() {
         return true;
       });
