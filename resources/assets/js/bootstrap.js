@@ -43,13 +43,14 @@ if (token) {
  * for events that are broadcast by Laravel. Echo and event broadcasting
  * allows your team to easily build robust real-time web applications.
  */
- import Echo from 'laravel-echo'
 
  window.Pusher = require('pusher-js');
 
+ import Echo from "laravel-echo"
+
  window.Echo = new Echo({
      broadcaster: 'pusher',
-     key: process.env.MIX_PUSHER_APP_KEY,
-    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+     key: '4342b2aa4664c65bfaea',
+     cluster: 'mt1',
      encrypted: true
  });

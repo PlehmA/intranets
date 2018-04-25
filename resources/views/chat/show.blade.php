@@ -45,7 +45,7 @@
 
     	</div> <!-- End Side Panel -->
 
-    	<div class="content" style="background-image: url({{ asset('images/fondochat3.png') }}); background-size: cover;">
+    	<div class="content" style="background-image: url({{ asset('images/fondochat3.png') }}); background-size: cover;" onload="loadDoc()">
 
           <div class="contact-profile">
             <img src="{{ asset($usuario->foto) }}" alt="" />
@@ -98,12 +98,24 @@
       var data = $(this).serialize();
       var form = $("#form-chat");
       var url = form.attr("action");
-      alert(url);
-      $.post(url, data, function() {
-        return true;
-      });
 
+      $.post(url, data, function() {
+        return location.load();
+      });
     });
+    function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("url").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.send();
+  }
+setInterval(function() {
+
+}, 2000);
   });
 </script>
 @endsection
