@@ -57,7 +57,7 @@ class ChatController extends Controller
           'mensaje' => $mensaje,
           'hora_msj' => date('Y-m-d H:i:s'),
         ]);
-  
+
         return back();
       }
 
@@ -77,7 +77,7 @@ class ChatController extends Controller
                                                                   ->whereIn('user_envia_id',[Auth::user()->id, $usuario->id])
                                                                   ->get();
 
-          return view('chat.show', compact(['users', 'messages', 'usuario']));
+          return response()->json(compact(['users', 'messages', 'usuario']));
     }
 
     /**
