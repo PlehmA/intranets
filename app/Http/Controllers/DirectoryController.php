@@ -3,19 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Directory;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class DirectoryController extends Controller
 {
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $usuarios = DB::table('users')->get();
+      $name  = $request->get('name');
+      $email = $request->get('email');
+      $area  = $request->get('area');
+
+      $usuarios = User::orderBy('id', 'ASC')
+                                            ->name($name)
+                                            ->email($email)
+                                            ->area($area)
+                                            ->paginate(15);
         return view('directorio.index', compact(['usuarios']));
     }
 

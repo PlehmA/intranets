@@ -137,6 +137,7 @@
       width: 100%;
       margin-bottom: 0px;
     }
+    @yield('style')
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -194,7 +195,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('directorio.index') }}">
+                    <a href="{{ route('directorio') }}">
                         <i class="material-icons">perm_contact_calendar</i>
                         <p>Agenda</p>
                     </a>
@@ -322,7 +323,7 @@
    $('.dropdown-trigger1').dropdown();
 </script>
 <script >
-$(".messages").animate({ scrollTop: $(document).height() }, "fast");
+$(".messages").animate({ scrollTop: $(document).height()+$(document).height()+5000 }, "fast");
 
 $("#profile-img").click(function() {
 	$("#status-options").toggleClass("active");

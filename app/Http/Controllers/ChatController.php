@@ -20,9 +20,9 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->orderBy('id', 'DESC')->where('id', '<>', Auth::user()->id)->get();
+        $users = DB::table('users')->orderBy('id', 'ASC')->where('id', '<>', Auth::user()->id)->get();
 
-        return view('chat.index', compact(['send_message', 'users', 'recieve_message']));
+        return view('chat.index', compact('users'));
     }
 
     /**
@@ -43,7 +43,7 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-      if ($request->ajax()) {
+
         $user_envia = $request->input('user_envia');
         $user_recibe  = $request->input('user_recibe');
         $user_envia_name = $request->input('user_envia_name');
@@ -59,7 +59,7 @@ class ChatController extends Controller
         ]);
 
         return back();
-      }
+
 
     }
 
@@ -71,13 +71,17 @@ class ChatController extends Controller
      */
     public function show($id)
     {
+
         $usuario = User::findOrFail($id);
         $users = DB::table('users')->orderBy('id', 'ASC')->where('id', '<>', Auth::user()->id)->get();
         $messages = DB::table('chats')->orderBy('hora_msj', 'ASC')->whereIn('user_recibe_id', [Auth::user()->id, $usuario->id])
                                                                   ->whereIn('user_envia_id',[Auth::user()->id, $usuario->id])
                                                                   ->get();
 
-          return response()->json(compact(['users', 'messages', 'usuario']));
+
+       return view('chat.show', compact(['users', 'messages', 'usuario']));
+
+
     }
 
     /**

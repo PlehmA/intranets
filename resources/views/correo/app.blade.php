@@ -179,7 +179,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('directorio.index') }}">
+                    <a href="{{ route('directorio') }}">
                         <i class="material-icons">perm_contact_calendar</i>
                         <p>Agenda</p>
                     </a>

@@ -27,19 +27,24 @@ class User extends Authenticatable
     protected $hidden = [
          'remember_token',
     ];
-
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function friendsOfMine()
+    *
+    * Scopes para el filtrado de busqueda
+    *
+    */
+    public function scopeName($query, $name)
     {
-        return $this->belongsToMany('App\User', 'friends', 'user_id', 'friend_id');
+      if ($name)
+      return $query->where('name', 'ILIKE', "%$name%");
     }
-    public function friendsOf()
+    public function scopeEmail($query, $email)
     {
-        return $this->belongsToMany('App\User', 'friends', 'friend_id', 'user_id');
+      if ($email)
+      return $query->where('email', 'ILIKE', "%$email%");
     }
-    public function friends(){
-        return $this->friendsOfMine->merge($this->friendsOf);
+    public function scopeArea($query, $area)
+    {
+      if ($area)
+      return $query->where('puesto', 'ILIKE', "%$area%");
     }
 }

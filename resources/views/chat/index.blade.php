@@ -22,9 +22,9 @@
     		<div id="search">
     			<input type="text" placeholder="Buscar..." />
     		</div>
-    		<div id="contacts">
+    		<div id="contacts" style="line-height: 0.5rem;">
             @foreach ($users as $user)
-              <a href="{{ action('ChatController@show', $user->id) }}" style="text-decoration: none; color: white;">
+              <a href="{{ action('ChatController@show', $user->id) }}" style="text-decoration: none; color: black;">
                 <ul>
                       <li class="contact">
                         <div class="wrap">

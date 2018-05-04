@@ -1,4 +1,11 @@
 @extends('chat.app')
+@section('style')
+  <style media="screen">
+  .contacts:hover {
+    background-color: #e3e3e3;
+  }
+  </style>
+@endsection
 @section('chatent')
   @if (Auth::check())
     <div id="frame">
@@ -22,10 +29,10 @@
     		<div id="search">
     			<input type="text" placeholder="Buscar..." />
     		</div>
-    		<div id="contacts">
+    		<div id="contacts" style="line-height: 0.8rem;">
     			<ul>
             @foreach ($users as $user)
-              <a href="{{ action('ChatController@show', $user->id) }}" style="text-decoration: none; color: white;">
+              <a href="{{ action('ChatController@show', $user->id) }}" style="text-decoration: none; color: black;">
                 <ul>
                       <li class="contact">
                         <div class="wrap">
@@ -45,7 +52,7 @@
 
     	</div> <!-- End Side Panel -->
 
-    	<div class="content" style="background-image: url({{ asset('images/fondochat3.png') }}); background-size: cover;" onload="loadDoc()">
+    	<div class="content" style="background-image: url({{ asset('images/fondochat3.png') }}); background-size: cover;">
 
           <div class="contact-profile">
             <img src="{{ asset($usuario->foto) }}" alt="" />
@@ -53,7 +60,7 @@
           </div>
 
 
-    		<div class="messages">
+    		<div class="messages" HTTP-EQUIV="REFRESH" CONTENT="5">
     			<ul>
 
             @foreach ($messages as $message)
@@ -66,7 +73,7 @@
               @if ($message->user_recibe_id == Auth::user()->id && $message->user_envia_id == $usuario->id)
                 <li class="sent">
                   <img src="{{ asset($usuario->foto) }}" alt="" />
-                  <p>{{ $message->mensaje }}</p>
+                  <p style="width: 100%">{{ $message->mensaje }}</p>
                 </li>
               @endif
             @endforeach
@@ -81,41 +88,68 @@
               <input type="hidden" name="user_recibe" value="{{ $usuario->id }}">
               <input type="hidden" name="user_envia" value="{{ Auth::user()->id }}">
               <input type="hidden" name="user_envia_name" value="{{ Auth::user()->name }}">
-              <input type="text" placeholder="Write your message..." name="mensaje" value="" id="input-loco" required tabindex="1" />
+              <input type="text" placeholder=" Escriba su mensaje..." name="mensaje" value="" id="input-loco" required tabindex="1" autocomplete="off"/>
             </form>
     			</div>
     		</div>
     	</div>
 
     </div>
+
+    <div id="traigoData"></div>
   @endif
 @endsection
 @section('scripts')
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#form-chat").submit(function(e) {
-      event.preventDefault();
-      var data = $(this).serialize();
-      var form = $("#form-chat");
-      var url = form.attr("action");
-
-      $.post(url, data, function() {
-        return location.load();
-      });
-    });
-    function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("url").innerHTML = this.responseText;
-      }
-    };
-    xhttp.open("GET", "ajax_info.txt", true);
-    xhttp.send();
-  }
-setInterval(function() {
-
-}, 2000);
-  });
+<script>
+//   $(document).ready(function() {
+//     function newMessage() {
+//     	message = $("#input-loco").val();
+//     	if($.trim(message) == '') {
+//     		return false;
+//     	}
+//     	$('<li class="replies"><img src="{{ url(Auth::user()->foto) }}" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+//     	$('#input-loco').val(null);
+//     	$('.contact.active .preview').html('<span>You: </span>' + message);
+//     	$(".messages").animate({ scrollTop: $(document).height()+$(document).height()+5000 }, "fast");
+//     };
+//
+//     $("#form-chat").submit(function() {
+//       event.preventDefault();
+//       var data = $(this).serialize();
+//       var form = $("#form-chat");
+//       var url = form.attr("action");
+//
+//     $.ajax({
+//       url: url,
+//       type: 'POST',
+//       data: data
+//     })
+//     .done(function() {
+//       newMessage();
+//     })
+//     .fail(function() {
+//       alert('Imposible conectar al servidor');
+//     })
+//     .always(function() {
+//       console.log("complete");
+//     });
+//   });
+//
+// var idUser = {{ $usuario->id }};
+//   $.ajax({
+//     url: '/intranet3/public/chats/'+idUser,
+//     dataType:'json',
+//   })
+//   .done(function(response) {
+//     $('#traigoData').html(response);
+//   })
+//   .fail(function(response) {
+//     $('#traigoData').html(response);
+//   })
+//   .always(function() {
+//     console.log("complete");
+//   });
+//
+// });
 </script>
 @endsection

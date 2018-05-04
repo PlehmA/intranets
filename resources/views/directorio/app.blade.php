@@ -137,6 +137,20 @@
       -o-transform:scale(1.25);
       transform:scale(1.25);
     }
+    .pagination li a {
+      background-color: #e0e0e0;
+    }
+    .pagination .disabled a {
+      background-color: #e0e0e0;
+    }
+    .pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    background-color: #e0e0e0;
+    }
+    .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+      background-color: #878787;
+      border-color: #878787;
+    }
+
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -194,7 +208,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('directorio.index') }}">
+                    <a href="{{ route('directorio') }}">
                         <i class="material-icons">perm_contact_calendar</i>
                         <p>Agenda</p>
                     </a>
