@@ -52,7 +52,7 @@
 
     	</div> <!-- End Side Panel -->
 
-    	<div class="content" style="background-image: url({{ asset('images/fondochat3.png') }}); background-size: cover;">
+    	<div class="content" style="background-image: url({{ asset('images/chat/opcion4.png') }}); background-size: cover;">
 
           <div class="contact-profile">
             <img src="{{ asset($usuario->foto) }}" alt="" />

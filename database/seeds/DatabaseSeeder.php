@@ -130,6 +130,23 @@ class DatabaseSeeder extends Seeder
             'ip_maquina' => '192.168.20.52',
             'password' => bcrypt('secret'),
         ]);
+        DB::table('users')->insert([
+            'name' => 'Leandro Castro Vila',
+            'username' => 'lcastrov',
+            'rol_usuario' => 1,
+            'num_legajo' => 50,
+            'fecha_ingreso' => '03/04/2017',
+            'fecha_nacimiento' => '30/07/1987',
+            'puesto' => 'Departamento de Marketing',
+            'email' => 'admpersonal@odontopraxis.com.ar',
+            'email_personal' => 'pmsifon@gmail.com',
+            'contra_mail' => 'RRHH2015',
+            'foto' => 'storage/msifon.jpg',
+            'interno' => '170',
+            'estado' => 'online',
+            'ip_maquina' => '192.168.20.146',
+            'password' => bcrypt('secret'),
+        ]);
 
         DB::table('puestos')->insert([
             'id' => 1,
@@ -171,6 +188,30 @@ class DatabaseSeeder extends Seeder
             'id' => 10,
             'nombre_puesto' => 'Recepción',
         ]);
-        
+        DB::table('contacts')->insert([
+          'id_usuario' => '1',
+          'nomyap' => 'Itprouser',
+          'correo' => 'sdaj@gmail.com',
+          'direccion' => 'sdasdasd 1515',
+          'provincia' => 'Buenos Aires',
+          'partido' => 'Capital Federal',
+          'localidad' => 'Capital Federal',
+          'tellinea' => '48596587',
+          'telcel' => '1569876483',
+          'interno' => '-',
+        ]);
+        DB::table('contacts')->insert([
+          'id_usuario' => '1',
+          'nomyap' => 'Lo puto de tS',
+          'correo' => 'sdaj@gmail.com',
+          'direccion' => 'asdasda asdasd 1896',
+          'provincia' => 'Cordoba',
+          'partido' => 'que se yo',
+          'localidad' => 'por ahi',
+          'tellinea' => '48544-421852',
+          'telcel' => '15234658535',
+          'interno' => '-',
+        ]);
+
     }
 }

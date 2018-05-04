@@ -16,9 +16,18 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('contact.index');
+      $nomyap  = $request->get('nomyap');
+      $correo = $request->get('correo');
+      $localidad  = $request->get('localidad');
+
+      $contactos = Contact::orderBy('nomyap', 'ASC')
+                                                    ->nomyap($nomyap)
+                                                    ->correo($correo)
+                                                    ->localidad($localidad)
+                                                    ->paginate(15);
+        return view('contact.index', compact(['contactos']));
     }
 
     /**
