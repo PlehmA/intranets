@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-md-offset-4 col-lg-6">
                     {!! Form::password('newPass', ['placeholder' => 'Contraseña']) !!}
-                    {!! Form::submit('Cambiar', ['class' => 'btn btn-warning btn-sm']) !!}
+                    {!! Form::submit('Cambiar', ['class' => 'btn btn-warning']) !!}
                 </div>
             </div>
                 {!! Form::close() !!}

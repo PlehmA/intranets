@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
 </head>
 
 <body>
@@ -119,6 +121,19 @@ div .botonmail:hover {
   -o-transform:scale(1.25);
   transform:scale(1.25);
 }
+.carousel.carousel-slider {
+    top: 0;
+    left: 0;
+    margin-top: 100px;
+}
+.carousel .indicators {
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: -23px;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -202,6 +217,12 @@ div .botonmail:hover {
                     </li>
                     @endif
             </ul>
+            <div class="carousel carousel-slider">
+               <a class="carousel-item" href="#one!"><img src="{{ url('images/maxresdefault.jpg') }}"></a>
+               <a class="carousel-item" href="#two!"><img src="{{ url('images/maxresdefault.jpg') }}"></a>
+               <a class="carousel-item" href="#three!"><img src="{{ url('images/maxresdefault.jpg') }}"></a>
+               <a class="carousel-item" href="#four!"><img src="{{ url('images/maxresdefault.jpg') }}"></a>
+             </div>
         </div>
     </div>
     <div class="main-panel">
@@ -291,7 +312,10 @@ div .botonmail:hover {
 <script src="{{ asset('js/material-dashboard.js?v=1.2.0') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/ar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
@@ -312,5 +336,15 @@ div .botonmail:hover {
     window.location.assign('logout.php');
   }, miliSegundos);
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('.carousel.carousel-slider').carousel({
+ fullWidth: true,
+ indicators: true,
+ duration: 100,
+});
+ });
+</script>
+@yield('script')
 </body>
 </html>

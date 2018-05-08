@@ -205,6 +205,13 @@
                     </li>
                 @endif
             </ul>
+            <div class="carousel">
+              <a class="carousel-item" href="#one!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
+              <a class="carousel-item" href="#two!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
+              <a class="carousel-item" href="#three!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
+              <a class="carousel-item" href="#four!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
+              <a class="carousel-item" href="#five!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
+            </div>
         </div>
     </div>
     <div class="main-panel">
@@ -307,6 +314,10 @@
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
 </script>
-
+<script type="text/javascript">
+$(document).ready(function(){
+$('.carousel').carousel();
+});
+</script>
 </body>
 </html>

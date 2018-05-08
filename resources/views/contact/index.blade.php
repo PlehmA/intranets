@@ -9,7 +9,7 @@
     </div>
     <div class="container-fluid">
       <div class="col s4 right">
-        <a href="#" class="btn">Agregar</a>
+        <a href="{{ route('contact.create') }}" class="btn">Agregar</a>
       </div>
       <table class="table responsive-table table-bordered">
         <thead>
@@ -40,7 +40,7 @@
                 <td>{{ $contact->telcel }}</td>
                 <td>{{ $contact->interno }}</td>
                 <td><center><a href="#" class="btn blue btn-small center-align">Editar</a></center></td>
-                <td><center><a href="#" class="btn red btn-small center-align"><i class="fas fa-eraser"></i></a></center></td>
+                <td><center><a href="#" class="btn red btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
               </tr>
             @endforeach
 
