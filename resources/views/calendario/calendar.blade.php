@@ -5,4 +5,3 @@
 <div id='calendar'></div>
 
     @endsection
-    

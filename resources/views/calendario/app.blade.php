@@ -332,8 +332,8 @@ div .botonmail:hover {
 <script>
   var miliSegundos = 1800000
   setTimeout(function(){
-    alert('Ha pasado el tiempo de sesiÃ³n, vuelva a conectarse');
-    window.location.assign('logout.php');
+    alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
+    window.location.assign('{{ url('/logout') }}');
   }, miliSegundos);
 </script>
 <script type="text/javascript">
@@ -345,25 +345,7 @@ $('.carousel.carousel-slider').carousel({
 });
  });
 </script>
-<script>
-$(function() {
+<script src="{{ asset('js/calendario.js') }}"></script>
 
-// page is now ready, initialize the calendar...
-
-$('#calendar').fullCalendar({
-   locale: 'es',
-   events: [
-    {
-      title:  'My Event',
-      start:  '2010-01-01T14:30:00',
-      allDay: false,
-    }
-    // other events here...
-  ],
-  timeFormat: 'H(:mm)' // uppercase H for 24-hour clock
-})
-
-});
-</script>
 </body>
 </html>

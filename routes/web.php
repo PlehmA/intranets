@@ -59,3 +59,5 @@ Route::post('/edit/users/{id}','PersonalController@update')->name('rrhh.update')
 Route::get('directorio', 'DirectoryController@index')->name('directorio');
 
 Route::resource('contact', 'ContactController');
+
+Route::resource('agpers', 'DiaryController');
