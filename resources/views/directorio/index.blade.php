@@ -1,13 +1,13 @@
 @extends('directorio.app')
 @section('content')
   @if (Auth::check())
-
+    <ol class="breadcrumb">
+      <li class="active">Agenda interna</li>
+      <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
+      <li><a href="{{ route('agpers.index') }}">Agenda Personalizada</a></li>
+    </ol>
     <div class="container">
-      <ol class="breadcrumb">
-        <li class="active">Agenda interna</li>
-        <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
-        <li><a href="{{ route('agpers.index') }}">Agenda Personalizada</a></li>
-      </ol>
+
 
 <div class="row">
   {{ Form::open(['route' => 'directorio', 'method' => 'GET', 'class' => 'col s12']) }}

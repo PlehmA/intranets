@@ -333,8 +333,8 @@ div .botonmail:hover {
 <script>
   var miliSegundos = 1800000
   setTimeout(function(){
-    alert('Ha pasado el tiempo de sesiÃ³n, vuelva a conectarse');
-    window.location.assign('logout.php');
+    alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
+    window.location.assign('{{ url('/logout') }}');
   }, miliSegundos);
 </script>
 <script type="text/javascript">
