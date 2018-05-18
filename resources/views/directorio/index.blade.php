@@ -6,6 +6,7 @@
       <ol class="breadcrumb">
         <li class="active">Agenda interna</li>
         <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
+        <li><a href="{{ route('agpers.index') }}">Agenda Personalizada</a></li>
       </ol>
 
 <div class="row">
