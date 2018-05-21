@@ -136,7 +136,6 @@ div .botonmail:hover {
     bottom: 0;
     margin: -23px;
 }
-
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -150,63 +149,89 @@ div .botonmail:hover {
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
+                <li>
+                    <a href="{{ route('correo.index') }}">
+                        <i class="material-icons">email</i>
+                        <p>Correo</p>
+                    </a>
+                </li>
                 <ul class="collapsible" style="background-color: transparent;">
-                  <li onclick="location.href='{{ route('correo.index') }}'">
-                    <div class="collapsible-header">
-                      <i class="material-icons">email</i>
-                      <p>Correo</p>
-                    </div>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Herramientas</div>
+                    <div class="collapsible-body"><span><a href="#">Tutoriales</a></span></div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
 
                   </li>
                   <li>
-                    <div class="collapsible-header"><i class="material-icons">filter_drama</i> <p>Herramientas</p> </div>
-                    <div class="collapsible-body">
-                      <span><a href="#">Tutoriales</a></span><hr>
-                      <span><a href="#">Office</a></span><hr>
-                      <span><a href="#">Organigrama corporativo</a></span><hr>
-                      <span><a href="#">Plantillas</a></span>
-                    </div>
-
-                  </li>
-                  <li>
-                    <div class="collapsible-header">
-                      <i class="material-icons">folder_open</i>
-                       <p>Mis Archivos</p>
-                    </div>
-
-                  </li>
-                  <li onclick="location.href='{{ route('calendar') }}'">
-                    <div class="collapsible-header"><i class="material-icons">library_books</i>
-                    <p>Calendario</p></div>
-
-                  </li>
-                  <li onclick="location.href='{{ route('directorio') }}'">
-                    <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
-                    <p>Agenda</p></div>
-
-                  </li>
-                  <li onclick="#">
-                    <div class="collapsible-header"><i class="material-icons">event</i>
-                    <p>Novedades</p></div>
-
-                  </li>
-              @if(Auth::user()->rol_usuario == 5)
-                  <li onclick="location.href='{{ route('rrhh.personal') }}'">
-                    <div class="collapsible-header">
-                          <i class="material-icons text-gray">people</i>
-                          <p>Recursos Humanos</p>
-                    </div>
-                  </li>
-                  @endif
-                  <li onclick="location.href='{{ route('configuracion') }}'">
-                    <div class="collapsible-header"><i class="material-icons text-gray">settings</i>
-                    <p>Configuración</p></div>
+                    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
 
                   </li>
                 </ul>
-
-
-
+                <li id="accordion">
+                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="material-icons">build</i>
+                        <p>Herramientas</p>
+                    </a>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
+                            <i class="material-icons">folder_open</i>
+                            <p>Tutoriales</p>
+                        </a>
+                        <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
+                            <i class="material-icons">folder_open</i>
+                            <p>Office</p>
+                        </a>
+                        <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
+                            <i class="material-icons">folder_open</i>
+                            <p>Organigrama corporativo</p>
+                        </a>
+                        <a href="www.google.com.ar" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
+                            <i class="material-icons">folder_open</i>
+                            <p>Plantillas</p>
+                        </a>
+                        <br>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="material-icons">folder_open</i>
+                        <p>Mis Archivos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('calendar') }}">
+                        <i class="material-icons">library_books</i>
+                        <p>Calendario</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('directorio') }}">
+                        <i class="material-icons">perm_contact_calendar</i>
+                        <p>Agenda</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="material-icons">event</i>
+                        <p>Novedades</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('configuracion') }}">
+                        <i class="material-icons text-gray">settings</i>
+                        <p>Configuración</p>
+                    </a>
+                </li>
+                @if(Auth::user()->rol_usuario == 5)
+                    <li>
+                        <a href="{{ route('rrhh.personal') }}">
+                            <i class="material-icons text-gray">people</i>
+                            <p>Recursos Humanos</p>
+                        </a>
+                    </li>
+                    @endif
             </ul>
             <div class="carousel carousel-slider">
                <a class="carousel-item" href="#one!"><img src="{{ url('images/maxresdefault.jpg') }}"></a>

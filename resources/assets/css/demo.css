@@ -63,3 +63,7 @@
 .tim-row h3 {
     margin-top: 0;
 }
+.sidebar[data-color="purple"] .nav li.active a, .off-canvas-sidebar[data-color="purple"] .nav li.active a {
+  background-color: transparent;
+  box-shadow: none;
+}

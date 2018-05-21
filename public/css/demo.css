@@ -143,3 +143,10 @@
     font-style: normal;
 
 }
+.collapsible-header {
+  background-color: transparent !important;
+}
+.sidebar[data-color="purple"] .nav li.active a, .off-canvas-sidebar[data-color="purple"] .nav li.active a {
+  background-color: transparent;
+  box-shadow: none;
+}
