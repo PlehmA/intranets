@@ -350,7 +350,7 @@ $('.carousel.carousel-slider').carousel({
 </script>
 @yield('script')
 <script>
-  
+
 </script>
 </body>
 </html>

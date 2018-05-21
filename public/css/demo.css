@@ -65,7 +65,6 @@
 }
 
 #menucito {
-    background: rgba(200, 200, 200, 0.2);
     color: #3C4858;
     margin: 10px 15px 0;
     border-radius: 3px;
@@ -74,10 +73,6 @@
 
 }
 
-#menucito:hover {
-    background: rgba(200, 200, 200, 0.2);
-    color: #3C4858;
-}
 
 
 @font-face {
