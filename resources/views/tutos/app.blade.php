@@ -141,6 +141,15 @@ div .botonmail:hover {
     height: 700px;
     overflow-y: auto;
 }
+.back-colorado {
+  background-color: #DB6F7D;
+}
+.back-verde {
+  background-color: #7FA1CA;
+}
+.back-azul {
+  background-color: #7FA1CA;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
