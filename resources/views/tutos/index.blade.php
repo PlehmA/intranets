@@ -1,38 +1,35 @@
 @extends('tutos.app')
 @section('content')
+<div class="col-sm-6">
   <ul class="collection">
-   <li class="collection-item avatar">
-     <img src="images/yuna.jpg" alt="" class="circle">
-     <span class="title">Title</span>
-     <p>First Line <br>
-        Second Line
-     </p>
-     <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-   </li>
-   <li class="collection-item avatar">
-     <i class="material-icons circle">folder</i>
-     <span class="title">Title</span>
-     <p>First Line <br>
-        Second Line
-     </p>
-     <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-   </li>
-   <li class="collection-item avatar">
-     <i class="material-icons circle green">insert_chart</i>
-     <span class="title">Title</span>
-     <p>First Line <br>
-        Second Line
-     </p>
-     <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-   </li>
-   <li class="collection-item avatar">
-     <i class="material-icons circle red">play_arrow</i>
-     <span class="title">Title</span>
-     <p>First Line <br>
-        Second Line
-     </p>
-     <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-   </li>
- </ul>
-           
+    <a href="#">
+      <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
+        <img src="{{ asset('img/LibreOffice_Writer.png') }}" alt="" class="circle">
+        <span class="title">Tutoriales de Libre Office writer</span>
+        <p>Material para el uso adecuado de Libre Office writer</p>
+      </li>
+    </a>
+<a href="#">
+  <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
+    <img src="{{ asset('img/libreoffice_calc.png') }}" alt="" class="circle">
+    <span class="title">Tutoriales de Libre Office calc</span>
+    <p>Material para el uso adecuado de Libre Office calc</p>
+  </li>
+</a>
+<a href="#">
+  <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
+    <img src="{{ asset('img/LibreOffice_Impress.svg') }}" alt="" class="circle">
+    <span class="title">Tutoriales de Libre Office impress</span>
+    <p>Material para el uso adecuado de Libre Office impress</p>
+  </li>
+</a>
+<a href="#">
+  <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
+    <img src="{{ asset('img/LibreOffice_Base.svg') }}" alt="" class="circle">
+    <span class="title">Tutoriales de Libre Office base</span>
+    <p>Material para el uso adecuado de Libre Office base</p>
+  </li>
+</a>
+  </ul>
+</div>
 @endsection

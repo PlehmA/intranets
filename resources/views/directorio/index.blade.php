@@ -26,11 +26,11 @@
         <label for="area">Área</label>
       </div>
       <div class="input-field col s3">
-        <button class="btn waves-effect waves-light btn-small" type="submit" name="action">Buscar
+        <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
           <i class="material-icons right">search</i>
-        </button>
+        </button >
         <a href="{{ route('directorio') }}">
-          <button class="btn waves-effect waves-light btn-small" type="reload" name="action">
+          <button class="btn waves-effect waves-light btn-small" type="reload" name="action" style="background-color: #8F8E8F;">
           <i class="material-icons" style="font-size: 2rem;">refresh</i>
         </button>
       </a>

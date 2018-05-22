@@ -136,7 +136,11 @@ div .botonmail:hover {
     bottom: 0;
     margin: -23px;
 }
-
+.vertical-menu {
+    width: 30vh;
+    height: 700px;
+    overflow-y: auto;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">

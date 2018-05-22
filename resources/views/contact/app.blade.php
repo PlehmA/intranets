@@ -318,6 +318,10 @@
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
 </script>
-
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

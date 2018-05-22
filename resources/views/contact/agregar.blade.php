@@ -8,7 +8,7 @@
 
     @if (session('add'))
 
-      <div class="alert alert-success col s7" role="alert"><strong>{{ session('add') }}</strong></div>
+      <div class="alert alert-success col-sm-7" role="alert" data-dismiss="alert"><strong>{{ session('add') }}</strong></div>
 
     @endif
 <br>

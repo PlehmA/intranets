@@ -346,5 +346,10 @@ $('.contact').click(function(){
 });
 </script>
 @yield('scripts')
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

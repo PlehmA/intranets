@@ -331,6 +331,10 @@ $('.carousel.carousel-slider').carousel({
  });
 </script>
 <script src="{{ asset('js/calendario.js') }}"></script>
-
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

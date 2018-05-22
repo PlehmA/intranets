@@ -331,5 +331,10 @@ $('.carousel.carousel-slider').carousel({
 });
  });
 </script>
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

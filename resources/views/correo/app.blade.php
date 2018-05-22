@@ -304,5 +304,10 @@ $(document).ready(function(){
 $('.carousel').carousel();
 });
 </script>
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

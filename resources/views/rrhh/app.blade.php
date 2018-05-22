@@ -335,6 +335,10 @@ toggle between hiding and showing the dropdown content */
         }
     }
 </script>
-
+<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>
 </body>
 </html>

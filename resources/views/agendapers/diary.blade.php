@@ -2,10 +2,13 @@
 @section('content')
     @if (Auth::check())
       <ol class="breadcrumb">
+
         <li><a href="{{ route('directorio') }}">Agenda Interna</a></li>
         <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
         <li class="active">Agenda Personalizada</li>
-        <div class="">
+
+        </ol>
+        <div class="container-fluid">
           <table class="table responsive-table table-bordered">
             <thead>
               <tr>
@@ -29,7 +32,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>}</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -37,7 +40,6 @@
                     <td><center><a href="#" class="btn blue btn-small center-align">Editar</a></center></td>
                     <td><center><a href="#" class="btn red btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
                   </tr>
-                @endforeach
 
             </tbody>
           </table>
