@@ -17,14 +17,14 @@ class CreateContactsTable extends Migration
             $table->increments('id');
             $table->integer('id_usuario');
             $table->string('nomyap');
-            $table->string('correo');
-            $table->string('direccion');
-            $table->string('provincia');
-            $table->string('partido');
-            $table->string('localidad');
-            $table->string('tellinea');
-            $table->string('telcel');
-            $table->string('interno');
+            $table->string('correo')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('provincia')->nullable();
+            $table->string('partido')->nullable();
+            $table->string('localidad')->nullable();
+            $table->string('tellinea')->nullable();
+            $table->string('telcel')->nullable();
+            $table->string('interno')->nullable();
             $table->timestamps();
         });
     }

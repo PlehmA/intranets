@@ -318,5 +318,6 @@
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
 </script>
+
 </body>
 </html>

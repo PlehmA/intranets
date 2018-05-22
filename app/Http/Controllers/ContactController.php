@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use Auth;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -48,20 +49,34 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-      $contact = new Contact;
+      if ($request->isMethod('post')) {
 
-      $contact->id_usuario = Auth::user()->id;
-      $contact->nomyap = $request->nomyap;
-      $contact->correo = $request->correo;
-      $contact->direccion = $request->direccion;
-      $contact->provincia = $request->provincia;
-      $contact->partido = $request->partido;
-      $contact->localidad = $request->localidad;
-      $contact->tellinea = $request->tellinea;
-      $contact->telcel = $request->telcel;
-      $contact->interno = $request->interno;
+      $nomyap = $request->input('nomyap');
+      $correo = $request->input('correo');
+      $direccion = $request->input('direccion');
+      $provincia = $request->input('provincia');
+      $partido = $request->input('partido');
+      $localidad = $request->input('localidad');
+      $tellinea = $request->input('tellinea');
+      $telcel = $request->input('telcel');
+      $interno = $request->input('interno');
 
-      $contact->save();
+      \App\Contact::create([
+        'id_usuario' => Auth::user()->id,
+        'nomyap'     => $nomyap,
+        'correo'     => $correo,
+        'direccion'  => $direccion,
+        'provincia'  => $provincia,
+        'partido'    => $partido,
+        'localidad'  => $localidad,
+        'tellinea'   => $tellinea,
+        'telcel'     => $telcel,
+        'interno'    => $interno
+
+      ]);
+        }
+
+        return back()->with('add', 'Contacto agregado');
 
     }
 
