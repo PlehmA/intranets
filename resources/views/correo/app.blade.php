@@ -135,75 +135,60 @@
       </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <li>
-                    <a href="{{ route('correo.index') }}">
-                        <i class="material-icons">email</i>
-                        <p>Correo</p>
-                    </a>
-                </li>
-                <li id="accordion">
-                    <a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="material-icons">build</i>
-                        <p>Herramientas</p>
-                    </a>
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
-                            <i class="material-icons">folder_open</i>
-                            <p>Tutoriales</p>
-                        </a>
-                        <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
-                            <i class="material-icons">folder_open</i>
-                            <p>Office</p>
-                        </a>
-                        <a href="#" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
-                            <i class="material-icons">folder_open</i>
-                            <p>Organigrama corporativo</p>
-                        </a>
-                        <a href="www.google.com.ar" id="menucito" class="col-lg-12 col-sm-12 col-md-12">
-                            <i class="material-icons">folder_open</i>
-                            <p>Mis Archivos</p>
-                        </a>
-                        <br>
-                    </div>
+              <ul class="collapsible" style="background-color: transparent;">
+                <li onclick="location.href='{{ route('correo.index') }}'">
+                  <div class="collapsible-header">
+                    <i class="material-icons">email</i>
+                    <p>Correo</p>
+                  </div>
+
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="material-icons">folder_open</i>
-                        <p>Mis Archivos</p>
-                    </a>
+                  <div class="collapsible-header"><i class="material-icons">filter_drama</i> <p>Herramientas</p> </div>
+                  <div class="collapsible-body">
+                    <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
+                    <span><a href="#">Office</a></span><hr>
+                    <span><a href="#">Organigrama corporativo</a></span><hr>
+                    <span><a href="#">Plantillas</a></span>
+                  </div>
+
                 </li>
                 <li>
-                    <a href="{{ route('calendar') }}">
-                        <i class="material-icons">library_books</i>
-                        <p>Calendario</p>
-                    </a>
+                  <div class="collapsible-header">
+                    <i class="material-icons">folder_open</i>
+                     <p>Mis Archivos</p>
+                  </div>
+
                 </li>
-                <li>
-                    <a href="{{ route('directorio') }}">
-                        <i class="material-icons">perm_contact_calendar</i>
-                        <p>Agenda</p>
-                    </a>
+                <li onclick="location.href='{{ route('calendar') }}'">
+                  <div class="collapsible-header"><i class="material-icons">library_books</i>
+                  <p>Calendario</p></div>
+
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="material-icons">event</i>
-                        <p>Novedades</p>
-                    </a>
+                <li onclick="location.href='{{ route('directorio') }}'">
+                  <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
+                  <p>Agenda</p></div>
+
                 </li>
-                <li>
-                    <a href="{{ route('configuracion') }}">
-                        <i class="material-icons text-gray">settings</i>
-                        <p>Configuración</p>
-                    </a>
+                <li onclick="#">
+                  <div class="collapsible-header"><i class="material-icons">event</i>
+                  <p>Novedades</p></div>
+
                 </li>
-                @if(Auth::user()->rol_usuario == 5)
-                    <li>
-                        <a href="{{ route('rrhh.personal') }}">
-                            <i class="material-icons text-gray">people</i>
-                            <p>Recursos Humanos</p>
-                        </a>
-                    </li>
+            @if(Auth::user()->rol_usuario == 5)
+                <li onclick="location.href='{{ route('rrhh.personal') }}'">
+                  <div class="collapsible-header">
+                        <i class="material-icons text-gray">people</i>
+                        <p>Recursos Humanos</p>
+                  </div>
+                </li>
                 @endif
+                <li onclick="location.href='{{ route('configuracion') }}'">
+                  <div class="collapsible-header"><i class="material-icons text-gray">settings</i>
+                  <p>Configuración</p></div>
+
+                </li>
+              </ul>
             </ul>
             <div class="carousel">
               <a class="carousel-item" href="#one!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
@@ -245,7 +230,7 @@
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <a class="navbar-brand but-menu" href="{{ route('directorio') }}">
                         <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>

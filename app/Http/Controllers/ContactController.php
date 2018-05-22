@@ -48,7 +48,21 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $contact = new Contact;
+
+      $contact->id_usuario = Auth::user()->id;
+      $contact->nomyap = $request->nomyap;
+      $contact->correo = $request->correo;
+      $contact->direccion = $request->direccion;
+      $contact->provincia = $request->provincia;
+      $contact->partido = $request->partido;
+      $contact->localidad = $request->localidad;
+      $contact->tellinea = $request->tellinea;
+      $contact->telcel = $request->telcel;
+      $contact->interno = $request->interno;
+
+      $contact->save();
+
     }
 
     /**

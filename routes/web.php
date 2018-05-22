@@ -61,3 +61,5 @@ Route::get('directorio', 'DirectoryController@index')->name('directorio');
 Route::resource('contact', 'ContactController');
 
 Route::resource('agpers', 'DiaryController');
+
+Route::resource('tutos', 'TutorialController');
