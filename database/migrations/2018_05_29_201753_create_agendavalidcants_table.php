@@ -15,6 +15,7 @@ class CreateAgendavalidcantsTable extends Migration
     {
         Schema::create('agendavalidcants', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('num_max_agendas');
             $table->timestamps();
         });
     }
