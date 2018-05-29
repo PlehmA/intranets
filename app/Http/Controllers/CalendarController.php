@@ -13,7 +13,9 @@ class CalendarController extends Controller
     }
     public function index()
     {
-        return view('calendario.calendar');
+      $eventos = \App\Calendar::all();
+
+        return view('calendario.calendar', compact('eventos'));
     }
 
     public function show()

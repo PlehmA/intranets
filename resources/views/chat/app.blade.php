@@ -239,7 +239,7 @@
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio') }}" title="Agenda!">
+                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda!">
                         <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>

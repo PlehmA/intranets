@@ -37,7 +37,7 @@
                       <li class="contact">
                         <div class="wrap">
                           <span class="contact-status {{ $user->estado }}"></span>
-                          <img src="{{ url('storage/'.$user->username.'.jpg') }}" alt="" />
+                          <img src="{{ url($user->foto) }}" alt="" />
                           <div class="meta">
                             <p class="name">{{ $user->name }}</p>
                             <p class="preview">You just got LITT up, Mike.</p>

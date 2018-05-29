@@ -253,6 +253,7 @@ div .botonmail:hover {
         </div>
     </div>
 </div>
+
 <!--   Core JS Files   -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/material.min.js') }}" type="text/javascript"></script>
@@ -307,7 +308,7 @@ $('.carousel.carousel-slider').carousel({
 });
  });
 </script>
-<script src="{{ asset('js/calendario.js') }}"></script>
+
 <script>
   tippy('.chat');
   tippy('.correo');
@@ -315,40 +316,8 @@ $('.carousel.carousel-slider').carousel({
   tippy('.agenda');
 </script>
 <script>
-// $(function() {
-//
-// // page is now ready, initialize the calendar...
-//
-// $('#calendar').fullCalendar({
-//    locale: 'es',
-//    header: {
-//       left: 'prev,next today',
-//       center: 'title',
-//       right: 'month,agendaWeek,agendaDay,listWeek'
-//     },
-//     editable: true,
-//     eventLimit: true, // allow "more" link when too many events
-//     navLinks: true,
-//    events: [
-//     {
-//       title:  'Reunion loca(llevar faso)',
-//       start:  '2018-05-16',
-//       end: '2018-50-20',
-//       description: 'This is a cool event',
-//     }
-//     // other events here...
-//   ],
-//   timeFormat: 'H(:mm)', // uppercase H for 24-hour clock
-//   monthNames: [
-//     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
-//   'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-//   ],
-//   displayEventTime: true,
-// })
-//
-// });
 $(document).ready(function() {
-
+    let nombre = "{{Auth::user()->name}}";
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -361,9 +330,17 @@ $(document).ready(function() {
         'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
         ],
       header: {
-        left: 'prev,next today',
+        left: 'prev,next today, BotonEvento',
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      customButtons: {
+        BotonEvento: {
+          text: "Agregar Evento",
+          click: function(){
+            alert('Ni nombre es: '+nombre);
+          },
+        }
       },
       selectable: true,
       selectHelper: true,
@@ -442,8 +419,6 @@ $(document).ready(function() {
   });
 
 </script>
-<script>
-  console.log('');
-</script>
+@yield('jsscript')
 </body>
 </html>

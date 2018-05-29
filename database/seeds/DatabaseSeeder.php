@@ -1,5 +1,6 @@
 <?php
 
+use \App\Calendar;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -73,7 +74,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'agonzalo@odontopraxis.com.ar',
             'email_personal' => 'apolla@gmail.com',
             'contra_mail' => 'NewAPG2018',
-            'foto' => 'storage/apolla.jpg',
+            'foto' => 'storage/apolla.png',
             'interno' => '180',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.191',
