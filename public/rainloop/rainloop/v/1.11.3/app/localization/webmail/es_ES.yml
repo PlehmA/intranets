@@ -18,8 +18,8 @@ es_ES:
     BUTTON_HELP: "Ayuda"
     BUTTON_LOGOUT: "Cerrar sesión"
   MOBILE:
-    BUTTON_MOBILE_VERSION: "Versión móvil"
-    BUTTON_DESKTOP_VERSION: "Versión escritorio"
+    BUTTON_MOBILE_VERSION: "Versión dinámica"
+    BUTTON_DESKTOP_VERSION: "Versión estandard"
   SEARCH:
     MAIN_INPUT_PLACEHOLDER: "Buscar"
     TITLE_ADV: "Búsqueda avanzada"

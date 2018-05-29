@@ -5,7 +5,7 @@
 
         <li><a href="{{ route('directorio.index') }}">Agenda Interna</a></li>
         <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
-        <li class="active">Agenda Personalizada</li>
+        <li><a href="#">Agenda Personalizada <i class="fas fa-plus"></i> </a></li>
 
         </ol>
         <div class="container-fluid">

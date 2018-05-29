@@ -317,7 +317,7 @@ $('.carousel.carousel-slider').carousel({
 </script>
 <script>
 $(document).ready(function() {
-    let nombre = "{{Auth::user()->name}}";
+
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -338,7 +338,7 @@ $(document).ready(function() {
         BotonEvento: {
           text: "Agregar Evento",
           click: function(){
-            alert('Ni nombre es: '+nombre);
+            $('#modal1').modal();
           },
         }
       },
@@ -352,73 +352,49 @@ $(document).ready(function() {
               trigger: 'hover'
           });
         },
-      select: function(start, end, allDay) {
-        var title = prompt('Nombre del evento:');
-        if (title) {
-          calendar.fullCalendar('renderEvent',
-            {
-              title: title,
-              start: start,
-              end: end,
-              allDay: allDay
-            },
-            true // make the event "stick"
-          );
-        }
-        calendar.fullCalendar('unselect');
-      },
+        dayClick: function(date, jsEvent, view) {
+          $("#myModal").modal();
+          },
+      // select: function(start, end, allDay) {
+      //   var title = prompt('Nombre del evento:');
+      //   if (title) {
+      //     calendar.fullCalendar('renderEvent',
+      //       {
+      //         title: title,
+      //         start: start,
+      //         end: end,
+      //         allDay: allDay
+      //       },
+      //       true // make the event "stick"
+      //     );
+      //   }
+      //   calendar.fullCalendar('unselect');
+      // },
       editable: true,
-      events: [
-        {
-          title: 'All Day Event',
-          start: new Date(y, m, 1)
-        },
-        {
-          title: 'Long Event',
-          start: new Date(y, m, d-5),
-          end: new Date(y, m, d-2)
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: new Date(y, m, d-3, 16, 0),
-          allDay: false
-        },
-        {
-          id: 999,
-          title: 'Repeating Event',
-          start: new Date(y, m, d+4, 16, 0),
-          allDay: false
-        },
-        {
-          title: 'Meeting',
-          start: new Date(y, m, d, 10, 30),
-          allDay: false
-        },
-        {
-          title: 'Lunch',
-          start: new Date(y, m, d, 12, 0),
-          end: new Date(y, m, d, 14, 0),
-          allDay: false
-        },
-        {
-          title: 'Birthday Party',
-          start: new Date(y, m, d+1, 19, 0),
-          end: new Date(y, m, d+1, 22, 30),
-          allDay: false
-        },
-        {
-          title: 'Click for Google',
-          start: new Date(y, m, 28),
-          end: new Date(y, m, 29),
-          url: 'https://google.com/'
-        }
-      ]
+
     });
 
   });
 
 </script>
 @yield('jsscript')
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>

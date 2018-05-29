@@ -2,7 +2,6 @@
 @section('content')
 
 <div id='calendar'></div>
-
     @endsection
 @section('jsscript')
   <script type="text/javascript">
