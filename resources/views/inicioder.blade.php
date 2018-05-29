@@ -21,9 +21,12 @@
   font-family: 'Roboto', sans-serif;
 }
     body {
-        background: url({{ url('img/logueoproporcionado.jpg') }}) no-repeat;
-        max-height: 1920px;
-        background-size: cover;
+      background: url({{ url('/img/logueoproporcionado.jpg') }}) no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: #66999;
     }
     .tarj-login {
       margin-top: 30%;

@@ -160,12 +160,12 @@
                   </div>
 
                 </li>
-                <li onclick="location.href='{{ route('calendar') }}'">
+                <li onclick="location.href='{{ route('calendar.index') }}'">
                   <div class="collapsible-header"><i class="material-icons">library_books</i>
                   <p>Calendario</p></div>
 
                 </li>
-                <li onclick="location.href='{{ route('directorio') }}'">
+                <li onclick="location.href='{{ route('directorio.index') }}'">
                   <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
                   <p>Agenda</p></div>
 
@@ -212,25 +212,25 @@
                     <div class="row">
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
-                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat">
+                        <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat!">
+                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
                         </a>
                       </div>
 
                       <div class="col-md-3 .botonchat">
-                        <a class="navbar-brand but-menu" href="{{ route('correo.index') }}">
-                        <img src="{{ asset('images/mail-click.png') }}" alt="" class="botonmail">
+                        <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo!">
+                        <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas!">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('directorio') }}">
+                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda!">
                         <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
@@ -240,11 +240,16 @@
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Avatar image -->
-                      <div class="col-sm-2 col-md-3">
-                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
-                      </div>
-                      <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
+                      <div class="col-sm-2 col-md-3 dropdown">
 
+                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" style="width: 160px; height: 70px;">
+
+                        <div class="dropdown-content">
+                          <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
+                          <div class="desc">Microsoft's OS Logo since Windows 8</div>
+                        </div>
+
+                      </div>
                       <!-- Dropdown Structure -->
                       <ul id='dropdown2' class='dropdown-content'>
                         <li><a href="#!">Configuración</a></li>

@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'foto' => 'storage/aplehm.jpg',
             'interno' => '181',
             'estado' => 'online',
-            'ip_maquina' => '192.168.20.146',
+            'ip_maquina' => '192.168.20.35',
             'password' => bcrypt('123456'),
         ]);
         DB::table('users')->insert([
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
             'foto' => 'storage/ipicoy.jpg',
             'interno' => '181',
             'estado' => 'online',
-            'ip_maquina' => '192.168.20.33',
+            'ip_maquina' => '192.168.20.30',
             'password' => bcrypt('secret'),
         ]);
         DB::table('users')->insert([
@@ -93,7 +93,7 @@ class DatabaseSeeder extends Seeder
             'foto' => 'storage/msifon.jpg',
             'interno' => '170',
             'estado' => 'online',
-            'ip_maquina' => '192.168.20.146',
+            'ip_maquina' => '192.168.20.130',
             'password' => bcrypt('secret'),
         ]);
         DB::table('users')->insert([
@@ -110,7 +110,7 @@ class DatabaseSeeder extends Seeder
             'foto' => 'storage/lcarimali.jpg',
             'interno' => '123',
             'estado' => 'online',
-            'ip_maquina' => '192.168.20.146',
+            'ip_maquina' => '192.168.20.1',
             'password' => bcrypt('secret'),
         ]);
         DB::table('users')->insert([

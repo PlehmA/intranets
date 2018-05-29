@@ -3,7 +3,7 @@
     @if (Auth::check())
       <ol class="breadcrumb">
 
-        <li><a href="{{ route('directorio') }}">Agenda Interna</a></li>
+        <li><a href="{{ route('directorio.index') }}">Agenda Interna</a></li>
         <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
         <li class="active">Agenda Personalizada</li>
 

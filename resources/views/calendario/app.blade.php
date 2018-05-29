@@ -28,55 +28,23 @@
 <body>
 <style>
 /* Dropdown Button */
-.dropbtn {
-    background-color: #ddd;
-    color: #767676;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    margin-left: 15px;
-    border-radius: 5px;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #ddd;
-}
-
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
-
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ddd;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.desc {
+  padding: 15px;
+  text-align: center;
 }
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {display:block;}
-
-#myDropdown:hover{
-    background-color: #d1ecf1;
-    transition-delay: inherit;
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 .cajaloca {
 
@@ -171,12 +139,12 @@ div .botonmail:hover {
                   </div>
 
                 </li>
-                <li onclick="location.href='{{ route('calendar') }}'">
+                <li onclick="location.href='{{ route('calendar.index') }}'">
                   <div class="collapsible-header"><i class="material-icons">library_books</i>
                   <p>Calendario</p></div>
 
                 </li>
-                <li onclick="location.href='{{ route('directorio') }}'">
+                <li onclick="location.href='{{ route('directorio.index') }}'">
                   <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
                   <p>Agenda</p></div>
 
@@ -222,25 +190,25 @@ div .botonmail:hover {
                     <div class="row">
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
-                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat">
+                        <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat!">
+                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
                         </a>
                       </div>
 
                       <div class="col-md-3 .botonchat">
-                        <a class="navbar-brand but-menu" href="{{ route('correo.index') }}">
+                        <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo!">
                         <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas!">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('directorio') }}">
+                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda!">
                         <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
@@ -250,10 +218,16 @@ div .botonmail:hover {
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Avatar image -->
-                      <div class="col-sm-2 col-md-3">
-                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
+                      <div class="col-sm-2 col-md-3 dropdown">
+
+                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" style="width: 160px; height: 70px;">
+
+                        <div class="dropdown-content">
+                          <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
+                          <div class="desc">Microsoft's OS Logo since Windows 8</div>
+                        </div>
+
                       </div>
-                      <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
 
                       <!-- Dropdown Structure -->
                       <ul id='dropdown2' class='dropdown-content'>
@@ -300,6 +274,7 @@ div .botonmail:hover {
 <script src='{{ asset('js/momentcalendar.min.js') }}'></script>
 <script src='{{ asset('js/fullcalendar.js') }}'></script>
 <script src='{{ asset('js\locale-all.js') }}'></script>
+<script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -308,8 +283,10 @@ div .botonmail:hover {
 
     });
 </script>
-<script type="text/javascript">
-   $('.dropdown-trigger').dropdown();
+<script>
+  $(document).ready(function() {
+    $(".dropdown").on("click", .dropdown());
+  });
 </script>
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
@@ -332,9 +309,141 @@ $('.carousel.carousel-slider').carousel({
 </script>
 <script src="{{ asset('js/calendario.js') }}"></script>
 <script>
-$(document).ready(function(){
-    $('.collapsible').collapsible();
+  tippy('.chat');
+  tippy('.correo');
+  tippy('.notas');
+  tippy('.agenda');
+</script>
+<script>
+// $(function() {
+//
+// // page is now ready, initialize the calendar...
+//
+// $('#calendar').fullCalendar({
+//    locale: 'es',
+//    header: {
+//       left: 'prev,next today',
+//       center: 'title',
+//       right: 'month,agendaWeek,agendaDay,listWeek'
+//     },
+//     editable: true,
+//     eventLimit: true, // allow "more" link when too many events
+//     navLinks: true,
+//    events: [
+//     {
+//       title:  'Reunion loca(llevar faso)',
+//       start:  '2018-05-16',
+//       end: '2018-50-20',
+//       description: 'This is a cool event',
+//     }
+//     // other events here...
+//   ],
+//   timeFormat: 'H(:mm)', // uppercase H for 24-hour clock
+//   monthNames: [
+//     'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+//   'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+//   ],
+//   displayEventTime: true,
+// })
+//
+// });
+$(document).ready(function() {
+
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+
+    var calendar = $('#calendar').fullCalendar({
+      locale: 'es',
+      monthNames: [
+         'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
+        'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+        ],
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay,listWeek'
+      },
+      selectable: true,
+      selectHelper: true,
+        eventRender: function(event, element){
+          element.popover({
+              animation:true,
+              delay: 300,
+              content: '<b>Inicio</b>:'+event.start+"<b>Fin</b>:"+event.end,
+              trigger: 'hover'
+          });
+        },
+      select: function(start, end, allDay) {
+        var title = prompt('Nombre del evento:');
+        if (title) {
+          calendar.fullCalendar('renderEvent',
+            {
+              title: title,
+              start: start,
+              end: end,
+              allDay: allDay
+            },
+            true // make the event "stick"
+          );
+        }
+        calendar.fullCalendar('unselect');
+      },
+      editable: true,
+      events: [
+        {
+          title: 'All Day Event',
+          start: new Date(y, m, 1)
+        },
+        {
+          title: 'Long Event',
+          start: new Date(y, m, d-5),
+          end: new Date(y, m, d-2)
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: new Date(y, m, d-3, 16, 0),
+          allDay: false
+        },
+        {
+          id: 999,
+          title: 'Repeating Event',
+          start: new Date(y, m, d+4, 16, 0),
+          allDay: false
+        },
+        {
+          title: 'Meeting',
+          start: new Date(y, m, d, 10, 30),
+          allDay: false
+        },
+        {
+          title: 'Lunch',
+          start: new Date(y, m, d, 12, 0),
+          end: new Date(y, m, d, 14, 0),
+          allDay: false
+        },
+        {
+          title: 'Birthday Party',
+          start: new Date(y, m, d+1, 19, 0),
+          end: new Date(y, m, d+1, 22, 30),
+          allDay: false
+        },
+        {
+          title: 'Click for Google',
+          start: new Date(y, m, 28),
+          end: new Date(y, m, 29),
+          url: 'https://google.com/'
+        }
+      ]
+    });
+
   });
+
+</script>
+<script>
+  console.log('');
 </script>
 </body>
 </html>

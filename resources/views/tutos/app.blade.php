@@ -188,12 +188,12 @@ div .botonmail:hover {
                     </div>
 
                   </li>
-                  <li onclick="location.href='{{ route('calendar') }}'">
+                  <li onclick="location.href='{{ route('calendar.index') }}'">
                     <div class="collapsible-header"><i class="material-icons">library_books</i>
                     <p>Calendario</p></div>
 
                   </li>
-                  <li onclick="location.href='{{ route('directorio') }}'">
+                  <li onclick="location.href='{{ route('directorio.index') }}'">
                     <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
                     <p>Agenda</p></div>
 
@@ -242,25 +242,25 @@ div .botonmail:hover {
                     <div class="row">
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
-                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat">
+                        <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat!">
+                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
                         </a>
                       </div>
 
                       <div class="col-md-3 .botonchat">
-                        <a class="navbar-brand but-menu" href="{{ route('correo.index') }}">
+                        <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo!">
                         <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('chats.index') }}">
+                        <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas!">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu" href="{{ route('directorio') }}">
+                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda!">
                         <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
@@ -270,11 +270,16 @@ div .botonmail:hover {
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Avatar image -->
-                      <div class="col-sm-2 col-md-3">
-                        <img src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" alt="" class="img-responsive img-circle" style="max-width: 60px; max-height: 70px;">
-                      </div>
-                      <a class='dropdown-trigger waves-effect waves-light green btn' href='#' data-target='dropdown2' style="margin-left: 0; border-radius: 5px;"><i class="fas fa-angle-down"></i></a>
+                      <div class="col-sm-2 col-md-3 dropdown">
 
+                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" style="width: 160px; height: 70px;">
+
+                        <div class="dropdown-content">
+                          <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
+                          <div class="desc">Microsoft's OS Logo since Windows 8</div>
+                        </div>
+
+                      </div>
                       <!-- Dropdown Structure -->
                       <ul id='dropdown2' class='dropdown-content'>
                         <li><a href="#!">Configuración</a></li>
@@ -320,6 +325,7 @@ div .botonmail:hover {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
+<script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -354,6 +360,12 @@ $('.carousel.carousel-slider').carousel({
 $(document).ready(function(){
     $('.collapsible').collapsible();
   });
+</script>
+<script>
+tippy('.chat');
+tippy('.correo');
+tippy('.notas');
+tippy('.agenda');
 </script>
 </body>
 </html>

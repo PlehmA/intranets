@@ -8,7 +8,7 @@
     </ol>
     <br>
     <div class="row">
-      {{ Form::open(['route' => 'directorio', 'method' => 'GET', 'class' => 'col s12']) }}
+      {{ Form::open(['route' => 'directorio.index', 'method' => 'GET', 'class' => 'col s12']) }}
        @csrf
         <div class="row">
           <div class="input-field offset-s2 col s2">
@@ -27,7 +27,7 @@
             <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
               <i class="material-icons right">search</i>
             </button >
-            <a href="{{ route('directorio') }}">
+            <a href="{{ route('directorio.index') }}">
               <button class="btn waves-effect waves-light btn-small" type="reload" name="action" style="background-color: #8F8E8F;">
               <i class="material-icons" style="font-size: 2rem;">refresh</i>
             </button>

@@ -2,7 +2,7 @@
 @section('content')
   @if (Auth::check())
     <ol class="breadcrumb">
-      <li><a href="{{ route('directorio') }}">Agenda Interna</a></li>
+      <li><a href="{{ route('directorio.index') }}">Agenda Interna</a></li>
       <li class="active">Agenda Externa</li>
       <li><a href="{{ route('agpers.index') }}">Agenda Personalizada</a></li>
     </ol>

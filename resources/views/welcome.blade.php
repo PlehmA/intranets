@@ -23,6 +23,11 @@
     body {
         background: url({{ url('/img/logueoproporcionado.jpg') }}) no-repeat;
         background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #66999;
+
     }
     .botoncito {
       background: url({{ url('img/botoningreso.png') }});

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calendar extends Model
 {
-  protected $fillable = ['id', 'usuario_id', 'evento',];
-
-  protected $redirectTo = "/";
+    protected $fillable = [
+      'id', 'tittle', 'start', 'end', 'allDay',
+    ];
+    protected $redirectTo = "/";
 }

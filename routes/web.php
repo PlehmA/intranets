@@ -34,7 +34,7 @@ Route::post('upload', 'ConfigController@store')->name('upload');
 
 Route::post('update', 'ConfigController@update')->name('update');
 
-Route::get('calendar', 'CalendarController@index')->name('calendar');
+Route::resource('calendar', 'CalendarController');
 
 Route::resource('chats', 'ChatController');
 
@@ -56,7 +56,7 @@ Route::get('/edit/users/{id}','PersonalController@edit')->name('rrhh.editar');
 
 Route::post('/edit/users/{id}','PersonalController@update')->name('rrhh.update');
 
-Route::get('directorio', 'DirectoryController@index')->name('directorio');
+Route::resource('directorio', 'DirectoryController');
 
 Route::resource('contact', 'ContactController');
 
