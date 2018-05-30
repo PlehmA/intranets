@@ -30,29 +30,10 @@ class AgendaController extends Controller
     public function create(Request $request)
     {
     try {
-      
-      $nombre_agenda = $request->input('nombre_agenda');
-      $col1 = $request->input('col1');
-      $col2 = $request->input('col2');
-      $col3 = $request->input('col3');
-      $col4 = $request->input('col4');
-      $col5 = $request->input('col5');
-      $col6 = $request->input('col6');
-      $col7 = $request->input('col7');
-      $col8 = $request->input('col8');
-      $col9 = $request->input('col9');
 
+      $nombre_agenda = $request->input('nombre_agenda');
         Agenda::create([
           'nombre_agenda' => $nombre_agenda,
-          'col1' => $col1,
-          'col2' => $col2,
-          'col3' => $col3,
-          'col4' => $col4,
-          'col5' => $col5,
-          'col6' => $col6,
-          'col7' => $col7,
-          'col8' => $col8,
-          'col9' => $col9,
           'id_usr_agenda' => Auth::user()->id
         ]);
 
@@ -81,9 +62,20 @@ class AgendaController extends Controller
      * @param  \App\Agenda  $agenda
      * @return \Illuminate\Http\Response
      */
-    public function show(Agenda $agenda)
+    public function show($agenda)
     {
-        //
+      if ($agenda != Auth::user()->id) {
+        // code...
+
+        /*$userAgenda = Agenda::where('id_usr_agenda', $id)
+                            ->where('nombre_agenda', $agenda)
+                            ->get();*/
+        $agendas = Agenda::all()
+                          ->where('id_usr_agenda', Auth::user()->id);
+        return view('directorio.agendapers', compact(['userAgenda', $agenda, 'agendas']));
+      }else{
+        return redirect('directorio')->with('error', 'Usted no tiene permiso para chusmear en esa agenda');
+      }
     }
 
     /**

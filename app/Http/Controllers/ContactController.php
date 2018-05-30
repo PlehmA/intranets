@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Agenda;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,9 @@ class ContactController extends Controller
                                                     ->correo($correo)
                                                     ->localidad($localidad)
                                                     ->paginate(15);
-        return view('contact.index', compact(['contactos']));
+      $agendas = Agenda::all()
+                        ->where('id_usr_agenda', Auth::user()->id);
+        return view('contact.index', compact(['contactos', 'agendas']));
     }
 
     /**

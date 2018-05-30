@@ -332,5 +332,10 @@ $(document).ready(function(){
   tippy('.notas');
   tippy('.agenda');
 </script>
+<script>
+$(document).ready(function(){
+  $('.modal').modal();
+});
+</script>
 </body>
 </html>

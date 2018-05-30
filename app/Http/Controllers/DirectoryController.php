@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Directory;
 use App\User;
+use App\Agenda;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,7 +31,9 @@ class DirectoryController extends Controller
                                             ->email($email)
                                             ->area($area)
                                             ->paginate(15);
-        return view('directorio.index', compact(['usuarios']));
+      $agendas = Agenda::all()
+                        ->where('id_usr_agenda', Auth::user()->id);
+        return view('directorio.index', compact(['usuarios', 'agendas']));
     }
 
     /**

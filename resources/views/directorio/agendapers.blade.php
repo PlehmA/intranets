@@ -1,11 +1,11 @@
-@extends('contact.app')
+@extends('directorio.app')
 @section('content')
   @if (Auth::check())
     <ol class="breadcrumb">
       <li><a href="{{ route('directorio.index') }}">Agenda interna</a></li>
       <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
       @foreach ($agendas as $agenda)
-        <li><a href="{{ action('AgendaController@show', ['Agenda' => $agenda->nombre_agenda, 'id' => Auth::user()->id]) }}">{{ $agenda->nombre_agenda }}</a></li>
+        <li style="color: gray;"><a href="{{ action('AgendaController@show', ['Agenda' => $agenda->nombre_agenda, 'id' => Auth::user()->id]) }}">{{ $agenda->nombre_agenda }}</a></li>
       @endforeach
       <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal!">Agenda Personalizada <i class="fas fa-plus"></i> </a></li>
     </ol>
@@ -88,47 +88,57 @@
               {{ session('error') }}
           </div>
       @endif
-<br>
-    <div class="container-fluid">
-      <h3 class="center">Agenda externa</h3>
-      <div class="col s4 right">
-        <a href="{{ route('contact.create') }}" class="btn">Agregar</a>
-      </div>
-      <table class="table responsive-table table-bordered">
-        <thead>
-          <tr>
-            <th><b>Nombre y apellido</b></th>
-            <th><b>Correo</b></th>
-            <th><b>Dirección</b></th>
-            <th><b>Partido</b></th>
-            <th><b>Localidad</b></th>
-            <th><b>Provincia</b></th>
-            <th><b>Tel. Línea</b></th>
-            <th><b>Tel. Celular</b></th>
-            <th><b>Interno</b></th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-            @foreach ($contactos as $contact)
-              <tr>
-                <td>{{ $contact->nomyap }}</td>
-                <td>{{ $contact->correo }}</td>
-                <td>{{ $contact->direccion }}</td>
-                <td>{{ $contact->provincia }}</td>
-                <td>{{ $contact->partido }}</td>
-                <td>{{ $contact->localidad }}</td>
-                <td>{{ $contact->tellinea }}</td>
-                <td>{{ $contact->telcel }}</td>
-                <td>{{ $contact->interno }}</td>
-                <td><center><a href="#" class="btn blue btn-small center-align">Editar</a></center></td>
-                <td><center><a href="#" class="btn red btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
-              </tr>
-            @endforeach
+      <br>
+      <div class="container-fluid">
 
-        </tbody>
-      </table>
-    </div>
-  @endif
-@endsection
+        <h3 class="center">{{ $agendas->nombre_agenda[$id] }}</h3>
+
+        <h3 class="center"></h3>
+        <div class="col s4 right">
+          <a href="{{ route('contact.create') }}" class="btn">Agregar</a>
+        </div>
+        <table class="table responsive-table table-bordered">
+          <thead>
+            <tr>
+              <th><b>Nombre y apellido</b></th>
+              <th><b>Correo</b></th>
+              <th><b>Dirección</b></th>
+              <th><b>Partido</b></th>
+              <th><b>Localidad</b></th>
+              <th><b>Provincia</b></th>
+              <th><b>Tel. Línea</b></th>
+              <th><b>Tel. Celular</b></th>
+              <th><b>Interno</b></th>
+              <th>&nbsp;</th>
+              <th>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><center><a href="#" class="btn blue btn-small center-align">Editar</a></center></td>
+                  <td><center><a href="#" class="btn red btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
+                </tr>
+
+
+          </tbody>
+        </table>
+      </div>
+    @endif
+    @endsection
+    @section('scripts')
+    <script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+    </script>
+    @endsection
