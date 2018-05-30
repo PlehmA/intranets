@@ -19,7 +19,10 @@ class AgendaController extends Controller
      */
     public function index()
     {
+        // $agendas = Agenda::all()
+        //                   ->where('id_usr_agenda', Auth::user()->id);
         //
+        // return view('directorio.agendapers', compact('agendas'));
     }
 
     /**
@@ -62,20 +65,26 @@ class AgendaController extends Controller
      * @param  \App\Agenda  $agenda
      * @return \Illuminate\Http\Response
      */
-    public function show($agenda)
+    public function show($id)
     {
-      if ($agenda != Auth::user()->id) {
+
         // code...
 
         /*$userAgenda = Agenda::where('id_usr_agenda', $id)
                             ->where('nombre_agenda', $agenda)
                             ->get();*/
+        $agenda = Agenda::all()
+                          ->where('id_usr_agenda', Auth::user()->id)
+                          ->where('id', $id);
+
         $agendas = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id);
-        return view('directorio.agendapers', compact(['userAgenda', $agenda, 'agendas']));
-      }else{
-        return redirect('directorio')->with('error', 'Usted no tiene permiso para chusmear en esa agenda');
-      }
+      // if ($agendas->id_usr_agenda != Auth::user()->id) {
+        return view('directorio.agendapers', compact(['agenda', 'agendas']));
+      //
+      // }else{
+      //   return redirect('directorio')->with('error', 'Usted no tiene permiso para chusmear en esa agenda');
+      // }
     }
 
     /**

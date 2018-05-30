@@ -4,8 +4,8 @@
     <ol class="breadcrumb">
       <li><a href="{{ route('directorio.index') }}">Agenda interna</a></li>
       <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
-      @foreach ($agendas as $agenda)
-        <li><a href="{{ action('AgendaController@show', ['Agenda' => $agenda->nombre_agenda, 'id' => Auth::user()->id]) }}">{{ $agenda->nombre_agenda }}</a></li>
+      @foreach ($agenda as $agend)
+        <li><a href="{{ action('AgendaController@show', $agend->id) }}">{{ $agend->nombre_agenda }}</a></li>
       @endforeach
       <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal!">Agenda Personalizada <i class="fas fa-plus"></i> </a></li>
     </ol>
@@ -17,53 +17,9 @@
      <form class="col s12" id="modalForm" method="GET" action="{{ route('agenda.create') }}">
        {{ csrf_field() }}
        <div class="row">
-         <div class="input-field col s6">
+         <div class="input-field col s12">
            <input id="nombre_agenda" type="text" name="nombre_agenda" class="validate" required>
            <label for="nombre_agenda">Nombre de agenda</label>
-         </div>
-         <div class="input-field col s6">
-           <input id="col1" type="text" name="col1" class="validate">
-           <label for="col1">Columna 1</label>
-         </div>
-       </div>
-       <div class="row">
-         <div class="input-field col s6">
-           <input id="col2" type="text" name="col2" class="validate">
-           <label for="col2">Columna 2</label>
-         </div>
-         <div class="input-field col s6">
-           <input id="col3" type="text" name="col3" class="validate">
-           <label for="col3">Columna 3</label>
-         </div>
-       </div>
-       <div class="row">
-         <div class="input-field col s6">
-           <input id="col4" type="text" name="col4" class="validate">
-           <label for="col4">Columna 4</label>
-         </div>
-         <div class="input-field col s6">
-           <input id="col5" type="text" name="col5" class="validate">
-           <label for="col5">Columna 5</label>
-         </div>
-       </div>
-       <div class="row">
-         <div class="input-field col s6">
-           <input id="col6" type="text" name="col6" class="validate">
-           <label for="col6">Columna 6</label>
-         </div>
-         <div class="input-field col s6">
-           <input id="col7" type="text" name="col7" class="validate">
-           <label for="col7">Columna 7</label>
-         </div>
-       </div>
-       <div class="row">
-         <div class="input-field col s6">
-           <input id="col8" type="text" name="col8" class="validate">
-           <label for="col8">Columna 8</label>
-         </div>
-         <div class="input-field col s6">
-           <input id="col9" type="text" name="col9" class="validate">
-           <label for="col9">Columna 9</label>
          </div>
        </div>
        <div class="input-field col s7">

@@ -31,9 +31,9 @@ class DirectoryController extends Controller
                                             ->email($email)
                                             ->area($area)
                                             ->paginate(15);
-      $agendas = Agenda::all()
-                        ->where('id_usr_agenda', Auth::user()->id);
-        return view('directorio.index', compact(['usuarios', 'agendas']));
+        $agenda = Agenda::all()
+                          ->where('id_usr_agenda', Auth::user()->id);
+        return view('directorio.index', compact(['usuarios', 'agenda']));
     }
 
     /**

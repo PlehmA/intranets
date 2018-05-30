@@ -4,8 +4,8 @@
     <ol class="breadcrumb">
       <li><a href="{{ route('directorio.index') }}">Agenda interna</a></li>
       <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
-      @foreach ($agendas as $agenda)
-        <li><a href="{{ action('AgendaController@show', ['Agenda' => $agenda->nombre_agenda, 'id' => Auth::user()->id]) }}">{{ $agenda->nombre_agenda }}</a></li>
+      @foreach ($agenda as $agend)
+        <li><a href="{{ action('AgendaController@show', $agend->id) }}">{{ $agend->nombre_agenda }}</a></li>
       @endforeach
       <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal!">Agenda Personalizada <i class="fas fa-plus"></i> </a></li>
     </ol>

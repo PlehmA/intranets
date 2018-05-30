@@ -29,9 +29,9 @@ class ContactController extends Controller
                                                     ->correo($correo)
                                                     ->localidad($localidad)
                                                     ->paginate(15);
-      $agendas = Agenda::all()
+      $agenda = Agenda::all()
                         ->where('id_usr_agenda', Auth::user()->id);
-        return view('contact.index', compact(['contactos', 'agendas']));
+        return view('contact.index', compact(['contactos', 'agenda']));
     }
 
     /**
