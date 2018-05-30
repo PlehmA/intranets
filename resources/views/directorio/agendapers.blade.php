@@ -52,7 +52,7 @@
 
         <h3 class="center"></h3>
         <div class="col s4 right">
-          <a href="{{ route('contact.create') }}" class="btn">Agregar</a>
+          <a href="#" class="btn btn-verde">Agregar</a>
         </div>
         <table class="table responsive-table table-bordered">
           <thead>
@@ -82,8 +82,8 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><center><a href="#" class="btn blue btn-small center-align">Editar</a></center></td>
-                  <td><center><a href="#" class="btn red btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
+                  <td><center><a href="#" class="btn btn-azul btn-small center-align">Editar</a></center></td>
+                  <td><center><a href="#" class="btn btn-rojo btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
                 </tr>
 
 

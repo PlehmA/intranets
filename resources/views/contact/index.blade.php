@@ -48,7 +48,7 @@
     <div class="container-fluid">
       <h3 class="center">Agenda externa</h3>
       <div class="col s4 right">
-        <a href="{{ route('contact.create') }}" class="btn">Agregar</a>
+        <a href="{{ route('contact.create') }}" class="btn btn-verde">Agregar</a>
       </div>
       <table class="table responsive-table table-bordered">
         <thead>
@@ -78,13 +78,36 @@
                 <td>{{ $contact->tellinea }}</td>
                 <td>{{ $contact->telcel }}</td>
                 <td>{{ $contact->interno }}</td>
-                <td><center><a href="#" class="btn blue btn-small center-align">Editar</a></center></td>
-                <td><center><a href="#" class="btn red btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
+                <td><center><a href="#" class="btn btn-azul btn-small center-align">Editar</a></center></td>
+                <td><center><a href="#" class="btn btn-rojo btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
               </tr>
             @endforeach
 
         </tbody>
       </table>
+    </div>
+    <div id="modal2" class="modal2">
+      <div class="modal-content">
+        <h4>Crear agenda</h4>
+          <hr>
+        <div class="row">
+     <form class="col s12" id="modalForm" method="GET" action="{{ route('datoscol.store') }}">
+       {{ csrf_field() }}
+       <div class="row">
+         <div class="input-field col s12">
+           <input id="nombre_agenda" type="text" name="nombre_agenda" class="validate" required>
+           <label for="nombre_agenda">Nombre de agenda</label>
+         </div>
+       </div>
+       <div class="input-field col s7">
+         <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
+           <i class="material-icons right">send</i>
+         </button>
+       </div>
+     </form>
+   </div>
+
+      </div>
     </div>
   @endif
 @endsection

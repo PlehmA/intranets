@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Agenda;
+use App\Columna;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -73,12 +74,16 @@ class AgendaController extends Controller
         /*$userAgenda = Agenda::where('id_usr_agenda', $id)
                             ->where('nombre_agenda', $agenda)
                             ->get();*/
-        $agenda = Agenda::all()
+        $agenda  = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id)
                           ->where('id', $id);
 
         $agendas = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id);
+
+        $datos   = Columna::all()->where('id_usuario', Auth::user()->id)
+                                 ->where('id_tabla', $id);
+
       // if ($agendas->id_usr_agenda != Auth::user()->id) {
         return view('directorio.agendapers', compact(['agenda', 'agendas']));
       //
@@ -105,7 +110,7 @@ class AgendaController extends Controller
      * @param  \App\Agenda  $agenda
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agenda $agenda)
+    public function update(Request $request, $id)
     {
         //
     }

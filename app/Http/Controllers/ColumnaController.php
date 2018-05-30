@@ -35,7 +35,20 @@ class ColumnaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+      $columna = new Columna;
+
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+      $columna->name = $request->name;
+
+      $columna->save();
     }
 
     /**

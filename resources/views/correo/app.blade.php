@@ -144,7 +144,7 @@
 
                 </li>
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">filter_drama</i> <p>Herramientas</p> </div>
+                  <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
                   <div class="collapsible-body">
                     <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
                     <span><a href="#">Office</a></span><hr>
@@ -184,8 +184,8 @@
                 </li>
                 @endif
                 <li onclick="location.href='{{ route('configuracion') }}'">
-                  <div class="collapsible-header"><i class="material-icons text-gray">settings</i>
-                  <p>Configuración</p></div>
+                  <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
+                  <p>Seguridad</p></div>
 
                 </li>
               </ul>

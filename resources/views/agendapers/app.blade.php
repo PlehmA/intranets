@@ -158,7 +158,7 @@ div .botonmail:hover {
 
                 </li>
                 <li>
-                  <div class="collapsible-header"><i class="material-icons">filter_drama</i> <p>Herramientas</p> </div>
+                  <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
                   <div class="collapsible-body">
                     <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
                     <span><a href="#">Office</a></span><hr>
@@ -198,8 +198,8 @@ div .botonmail:hover {
                 </li>
                 @endif
                 <li onclick="location.href='{{ route('configuracion') }}'">
-                  <div class="collapsible-header"><i class="material-icons text-gray">settings</i>
-                  <p>Configuración</p></div>
+                  <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
+                  <p>Seguridad</p></div>
 
                 </li>
               </ul>
@@ -265,7 +265,7 @@ div .botonmail:hover {
                       </div>
                       <!-- Dropdown Structure -->
                       <ul id='dropdown2' class='dropdown-content'>
-                        <li><a href="#!">Configuración</a></li>
+                        <li><a href="#!">Seguridad</a></li>
                       </ul>
                       <a class='dropdown-trigger1 green btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
                       <!-- Dropdown Structure -->
