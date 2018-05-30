@@ -13,7 +13,7 @@
       <h4>Agregar agenda</h4>
         <hr>
       <div class="row">
-   <form class="col s12" id="modalForm" method="POST" action="{{ route('agenda.create') }}">
+   <form class="col s12" id="modalForm" method="GET" action="{{ route('agenda.create') }}">
      {{ csrf_field() }}
      <div class="row">
        <div class="input-field col s6">

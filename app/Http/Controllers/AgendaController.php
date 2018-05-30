@@ -30,6 +30,7 @@ class AgendaController extends Controller
     public function create(Request $request)
     {
     try {
+      
       $nombre_agenda = $request->input('nombre_agenda');
       $col1 = $request->input('col1');
       $col2 = $request->input('col2');

@@ -16,15 +16,15 @@ class CreateAgendasTable extends Migration
         Schema::create('agendas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre_agenda');
-            $table->string('col1');
-            $table->string('col2');
-            $table->string('col3');
-            $table->string('col4');
-            $table->string('col5');
-            $table->string('col6');
-            $table->string('col7');
-            $table->string('col8');
-            $table->string('col9');
+            $table->string('col1')->nullable();
+            $table->string('col2')->nullable();
+            $table->string('col3')->nullable();
+            $table->string('col4')->nullable();
+            $table->string('col5')->nullable();
+            $table->string('col6')->nullable();
+            $table->string('col7')->nullable();
+            $table->string('col8')->nullable();
+            $table->string('col9')->nullable();
             $table->integer('id_usr_agenda');
             $table->timestamps();
         });
