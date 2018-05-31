@@ -82,8 +82,10 @@
     <td>{{ $columna->tellinea }}</td>
     <td>{{ $columna->telcel }}</td>
     <td>{{ $columna->interno }}</td>
-    <td><center><a href="{{ action('ColumnaController@destroy', $agen->id) }}" class="btn btn-azul btn-small center-align">Editar</a></center></td>
-    <td><center><a href="#" class="btn btn-rojo btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
+    <td><center><a href="{{ action('ColumnaController@destroy', $columna->id) }}" class="btn btn-azul btn-small center-align">Editar</a></center></td>
+    <td><center>
+      <form action="{{ route('datoscol.destroy', $columna->id) }}"></form>
+      <a href="" class="btn btn-rojo btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
   </tr>
 @endforeach
           </tbody>

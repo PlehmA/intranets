@@ -103,7 +103,6 @@ class ColumnaController extends Controller
     public function destroy($id)
     {
       try {
-        
         $columna = Columna::find($id);
 
         $columna = delete();
@@ -113,7 +112,6 @@ class ColumnaController extends Controller
       } catch (Exception $e) {
 
         return back()->with('error', 'No se pudo borrar el contacto. Error: '.$e->getMessage());
-
       }
 
 
