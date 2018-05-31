@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
     <!--  Material Dashboard CSS    -->
     <link href="{{ asset('css/material-dashboard.css?v=1.2.0') }}" rel="stylesheet" />
     <!--  CSS for Demo Purpose, don't include it in your project     -->
@@ -86,7 +86,6 @@
     .dropdown-content a:hover {background-color: #ddd}
 
     /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {display:block;}
 
     #myDropdown:hover{
         background-color: #d1ecf1;
@@ -245,25 +244,25 @@
                     <div class="row">
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat!">
+                        <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
                         <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
                         </a>
                       </div>
 
                       <div class="col-md-3 .botonchat">
-                        <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo!">
+                        <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo">
                         <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas!">
+                        <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda!">
+                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda">
                         <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>

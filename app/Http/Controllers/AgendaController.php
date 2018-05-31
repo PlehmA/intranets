@@ -46,7 +46,6 @@ class AgendaController extends Controller
       return back()->with('error', 'Error: '.$e->getMessage());
     }
 
-
     }
 
     /**
@@ -68,9 +67,6 @@ class AgendaController extends Controller
      */
     public function show($id)
     {
-
-        // code...
-
         /*$userAgenda = Agenda::where('id_usr_agenda', $id)
                             ->where('nombre_agenda', $agenda)
                             ->get();*/
@@ -82,10 +78,10 @@ class AgendaController extends Controller
                           ->where('id_usr_agenda', Auth::user()->id);
 
         $datos   = Columna::all()->where('id_usuario', Auth::user()->id)
-                                 ->where('id_tabla', $id);
+                                 ->where('id_agenda', $id);
 
       // if ($agendas->id_usr_agenda != Auth::user()->id) {
-        return view('directorio.agendapers', compact(['agenda', 'agendas']));
+        return view('directorio.agendapers', compact(['agenda', 'agendas', 'datos']));
       //
       // }else{
       //   return redirect('directorio')->with('error', 'Usted no tiene permiso para chusmear en esa agenda');

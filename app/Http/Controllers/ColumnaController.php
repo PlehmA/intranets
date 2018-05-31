@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Columna;
+use Auth;
 use Illuminate\Http\Request;
 
 class ColumnaController extends Controller
@@ -14,7 +15,7 @@ class ColumnaController extends Controller
      */
     public function index()
     {
-        //
+      //
     }
 
     /**
@@ -35,20 +36,28 @@ class ColumnaController extends Controller
      */
     public function store(Request $request)
     {
-      
-      $columna = new Columna;
+      try {
+        $columna = new Columna;
 
-      $columna->name = $request->name;
-      $columna->name = $request->name;
-      $columna->name = $request->name;
-      $columna->name = $request->name;
-      $columna->name = $request->name;
-      $columna->name = $request->name;
-      $columna->name = $request->name;
-      $columna->name = $request->name;
-      $columna->name = $request->name;
+        $columna->nomyap = $request->nomyap;
+        $columna->correo = $request->correo;
+        $columna->direccion = $request->direccion;
+        $columna->partido = $request->partido;
+        $columna->localidad = $request->localidad;
+        $columna->provincia = $request->provincia;
+        $columna->tellinea = $request->tellinea;
+        $columna->telcel = $request->telcel;
+        $columna->interno = $request->interno;
+        $columna->nombre_agenda = $request->nombre_agenda;
+        $columna->id_agenda = $request->id_agenda;
+        $columna->id_usuario = Auth::user()->id;
 
-      $columna->save();
+        $columna->save();
+
+        return  back()->with('success', 'Contacto creado correctamente');
+      } catch (Exception $e) {
+        return  back()->with('error', 'Error: '.$e->getMessage());
+      }
     }
 
     /**
@@ -91,8 +100,23 @@ class ColumnaController extends Controller
      * @param  \App\Columna  $columna
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Columna $columna)
+    public function destroy($id)
     {
-        //
+      try {
+        
+        $columna = Columna::find($id);
+
+        $columna = delete();
+
+        return back()->with('success', 'Contacto borrado exitosamente');
+
+      } catch (Exception $e) {
+
+        return back()->with('error', 'No se pudo borrar el contacto. Error: '.$e->getMessage());
+
+      }
+
+
+
     }
 }

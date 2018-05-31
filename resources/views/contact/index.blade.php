@@ -48,7 +48,7 @@
     <div class="container-fluid">
       <h3 class="center">Agenda externa</h3>
       <div class="col s4 right">
-        <a href="{{ route('contact.create') }}" class="btn btn-verde">Agregar</a>
+        <a href="{{ route('contact.create') }}" class="btn btn-gris">Agregar</a>
       </div>
       <table class="table responsive-table table-bordered">
         <thead>
@@ -86,7 +86,7 @@
         </tbody>
       </table>
     </div>
-    <div id="modal2" class="modal2">
+    <div id="modal1" class="modal">
       <div class="modal-content">
         <h4>Crear agenda</h4>
           <hr>
