@@ -350,6 +350,8 @@ $(document).ready(function(){
   tippy('.notas');
   tippy('.agenda');
   tippy('.agendapers');
+  tippy('.editar');
+  tippy('.borrar');
 </script>
 @yield('scripts')
 </body>

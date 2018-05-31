@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ColumnaController extends Controller
 {
+  public function __construct()
+    {
+      $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -77,9 +81,11 @@ class ColumnaController extends Controller
      * @param  \App\Columna  $columna
      * @return \Illuminate\Http\Response
      */
-    public function edit(Columna $columna)
+    public function edit($id)
     {
-        //
+      $coledit = Columna::where('id', $id)->get();
+    
+      return view('directorio.update', compact('coledit'));
     }
 
     /**
@@ -89,9 +95,11 @@ class ColumnaController extends Controller
      * @param  \App\Columna  $columna
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Columna $columna)
+    public function update(Request $request, $id)
     {
-        //
+        Columna::find($id)->update($request->all());
+
+        return back()->with('success', 'Se actualizó con exito');
     }
 
     /**
@@ -100,21 +108,15 @@ class ColumnaController extends Controller
      * @param  \App\Columna  $columna
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-      try {
+      if ($request->ajax()) {
         $columna = Columna::find($id);
+        $columna->delete();
 
-        $columna = delete();
-
-        return back()->with('success', 'Contacto borrado exitosamente');
-
-      } catch (Exception $e) {
-
-        return back()->with('error', 'No se pudo borrar el contacto. Error: '.$e->getMessage());
+        return response()->json([
+          'success' => 'El contacto fue eliminado con éxito'
+        ]);
       }
-
-
-
     }
 }

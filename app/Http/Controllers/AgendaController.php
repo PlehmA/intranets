@@ -77,8 +77,9 @@ class AgendaController extends Controller
         $agendas = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id);
 
-        $datos   = Columna::all()->where('id_usuario', Auth::user()->id)
-                                 ->where('id_agenda', $id);
+        $datos   = Columna::where('id_usuario', Auth::user()->id)
+                                 ->where('id_agenda', $id)
+                                 ->paginate(10);
 
       // if ($agendas->id_usr_agenda != Auth::user()->id) {
         return view('directorio.agendapers', compact(['agenda', 'agendas', 'datos']));

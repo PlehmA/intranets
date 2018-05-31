@@ -32,6 +32,7 @@
 
       </div>
     </div>
+    <div id="alert" class="container alert alert-success text-center" role="alert" data-dismiss="alert" style="display: none; font-size: 16px;"></div>
       @if (session('success'))
           <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
               {{ session('success') }}
@@ -49,11 +50,17 @@
           <h3 class="center">{{ $agend->nombre_agenda }}</h3>
         @endforeach
 
+<div class="row col s12">
+  <div class="col s4 left">
+    {{ $datos->render() }}
+  </div>
+  <div class="col s8 right">
+    <a href="#modal2" class="btn btn-gris modal-trigger right">Agregar contactos de agenda externa</a>
+    <a href="#modal2" class="btn btn-gris modal-trigger right">Agregar contacto</a>
+  </div>
+</div>
 
-        <h3 class="center"></h3>
-        <div class="col s4 right">
-          <a href="#modal2" class="btn btn-gris modal-trigger">Agregar</a>
-        </div>
+
         <table class="table responsive-table table-bordered">
           <thead>
             <tr>
@@ -82,15 +89,20 @@
     <td>{{ $columna->tellinea }}</td>
     <td>{{ $columna->telcel }}</td>
     <td>{{ $columna->interno }}</td>
-    <td><center><a href="{{ action('ColumnaController@destroy', $columna->id) }}" class="btn btn-azul btn-small center-align">Editar</a></center></td>
+    <td><center><a href="{{ route('datoscol.edit', $columna->id) }}" class="btn btn-azul btn-small center editar" title="Editar"><i class="material-icons">edit</i></a></center></td>
     <td><center>
-      <form action="{{ route('datoscol.destroy', $columna->id) }}"></form>
-      <a href="" class="btn btn-rojo btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
+      {!! Form::open(['method' => 'DELETE','route' => ['datoscol.destroy', $columna->id]]) !!}
+      <a href="#" class="btn btn-rojo btn-borrar center borrar" title="Borrar"><i class="material-icons">delete_forever</i></a>
+      {!! Form::close() !!}
+    </center></td>
   </tr>
 @endforeach
+
           </tbody>
         </table>
       </div>
+
+    {{ $datos->render() }}
       <div id="modal2" class="modal">
         <div class="modal-content">
           <h4>Agregar contacto</h4>
@@ -159,6 +171,29 @@
     <script>
     $(document).ready(function(){
       $('.modal').modal();
+
+      $('#alert').hide();
+      $('.btn-borrar').click(function(e){
+        e.preventDefault();
+        if ( ! confirm('¿Está seguro/a de eliminar el contacto?')) {
+          return false;
+        }
+
+        let row  = $(this).parents('tr');
+        let form = $(this).parents('form');
+        let url  = form.attr('action');
+
+        $('#alert').show();
+
+        $.post(url, form.serialize(), function(result) {
+          row.fadeOut();
+          $('#alert').html(result.success);
+          /*optional stuff to do after success */
+        }).fail(function(){
+          $('#alert').html('Algo salió mal');
+        });
+      });
     });
+
     </script>
     @endsection
