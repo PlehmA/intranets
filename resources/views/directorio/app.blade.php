@@ -319,7 +319,7 @@
 <!--  Notifications Plugin    -->
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
 <!--  Google Maps Plugin    -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
 <!-- Material Dashboard javascript methods -->
 <script src="{{ asset('js/material-dashboard.js?v=1.2.0') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->

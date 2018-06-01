@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Agenda;
 use App\Columna;
+use App\Contact;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -56,7 +57,34 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $input = $request->input("checkOk");
+      $inputagenda = $request->input("id_agenda");
+      $nombre_agenda = $request->input("nombre_agenda");
+
+     $query = Contact::whereIn('id', $input)->get();
+
+     foreach ($query as $qq) {
+       $columna = new Columna;
+
+       $columna->nomyap = $qq->nomyap;
+       $columna->correo = $qq->correo;
+       $columna->direccion = $qq->direccion;
+       $columna->provincia = $qq->provincia;
+       $columna->partido = $qq->partido;
+       $columna->localidad = $qq->localidad;
+       $columna->tellinea = $qq->tellinea;
+       $columna->telcel = $qq->telcel;
+       $columna->interno = $qq->interno;
+       $columna->id_agenda = $inputagenda;
+       $columna->id_usuario = Auth::user()->id;
+       $columna->nombre_agenda = $nombre_agenda;
+
+       $columna->save();
+
+       return back()->with('success', 'Registro cargado exitosamente');
+
+     }
+
     }
 
     /**
@@ -81,8 +109,9 @@ class AgendaController extends Controller
                                  ->where('id_agenda', $id)
                                  ->paginate(10);
 
+
       // if ($agendas->id_usr_agenda != Auth::user()->id) {
-        return view('directorio.agendapers', compact(['agenda', 'agendas', 'datos']));
+        return view('directorio.agendapers', compact(['agenda', 'agendas', 'datos', 'contactos']));
       //
       // }else{
       //   return redirect('directorio')->with('error', 'Usted no tiene permiso para chusmear en esa agenda');

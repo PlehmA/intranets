@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Directory;
 use App\User;
 use App\Agenda;
+use App\Columna;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,6 +34,8 @@ class DirectoryController extends Controller
                                             ->paginate(15);
         $agenda = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id);
+
+
         return view('directorio.index', compact(['usuarios', 'agenda']));
     }
 
@@ -54,7 +57,15 @@ class DirectoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      if ($request->ajax()) {
+        $contactocopiado = $request->all();
+
+        return response()->json([
+          'success' => 'Llego la petición'
+        ]);
+      }
+
+
     }
 
     /**

@@ -44,7 +44,7 @@
               {{ session('error') }}
           </div>
       @endif
-      <br>
+      
       <div class="container-fluid">
         @foreach ($agenda as $agend)
           <h3 class="center">{{ $agend->nombre_agenda }}</h3>
@@ -55,7 +55,7 @@
     {{ $datos->render() }}
   </div>
   <div class="col s8 right">
-    <a href="#modal2" class="btn btn-gris modal-trigger right">Agregar contactos de agenda externa</a>
+    <a href="{{ route('datoscol.show', $agend->id) }}" class="btn btn-gris right">Agregar contactos de agenda externa</a>
     <a href="#modal2" class="btn btn-gris modal-trigger right">Agregar contacto</a>
   </div>
 </div>
@@ -101,7 +101,6 @@
           </tbody>
         </table>
       </div>
-
     {{ $datos->render() }}
       <div id="modal2" class="modal">
         <div class="modal-content">
@@ -165,6 +164,8 @@
    </div>
   </div>
 </div>
+
+</div>
     @endif
     @endsection
     @section('scripts')
@@ -193,7 +194,30 @@
           $('#alert').html('Algo salió mal');
         });
       });
+
+var url = '{{ route('directorio.store') }}';
+      $('#formcheck').click(function(){
+        var checked = []
+          $("input[name='check[]']:checked").each(function ()
+          {
+              checked.push(parseInt($(this).val()));
+          });
+          $.ajaxSetup({
+          headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+          });
+           $.ajax({
+              url: url,
+             type: 'POST',
+             data: checked
+           })
+           .fail(function() {
+             console.log("error");
+           });
+      });
     });
+
 
     </script>
     @endsection

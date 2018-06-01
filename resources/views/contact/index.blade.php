@@ -44,7 +44,7 @@
               {{ session('error') }}
           </div>
       @endif
-<br>
+
     <div class="container-fluid">
       <h3 class="center">Agenda externa</h3>
       <div class="col s4 right">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Columna;
+use App\Contact;
+use App\Agenda;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -19,7 +21,7 @@ class ColumnaController extends Controller
      */
     public function index()
     {
-      //
+
     }
 
     /**
@@ -29,7 +31,7 @@ class ColumnaController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -70,9 +72,17 @@ class ColumnaController extends Controller
      * @param  \App\Columna  $columna
      * @return \Illuminate\Http\Response
      */
-    public function show(Columna $columna)
+    public function show(Columna $columna, $id)
     {
-        //
+      $contactos = Contact::orderBy('nomyap', 'ASC')->paginate(15);
+
+      $agenda  = Agenda::all()
+                        ->where('id_usr_agenda', Auth::user()->id)
+                        ->where('id', $id);
+
+
+
+      return view('directorio.agragext', compact('contactos', 'agenda'));
     }
 
     /**
@@ -84,7 +94,7 @@ class ColumnaController extends Controller
     public function edit($id)
     {
       $coledit = Columna::where('id', $id)->get();
-    
+
       return view('directorio.update', compact('coledit'));
     }
 

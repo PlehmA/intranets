@@ -34,7 +34,6 @@
 
     </div>
   </div>
-    <br>
     <div class="container">
   <h3 class="center">Agenda interna</h3>
     </div>
