@@ -15,6 +15,35 @@
         {{ session('error') }}
     </div>
 @endif
+<div class="row">
+  {{ Form::open(['route' => 'directorio.index', 'method' => 'GET', 'class' => 'col s12']) }}
+   @csrf
+    <div class="row">
+      <div class="input-field offset-s2 col s2">
+        {{ Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape']) }}
+        <label for="nom_ape">Nombre y apellido</label>
+      </div>
+      <div class="input-field col s2">
+        {{ Form::text('email', null, ['class' => 'validate', 'id' => 'email']) }}
+        <label for="email">Correo</label>
+      </div>
+      <div class="input-field col s2">
+        {{ Form::text('area', null, ['class' => 'validate', 'id' => 'area']) }}
+        <label for="area">Área</label>
+      </div>
+      <div class="input-field col s3">
+        <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
+          <i class="material-icons right">search</i>
+        </button >
+
+          <button class="btn waves-effect waves-light btn-small" type="refresh" name="action" style="background-color: #8F8E8F;">
+          <i class="material-icons" style="font-size: 2rem;">refresh</i>
+        </button>
+
+      </div>
+    </div>
+    {{ Form::close() }}
+</div>
       <h4>Agregar de agenda externa</h4>
         <hr>
       <div class="row">

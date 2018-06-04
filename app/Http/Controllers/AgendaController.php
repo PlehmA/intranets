@@ -38,7 +38,7 @@ class AgendaController extends Controller
 
       $nombre_agenda = $request->input('nombre_agenda');
       $cantAgenda = Agenda::where('id_usr_agenda', Auth::user()->id)->count();
-      if ($cantAgenda == 3) {
+      if ($cantAgenda <= 2) {
         Agenda::create([
           'nombre_agenda' => $nombre_agenda,
           'id_usr_agenda' => Auth::user()->id
@@ -152,12 +152,17 @@ return back()->with('success', 'Registro cargado exitosamente');
      * @param  \App\Agenda  $agenda
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agenda $agenda, $id)
+    public function destroy(Request $request, $id)
     {
+      if ($request->ajax()) {
         $agenda = Agenda::find($id);
 
         $agenda->delete();
 
-        return redirect('directorio.index')->with('success', 'Agenda borrada correctamente.');
+        return response()->json([
+          'success' => 'La agenda fue eliminada con éxito.'
+        ]);
+      }
+
     }
 }

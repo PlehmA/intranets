@@ -32,6 +32,7 @@
 
       </div>
     </div>
+
     <div id="alert" class="container alert alert-success text-center" role="alert" data-dismiss="alert" style="display: none; font-size: 16px;"></div>
       @if (session('success'))
           <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
@@ -44,12 +45,14 @@
               {{ session('error') }}
           </div>
       @endif
-      
+
       <div class="container-fluid">
         @foreach ($agenda as $agend)
           <h3 class="center">{{ $agend->nombre_agenda }}</h3>
         @endforeach
-
+{!! Form::open(['method' => 'DELETE','route' => ['agenda.destroy', $agend->id]]) !!}
+<a href="#" class="btn btn-rojo left btn-agendabr">Borrar agenda <i class="material-icons">delete_forever</i></a>
+{!! Form::close() !!}
 <div class="row col s12">
   <div class="col s4 left">
     {{ $datos->render() }}
@@ -216,8 +219,27 @@ var url = '{{ route('directorio.store') }}';
              console.log("error");
            });
       });
+
+
+    $('.btn-agendabr').click(function(){
+
+      if ( ! confirm('¿Está seguro/a de eliminar la agenda?')) {
+        return false;
+      }
+
+      let form = $(this).parents('form');
+      let url  = form.attr('action');
+
+      $('#alert').show();
+
+      $.post(url, form.serialize(), function(result) {
+
+        $('#alert').html(result.success);
+        /*optional stuff to do after success */
+      }).fail(function(){
+        $('#alert').html('Algo salió mal');
+      });
     });
-
-
+    });
     </script>
     @endsection
