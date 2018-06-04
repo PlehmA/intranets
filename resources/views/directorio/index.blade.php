@@ -69,11 +69,11 @@
             <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
               <i class="material-icons right">search</i>
             </button >
-            <a href="{{ route('directorio.index') }}">
+
               <button class="btn waves-effect waves-light btn-small" type="refresh" name="action" style="background-color: #8F8E8F;">
               <i class="material-icons" style="font-size: 2rem;">refresh</i>
             </button>
-          </a>
+      
           </div>
         </div>
         {{ Form::close() }}

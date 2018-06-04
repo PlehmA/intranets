@@ -220,7 +220,7 @@ div .botonmail:hover {
                       <!-- Avatar image -->
                       <div class="col-sm-2 col-md-3 dropdown">
 
-                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" style="width: 160px; height: 70px;">
+                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" id="imagenPerf">
 
                         <div class="dropdown-content">
                           <img src="winlogo.png" alt="Windows Logo" width="300" height="200">

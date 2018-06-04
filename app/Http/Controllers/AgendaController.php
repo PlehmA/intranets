@@ -154,7 +154,7 @@ return back()->with('success', 'Registro cargado exitosamente');
      */
     public function destroy(Agenda $agenda, $id)
     {
-        $agenda = Agenda::find($id)
+        $agenda = Agenda::find($id);
 
         $agenda->delete();
 

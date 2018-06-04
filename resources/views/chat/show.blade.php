@@ -12,7 +12,7 @@
     	<div id="sidepanel">
     		<div id="profile">
     			<div class="wrap">
-    				<img id="profile-img" src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" class="online" alt="" />
+    				<img id="profile-img" src="{{ url(Auth::user()->foto) }}" class="online" alt="" />
     				<p>{{ Auth::user()->name }}</p>
 
     				<div id="status-options">
@@ -66,7 +66,7 @@
             @foreach ($messages as $message)
               @if ($message->user_envia_id == Auth::user()->id && $message->user_recibe_id == $usuario->id)
                 <li class="replies">
-        					<img src="{{ asset('storage/'.Auth::user()->username.'.jpg') }}" alt="" />
+        					<img src="{{ asset(Auth::user()->foto) }}" alt="" />
         					<p>{{ $message->mensaje }}</p>
         				</li>
               @endif

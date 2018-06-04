@@ -5,7 +5,7 @@
     	<div id="sidepanel">
     		<div id="profile">
     			<div class="wrap">
-    				<img id="profile-img" src="{{ url('storage/'.Auth::user()->username.'.jpg') }}" class="online" alt="" />
+    				<img id="profile-img" src="{{ url(Auth::user()->foto) }}" class="online" alt="" />
     				<p>{{ Auth::user()->name }}</p>
 
     				<div id="status-options">
