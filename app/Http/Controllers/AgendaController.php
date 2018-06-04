@@ -152,8 +152,12 @@ return back()->with('success', 'Registro cargado exitosamente');
      * @param  \App\Agenda  $agenda
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agenda $agenda)
+    public function destroy(Agenda $agenda, $id)
     {
-        //
+        $agenda = Agenda::find($id)
+
+        $agenda->delete();
+
+        return redirect('directorio.index')->with('success', 'Agenda borrada correctamente.');
     }
 }
