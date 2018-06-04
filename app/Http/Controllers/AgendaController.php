@@ -37,12 +37,18 @@ class AgendaController extends Controller
     try {
 
       $nombre_agenda = $request->input('nombre_agenda');
+      $cantAgenda = Agenda::where('id_usr_agenda', Auth::user()->id)->count();
+      if ($cantAgenda == 3) {
         Agenda::create([
           'nombre_agenda' => $nombre_agenda,
           'id_usr_agenda' => Auth::user()->id
         ]);
 
         return back()->with('success', 'Agenda creada correctamente.');
+      }else {
+        return back()->with('error', 'Ya tiene 3 agendas, no puede crear mas.');
+      }
+
     } catch (Exception $e) {
       return back()->with('error', 'Error: '.$e->getMessage());
     }
@@ -58,11 +64,11 @@ class AgendaController extends Controller
     public function store(Request $request)
     {
       $input = $request->input("checkOk");
-      $inputagenda = $request->input("id_agenda");
-      $nombre_agenda = $request->input("nombre_agenda");
+
 
      $query = Contact::whereIn('id', $input)->get();
-
+     $inputagenda = $request->input("id_agenda");
+     $nombre_agenda = $request->input("nombre_agenda");
      foreach ($query as $qq) {
        $columna = new Columna;
 
@@ -78,13 +84,12 @@ class AgendaController extends Controller
        $columna->id_agenda = $inputagenda;
        $columna->id_usuario = Auth::user()->id;
        $columna->nombre_agenda = $nombre_agenda;
-
        $columna->save();
 
-       return back()->with('success', 'Registro cargado exitosamente');
 
      }
 
+return back()->with('success', 'Registro cargado exitosamente');
     }
 
     /**
