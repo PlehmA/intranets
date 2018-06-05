@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video-js.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.3.10/plyr.css">
 
 </head>
 
@@ -150,6 +150,18 @@ div .botonmail:hover {
 .back-azul {
   background-color: #7FA1CA;
 }
+#menuScroll::-webkit-scrollbar {
+    width: 1em;
+}
+
+#menuScroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#menuScroll::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -198,7 +210,7 @@ div .botonmail:hover {
                     <p>Agenda</p></div>
 
                   </li>
-                  <li onclick="#">
+                <li onclick="location.href='{{ route('dashboard') }}'">
                     <div class="collapsible-header"><i class="material-icons">event</i>
                     <p>Novedades</p></div>
 
@@ -272,7 +284,9 @@ div .botonmail:hover {
                       <!-- Avatar image -->
                       <div class="col-sm-2 col-md-3 dropdown">
 
-                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" id="imagenPerf">
+                        <a href="{{ route('configuracion') }}" id="imagenPerf">
+                          <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive">
+                        </a>
 
                         <div class="dropdown-content">
                           <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
@@ -324,8 +338,8 @@ div .botonmail:hover {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/ar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
+<script src="https://cdn.plyr.io/3.3.10/plyr.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -367,5 +381,6 @@ tippy('.correo');
 tippy('.notas');
 tippy('.agenda');
 </script>
+<script>const player = new Plyr('#player');</script>
 </body>
 </html>

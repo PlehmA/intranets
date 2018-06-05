@@ -1,6 +1,10 @@
 @extends('directorio.app')
 @section('content')
   @if (Auth::check())
+    @foreach ($coledit as $co)
+
+    @endforeach
+    <a href="{{ route('agenda.show', $co->id_agenda) }}" class="btn btn-gris right">Volver</a>
     <h4 class="center">Actualizar contacto</h4>
       <hr>
     <div class="row">
@@ -9,11 +13,11 @@
         {{ csrf_field() }}
         <div class="row">
           <div class="input-field col s5 offset-s3">
-            <input id="nomyap" type="text" class="validate" required name="nomyap">
+            <input id="nomyap" type="text" class="validate" name="nomyap">
             <label for="nomyap">{{ $col->nomyap }}</label>
           </div>
         <div class="input-field col s5 offset-s3">
-          <input id="correo" type="text" class="validate" required name="correo">
+          <input id="correo" type="text" class="validate" name="correo">
           <label for="correo">{{ $col->correo }}</label>
         </div>
         <div class="input-field col s5 offset-s3">

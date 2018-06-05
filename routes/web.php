@@ -67,3 +67,5 @@ Route::resource('tutos', 'TutorialController');
 Route::resource('agenda', 'AgendaController');
 
 Route::resource('datoscol', 'ColumnaController');
+
+Route::resource('officecalc', 'OfficecalcController');

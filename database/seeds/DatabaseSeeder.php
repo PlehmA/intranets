@@ -213,6 +213,191 @@ class DatabaseSeeder extends Seeder
           'telcel' => '15234658535',
           'interno' => '-',
         ]);
-
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\1-Intro.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\2-Que_es_calc.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\3-Componentes_de_Office_calc.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\4-Como_moverse_en_Office_calc.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\5-Seleccion_de_celdas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\6-Insertar_filas_o_columnas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\7-Uso_de_hojas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\8-Fijar_filas_o_columnas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\9-Introducir_correctamente_informacion.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\10-Relleno_de_celdas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\11-Multiples_lineas_de_texto_en_unica_celda.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\12-Formatos_de_numeros.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\13-Formatos_de_celdas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\14-Ordenar_datos.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\15-Herramienta_busqueda.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\16-Tablas_y_graficos.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\17-Tablas_y_graficos_parte_2.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\18-Estilos_en_calc.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\19-Estilos_en_calc_parte_2.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\20-Estilos_en_calc_parte_3.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\21-Estilos_en_calc_parte_4.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\22-Plantillas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\23-Plantillas_parte_2.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\24-Imagenes.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\25-Imagenes_parte_2.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\26-Exportar_a_otros_formatos.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\27-Exportar_a_pdf.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\28-Funciones.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\29-Formulas.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\30-Operaciones.mp4',
+          'id_programa' => '1'
+        ]);
+        DB::table('tutorials')->insert([
+          'titulo'      => 'Introducción',
+          'foto_video'  => 'img/libreoffice_calc.png',
+          'video'       => 'videos\office_calc\31-Ejercicio_practico_Factura.mp4',
+          'id_programa' => '1'
+        ]);
     }
 }

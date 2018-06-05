@@ -17,7 +17,7 @@
 @endif
 <div class="row">
   {{ Form::open(['route' => 'directorio.index', 'method' => 'GET', 'class' => 'col s12']) }}
-   @csrf
+   {{ csrf_field() }}
     <div class="row">
       <div class="input-field offset-s2 col s2">
         {{ Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape']) }}

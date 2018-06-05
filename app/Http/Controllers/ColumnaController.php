@@ -107,9 +107,13 @@ class ColumnaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Columna::find($id)->update($request->all());
+        $columna1 = Columna::find($id);
 
-        return back()->with('success', 'Se actualizó con exito');
+        $columna1 = $request->all();
+
+        $columna1->save();
+
+        return redirect('datoscol.update', $id)->with('success', 'Se actualizó con exito');
     }
 
     /**

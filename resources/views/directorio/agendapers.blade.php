@@ -230,11 +230,9 @@ var url = '{{ route('directorio.store') }}';
       let form = $(this).parents('form');
       let url  = form.attr('action');
 
-      $('#alert').show();
-
       $.post(url, form.serialize(), function(result) {
-
-        $('#alert').html(result.success);
+        window.location='{{route('directorio.index')}}';
+        alert(result.success);
         /*optional stuff to do after success */
       }).fail(function(){
         $('#alert').html('Algo salió mal');

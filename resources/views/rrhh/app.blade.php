@@ -186,7 +186,7 @@ div .botonmail:hover {
                   <p>Agenda</p></div>
 
                 </li>
-                <li onclick="#">
+                <li onclick="location.href='{{ route('dashboard') }}'">
                   <div class="collapsible-header"><i class="material-icons">event</i>
                   <p>Novedades</p></div>
 
@@ -251,8 +251,9 @@ div .botonmail:hover {
                       <!-- Avatar image -->
                       <div class="col-sm-2 col-md-3 dropdown">
 
-                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" id="imagenPerf">
-
+                        <a href="{{ route('configuracion') }}" id="imagenPerf">
+                          <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive">
+                        </a>
                         <div class="dropdown-content">
                           <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
                           <div class="desc">Microsoft's OS Logo since Windows 8</div>

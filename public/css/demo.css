@@ -178,6 +178,18 @@ background-color: #e0e0e0;
 }
 
 #imagenPerf {
-  width: 20vh;
-  
+  width: 7vh;
+  height: 7vh;
+  margin-right: 100px;
+  border-radius: 50%;
+
+}
+#imagenPerf img {
+  width: 7vh;
+  height: 7vh;
+
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+  max-width: initial;
+  display: initial;
 }
