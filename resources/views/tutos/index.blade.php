@@ -1,38 +1,86 @@
 @extends('tutos.app')
+@section('css')
+  <style>
+    .page-header {
+      height: 10vh;
+    }
+
+    a h6 {
+      color: #737373;
+    }
+  </style>
+@endsection
 @section('content')
   @if (Auth::check())
-    <div class="col-sm-6">
-      <ul class="collection">
-        <a href="{{ route('officecalc.index') }}">
-          <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
-            <img src="{{ asset('img/LibreOffice_Writer.png') }}" alt="" class="circle">
-            <span class="title">Tutoriales de Libre Office writer</span>
-            <p>Material para el uso adecuado de Libre Office writer</p>
-          </li>
-        </a>
-    <a href="#">
-      <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
-        <img src="{{ asset('img/libreoffice_calc.png') }}" alt="" class="circle">
-        <span class="title">Tutoriales de Libre Office calc</span>
-        <p>Material para el uso adecuado de Libre Office calc</p>
-      </li>
-    </a>
-    <a href="#">
-      <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
-        <img src="{{ asset('img/LibreOffice_Impress.svg') }}" alt="" class="circle">
-        <span class="title">Tutoriales de Libre Office impress</span>
-        <p>Material para el uso adecuado de Libre Office impress</p>
-      </li>
-    </a>
-    <a href="#">
-      <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0;">
-        <img src="{{ asset('img/LibreOffice_Base.svg') }}" alt="" class="circle">
-        <span class="title">Tutoriales de Libre Office base</span>
-        <p>Material para el uso adecuado de Libre Office base</p>
-      </li>
-    </a>
-      </ul>
-    </div>
+
+        <div class="container">
+          <div class="page-header">
+            <h3 class="text-center">Tutoriales</h3>
+            <hr>
+          </div>
+          <div class="row">
+
+            <div class="col-md-4 animated fadeIn">
+              <a href="">
+
+                <div class="center">
+                  <img src="{{ asset('img/LibreOffice_Writer.png') }}" alt="" class="img-responsive">
+                  <h6>Libre Office Writer</h6>
+                </div>
+
+              </a>
+            </div>
+
+            <div class="col-md-4 animated fadeIn">
+              <a href="{{ route('officecalc.index') }}">
+
+                <div class="center">
+                  <img src="{{ asset('img/libreoffice_calc.png') }}" alt="" class="img-responsive">
+                  <h6>Libre Office Calc</h6>
+                </div>
+
+              </a>
+            </div>
+
+            <div class="col-md-4 animated fadeIn">
+              <a href="">
+
+                <div class="center">
+                  <img src="{{ asset('img/LibreOffice_Impress.png') }}" alt="" class="img-responsive">
+                  <h6>Libre Office Impress</h6>
+                </div>
+
+              </a>
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-4 animated fadeIn">
+
+              <a href="">
+
+                <div class="center">
+                  <img src="{{ asset('img/LibreOffice_Base.png') }}" alt="" class="img-responsive">
+                  <h6>Libre Office Base</h6>
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+
+          </div>
+        </div>
+
   @endif
 
 @endsection

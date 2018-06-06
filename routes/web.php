@@ -69,3 +69,9 @@ Route::resource('agenda', 'AgendaController');
 Route::resource('datoscol', 'ColumnaController');
 
 Route::resource('officecalc', 'OfficecalcController');
+
+Route::resource('officewriter', 'OfficewriterController');
+
+Route::resource('officebase', 'OfficebaseController');
+
+Route::resource('officeimpress', 'OfficeimpressController');

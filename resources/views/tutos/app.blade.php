@@ -150,19 +150,9 @@ div .botonmail:hover {
 .back-azul {
   background-color: #7FA1CA;
 }
-#menuScroll::-webkit-scrollbar {
-    width: 1em;
-}
 
-#menuScroll::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-
-#menuScroll::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
-}
 </style>
+@yield('css')
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
         <!--
@@ -382,5 +372,6 @@ tippy('.notas');
 tippy('.agenda');
 </script>
 <script>const player = new Plyr('#player');</script>
+@yield('script')
 </body>
 </html>
