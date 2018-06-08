@@ -424,176 +424,176 @@ class DatabaseSeeder extends Seeder
         DB::table('officewriters')->insert([
           'titulo'      => '1.Interfaz del usuario.',
           'foto_video'  => 'img/writer/1.png',
-          'video'       => 'videos\office_calc\1-Intro.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer/1-Interfaz_de_usuario.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '2.¿Qué es Calc?',
           'foto_video'  => 'img/writer/2.png',
-          'video'       => 'videos\office_calc\2-Que_es_calc.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\2-Interfaz_de_usuario_parte_2.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '3.Componentes de Office Calc.',
           'foto_video'  => 'img/writer/3.png',
-          'video'       => 'videos\office_calc\3-Componentes_de_Office_calc.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\3-Abrir_documentos.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '4.Cómo moverse en Office Calc.',
           'foto_video'  => 'img/writer/4.png',
-          'video'       => 'videos\office_calc\4-Como_moverse_en_Office_calc.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\4-Propiedades_de_un_documento.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '5.Selección de celdas.',
           'foto_video'  => 'img/writer/5.png',
-          'video'       => 'videos\office_calc\5-Seleccion_de_celdas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\5-Textos.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '6.Insertar filas o columnas.',
           'foto_video'  => 'img/writer/6.png',
-          'video'       => 'videos\office_calc\6-Insertar_filas_o_columnas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\6_Copiar_y_pegar.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '7.Uso de hojas.',
           'foto_video'  => 'img/writer/7.png',
-          'video'       => 'videos\office_calc\7-Uso_de_hojas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\7-Busqueda_y_remplazo.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '8.Fijar filas o columnas.',
           'foto_video'  => 'img/writer/8.png',
-          'video'       => 'videos\office_calc\8-Fijar_filas_o_columnas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\8-formatodetexto.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '9.Introducir correctamente información.',
           'foto_video'  => 'img/writer/9.png',
-          'video'       => 'videos\office_calc\9-Introducir_correctamente_informacion.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\9-formatoparrafo.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '10.Relleno de celdas.',
           'foto_video'  => 'img/writer/10.png',
-          'video'       => 'videos\office_calc\10-Relleno_de_celdas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\10-listas.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '11.Múltiples líneas de texto en única celda.',
           'foto_video'  => 'img/writer11png',
-          'video'       => 'videos\office_calc\11-Multiples_lineas_de_texto_en_unica_celda.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\11-estilos.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '12.Formatos de números.',
           'foto_video'  => 'img/writer/12.png',
-          'video'       => 'videos\office_calc\12-Formatos_de_numeros.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\12-estilosyformato.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '13.Formatos de celdas.',
           'foto_video'  => 'img/writer/13.png',
-          'video'       => 'videos\office_calc\13-Formatos_de_celdas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\13-estilosdeparrafo.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '14.Ordenar datos.',
           'foto_video'  => 'img/writer/14.png',
-          'video'       => 'videos\office_calc\14-Ordenar_datos.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\14-estilosauntexto.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '15.Herramienta busqueda.',
           'foto_video'  => 'img/writer/15.png',
-          'video'       => 'videos\office_calc\15-Herramienta_busqueda.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\15-estilosdepagina.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '16.Tablas y gráficos.',
           'foto_video'  => 'img/writer/16.png',
-          'video'       => 'videos\office_calc\16-Tablas_y_graficos.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\16-imagenes.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '17.Tablas y gráficos parte 2',
           'foto_video'  => 'img/writer/17.png',
-          'video'       => 'videos\office_calc\17-Tablas_y_graficos_parte_2.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\17-imagenesparte2.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '18.Estilos en Calc.',
           'foto_video'  => 'img/writer/18.png',
-          'video'       => 'videos\office_calc\18-Estilos_en_calc.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\18-tablas.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '19.Estilos en Calc parte 2.',
           'foto_video'  => 'img/writer/19.png',
-          'video'       => 'videos\office_calc\19-Estilos_en_calc_parte_2.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\19-operacionesytablas.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '20.Estilos en Calc parte 3.',
           'foto_video'  => 'img/writer/20.png',
-          'video'       => 'videos\office_calc\20-Estilos_en_calc_parte_3.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\20-insertarfilasycolumnas.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '21.Estilos en Calc parte 4.',
           'foto_video'  => 'img/writer/21.png',
-          'video'       => 'videos\office_calc\21-Estilos_en_calc_parte_4.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\21-dividirceldas.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '22.Plantillas.',
           'foto_video'  => 'img/writer/22.png',
-          'video'       => 'videos\office_calc\22-Plantillas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\22-bordesyfondos.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '23.Plantillas parte 2.',
           'foto_video'  => 'img/writer/23.png',
-          'video'       => 'videos\office_calc\23-Plantillas_parte_2.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\23-formatotabla.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '24.Imágenes.',
           'foto_video'  => 'img/writer/24.png',
-          'video'       => 'videos\office_calc\24-Imagenes.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\24-ordenardatos.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '25.Imágenes parte 2.',
           'foto_video'  => 'img/writer/25.png',
-          'video'       => 'videos\office_calc\25-Imagenes_parte_2.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\25-plantillas.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '26.Exportar a otros formatos.',
           'foto_video'  => 'img/writer/26.png',
-          'video'       => 'videos\office_calc\26-Exportar_a_otros_formatos.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\26-crearplantillas.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '27.Exportar a Pdf.',
           'foto_video'  => 'img/writer/27.png',
-          'video'       => 'videos\office_calc\27-Exportar_a_pdf.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\27-encabezadoypiedepagina.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '28.Funciones.',
           'foto_video'  => 'img/writer/28.png',
-          'video'       => 'videos\office_calc\28-Funciones.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\28-Funciones.mp4',
+          'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '29.Fórmulas.',
           'foto_video'  => 'img/writer/29.png',
-          'video'       => 'videos\office_calc\29-Formulas.mp4',
-          'id_programa' => '1'
+          'video'       => 'videos\office_writer\29-Formulas.mp4',
+          'id_programa' => '2'
         ]);
         ########################### ACA SE MANEJA LA PARTE DE OFFICE IMPRESS ########################################################
         ########################### ###############################################################################################
@@ -607,5 +607,20 @@ class DatabaseSeeder extends Seeder
         ########################### ACA SE MANEJA LA PARTE DE OFFICE IMPRESS#########################################################
         ########################### ###############################################################################################
         ########################### ACA SE MANEJA LA PARTE DE OFFICE IMPRESS#######################################################
+
+
+        ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE ########################################################
+        ########################### ###############################################################################################
+        ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE########################################################
+        ########################### ###############################################################################################
+        ########################### ###############################################################################################
+        ########################### ###############################################################################################
+        ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE#########################################################
+        ########################### ###############################################################################################
+        ########################### ###############################################################################################
+        ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE#########################################################
+        ########################### ###############################################################################################
+        ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE#######################################################
     }
+
 }
