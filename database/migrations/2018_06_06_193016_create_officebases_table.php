@@ -15,6 +15,10 @@ class CreateOfficebasesTable extends Migration
     {
         Schema::create('officebases', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_programa');
+            $table->string('titulo');
+            $table->string('foto_video');
+            $table->string('video');
             $table->timestamps();
         });
     }

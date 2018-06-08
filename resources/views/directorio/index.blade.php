@@ -7,7 +7,7 @@
       @foreach ($agenda as $agend)
         <li><a href="{{ action('AgendaController@show', $agend->id) }}">{{ $agend->nombre_agenda }}</a></li>
       @endforeach
-      <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal">Agenda Personalizada <i class="fas fa-plus"></i> </a></li>
+      <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal">Crear agenda <i class="fas fa-plus"></i> </a></li>
     </ol>
 
   <!-- Modal Structure -->
@@ -69,11 +69,6 @@
             <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
               <i class="material-icons right">search</i>
             </button >
-
-              <button class="btn waves-effect waves-light btn-small" type="refresh" name="action" style="background-color: #8F8E8F;">
-              <i class="material-icons" style="font-size: 2rem;">refresh</i>
-            </button>
-      
           </div>
         </div>
         {{ Form::close() }}

@@ -141,16 +141,27 @@ div .botonmail:hover {
     height: 700px;
     overflow-y: auto;
 }
-.back-colorado {
+* {
+  font-family: 'lunchtype21regular';
+}
+.btn-rojo {
   background-color: #DB6F7D;
 }
-.back-verde {
+.btn-verde {
+  background-color: #95C086;
+}
+.btn-azul {
   background-color: #7FA1CA;
 }
-.back-azul {
-  background-color: #7FA1CA;
+.btn-gris {
+  background-color: #8F8E8F;
 }
-
+.btn-gris:hover {
+  background-color: #adadad;
+}
+.input-group-btn {
+  font-size: 67px;
+}
 </style>
 @yield('css')
 <div class="wrapper">
@@ -177,7 +188,6 @@ div .botonmail:hover {
                     <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
                     <div class="collapsible-body">
                       <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
-                      <span><a href="#">Office</a></span><hr>
                       <span><a href="#">Organigrama corporativo</a></span><hr>
                       <span><a href="#">Plantillas</a></span>
                     </div>
@@ -299,13 +309,13 @@ div .botonmail:hover {
                 </div>
             </div>
         </nav>
-        <div class="content">
+
             <div class="container-fluid">
 
                 @yield('content')
 
             </div>
-        </div>
+
     </div>
 </div>
 <!--   Core JS Files   -->
@@ -372,6 +382,32 @@ tippy('.notas');
 tippy('.agenda');
 </script>
 <script>const player = new Plyr('#player');</script>
+<script>
+$(document).ready(function(){
+$('#buscador').keyup(function(){
+   var nombres = $('.nombres');
+   var buscando = $(this).val();
+   var item='';
+   for( var i = 0; i < nombres.length; i++ ){
+       item = $(nombres[i]).html().toLowerCase();
+       item = item.replace(new RegExp(/\s/g),"");
+       item = item.replace(new RegExp(/[àáâãäå]/g),"a");
+       item = item.replace(new RegExp(/[èéêë]/g),"e");
+       item = item.replace(new RegExp(/[ìíîï]/g),"i");
+       item = item.replace(new RegExp(/ñ/g),"n");
+       item = item.replace(new RegExp(/[òóôõö]/g),"o");
+       item = item.replace(new RegExp(/[ùúûü]/g),"u");
+        for(var x = 0; x < item.length; x++ ){
+            if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
+                $(nombres[i]).parents('.collection').show();
+            }else{
+                 $(nombres[i]).parents('.collection').hide();
+            }
+        }
+   }
+});
+});
+</script>
 @yield('script')
 </body>
 </html>

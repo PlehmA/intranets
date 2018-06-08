@@ -7,7 +7,7 @@
       @foreach ($agendas as $agen)
         <li><a href="{{ action('AgendaController@show', $agen->id) }}">{{ $agen->nombre_agenda }}</a></li>
       @endforeach
-      <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal!">Agenda Personalizada <i class="fas fa-plus"></i> </a></li>
+      <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal!">Crear agenda <i class="fas fa-plus"></i> </a></li>
     </ol>
     <div id="modal1" class="modal">
       <div class="modal-content">
@@ -50,6 +50,7 @@
         @foreach ($agenda as $agend)
           <h3 class="center">{{ $agend->nombre_agenda }}</h3>
         @endforeach
+
 {!! Form::open(['method' => 'DELETE','route' => ['agenda.destroy', $agend->id]]) !!}
 <a href="#" class="btn btn-rojo left btn-agendabr">Borrar agenda <i class="material-icons">delete_forever</i></a>
 {!! Form::close() !!}
@@ -58,9 +59,34 @@
     {{ $datos->render() }}
   </div>
   <div class="col s8 right">
-    <a href="{{ route('datoscol.show', $agend->id) }}" class="btn btn-gris right">Agregar contactos de agenda externa</a>
+    <a href="{{ route('datoscol.show', $agend->id) }}" class="btn btn-gris right">Importar contactos</a>
     <a href="#modal2" class="btn btn-gris modal-trigger right">Agregar contacto</a>
   </div>
+</div>
+
+<div class="row">
+  {{ Form::open(['route' => 'directorio.index', 'method' => 'GET', 'class' => 'col s12']) }}
+   @csrf
+    <div class="row">
+      <div class="input-field offset-s2 col s2">
+        {{ Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape']) }}
+        <label for="nom_ape">Nombre y apellido</label>
+      </div>
+      <div class="input-field col s2">
+        {{ Form::text('email', null, ['class' => 'validate', 'id' => 'email']) }}
+        <label for="email">Correo</label>
+      </div>
+      <div class="input-field col s2">
+        {{ Form::text('area', null, ['class' => 'validate', 'id' => 'area']) }}
+        <label for="area">Área</label>
+      </div>
+      <div class="input-field col s3">
+        <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
+          <i class="material-icons right">search</i>
+        </button >
+      </div>
+    </div>
+    {{ Form::close() }}
 </div>
 
 

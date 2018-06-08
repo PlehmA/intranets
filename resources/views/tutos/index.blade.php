@@ -24,8 +24,7 @@
               <a href="">
 
                 <div class="center">
-                  <img src="{{ asset('img/LibreOffice_Writer.png') }}" alt="" class="img-responsive">
-                  <h6>Libre Office Writer</h6>
+                  <img src="{{ asset('img/Writer.png') }}" alt="" class="img-responsive">
                 </div>
 
               </a>
@@ -35,8 +34,8 @@
               <a href="{{ route('officecalc.index') }}">
 
                 <div class="center">
-                  <img src="{{ asset('img/libreoffice_calc.png') }}" alt="" class="img-responsive">
-                  <h6>Libre Office Calc</h6>
+                  <img src="{{ asset('img/Calc.png') }}" alt="" class="img-responsive">
+
                 </div>
 
               </a>
@@ -46,8 +45,8 @@
               <a href="">
 
                 <div class="center">
-                  <img src="{{ asset('img/LibreOffice_Impress.png') }}" alt="" class="img-responsive">
-                  <h6>Libre Office Impress</h6>
+                  <img src="{{ asset('img/Impress.png') }}" alt="" class="img-responsive">
+
                 </div>
 
               </a>
@@ -62,16 +61,24 @@
               <a href="">
 
                 <div class="center">
-                  <img src="{{ asset('img/LibreOffice_Base.png') }}" alt="" class="img-responsive">
-                  <h6>Libre Office Base</h6>
+                  <img src="{{ asset('img/Base.png') }}" alt="" class="img-responsive">
+
                 </div>
 
               </a>
 
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 animated fadeIn">
+              <a href="">
 
+                <div class="center">
+
+                  <img src="{{ asset('img/Correo.png') }}" alt="" class="img-responsive">
+
+                </div>
+
+              </a>
             </div>
 
             <div class="col-md-4">

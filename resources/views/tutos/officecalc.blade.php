@@ -91,7 +91,7 @@
 .scrollbar-default::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-  background-color: #2BBBAD; }
+  background-color: #8F8E8F; }
 
 .scrollbar-secondary::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
@@ -109,11 +109,39 @@
 .collection {
   margin-top: -5px;
 }
+a .material-icons {
+  vertical-align: initial;
+}
+.btn-gris {
+  margin-top: 4vh;
+}
+.form-group.is-focused .form-control {
+  background-image: none;
+  border-bottom: none;
+}
+* {
+  border-bottom: initial;
+}
 </style>
 @endsection
 @section('content')
   @if (Auth::check())
 <div class="container-fluid"> {{-- Empieza el contenedor --}}
+
+<div class="row" style="margin-bottom: 0px;">
+  <div class="col-sm-9">
+<a href="{{ route('tutos.index') }}" class="btn btn-gris btn-small">Volver</a>
+  </div>
+
+<div class="col-sm-3">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Buscar..." id="buscador">
+      <span class="input-group-btn" style="margin-top: 1vh;">
+         <i class="material-icons">search</i>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div>
 
 @foreach ($calcoffice as $offcalc)
 <div class="row">
@@ -124,15 +152,15 @@
 </video>
 
   </div>
-  <div class="right col s3 scrollbar scrollbar-default" style="height: 50vh;">
+  <div class="right col s3 scrollbar scrollbar-default" style="height: 59vh;">
     <div class="force-overflow">
 @foreach ($calcmenu as $menu)
 
     <ul class="collection">
       <a href="{{ $calcoffice->url($menu->id) }}">
-        <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0; background-color: #ddd; color: #444;">
+        <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0; background-color: #ddd; color: #444; min-height: 70px;">
           <img src="{{ asset($menu->foto_video) }}" alt="" class="circle">
-          <b><span class="title">{{ $menu->titulo }}</span></b>
+          <b><span class="title nombres">{{ $menu->titulo }}</span></b>
         </li>
       </a>
     </ul>
@@ -142,15 +170,11 @@
   </div>
   <div class="col s3 container">
     <ul class="pagination">
-        <li class="waves-effect"><a href="{{ $calcoffice->previousPageUrl() }}">Anterior</a></li>
+        <li class="waves-effect"><a href="{{ $calcoffice->previousPageUrl() }}" class="anterior" title="Video anterior"><i class="material-icons">skip_previous</i></a></li>
         <li class="waves-effect"><a href="{{ $calcoffice->url($calcoffice->currentPage()) }}">{{ $calcoffice->currentPage() }}</a></li>
-        <li class="waves-effect"><a href="{{ $calcoffice->nextPageUrl() }}">Siguiente</a></li>
+        <li class="waves-effect"><a href="{{ $calcoffice->nextPageUrl() }}" class="siguiente" title="Siguiente video"><i class="material-icons">skip_next</i></a></li>
       </ul>
   </div>
-</div>
-
-<div class="col s12">
-<b><p class="flow-text left">{{ $offcalc->titulo }}</p></b>
 </div>
 
 @endforeach
@@ -159,5 +183,8 @@
   @endif
   @endsection
   @section('script')
-
+    <script>
+    tippy('.anterior');
+    tippy('.siguiente');
+    </script>
   @endsection

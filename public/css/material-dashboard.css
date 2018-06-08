@@ -2834,7 +2834,7 @@ fieldset[disabled] .form-group .form-control {
 }
 
 .form-group.is-focused .form-control .material-input:after {
-    background-color: #9c27b0;
+    background-color: #AAAAAA;
 }
 
 .form-group.is-focused.form-info .form-control {
