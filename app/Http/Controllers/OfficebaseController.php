@@ -17,9 +17,9 @@ class OfficebaseController extends Controller
      */
     public function index()
     {
-      $calcoffice = Tutorial::where('id_programa', 1)->paginate(1);
-      $calcmenu   = Tutorial::where('id_programa', 1)->get();
-      return view('tutos.officecalc', compact(['calcoffice', 'calcmenu']));
+      $baseoffice = Officebase::where('id_programa', 4)->paginate(1);
+      $basemenu   = Officebase::where('id_programa', 4)->get();
+      return view('tutos.officebase', compact(['baseoffice', 'basemenu']));
     }
 
     /**

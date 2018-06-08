@@ -17,8 +17,8 @@ class OfficewriterController extends Controller
      */
     public function index()
     {
-      $wroffice = Tutorial::where('id_programa', 1)->paginate(1);
-      $wrmenu   = Tutorial::where('id_programa', 1)->get();
+      $wroffice = Officewriter::where('id_programa', 2)->paginate(1);
+      $wrmenu   = Officewriter::where('id_programa', 2)->get();
       return view('tutos.officewr', compact(['wroffice', 'wrmenu']));
     }
 

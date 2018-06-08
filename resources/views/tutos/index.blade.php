@@ -21,7 +21,7 @@
           <div class="row">
 
             <div class="col-md-4 animated fadeIn">
-              <a href="">
+              <a href="{{ route('officewriter.index') }}">
 
                 <div class="center">
                   <img src="{{ asset('img/Writer.png') }}" alt="" class="img-responsive">
@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-md-4 animated fadeIn">
-              <a href="">
+              <a href="{{ route('officeimpress.index') }}">
 
                 <div class="center">
                   <img src="{{ asset('img/Impress.png') }}" alt="" class="img-responsive">
@@ -58,7 +58,7 @@
 
             <div class="col-md-4 animated fadeIn">
 
-              <a href="">
+              <a href="{{ route('officebase.index') }}">
 
                 <div class="center">
                   <img src="{{ asset('img/Base.png') }}" alt="" class="img-responsive">

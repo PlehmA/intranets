@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Officebase;
+use App\Officeimpress;
 use Illuminate\Http\Request;
 
 class OfficeimpressController extends Controller
@@ -17,9 +17,9 @@ class OfficeimpressController extends Controller
      */
     public function index()
     {
-      $calcoffice = Tutorial::where('id_programa', 1)->paginate(1);
-      $calcmenu   = Tutorial::where('id_programa', 1)->get();
-      return view('tutos.officecalc', compact(['calcoffice', 'calcmenu']));
+      $impoffice = Officeimpress::where('id_programa', 3)->paginate(1);
+      $impmenu   = Officeimpress::where('id_programa', 3)->get();
+      return view('tutos.officeimpress', compact(['impoffice', 'impmenu']));
     }
 
     /**

@@ -460,7 +460,7 @@ class DatabaseSeeder extends Seeder
           'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
-          'titulo'      => '7.Busqueda y remplazo.',
+          'titulo'      => '7.Búsqueda y remplazo.',
           'foto_video'  => 'img/writer/7.png',
           'video'       => 'videos\office_writer\7-Busqueda_y_remplazo.mp4',
           'id_programa' => '2'
@@ -472,7 +472,7 @@ class DatabaseSeeder extends Seeder
           'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
-          'titulo'      => '9.Formato de parrafo.',
+          'titulo'      => '9.Formato de párrafo.',
           'foto_video'  => 'img/writer/9.png',
           'video'       => 'videos\office_writer\9-formatoparrafo.mp4',
           'id_programa' => '2'
@@ -496,7 +496,7 @@ class DatabaseSeeder extends Seeder
           'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
-          'titulo'      => '13.Estilos de parrafo.',
+          'titulo'      => '13.Estilos de párrafo.',
           'foto_video'  => 'img/writer/13.png',
           'video'       => 'videos\office_writer\13-estilosdeparrafo.mp4',
           'id_programa' => '2'
@@ -514,13 +514,13 @@ class DatabaseSeeder extends Seeder
           'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
-          'titulo'      => '16.Imagenes.',
+          'titulo'      => '16.Imágenes.',
           'foto_video'  => 'img/writer/16.png',
           'video'       => 'videos\office_writer\16-imagenes.mp4',
           'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
-          'titulo'      => '17.Imagenes parte 2',
+          'titulo'      => '17.Imágenes parte 2',
           'foto_video'  => 'img/writer/17.png',
           'video'       => 'videos\office_writer\17-imagenesparte2.mp4',
           'id_programa' => '2'
@@ -580,7 +580,7 @@ class DatabaseSeeder extends Seeder
           'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
-          'titulo'      => '27.Encabezado y pie de pagina.',
+          'titulo'      => '27.Encabezado y pie de página.',
           'foto_video'  => 'img/writer/27.png',
           'video'       => 'videos\office_writer\27-encabezadoypiedepagina.mp4',
           'id_programa' => '2'
@@ -592,7 +592,7 @@ class DatabaseSeeder extends Seeder
           'id_programa' => '2'
         ]);
         DB::table('officewriters')->insert([
-          'titulo'      => '29.Documento completo.',
+          'titulo'      => '29.Documento.',
           'foto_video'  => 'img/writer/29.png',
           'video'       => 'videos\office_writer\29-Documentocompleto.mp4',
           'id_programa' => '2'
@@ -610,6 +610,138 @@ class DatabaseSeeder extends Seeder
         ########################### ###############################################################################################
         ########################### ACA SE MANEJA LA PARTE DE OFFICE IMPRESS#######################################################
 
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '1.Introducción.',
+          'foto_video'  => 'img/impress/1.png',
+          'video'       => 'videos\office_impress/1-Introduccion.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '2.Interfaz',
+          'foto_video'  => 'img/impress/2.png',
+          'video'       => 'videos\office_impress\2-Interfaz.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '3.Diapositivas.',
+          'foto_video'  => 'img/impress/3.png',
+          'video'       => 'videos\office_impress\3-Diapositivas.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '4.Panel de tareas.',
+          'foto_video'  => 'img/impress/4.png',
+          'video'       => 'videos\office_impress\4-Panel_de_tareas.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '5.Zona de trabajo.',
+          'foto_video'  => 'img/impress/5.png',
+          'video'       => 'videos\office_impress\5-Zona_de_trabajo.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '6.Presentación.',
+          'foto_video'  => 'img/impress/6.png',
+          'video'       => 'videos\office_impress\6-Presentacion.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '7.Formato presentación.',
+          'foto_video'  => 'img/impress/7.png',
+          'video'       => 'videos\office_impress\7-Formato_presentacion.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '8.Movimiento.',
+          'foto_video'  => 'img/impress/8.png',
+          'video'       => 'videos\office_impress\8-Movimiento.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '9.Transiciones.',
+          'foto_video'  => 'img/impress/9.png',
+          'video'       => 'videos\office_impress\9-Transiciones.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '10.Animar presentaciones.',
+          'foto_video'  => 'img/impress/10.png',
+          'video'       => 'videos\office_impress\10-Animar_presentaciones.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '11.Diapositivas maestras.',
+          'foto_video'  => 'img/impress11png',
+          'video'       => 'videos\office_impress\11-Diapositivas_maestras.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '12.Estilos.',
+          'foto_video'  => 'img/impress/12.png',
+          'video'       => 'videos\office_impress\12-Estilos.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '13.Plantillas.',
+          'foto_video'  => 'img/impress/13.png',
+          'video'       => 'videos\office_impress\13-Plantillas.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '14.Administración de plantillas.',
+          'foto_video'  => 'img/impress/14.png',
+          'video'       => 'videos\office_impress\14-Administracion_de_plantillas.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '15.Trabajando con texto.',
+          'foto_video'  => 'img/impress/15.png',
+          'video'       => 'videos\office_impress\15-Trabajando_con_texto.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '16.Tablas.',
+          'foto_video'  => 'img/impress/16.png',
+          'video'       => 'videos\office_impress\16-Tablas.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '17.Imágenes.',
+          'foto_video'  => 'img/impress/17.png',
+          'video'       => 'videos\office_impress\17-Imagenes.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '18.Frontwork.',
+          'foto_video'  => 'img/impress/18.png',
+          'video'       => 'videos\office_impress\18-Frontwork.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '19.Hojas de cálculo.',
+          'foto_video'  => 'img/impress/19.png',
+          'video'       => 'videos\office_impress\19-Hojas_de_calculo.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '20.Gráficas.',
+          'foto_video'  => 'img/impress/20.png',
+          'video'       => 'videos\office_impress\20-Graficas.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '21.Exportación.',
+          'foto_video'  => 'img/impress/21.png',
+          'video'       => 'videos\office_impress\21-Exportacion.mp4',
+          'id_programa' => '3'
+        ]);
+        DB::table('officeimpresses')->insert([
+          'titulo'      => '22.Presentación.',
+          'foto_video'  => 'img/impress/22.png',
+          'video'       => 'videos\office_impress\22-Presentacion.mp4',
+          'id_programa' => '3'
+        ]);
 
         ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE ########################################################
         ########################### ###############################################################################################
@@ -623,6 +755,85 @@ class DatabaseSeeder extends Seeder
         ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE#########################################################
         ########################### ###############################################################################################
         ########################### ACA SE MANEJA LA PARTE DE OFFICE BASE#######################################################
+
+        DB::table('officebases')->insert([
+          'titulo'      => '1.Introducción.',
+          'foto_video'  => 'img/base/1.png',
+          'video'       => 'videos\office_base/1-Introduccion.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '2.Interfaz',
+          'foto_video'  => 'img/base/2.png',
+          'video'       => 'videos\office_base\2-Interfaz.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '3.Tablas.',
+          'foto_video'  => 'img/base/3.png',
+          'video'       => 'videos\office_base\3-Tablas.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '4.Asistente de tablas.',
+          'foto_video'  => 'img/base/4.png',
+          'video'       => 'videos\office_base\4-Asistentedetablas.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '5.Copiar tablas.',
+          'foto_video'  => 'img/base/5.png',
+          'video'       => 'videos\office_base\5-Copiartablas.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '6.Registros.',
+          'foto_video'  => 'img/base/6.png',
+          'video'       => 'videos\office_base\6-Registros.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '7.Formularios.',
+          'foto_video'  => 'img/base/7.png',
+          'video'       => 'videos\office_base\7-Formularios.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '8.Formularios parte 2.',
+          'foto_video'  => 'img/base/8.png',
+          'video'       => 'videos\office_base\8-Formulariosparte2.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '9.Cosultas.',
+          'foto_video'  => 'img/base/9.png',
+          'video'       => 'videos\office_base\9-Cosultas.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '10.Informes.',
+          'foto_video'  => 'img/base/10.png',
+          'video'       => 'videos\office_base\10-Informes.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '11.Documentación.',
+          'foto_video'  => 'img/base11png',
+          'video'       => 'videos\office_base\11-Documentacion.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '12.Recursos.',
+          'foto_video'  => 'img/base/12.png',
+          'video'       => 'videos\office_base\12-Recursos.mp4',
+          'id_programa' => '4'
+        ]);
+        DB::table('officebases')->insert([
+          'titulo'      => '13.Personalización.',
+          'foto_video'  => 'img/base/13.png',
+          'video'       => 'videos\office_base\13-Personalizacion.mp4',
+          'id_programa' => '4'
+        ]);
     }
 
 }
