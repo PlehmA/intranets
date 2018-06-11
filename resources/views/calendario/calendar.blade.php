@@ -95,8 +95,9 @@
     </div>
     <div class="modal-body">
       <form action="{{ route('calendar.store') }}" method="POST" id="formularito">
+        {{ csrf_field() }}
         <div class="input-field col s6">
-          <input placeholder="Nombre del evento." id="title" type="text" class="validate">
+          <input placeholder="Nombre del evento." id="title" type="text" class="validate" required>
           <label for="title">Título</label>
         </div>
         <div class="input-field col s6">
@@ -115,6 +116,25 @@
           <input placeholder="" id="time" type="time" class="validate" value="10:50:30">
           <label for="time">Hora del evento</label>
         </div>
+        <div class="input-field col s6">
+        <p>  ¿El evento dura todo el día? </p>
+        <div class="row">
+          <p>
+            <label>
+              <input class="with-gap" name="allday" type="radio"  value="true" required/>
+              <span>Si</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input class="with-gap" name="allday" type="radio"  value="false" required/>
+              <span>No</span>
+            </label>
+          </p>
+
+        </div>
+
+        </div>
         <div class="row">
           <div class="input-field col s6">
             Color del evento:
@@ -125,12 +145,10 @@
             <input id="icon_prefix" type="color" class="validate" name="text-color" value="#ffffff">
           </div>
         </div>
-
-
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn grey" form="#formularito">Agregar Evento</button>
+      <button type="submit" class="btn grey" form="formularito">Agregar Evento</button>
       <button type="button" class="btn grey darken-3">Borrar</button>
     </div>
   </div>
