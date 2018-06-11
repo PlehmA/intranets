@@ -10,7 +10,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width" />
   <!-- Bootstrap core CSS     -->
-  <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
   <!--  Material Dashboard CSS    -->
   <link href="{{ asset('css/material-dashboard.css?v=1.2.0') }}" rel="stylesheet" />
   <!--  CSS for Demo Purpose, don't include it in your project     -->
@@ -101,7 +101,9 @@ div .botonmail:hover {
     bottom: 0;
     margin: -23px;
 }
+
 </style>
+@yield('css')
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
         <!--
@@ -340,7 +342,20 @@ $(document).ready(function() {
         BotonEvento: {
           text: "Agregar Evento",
           click: function(){
-            $('#modal1').modal();
+            var modal = document.getElementById('myModal');
+            var span = document.getElementsByClassName("close")[0];
+            modal.style.display = "block";
+
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                  modal.style.display = "none";
+              }
+            }
           },
         }
       },
@@ -355,7 +370,7 @@ $(document).ready(function() {
           });
         },
         dayClick: function(date, jsEvent, view) {
-          $("#myModal").modal();
+          alert('Hiciste click');
           },
       // select: function(start, end, allDay) {
       //   var title = prompt('Nombre del evento:');
@@ -380,23 +395,6 @@ $(document).ready(function() {
 
 </script>
 @yield('jsscript')
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 </body>
 </html>

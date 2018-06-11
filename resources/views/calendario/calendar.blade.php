@@ -1,43 +1,115 @@
 @extends('calendario.app')
-@section('content')
+@section('css')
+<style>
 
-<a href="#modal1" class="modal-trigger">modal</a>
+
+  * {
+    font-family: 'lunchtype21regular';
+  }
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    max-height: 100%;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #adadad;
+    color: #222222;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal .modal-header .close {
+  color: #222222;
+}
+</style>
+@endsection
+
+@section('content')
 
 <div id='calendar'></div>
 
+<div id="myModal" class="modal">
 
-<div id="modal1" class="modal">
+  <!-- Modal content -->
   <div class="modal-content">
-    <h4>Crear agenda</h4>
-      <hr>
-    <div class="row">
- <form class="col s12" id="modalForm" method="GET" action="{{ route('agenda.create') }}">
-   {{ csrf_field() }}
-   <div class="row">
-     <div class="input-field col s12">
-       <input id="nombre_agenda" type="text" name="nombre_agenda" class="validate" required>
-       <label for="nombre_agenda">Nombre de agenda</label>
-     </div>
-   </div>
-   <div class="input-field col s7">
-     <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
-       <i class="material-icons right">send</i>
-     </button>
-   </div>
- </form>
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Crear evento</h2>
+    </div>
+    <div class="modal-body">
+      <p>Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn grey">Agregar Evento</button>
+      <button type="button" class="btn grey lighten-1">Modificar</button>
+      <button type="button" class="btn grey darken-3">Borrar</button>
+    </div>
+  </div>
+
 </div>
 
-  </div>
-</div>
-    @endsection
+@endsection
+
 @section('jsscript')
+
   <script>
       const eventos = {!! json_encode($eventos) !!};
       console.log(eventos);
   </script>
-  <script>
-    $(document).ready(function() {
-      $('.modal').modal();
-    });
-  </script>
+
 @endsection
