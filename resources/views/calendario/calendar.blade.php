@@ -66,7 +66,7 @@
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #c3c3c3;
+    background-color: #f7f7f7;
     color: #222222;
 }
 
@@ -91,33 +91,46 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Crear evento</h2>
+      <h4>Crear evento</h4>
     </div>
     <div class="modal-body">
-      <form action="">
+      <form action="{{ route('calendar.store') }}" method="POST" id="formularito">
         <div class="input-field col s6">
-          <input placeholder="Nombre del evento." id="first_name" type="text" class="validate">
-          <label for="first_name">Título</label>
+          <input placeholder="Nombre del evento." id="title" type="text" class="validate">
+          <label for="title">Título</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Opcional" id="first_name" type="text" class="validate">
-          <label for="first_name">Descripción</label>
+          <input placeholder="Opcional" id="descripcion" type="text" class="validate">
+          <label for="descripcion">Descripción</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Opcional" id="first_name" type="date" class="validate">
-          <label for="first_name">Fecha de inicio</label>
+          <input placeholder="Fecha de evento" id="start" type="date" class="validate" min="2012" max="2088">
+          <label for="start">Fecha de inicio</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Opcional" id="first_name" type="date" class="validate">
-          <label for="first_name">Fecha de fin</label>
+          <input placeholder="" id="end" type="date" class="validate" min="2012" max="2088">
+          <label for="end">Fecha de fin</label>
         </div>
-        <input type="date" class="datepicker">
-        <input type="time" class="timepicker" value="{{ date('H:i:s') }}">
+        <div class="input-field col s6">
+          <input placeholder="" id="time" type="time" class="validate" value="10:50:30">
+          <label for="time">Hora del evento</label>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            Color del evento:
+            <input id="icon_prefix" type="color" class="validate" name="color">
+          </div>
+          <div class="input-field col s6">
+            Color del texto:
+            <input id="icon_prefix" type="color" class="validate" name="text-color" value="#ffffff">
+          </div>
+        </div>
+
+
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn grey">Agregar Evento</button>
-      <button type="button" class="btn grey lighten-1">Modificar</button>
+      <button type="button" class="btn grey" form="#formularito">Agregar Evento</button>
       <button type="button" class="btn grey darken-3">Borrar</button>
     </div>
   </div>
@@ -133,10 +146,12 @@
 
 $(document).ready(function() {
 
-    var date = new Date();
-    var d = date.getDate();
-    var m = date.getMonth();
-    var y = date.getFullYear();
+
+    //
+    // var date = new Date();
+    // var d = date.getDate();
+    // var m = date.getMonth();
+    // var y = date.getFullYear();
 
     var calendar = $('#calendar').fullCalendar({
       locale: 'es',
@@ -152,9 +167,11 @@ $(document).ready(function() {
       customButtons: {
         BotonEvento: {
           text: "Agregar Evento",
-          click: function(){
+          click: function(date, jsEvent, view){
+
             var modal = document.getElementById('myModal');
             var span = document.getElementsByClassName("close")[0];
+
             modal.style.display = "block";
 
             span.onclick = function() {
@@ -172,15 +189,10 @@ $(document).ready(function() {
       },
       selectable: true,
       selectHelper: true,
-        eventRender: function(event, element){
-          element.popover({
-              animation:true,
-              delay: 300,
-              content: '<b>Inicio</b>:'+event.start+"<b>Fin</b>:"+event.end,
-              trigger: 'hover'
-          });
-        },
+
         dayClick: function(date, jsEvent, view) {
+          $('#start').val(date.format());
+
           var modal = document.getElementById('myModal');
           var span = document.getElementsByClassName("close")[0];
           modal.style.display = "block";
