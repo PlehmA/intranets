@@ -15,10 +15,13 @@ class CreateCalendarsTable extends Migration
     {
         Schema::create('calendars', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tittle');
-            $table->date('start');
-            $table->date('end');
-            $table->boolean('allDay');
+            $table->string('title');
+            $table->text('descripcion')->nullable();
+            $table->dateTime('start')->nullable();
+            $table->dateTime('end')->nullable();
+            $table->string('color')->nullable();
+            $table->string('text-color')->nullable();
+            $table->boolean('allDay')->nullable();
             $table->timestamps();
         });
     }

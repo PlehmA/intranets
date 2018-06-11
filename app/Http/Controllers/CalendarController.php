@@ -22,6 +22,6 @@ class CalendarController extends Controller
     {
       $events = \App\Calendar::all();
 
-      return response()->json();
+      return $events;
     }
 }
