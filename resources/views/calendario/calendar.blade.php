@@ -1,13 +1,9 @@
 @extends('calendario.app')
 @section('css')
 <style>
-
-
   * {
     font-family: 'lunchtype21regular';
   }
-
-
 .modal {
     display: none;
     position: fixed;
@@ -22,28 +18,13 @@
     background-color: rgba(0,0,0,0.4);
     max-height: 100%;
 }
-
 /* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 40%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
+.modal-content { position: relative; background-color: #fefefe; margin: auto; padding: 0; border: 1px solid #888; width: 40%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);  -webkit-animation-name: animatetop; -webkit-animation-duration: 0.4s; animation-name: animatetop; animation-duration: 0.4s}
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
-
 @keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
@@ -56,33 +37,23 @@
     font-size: 28px;
     font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
-
 .modal-header {
     padding: 2px 16px;
     background-color: #f7f7f7;
     color: #222222;
 }
-
 .modal-body {padding: 2px 16px;}
-
-.modal .modal-header .close {
-  color: #222222;
-}
-.input-field.col label {
-  left: 0;
-}
+.modal .modal-header .close { color: #222222;}
+.input-field.col label { left: 0;}
 </style>
 @endsection
-
 @section('content')
-
 <div id='calendar'></div>
 
 <div id="myModal" class="modal">
@@ -101,15 +72,15 @@
           <label for="title">Título</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Opcional" id="descripcion" type="text" class="validate">
+          <textarea name="descripcion" rows="8" cols="80" placeholder="Opcional" id="descripcion" class="materialize-textarea"></textarea>
           <label for="descripcion">Descripción</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Fecha de evento" id="start" type="date" class="validate" min="2012" max="2088">
+          <input id="start" type="date" class="validate" min="2012" max="2088">
           <label for="start">Fecha de inicio</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="" id="end" type="date" class="validate" min="2012" max="2088">
+          <input id="end" type="date" class="validate" min="2012" max="2088">
           <label for="end">Fecha de fin</label>
         </div>
         <div class="input-field col s6">
@@ -138,23 +109,43 @@
         <div class="row">
           <div class="input-field col s6">
             Color del evento:
-            <input id="icon_prefix" type="color" class="validate" name="color">
+            <input id="color" type="color" class="validate" name="color" value="#1197C1">
           </div>
           <div class="input-field col s6">
             Color del texto:
-            <input id="icon_prefix" type="color" class="validate" name="text-color" value="#ffffff">
+            <input id="text-color" type="color" class="validate" name="text-color" value="#FFFFFF">
           </div>
         </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn grey" form="formularito">Agregar Evento</button>
-      <button type="button" class="btn grey darken-3">Borrar</button>
+      <button type="submit" class="btn grey" id="btn-agregar">Agregar Evento</button>
     </div>
   </div>
 
 </div>
 
+
+<div id="myModal1" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <div id="tituloEvent"></div>
+    </div>
+    <div class="modal-body" id="contenidoEvent"></div>
+    <div class="modal-footer">
+      <form action="" id="formci" method="DELETE">
+        {{ csrf_field() }}
+        <a href="#" class="btn grey" data-id="" id="btnBorrar">Borrar evento</a>
+      </form>
+
+
+    </div>
+  </div>
+
+</div>
 @endsection
 
 @section('jsscript')
@@ -163,8 +154,6 @@
        var eventoShow = {!! json_encode($eventos) !!};
 
 $(document).ready(function() {
-
-
     //
     // var date = new Date();
     // var d = date.getDate();
@@ -225,29 +214,79 @@ $(document).ready(function() {
                 modal.style.display = "none";
             }
           }
+
           },
-      // select: function(start, end, allDay) {
-      //   var title = prompt('Nombre del evento:');
-      //   if (title) {
-      //     calendar.fullCalendar('renderEvent',
-      //       {
-      //         title: title,
-      //         start: start,
-      //         end: end,
-      //         allDay: allDay
-      //       },
-      //       true // make the event "stick"
-      //     );
-      //   }
-      //   calendar.fullCalendar('unselect');
-      // },
+
       editable: true,
       events: eventoShow,
+      eventClick: function(calEvent, jsEvent, view) {
+
+
+          var modal = document.getElementById('myModal1');
+          var span = document.getElementsByClassName("close")[0];
+          modal.style.display = "block";
+
+          $('.close').click(function(){
+            $('#myModal1').css("display", "none");
+          });
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+          }
+
+          $('#tituloEvent').html("<h4>Evento: "+calEvent.title+"</h4>");
+          $('#contenidoEvent').html("<p>Fecha de evento: "+calEvent.start._i+"</p><br><p>"+calEvent.descripcion+"</p>");
+
+          $('#btnBorrar').attr('data-id', calEvent.id);
+
+
+  },
 
 
 
     });
+var NuevoEvento;
+$('#btn-agregar').click(function() {
 
+$('#calendar').fullCalendar('renderEvent', NuevoEvento);
+$('#myModal').css("display", "none");
+});
+
+function RecolectarDatosGUI(){
+  NuevoEvento = {
+    title:  $('#title').val(),
+    descripcion:  $('#descripcion').val(),
+    start:  $('#start').val()+" "+$('#time').val(),
+    end:  $('#end').val(),
+    allday:  $('#allday').val(),
+    color:  $('#color').val(),
+    textcolor:  $('#text-color').val(),
+  }
+}
+
+$('#btnBorrar').click(function() {
+  var idEvent = $(this).attr('data-id');
+  var url = 'calendar/'+idEvent;
+  $.ajax({
+    url: url,
+    headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  },
+    type: 'DELETE',
+  })
+  .done(function(response) {
+    $('#myModal1').css("display", "none");
+    $('#calendar').reload();
+    // alert('Evento borrado exitosamente');
+  })
+  .fail(function() {
+    alert("Algo salió mal");
+  });
+
+ });
   });
 
 </script>

@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 <link rel='stylesheet' href='{{ asset('css/fullcalendar.css') }}' />
+<link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
 </head>
 
 <body>
@@ -88,19 +89,7 @@ div .botonmail:hover {
   -o-transform:scale(1.25);
   transform:scale(1.25);
 }
-.carousel.carousel-slider {
-    top: 0;
-    left: 0;
-    margin-top: 100px;
-}
-.carousel .indicators {
-    position: absolute;
-    text-align: center;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: -23px;
-}
+
 
 </style>
 @yield('css')
@@ -282,11 +271,7 @@ div .botonmail:hover {
 
     });
 </script>
-<script>
-  $(document).ready(function() {
-    $(".dropdown").on("click", .dropdown());
-  });
-</script>
+
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
 

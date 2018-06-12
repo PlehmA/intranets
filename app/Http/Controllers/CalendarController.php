@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use \App\Calendar;
+use Auth;
 use Illuminate\Http\Request;
 
 class CalendarController extends Controller
@@ -18,10 +19,15 @@ class CalendarController extends Controller
         return view('calendario.calendar', compact('eventos'));
     }
 
-    public function show()
+    public function destroy(Request $request, $id)
     {
-      $events = \App\Calendar::all();
+      if ($request->ajax()) {
+        $evento = Calendar::find($id);
+        $evento->delete();
 
-      return $events;
+        return response()->json([
+          'success' => 'Borrado correctamente',
+        ]);
+      }
     }
 }

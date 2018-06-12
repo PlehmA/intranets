@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
 </head>
 
 <body>

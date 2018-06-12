@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
   <link rel="stylesheet" href="https://cdn.plyr.io/3.3.10/plyr.css">
+  <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
 
 </head>
 
