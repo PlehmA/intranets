@@ -50,7 +50,6 @@
 }
 .modal-body {padding: 2px 16px;}
 .modal .modal-header .close { color: #222222;}
-.input-field.col label { left: 0;}
 </style>
 @endsection
 @section('content')
@@ -65,10 +64,10 @@
       <h4>Crear evento</h4>
     </div>
     <div class="modal-body">
-      <form action="{{ route('calendar.store') }}" method="POST" id="formularito">
+      <form action="" method="POST" id="formularito">
         {{ csrf_field() }}
         <div class="input-field col s6">
-          <input placeholder="Nombre del evento." id="title" type="text" class="validate" required>
+          <input placeholder="Nombre del evento." id="title" type="text" class="validate" name="title" required>
           <label for="title">Título</label>
         </div>
         <div class="input-field col s6">
@@ -76,16 +75,22 @@
           <label for="descripcion">Descripción</label>
         </div>
         <div class="input-field col s6">
-          <input id="start" type="date" class="validate" min="2012" max="2088">
+          <input id="start" type="date" class="validate" min="2012" max="2088" name="start">
           <label for="start">Fecha de inicio</label>
         </div>
         <div class="input-field col s6">
-          <input id="end" type="date" class="validate" min="2012" max="2088">
+          <input id="end" type="date" class="validate" min="2012" max="2088" name="end">
           <label for="end">Fecha de fin</label>
         </div>
+
+
         <div class="input-field col s6">
-          <input placeholder="" id="time" type="time" class="validate" value="10:50:30">
-          <label for="time">Hora del evento</label>
+          <input placeholder="" id="timeStart" type="time" class="validate" value="00:00:00" name="startime" min="00:00:00" max="23:59:59" list="">
+          <label for="timeStart">Hora de inicio</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="" id="timeEnd" type="time" class="validate" value="" name="endtime">
+          <label for="timeEnd">Hora de fin</label>
         </div>
         <div class="input-field col s6">
         <p>  ¿El evento dura todo el día? </p>
@@ -113,13 +118,13 @@
           </div>
           <div class="input-field col s6">
             Color del texto:
-            <input id="text-color" type="color" class="validate" name="text-color" value="#FFFFFF">
+            <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
           </div>
         </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn grey" id="btn-agregar">Agregar Evento</button>
+      <button type="submit" class="btn grey" id="btn-agregar" form="formularito">Agregar Evento</button>
     </div>
   </div>
 
@@ -248,24 +253,45 @@ $(document).ready(function() {
 
 
     });
-var NuevoEvento;
-$('#btn-agregar').click(function() {
+
+    var form = $('#formularito').serialize();
+    var dir = '/calendar/';
+
+$('#formularito').submit(function(e) {
+e.preventDefault();
+var horaStart = $('#timeStart').val();
+var horaEnd =$('#timeEnd').val();
+
+var NuevoEvento = {
+    title:  $('#title').val(),
+    descripcion:  $('#descripcion').val(),
+    start:  $('#start').val()+" "+horaStart,
+    end:  $('#end').val()+" "+horaEnd,
+    allday:  $('#allday').val(),
+    color:  $('#color').val(),
+    textcolor:  $('#textcolor').val(),
+  }
 
 $('#calendar').fullCalendar('renderEvent', NuevoEvento);
 $('#myModal').css("display", "none");
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
 });
 
-function RecolectarDatosGUI(){
-  NuevoEvento = {
-    title:  $('#title').val(),
-    descripcion:  $('#descripcion').val(),
-    start:  $('#start').val()+" "+$('#time').val(),
-    end:  $('#end').val(),
-    allday:  $('#allday').val(),
-    color:  $('#color').val(),
-    textcolor:  $('#text-color').val(),
-  }
-}
+console.log(form);
+ $.post(dir, form, function(result) {
+   alert(result.success);
+   /*optional stuff to do after success */
+ }).fail(function(){
+   alert('Algo salió mal');
+ });
+});
+
+
+
+
 
 $('#btnBorrar').click(function() {
   var idEvent = $(this).attr('data-id');
@@ -279,7 +305,7 @@ $('#btnBorrar').click(function() {
   })
   .done(function(response) {
     $('#myModal1').css("display", "none");
-    $('#calendar').reload();
+    window.setTimeout('location.reload()', 1);
     // alert('Evento borrado exitosamente');
   })
   .fail(function() {
