@@ -17,6 +17,7 @@
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
     max-height: 100%;
+    overflow: visible;
 }
 /* Modal Content */
 .modal-content { position: relative; background-color: #fefefe; margin: auto; padding: 0; border: 1px solid #888; width: 40%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);  -webkit-animation-name: animatetop; -webkit-animation-duration: 0.4s; animation-name: animatetop; animation-duration: 0.4s}
@@ -52,6 +53,9 @@
 .modal .modal-header .close { color: #222222;}
 #contenidoEvent p {
   font-size: 18px;
+}
+#calendar {
+      overflow: visible;
 }
 </style>
 @endsection
@@ -123,13 +127,14 @@
             <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
           </div>
         </div>
-        <div class="input-field col s12">
-          <input placeholder="Nombre del evento." id="title" type="text" class="validate" name="title" required>
-          <label for="title">Título</label>
-        </div>
+        <div class="input-field col s10" id="emailcito">
+          <input id="email" type="email" class="validate" name="email[]">
+          <label for="title">¿A quién desea notificar del evento?</label>
 
+        </div>
     </div>
     <div class="modal-footer">
+      <a class="btn grey" id="btnadd">Agregar</a>
       <button type="submit" class="btn grey" id="btn-agregar" form="formularito">Agregar Evento</button>
     </div>
   </div>
@@ -254,7 +259,6 @@ $(document).ready(function() {
   },
 
 
-
     });
 
 $('#btnBorrar').click(function() {
@@ -277,6 +281,13 @@ $('#btnBorrar').click(function() {
   });
 
  });
+
+ $('#btnadd').click(function() {
+   $('#emailcito').append('<input id="email" type="email" class="validate" name="email[]">')
+ });
+
+
+
   });
 
 </script>
