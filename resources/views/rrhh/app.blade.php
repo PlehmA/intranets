@@ -139,6 +139,9 @@ div .botonmail:hover {
   -o-transform:scale(1.25);
   transform:scale(1.25);
 }
+#agenda {
+  margin-left: -3px;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -177,7 +180,7 @@ div .botonmail:hover {
 
                 </li>
                 <li onclick="location.href='{{ route('calendar.index') }}'">
-                  <div class="collapsible-header"><i class="material-icons">library_books</i>
+                  <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
                   <p>Calendario</p></div>
 
                 </li>
@@ -220,27 +223,27 @@ div .botonmail:hover {
                     </button>
                     <div class="row">
 
-                      <div class="col-md-3">
+                      <div class="col-md-2">
                         <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
                         <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
                         </a>
                       </div>
 
-                      <div class="col-md-3 .botonchat">
+                      <div class="col-md-2 .botonchat">
                         <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo">
                         <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
                         </a>
                       </div>
 
-                      <div class="col-md-3">
+                      <div class="col-md-2">
                         <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 
-                      <div class="col-md-3">
+                      <div class="col-md-2">
                         <a class="navbar-brand but-menu agenda" href="{{ route('directorio') }}" title="Agenda">
-                        <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
+                        <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 

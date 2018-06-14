@@ -22,28 +22,32 @@ class CalendarController extends Controller
 
     public function store(Request $request)
     {
-      if ($request->ajax()) {
-
-        $calendar = new Calendar;
-
-        $calendar->id_usuario = Auth::user()->id;
-        $calendar->title = $request->input('title');
-        $calendar->descripcion = $request->input('descripcion');
-        $calendar->start = $request->input('start')." ".$request->input('startime');
-        $calendar->end = $request->input('end')." ".$request->input('endtime');
-        $calendar->color = $request->input('color');
-        $calendar->textcolor = $request->input('textcolor');
-        $calendar->allDay = $request->input('allDay');
-
-        $calendar->save();
-
-        return back()->json([
-          'success' => 'Cargo Bien'
-        ]);
 
 
+         $calendar = new Calendar;
 
-      }
+         $calendar->id_usuario = Auth::user()->id;
+         $calendar->title = $request->input('title');
+         if ($request->input('descripcion') == "") {
+           $calendar->descripcion = 'Sin descripción';
+         }else {
+           $calendar->descripcion = $request->input('descripcion');
+         }
+         $calendar->start = $request->input('start')." ".$request->input('startime');
+         if ($request->input('end') == "") {
+           $calendar->end = null;
+         }else {
+           $calendar->end = $request->input('end')." ".$request->input('endtime');
+         }
+         $calendar->color = $request->input('color');
+         $calendar->textcolor = $request->input('textcolor');
+         $calendar->allday = $request->input('allday');
+         $calendar->save();
+         return back()->with('success', 'Evento agregado correctamente');
+
+
+
+
 
     }
 

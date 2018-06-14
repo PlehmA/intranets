@@ -8,7 +8,7 @@
     display: none;
     position: fixed;
     z-index: 6;
-    padding-top: 100px;
+    padding-top: 20px;
     left: 0;
     top: 0;
     width: 100%;
@@ -50,13 +50,16 @@
 }
 .modal-body {padding: 2px 16px;}
 .modal .modal-header .close { color: #222222;}
+#contenidoEvent p {
+  font-size: 18px;
+}
 </style>
 @endsection
 @section('content')
 <div id='calendar'></div>
 
 <div id="myModal" class="modal">
-
+<form action="{{ action('CalendarController@store') }}" method="POST" id="formularito">
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
@@ -64,7 +67,7 @@
       <h4>Crear evento</h4>
     </div>
     <div class="modal-body">
-      <form action="" method="POST" id="formularito">
+
         {{ csrf_field() }}
         <div class="input-field col s6">
           <input placeholder="Nombre del evento." id="title" type="text" class="validate" name="title" required>
@@ -75,14 +78,13 @@
           <label for="descripcion">Descripción</label>
         </div>
         <div class="input-field col s6">
-          <input id="start" type="date" class="validate" min="2012" max="2088" name="start">
+          <input id="start" type="date" class="validate" min="2012" max="2088" name="start" required>
           <label for="start">Fecha de inicio</label>
         </div>
         <div class="input-field col s6">
           <input id="end" type="date" class="validate" min="2012" max="2088" name="end">
           <label for="end">Fecha de fin</label>
         </div>
-
 
         <div class="input-field col s6">
           <input placeholder="" id="timeStart" type="time" class="validate" value="00:00:00" name="startime" min="00:00:00" max="23:59:59" list="">
@@ -121,13 +123,17 @@
             <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
           </div>
         </div>
-      </form>
+        <div class="input-field col s12">
+          <input placeholder="Nombre del evento." id="title" type="text" class="validate" name="title" required>
+          <label for="title">Título</label>
+        </div>
+
     </div>
     <div class="modal-footer">
       <button type="submit" class="btn grey" id="btn-agregar" form="formularito">Agregar Evento</button>
     </div>
   </div>
-
+  </form>
 </div>
 
 
@@ -159,7 +165,7 @@
        var eventoShow = {!! json_encode($eventos) !!};
 
 $(document).ready(function() {
-    //
+
     // var date = new Date();
     // var d = date.getDate();
     // var m = date.getMonth();
@@ -205,27 +211,25 @@ $(document).ready(function() {
         dayClick: function(date, jsEvent, view) {
           $('#start').val(date.format());
 
-          var modal = document.getElementById('myModal');
-          var span = document.getElementsByClassName("close")[0];
-          modal.style.display = "block";
+          var modals = document.getElementById('myModal');
+          var spans = document.getElementsByClassName("close")[0];
+          modals.style.display = "block";
 
-          span.onclick = function() {
-            modal.style.display = "none";
+          spans.onclick = function() {
+            modals.style.display = "none";
           }
 
           // When the user clicks anywhere outside of the modal, close it
           window.onclick = function(event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                modals.style.display = "none";
             }
           }
 
           },
 
-      editable: true,
       events: eventoShow,
       eventClick: function(calEvent, jsEvent, view) {
-
 
           var modal = document.getElementById('myModal1');
           var span = document.getElementsByClassName("close")[0];
@@ -247,51 +251,11 @@ $(document).ready(function() {
 
           $('#btnBorrar').attr('data-id', calEvent.id);
 
-
   },
 
 
 
     });
-
-    var form = $('#formularito').serialize();
-    var dir = '/calendar/';
-
-$('#formularito').submit(function(e) {
-e.preventDefault();
-var horaStart = $('#timeStart').val();
-var horaEnd =$('#timeEnd').val();
-
-var NuevoEvento = {
-    title:  $('#title').val(),
-    descripcion:  $('#descripcion').val(),
-    start:  $('#start').val()+" "+horaStart,
-    end:  $('#end').val()+" "+horaEnd,
-    allday:  $('#allday').val(),
-    color:  $('#color').val(),
-    textcolor:  $('#textcolor').val(),
-  }
-
-$('#calendar').fullCalendar('renderEvent', NuevoEvento);
-$('#myModal').css("display", "none");
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-console.log(form);
- $.post(dir, form, function(result) {
-   alert(result.success);
-   /*optional stuff to do after success */
- }).fail(function(){
-   alert('Algo salió mal');
- });
-});
-
-
-
-
 
 $('#btnBorrar').click(function() {
   var idEvent = $(this).attr('data-id');

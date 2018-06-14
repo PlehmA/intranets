@@ -285,7 +285,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('tutorials')->insert([
           'titulo'      => '11.Múltiples líneas de texto en única celda.',
-          'foto_video'  => 'img/offcalc11png',
+          'foto_video'  => 'img/offcalc/11.png',
           'video'       => 'videos\office_calc\11-Multiples_lineas_de_texto_en_unica_celda.mp4',
           'id_programa' => '1'
         ]);
@@ -485,7 +485,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('officewriters')->insert([
           'titulo'      => '11.Estilos.',
-          'foto_video'  => 'img/writer11png',
+          'foto_video'  => 'img/writer/11.png',
           'video'       => 'videos\office_writer\11-estilos.mp4',
           'id_programa' => '2'
         ]);
@@ -672,7 +672,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('officeimpresses')->insert([
           'titulo'      => '11.Diapositivas maestras.',
-          'foto_video'  => 'img/impress11png',
+          'foto_video'  => 'img/impress/11.png',
           'video'       => 'videos\office_impress\11-Diapositivas_maestras.mp4',
           'id_programa' => '3'
         ]);
@@ -818,7 +818,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('officebases')->insert([
           'titulo'      => '11.Documentación.',
-          'foto_video'  => 'img/base11png',
+          'foto_video'  => 'img/base/11.png',
           'video'       => 'videos\office_base\11-Documentacion.mp4',
           'id_programa' => '4'
         ]);
@@ -853,7 +853,7 @@ class DatabaseSeeder extends Seeder
           'end'         => '2018-06-12 02:08:30',
           'color'       => 'grey',
           'textcolor'  => 'white',
-          'allDay'      => false
+          'allday'      => false
           ]);
 
           DB::table('calendars')->insert([
@@ -864,7 +864,7 @@ class DatabaseSeeder extends Seeder
             'end'         => '2018-06-14 02:08:30',
             'color'       => 'black',
             'textcolor'  => 'white',
-            'allDay'      => false
+            'allday'      => false
             ]);
 
             DB::table('calendars')->insert([
@@ -875,7 +875,7 @@ class DatabaseSeeder extends Seeder
               'end'         => '2018-06-16 02:08:30',
               'color'       => 'blue',
               'textcolor'  => 'white',
-              'allDay'      => false
+              'allday'      => false
 
               ]);
 
@@ -886,7 +886,7 @@ class DatabaseSeeder extends Seeder
                 'start'       => '2018-06-17 02:08:30',
                 'color'       => 'red',
                 'textcolor'  => 'white',
-                'allDay'      => true
+                'allday'      => true
 
                 ]);
 
