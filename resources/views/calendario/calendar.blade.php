@@ -17,10 +17,10 @@
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
     max-height: 100%;
-    overflow: visible;
 }
 /* Modal Content */
-.modal-content { position: relative; background-color: #fefefe; margin: auto; padding: 0; border: 1px solid #888; width: 40%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);  -webkit-animation-name: animatetop; -webkit-animation-duration: 0.4s; animation-name: animatetop; animation-duration: 0.4s}
+.modal-content {
+  position: relative; background-color: #fefefe; margin: auto; padding: 0; border: 1px solid #888; width: 40%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);  -webkit-animation-name: animatetop; -webkit-animation-duration: 0.4s; animation-name: animatetop; animation-duration: 0.4s}
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
@@ -54,9 +54,110 @@
 #contenidoEvent p {
   font-size: 18px;
 }
-#calendar {
-      overflow: visible;
+
+.scrollbar {
+    height: 100vh;
+    width: 100vh;
+    background: #fff;
+    overflow-y: scroll;
+    margin-bottom: 25px;
 }
+.force-overflow {
+    min-height: 100vh;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #4285F4; }
+
+.scrollbar-danger::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-danger::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-danger::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #ff3547; }
+
+.scrollbar-warning::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-warning::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-warning::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #FF8800; }
+
+.scrollbar-success::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-success::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-success::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #00C851; }
+
+.scrollbar-info::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-info::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-info::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #33b5e5; }
+
+.scrollbar-default::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-default::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-default::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #2BBBAD; }
+
+.scrollbar-secondary::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #F5F5F5;
+  border-radius: 10px; }
+
+.scrollbar-secondary::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+.scrollbar-secondary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: #aa66cc; }
 </style>
 @endsection
 @section('content')
@@ -65,7 +166,7 @@
 <div id="myModal" class="modal">
 <form action="{{ action('CalendarController@store') }}" method="POST" id="formularito">
   <!-- Modal content -->
-  <div class="modal-content">
+  <div class="modal-content scrollbar-info">
     <div class="modal-header">
       <span class="close">&times;</span>
       <h4>Crear evento</h4>
@@ -127,14 +228,14 @@
             <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
           </div>
         </div>
-        <div class="input-field col s10" id="emailcito">
+        <div class="input-field col s8" id="emailcito">
           <input id="email" type="email" class="validate" name="email[]">
           <label for="title">¿A quién desea notificar del evento?</label>
 
         </div>
     </div>
     <div class="modal-footer">
-      <a class="btn grey" id="btnadd">Agregar</a>
+      <a class="btn grey" href="#btnadd" id="btnadd">Añadir mail</a>
       <button type="submit" class="btn grey" id="btn-agregar" form="formularito">Agregar Evento</button>
     </div>
   </div>
@@ -216,18 +317,21 @@ $(document).ready(function() {
         dayClick: function(date, jsEvent, view) {
           $('#start').val(date.format());
 
+          $('.main-panel').perfectScrollbar('destroy');
           var modals = document.getElementById('myModal');
           var spans = document.getElementsByClassName("close")[0];
           modals.style.display = "block";
 
           spans.onclick = function() {
             modals.style.display = "none";
+            $('.main-panel').perfectScrollbar();
           }
 
           // When the user clicks anywhere outside of the modal, close it
           window.onclick = function(event) {
             if (event.target == modal) {
                 modals.style.display = "none";
+                $('.main-panel').perfectScrollbar();
             }
           }
 
@@ -283,7 +387,8 @@ $('#btnBorrar').click(function() {
  });
 
  $('#btnadd').click(function() {
-   $('#emailcito').append('<input id="email" type="email" class="validate" name="email[]">')
+   $('#emailcito').append('<input id="email" type="email" class="validate" name="email[]">');
+   $('#btnadd').scrollTop();
  });
 
 
