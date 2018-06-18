@@ -16,11 +16,12 @@
       </div>
         <div style="text-align: center;">
           <p style="text-align: center; font-size: 20px;">{{ Auth::user()->name }} te ha invitado a participar de un envento.</p>
-          <p style="text-align: center; font-size: 20px;"></p>
+          @foreach ($calendar as $cal)
+              <p style="text-align: center; font-size: 20px;">{{ $cal->start }}</p>
+          @endforeach
+
         </div>
-        <div style="text-align: center;">
-            <a href="#"><button style="background-color: ">Ir al calendario</button></a>
-        </div>
+
     </div>
 
 
