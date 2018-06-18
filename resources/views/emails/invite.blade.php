@@ -17,7 +17,7 @@
         <div style="text-align: center;">
           <p style="text-align: center; font-size: 20px;">{{ Auth::user()->name }} te ha invitado a participar de un envento.</p>
           @foreach ($calendar as $cal)
-              <p style="text-align: center; font-size: 20px;">{{ $cal->start }}</p>
+              <p style="text-align: center; font-size: 20px;">Nombre del evento: {{ $cal }}</p>
           @endforeach
 
         </div>

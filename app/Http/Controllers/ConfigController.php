@@ -82,13 +82,15 @@ class ConfigController extends Controller
      */
     public function update(Request $request)
     {
+      if ($request->ajax()) {
+        $input = $request->input('newPass');
+         $hashedinput = bcrypt($input);
+         DB::table('users')
+             ->where('id', Auth::user()->id)
+             ->update(['password' => $hashedinput]);
+         return response()->json([ 'success' => 'Contraseña modificada correctamente!' ]);
+      }
 
-       $input = $request->input('newPass');
-        $hashedinput = bcrypt($input);
-        DB::table('users')
-            ->where('id', Auth::user()->id)
-            ->update(['password' => $hashedinput]);
-        return back()->with('status', 'Datos de perfil modificados!');
     }
 
     /**

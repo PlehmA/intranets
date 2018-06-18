@@ -130,7 +130,7 @@ a .material-icons {
 
 <div class="row" style="margin-bottom: 0px;">
   <div class="col-sm-9">
-<a href="{{ route('tutos.index') }}" class="btn btn-gris btn-small">Volver</a>
+<a href="{{ route('tutos.index') }}" class="btn grey btn-small">Volver</a>
   </div>
 
 <div class="col-sm-3">

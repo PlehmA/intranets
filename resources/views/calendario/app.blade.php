@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/apple-icon.png') }}" />
-  <link rel="icon" type="image/png" href="{{ asset('img/favicon.png') }}" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/Isologotipo.png') }}" />
+  <link rel="icon" type="image/png" href="{{ asset('img/Isologotipo.png') }}" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>Intranet</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -95,7 +95,7 @@ div .botonmail:hover {
 
 </style>
 @yield('css')
-<div class="wrapper">
+<div class="wrapper" id="app">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
         <!--
     Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
@@ -222,7 +222,7 @@ div .botonmail:hover {
                       <ul id='dropdown2' class='dropdown-content'>
                         <li><a href="#!">Seguridad</a></li>
                       </ul>
-                      <a class='dropdown-trigger1 green btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                      <a class='dropdown-trigger1 grey btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
                       <!-- Dropdown Structure -->
                       <ul id='dropdown1' class='dropdown-content'>
                         <li><a href="{{ url('/logout') }}">Log Out</a></li>

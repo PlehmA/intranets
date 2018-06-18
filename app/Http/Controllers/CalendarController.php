@@ -26,8 +26,30 @@ class CalendarController extends Controller
 
     public function store(Request $request)
     {
+      $calendar = new Calendar;
+
+      $calendar->id_usuario = Auth::user()->id;
+      $calendar->title = $request->input('title');
+      if ($request->input('descripcion') == "") {
+        $calendar->descripcion = 'Sin descripción';
+      }else {
+        $calendar->descripcion = $request->input('descripcion');
+      }
+      $calendar->start = $request->input('start')." ".$request->input('startime');
+      if ($request->input('end') == "") {
+        $calendar->end = null;
+      }else {
+        $calendar->end = $request->input('end')." ".$request->input('endtime');
+      }
+      $calendar->color = $request->input('color');
+      $calendar->textcolor = $request->input('textcolor');
+      $calendar->allday = $request->input('allday');
+
+      if ($request->input('email') != "") {
 
       foreach ($request->email as $email) {
+        $start = date_create($request->input('start'));
+        $startime = date_create($request->input('startime'));
 
       $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
       try {
@@ -50,43 +72,28 @@ class CalendarController extends Controller
           //Content
           $mail->isHTML(true);                                  // Set email format to HTML
           $mail->Subject = 'Invitación a evento';
-          $mail->Body    = view('emails.invite', compact('calendar'));
+          $mail->Body    =   "<div class='container'>
+              <div style='text-align: center;'>
+                <img src='".asset('images/Recurso1.png')."' alt='>
+              </div>
+                <div style='text-align: center;'>
+                  <p style='text-align: center; font-size: 20px;'><b>".Auth::user()->name."</b> te ha invitado a participar de un envento.</p>
+                      <p style='text-align: center; font-size: 20px;'>Nombre del evento: <b>".$request->input('title')." </b></p>
+                      <p style='text-align: center; font-size: 20px;'>Descripción del evento: <b>".$request->input('descripcion')." </b></p>
+                      <p style='text-align: center; font-size: 20px;'>Fecha del evento: <b>".date_format($start, 'd/m/Y')." </b></p>
+                      <p style='text-align: center; font-size: 20px;'>Hora del evento: <b>". date_format($startime, 'H:i')."hs. </b></p>
+                </div>
+            </div>";
 
           $mail->send();
-          echo 'Message has been sent';
+
       } catch (Exception $e) {
           echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
       }
 }
-          $calendar = new Calendar;
-
-          $calendar->id_usuario = Auth::user()->id;
-          $calendar->title = $request->input('title');
-          if ($request->input('descripcion') == "") {
-            $calendar->descripcion = 'Sin descripción';
-          }else {
-            $calendar->descripcion = $request->input('descripcion');
-          }
-          $calendar->start = $request->input('start')." ".$request->input('startime');
-          if ($request->input('end') == "") {
-            $calendar->end = null;
-          }else {
-            $calendar->end = $request->input('end')." ".$request->input('endtime');
-          }
-          $calendar->color = $request->input('color');
-          $calendar->textcolor = $request->input('textcolor');
-          $calendar->allday = $request->input('allday');
-          $calendar->save();
-          return back()->with('success', 'Evento agregado correctamente');
-
-
-
-
-
-
-
-
-
+}
+$calendar->save();
+return back()->with('success', 'Evento agregado correctamente');
     }
 
     public function destroy(Request $request, $id)

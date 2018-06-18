@@ -4,24 +4,66 @@
 
     <div class="container">
         <div class="header">
-            <h5 class="text-center">Cambio de Contraseña</h5>
+            <h1 class="center animated fadeIn">Seguridad</h1>
         </div>
         <div class="form-group">
-                {!! Form::open(['route' => 'update']) !!}
-            <div class="row">
-                <div class="col-md-offset-4 col-lg-6">
-                    {!! Form::password('newPass', ['placeholder' => 'Contraseña']) !!}
-                    {!! Form::submit('Cambiar', ['class' => 'btn btn-warning']) !!}
+                <form method="POST" id="formulario">
+                  {{ csrf_field() }}
+                  <div class="row">
+                  <div class="col s12">
+                    <div class="row">
+                      <div class="input-field offset-s2 col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="newPass" type="password" class="validate" name="newPass" required>
+
+                      </div>
+                      <div class="input-field col s4">
+
+                        <button id="btnpass" class="btn grey" form="formulario">Cambiar contraseña</button>
+
+                      </div>
+                    </div>
+                  </div>
                 </div>
-            </div>
-                {!! Form::close() !!}
-            @if (session('status'))
-                <div class="container alert alert-default text-center" role="alert" data-dismiss="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
+                </form>
+          
         </div>
     </div>
     </div>
 @endif
+    @endsection
+    @section('javascript')
+<script>
+  $(document).ready(function() {
+    $('#formulario').submit(function(e) {
+      e.preventDefault();
+      if ( ! confirm('¿Desea cambiar la contraseña?')) {
+        return false;
+      }
+
+      var form = $(this).parent('form');
+      var data = form.serialize();
+
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+
+      $.ajax({
+        url: '{{ action('ConfigController@update') }}',
+        type: 'POST',
+        data: data
+      })
+      .done(function(result) {
+        console.log(result.success);
+      })
+      .fail(function() {
+        console.log("error");
+      });
+
+
+      });
+  });
+</script>
     @endsection

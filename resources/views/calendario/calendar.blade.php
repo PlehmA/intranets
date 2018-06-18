@@ -286,7 +286,7 @@ $(document).ready(function() {
       header: {
         left: 'prev,next today, BotonEvento',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay,listWeek'
+        right: ''
       },
       customButtons: {
         BotonEvento: {

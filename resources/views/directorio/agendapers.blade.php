@@ -23,7 +23,7 @@
          </div>
        </div>
        <div class="input-field col s7">
-         <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
+         <button class="btn grey waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
            <i class="material-icons right">send</i>
          </button>
        </div>
@@ -52,7 +52,7 @@
         @endforeach
 
 {!! Form::open(['method' => 'DELETE','route' => ['agenda.destroy', $agend->id]]) !!}
-<a href="#" class="btn btn-rojo left btn-agendabr">Borrar agenda <i class="material-icons">delete_forever</i></a>
+<a href="#" class="btn grey left btn-agendabr">Borrar agenda <i class="material-icons">delete_forever</i></a>
 {!! Form::close() !!}
 <div class="row col s12">
   <div class="col s4 left">
@@ -60,7 +60,7 @@
   </div>
   <div class="col s8 right">
     <a href="{{ route('datoscol.show', $agend->id) }}" class="btn btn-gris right">Importar contactos</a>
-    <a href="#modal2" class="btn btn-gris modal-trigger right">Agregar contacto</a>
+    <a href="#modal2" class="btn grey modal-trigger right">Agregar contacto</a>
   </div>
 </div>
 
@@ -81,7 +81,7 @@
         <label for="area">Área</label>
       </div>
       <div class="input-field col s3">
-        <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
+        <button class="btn grey waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
           <i class="material-icons right">search</i>
         </button >
       </div>
@@ -118,10 +118,10 @@
     <td>{{ $columna->tellinea }}</td>
     <td>{{ $columna->telcel }}</td>
     <td>{{ $columna->interno }}</td>
-    <td><center><a href="{{ route('datoscol.edit', $columna->id) }}" class="btn btn-azul btn-small center editar" title="Editar"><i class="material-icons">edit</i></a></center></td>
+    <td><center><a href="{{ route('datoscol.edit', $columna->id) }}" class="btn grey btn-small center editar" title="Editar"><i class="material-icons">edit</i></a></center></td>
     <td><center>
       {!! Form::open(['method' => 'DELETE','route' => ['datoscol.destroy', $columna->id]]) !!}
-      <a href="#" class="btn btn-rojo btn-borrar center borrar" title="Borrar"><i class="material-icons">delete_forever</i></a>
+      <a href="#" class="btn grey btn-borrar center borrar" title="Borrar"><i class="material-icons">delete_forever</i></a>
       {!! Form::close() !!}
     </center></td>
   </tr>
@@ -184,7 +184,7 @@
 
               </div>
          <div class="input-field col s7">
-           <button class="btn btn-gris waves-effect waves-light right" type="submit" name="action" form="modalForm1">Agregar
+           <button class="btn grey waves-effect waves-light right" type="submit" name="action" form="modalForm1">Agregar
              <i class="material-icons right">send</i>
            </button>
          </div>
