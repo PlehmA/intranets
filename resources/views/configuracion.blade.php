@@ -26,10 +26,11 @@
                   </div>
                 </div>
                 </form>
-          
+
         </div>
+        <div id="alert" class="container alert alert-success text-center" role="alert" data-dismiss="alert" style="display: none; font-size: 16px;"></div>
     </div>
-    </div>
+
 @endif
     @endsection
     @section('javascript')
@@ -50,13 +51,14 @@
           }
       });
 
+      $('#alert').show();
       $.ajax({
         url: '{{ action('ConfigController@update') }}',
         type: 'POST',
         data: data
       })
       .done(function(result) {
-        console.log(result.success);
+        $('#alert').html(result.success);
       })
       .fail(function() {
         console.log("error");
