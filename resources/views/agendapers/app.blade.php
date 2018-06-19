@@ -237,7 +237,7 @@ div .botonmail:hover {
                       </div>
 
                       <div class="col-md-3">
-                        <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas">
+                        <a class="navbar-brand but-menu notas" href="{{ route('notes.index') }}" title="Notas">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>

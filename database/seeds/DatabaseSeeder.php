@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'fecha_ingreso' => '03/04/2017',
             'fecha_nacimiento' => '30/07/1987',
             'puesto' => 'Departamento de Sistemas',
-            'email' => 'aplehm@odontopraxis.com.ar',
+            'email' => 'sistemas@odontopraxis.com.ar',
             'email_personal' => 'polachgg@gmail.com',
             'contra_mail' => 'Newsist2018',
             'foto' => 'storage/aplehm.png',

@@ -75,3 +75,5 @@ Route::resource('officewriter', 'OfficewriterController');
 Route::resource('officebase', 'OfficebaseController');
 
 Route::resource('officeimpress', 'OfficeimpressController');
+
+Route::resource('notes', 'NoteController');

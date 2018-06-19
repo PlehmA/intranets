@@ -141,6 +141,7 @@ div .botonmail:hover {
   margin-left: -3px;
 }
 </style>
+@yield('css')
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
         <!--
@@ -285,12 +286,10 @@ div .botonmail:hover {
                 </div>
             </div>
         </nav>
-        <div class="content">
-            <div class="container-fluid">
+        <div class="content" id="app">
 
                 @yield('content')
 
-            </div>
         </div>
     </div>
 </div>
