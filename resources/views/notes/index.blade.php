@@ -342,6 +342,39 @@
     background-color: #dddddd;
     color: black;
   }
+
+  textarea.materialize-textarea {
+    background-color: initial;
+    line-height: normal;
+    overflow-y: scroll;
+    padding: initial;
+    resize: initial;
+    min-height: initial;
+    -webkit-box-sizing: initial;
+    box-sizing: initial;
+    background-color: transparent;
+    border: initial;
+    border-bottom: initial;
+    border-radius: initial;
+    outline: initial;
+    height: initial;
+    width: initial;
+    font-size: initial;
+    margin: initial;
+    padding: initial;
+    -webkit-box-shadow: initial;
+    box-shadow: initial;
+    -webkit-box-sizing: initial;
+    box-sizing: initial;
+    -webkit-transition: initial;
+    transition: initial;
+    transition: box-shadow initial;
+    transition: box-shadow initial;
+
+  }
+  .collection.with-header .collection-item {
+    padding-left: 10px;
+}
 </style>
 @endsection
 @section('content')
@@ -355,10 +388,16 @@
 
           <ul class="collection with-header lateralizq scrollbar-rare-wind">
               <li class="collection-header"><h4>Notas</h4></li>
-              <li class="collection-item"><div class="nombres">Alvin1<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-              <li class="collection-item"><div class="nombres">Alvin2<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-              <li class="collection-item"><div class="nombres">Alvin3<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
-              <li class="collection-item"><div class="nombres">Alvin4<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+              @foreach ($notas as $note)
+                <a href="#!" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres"><b>
+                  @if (strlen($note->nombre_nota) >= 17)
+                    {{ substr_replace($note->nombre_nota, '...', 16) }}
+                    @else
+                      {{ $note->nombre_nota }}
+                @endif
+                </b></div></li></a>
+              @endforeach
+
             </ul>
     </div>
     <div class="col s10 m10 l10">
@@ -372,32 +411,37 @@
         </ul>
       </div>
       <div class="col s10 m10 l10">
-      <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <textarea id="textarea2" class="materialize-textarea" data-length="1500"></textarea>
-            <label for="textarea2">Escriba sus notas aquí</label>
-          </div>
-        </div>
-      </form>
-    </div>
+
+      <form><textarea id="textarea" autofocus></textarea></form>
+
       </div>
     </div>
   </div>
 
 @endsection
 @section('javascript')
+  <script src="{{ asset('tinymce\js\tinymce\tinymce.min.js') }}"></script>
+    <script>
+    tinymce.init({
+       selector: 'textarea',
+       height: 500,
+       menubar: false,
+       plugins: [
+         'advlist autolink lists link image charmap print preview anchor textcolor',
+         'searchreplace visualblocks code fullscreen',
+         'insertdatetime media table contextmenu paste code help wordcount'
+       ],
+       toolbar: 'insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+           });
+</script>
 <script>
   $(".main-panel").perfectScrollbar('destroy');
 
-  $(document).ready(function() {
-    $('textarea#textarea2').characterCounter();
-  });
   $(document).ready(function(){
   $('#buscador').keyup(function(){
      var nombres = $('.nombres');
      var buscando = $(this).val();
+     console.log(buscando);
      var item='';
      for( var i = 0; i < nombres.length; i++ ){
          item = $(nombres[i]).html().toLowerCase();

@@ -15,8 +15,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-      $notas = App\Note::all();
-        return view('notes.index', compact($notas));
+      $notas = Note::where('id_usuario', Auth::user()->id)->get();
+        return view('notes.index', compact('notas'));
     }
 
     /**
@@ -75,7 +75,7 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-      $notas = App\Note::find($note);
+      $notas = Note::find($note);
 
       $notas->nota = 'New Flight Name';
 
@@ -90,7 +90,7 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-      $notas = App\Note::find($note);
+      $notas = Note::find($note);
 
       $notas->delete();
     }
