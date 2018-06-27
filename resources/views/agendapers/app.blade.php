@@ -136,6 +136,15 @@ div .botonmail:hover {
     bottom: 0;
     margin: -23px;
 }
+.sidebar .nav, .off-canvas-sidebar .nav{
+  margin-top: 0px;
+}
+.sidebar .logo, .off-canvas-sidebar .logo {
+      padding: 6px 15px;
+}
+.sidebar .logo:after, .off-canvas-sidebar .logo:after{
+  background-color: initial;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">

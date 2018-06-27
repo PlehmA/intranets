@@ -165,6 +165,15 @@
     #agenda {
       margin-left: -3px;
     }
+    .sidebar .nav, .off-canvas-sidebar .nav{
+      margin-top: 0px;
+    }
+    .sidebar .logo, .off-canvas-sidebar .logo {
+          padding: 6px 15px;
+    }
+    .sidebar .logo:after, .off-canvas-sidebar .logo:after{
+      background-color: initial;
+    }
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -213,7 +222,7 @@
 
                 </li>
                 <li onclick="location.href='{{ route('dashboard') }}'">
-                  <div class="collapsible-header"><i class="material-icons">event</i>
+                  <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
                   <p>Novedades</p></div>
 
                 </li>

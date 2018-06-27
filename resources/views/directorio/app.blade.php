@@ -114,7 +114,7 @@
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
     .navbar {
-      min-height: 100px;
+      min-height: 90px;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
       background-color: #f1f3f5;
     }
@@ -166,6 +166,15 @@
     #agenda {
       margin-left: -3px;
     }
+    .sidebar .nav, .off-canvas-sidebar .nav{
+      margin-top: 0px;
+    }
+    .sidebar .logo, .off-canvas-sidebar .logo {
+          padding: 6px 15px;
+    }
+    .sidebar .logo:after, .off-canvas-sidebar .logo:after{
+      background-color: initial;
+    }
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -214,7 +223,7 @@
 
                 </li>
                 <li onclick="location.href='{{ route('dashboard') }}'">
-                  <div class="collapsible-header"><i class="material-icons">event</i>
+                  <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
                   <p>Novedades</p></div>
 
                 </li>

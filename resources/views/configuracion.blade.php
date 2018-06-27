@@ -7,24 +7,51 @@
             <h1 class="center animated fadeIn">Seguridad</h1>
         </div>
         <div class="form-group">
+
                 <form method="POST" id="formulario">
                   {{ csrf_field() }}
                   <div class="row">
                   <div class="col s12">
                     <div class="row">
-                      <div class="input-field offset-s2 col s6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="newPass" type="password" class="validate" name="newPass" required>
-
+                      <div class="input-field col s5 offset-s3">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="verifyPass" type="password" class="validate" name="verifyPass" pattern="^[a-zA-Z0-9_.-]*$" required>
+                        <label for="verifyPass">Contraseña actual</label>
                       </div>
-                      <div class="input-field col s4">
 
-                        <button id="btnpass" class="btn grey" form="formulario">Cambiar contraseña</button>
-
-                      </div>
                     </div>
                   </div>
                 </div>
+                  <div class="row">
+                  <div class="col s12">
+                    <div class="row">
+                      <div class="input-field col s5 offset-s3">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="newPass" type="password" class="validate" pattern="^[a-zA-Z0-9_.-]*$" name="newPass" required>
+                        <label for="newPass">Nueva contraseña</label>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col s12">
+                  <div class="row">
+                    <div class="input-field col s5 offset-s3">
+                      <i class="material-icons prefix">lock_outline</i>
+                      <input id="confirmPass" type="password" class="validate" pattern="^[a-zA-Z0-9_.-]*$" name="confirmPass" required>
+                      <label for="confirmPass">Repetir contraseña</label>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="input-field center">
+
+                <button id="btnpass" class="btn grey" form="formulario">Cambiar</button>
+
+              </div>
                 </form>
 
         </div>
@@ -51,21 +78,25 @@
           }
       });
 
-      $('#alert').show();
+
       $.ajax({
         url: '{{ action('ConfigController@update') }}',
         type: 'POST',
         data: data
       })
       .done(function(result) {
-        $('#alert').html(result.success);
+        console.log('success');
+        // $('#alert').show();
+        // $('#alert').html(result.success);
       })
-      .fail(function() {
-        console.log("error");
+      .fail(function(result) {
+        console.log('error');
+        // alert(result.error);
       });
 
 
       });
+
   });
 </script>
     @endsection

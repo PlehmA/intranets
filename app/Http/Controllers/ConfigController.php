@@ -83,12 +83,22 @@ class ConfigController extends Controller
     public function update(Request $request)
     {
       if ($request->ajax()) {
-        $input = $request->input('newPass');
-         $hashedinput = bcrypt($input);
-         DB::table('users')
-             ->where('id', Auth::user()->id)
-             ->update(['password' => $hashedinput]);
-         return response()->json([ 'success' => 'Contraseña modificada correctamente!' ]);
+        if (bcrypt($request->input('verifyPass')) == Auth::user()->password ) {
+          if ($request->input('newPass') == $request->input('confirmPass')) {
+            $input = $request->input('newPass');
+
+             $hashedinput = bcrypt($input);
+             DB::table('users')
+                 ->where('id', Auth::user()->id)
+                 ->update(['password' => $hashedinput]);
+             return response()->json([ 'success' => 'Contraseña modificada correctamente!' ]);
+          }else {
+            return response()->json([ 'error' => 'Las contraseñas no coinciden' ]);
+          }
+        }else {
+          return response()->json([ 'error' => 'Contraseña incorrecta' ]);
+        }
+
       }
 
     }
