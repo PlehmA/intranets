@@ -389,7 +389,7 @@
           <ul class="collection with-header lateralizq scrollbar-rare-wind">
               <li class="collection-header"><h4>Notas</h4></li>
               @foreach ($notas as $note)
-                <a href="#!" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres"><b>
+                <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres"><b>
                   @if (strlen($note->nombre_nota) >= 17)
                     {{ substr_replace($note->nombre_nota, '...', 16) }}
                     @else

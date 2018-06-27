@@ -50,9 +50,10 @@ class NoteController extends Controller
      * @param  \App\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function show(Note $note)
+    public function show($id)
     {
-        //
+        $notas = Note::findOrFail($id);
+        return view('notes.index');
     }
 
     /**
