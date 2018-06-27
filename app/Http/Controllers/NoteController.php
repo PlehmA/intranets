@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Note;
+use Auth;
 use Illuminate\Http\Request;
 
 class NoteController extends Controller
@@ -14,7 +15,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return view('notes.index');
+      $notas = App\Note::all();
+        return view('notes.index', compact($notas));
     }
 
     /**
@@ -35,7 +37,11 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $notas = new Note;
+
+      $notas->nombre_nota = $request->input('nombre_nota');
+
+      $notas->save();
     }
 
     /**
@@ -69,7 +75,11 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        //
+      $notas = App\Note::find($note);
+
+      $notas->nota = 'New Flight Name';
+
+      $notas->save();
     }
 
     /**
@@ -80,6 +90,8 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-        //
+      $notas = App\Note::find($note);
+
+      $notas->delete();
     }
 }

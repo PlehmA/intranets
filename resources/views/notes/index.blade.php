@@ -349,20 +349,17 @@
     <div class="col s2 m2 l2">
 
           <div class="input-field">
-            <input id="icon_prefix" type="text" class="validate">
-            <label for="icon_prefix">Buscar...</label>
+            <input id="buscador" type="text" class="validate">
+            <label for="buscador">Buscar...</label>
           </div>
 
-    <div class="collection  lateralizq scrollbar-rare-wind">
-          <a href="#!" class="collection-item active">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-          <a href="#!" class="collection-item">Alvin</a>
-        </div>
+          <ul class="collection with-header lateralizq scrollbar-rare-wind">
+              <li class="collection-header"><h4>Notas</h4></li>
+              <li class="collection-item"><div class="nombres">Alvin1<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+              <li class="collection-item"><div class="nombres">Alvin2<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+              <li class="collection-item"><div class="nombres">Alvin3<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+              <li class="collection-item"><div class="nombres">Alvin4<a href="#!" class="secondary-content"><i class="material-icons">send</i></a></div></li>
+            </ul>
     </div>
     <div class="col s10 m10 l10">
       <div class="col s10 m10 l10">
@@ -374,6 +371,18 @@
 
         </ul>
       </div>
+      <div class="col s10 m10 l10">
+      <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea2" class="materialize-textarea" data-length="1500"></textarea>
+            <label for="textarea2">Escriba sus notas aquí</label>
+          </div>
+        </div>
+      </form>
+    </div>
+      </div>
     </div>
   </div>
 
@@ -381,5 +390,35 @@
 @section('javascript')
 <script>
   $(".main-panel").perfectScrollbar('destroy');
+
+  $(document).ready(function() {
+    $('textarea#textarea2').characterCounter();
+  });
+  $(document).ready(function(){
+  $('#buscador').keyup(function(){
+     var nombres = $('.nombres');
+     var buscando = $(this).val();
+     var item='';
+     for( var i = 0; i < nombres.length; i++ ){
+         item = $(nombres[i]).html().toLowerCase();
+         item = item.replace(new RegExp(/\s/g),"");
+         item = item.replace(new RegExp(/[àáâãäå]/g),"a");
+         item = item.replace(new RegExp(/[èéêë]/g),"e");
+         item = item.replace(new RegExp(/[ìíîï]/g),"i");
+         item = item.replace(new RegExp(/ñ/g),"n");
+         item = item.replace(new RegExp(/[òóôõö]/g),"o");
+         item = item.replace(new RegExp(/[ùúûü]/g),"u");
+          for(var x = 0; x < item.length; x++ ){
+              if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
+                console.log(nombres[i]);
+                  $(nombres[i]).parents('.collection-item').show();
+              }else{
+                console.log(nombres[i]);
+                   $(nombres[i]).parents('.collection-item').hide();
+              }
+          }
+     }
+  });
+  });
 </script>
 @endsection
