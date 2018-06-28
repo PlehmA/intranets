@@ -11,5 +11,25 @@ class Columna extends Model
 
   protected $redirectTo = "/";
 
-  
+  /**
+  *
+  * Scopes para el filtrado de busqueda
+  *
+  */
+  public function scopeName($query, $name)
+  {
+    if ($name)
+    return $query->where('nomyap', 'ILIKE', "%$name%");
+  }
+  public function scopeEmail($query, $email)
+  {
+    if ($email)
+    return $query->where('correo', 'ILIKE', "%$email%");
+  }
+  public function scopeArea($query, $area)
+  {
+    if ($provincia)
+    return $query->where('provincia', 'ILIKE', "%$provincia%");
+  }
+
 }

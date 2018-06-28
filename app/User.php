@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
     /**
     *
-    * Scopes para el filtrado de busqueda
+    * Scopes para el filtrado de busqueda by Andres
     *
     */
     public function scopeName($query, $name)

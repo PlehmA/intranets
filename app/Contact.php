@@ -9,6 +9,11 @@ class Contact extends Model
   protected $fillable = [ 'id', 'id_usuario', 'nomyap', 'correo', 'direccion', 'provincia', 'partido', 'localidad', 'tellinea', 'telcel', 'interno',
   ];
 
+  /**
+  *
+  * Scopes para el filtrado de busqueda by Andres
+  *
+  */
   public function scopeNomyap($query, $nomyap)
   {
     if ($nomyap)
