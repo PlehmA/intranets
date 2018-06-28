@@ -429,7 +429,7 @@
 
         <textarea name="notas" id="textarea" autofocus>{{ $nota['notas'] }}</textarea>
 
-
+          <a href="#" class="btn grey btn-update center">Guardar cambios</a>
         {!! Form::close() !!}
 
 
