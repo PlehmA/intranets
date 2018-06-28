@@ -419,6 +419,17 @@
 
         </ul>
       </div>
+      @if (session('success'))
+          <div class="container alert text-center animated fadeIn" role="alert" data-dismiss="alert">
+              {{ session('success') }}
+          </div>
+      @endif
+      <br>
+      @if (session('error'))
+          <div class="container alert text-center animated fadeIn" role="alert" data-dismiss="alert">
+              {{ session('error') }}
+          </div>
+      @endif
       <div class="col s10 m10 l10">
 
 
@@ -429,7 +440,7 @@
 
         <textarea name="notas" id="textarea" autofocus>{{ $nota['notas'] }}</textarea>
 
-          <a href="#" class="btn grey btn-update center">Guardar cambios</a>
+          <button class="btn grey btn-update center" type="submit">Guardar cambios</button>
         {!! Form::close() !!}
 
 
