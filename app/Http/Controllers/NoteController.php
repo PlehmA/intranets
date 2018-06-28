@@ -103,8 +103,15 @@ class NoteController extends Controller
      */
     public function destroy(Note $note)
     {
-      $notas = Note::find($note);
+      if ($request->ajax()) {
+        $notas = Note::find($note);
 
-      $notas->delete();
+        $notas->delete();
+
+        return response()->json([
+          'success' => 'Borrado correctamente'
+        ]);
+      }
+
     }
 }

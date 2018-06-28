@@ -520,7 +520,8 @@
     }).fail(function(){
       alert('Algo salió mal');
     });
-  })
+  });
+
   });
 </script>
 @endsection
