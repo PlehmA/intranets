@@ -101,10 +101,10 @@ class NoteController extends Controller
      * @param  \App\Note  $note
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Note $note)
+    public function destroy(Request $request, $id)
     {
       if ($request->ajax()) {
-        $notas = Note::find($note);
+        $notas = Note::find($id);
 
         $notas->delete();
 

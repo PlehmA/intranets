@@ -392,7 +392,7 @@
           </div>
 
           <ul class="collection with-header lateralizq scrollbar-rare-wind">
-              <li class="collection-header"><h4>Notas</h4></li>
+              <li class="collection-header"><h5>Notas</h5></li>
               @foreach ($notas as $note)
                 <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres"><b>
                   @if (strlen($note->nombre_nota) >= 17)
@@ -411,8 +411,8 @@
                 <a class="nav-link btn grey left modal-trigger" href="#modal1">Nueva nota <i class="fas fa-plus"></i></a>
 
                 {!! Form::open(['route' => ['notes.destroy', $nota['id']], 'method' => 'DELETE']) !!}
-
-                    <a class="nav-link btn grey right btn-borrar" href="#!">Borrar nota <i class="far fa-trash-alt"></i></a>
+                {{ csrf_field() }}
+                    <a class="nav-link btn grey right btn-borrar">Borrar nota <i class="far fa-trash-alt"></i></a>
 
                 {!! Form::close() !!}
 
@@ -423,11 +423,14 @@
 
 
 
+        {!! Form::open(['route' => ['notes.update', $nota['id']], 'method' => 'PUT']) !!}
+
+        {{ csrf_field() }}
+
+        <textarea name="notas" id="textarea" autofocus>{{ $nota['notas'] }}</textarea>
 
 
-        <textarea id="textarea" autofocus>{{ $nota['notas'] }}</textarea>
-
-      </form>
+        {!! Form::close() !!}
 
 
       </div>
@@ -480,7 +483,6 @@
   $('#buscador').keyup(function(){
      var nombres = $('.nombres');
      var buscando = $(this).val();
-     console.log(buscando);
      var item='';
      for( var i = 0; i < nombres.length; i++ ){
          item = $(nombres[i]).html().toLowerCase();
@@ -493,10 +495,10 @@
          item = item.replace(new RegExp(/[ùúûü]/g),"u");
           for(var x = 0; x < item.length; x++ ){
               if( buscando.length == 0 || item.indexOf( buscando ) > -1 ){
-                console.log(nombres[i]);
+
                   $(nombres[i]).parents('.collection-item').show();
               }else{
-                console.log(nombres[i]);
+
                    $(nombres[i]).parents('.collection-item').hide();
               }
           }
@@ -506,21 +508,33 @@
   $('.modal').modal();
 
   $('.btn-borrar').click(function() {
+
     if ( ! confirm('¿Está seguro/a de eliminar la nota?')) {
       return false;
     }
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
 
     let form = $(this).parents('form');
     let url  = form.attr('action');
 
     $.post(url, form.serialize(), function(result) {
-
+      window.location='{{route('notes.index')}}';
       alert(result.success);
       /*optional stuff to do after success */
     }).fail(function(){
       alert('Algo salió mal');
     });
+  })
+
+
+  $("input[name!='notas']").keyup(function() {
+    console.log('funciona');
   });
+
 
   });
 </script>

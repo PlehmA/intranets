@@ -392,7 +392,7 @@
           </div>
 
           <ul class="collection with-header lateralizq scrollbar-rare-wind">
-              <li class="collection-header"><h4>Notas</h4></li>
+              <li class="collection-header"><h5>Notas</h5></li>
               @foreach ($notas as $note)
                 <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres"><b>
                   @if (strlen($note->nombre_nota) >= 17)
