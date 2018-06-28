@@ -314,7 +314,7 @@ div .botonmail:hover {
                       <a class='dropdown-trigger1 grey btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
                       <!-- Dropdown Structure -->
                       <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
+                        <li><a href="{{ url('/logout') }}">Salir</a></li>
                       </ul>
 
                   </ul>

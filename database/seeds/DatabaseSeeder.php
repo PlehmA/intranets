@@ -148,6 +148,23 @@ class DatabaseSeeder extends Seeder
             'ip_maquina' => '192.168.20.146',
             'password' => bcrypt('secret'),
         ]);
+        DB::table('users')->insert([
+            'name' => 'Claudia Tuozzo',
+            'username' => 'cmtuozzo',
+            'rol_usuario' => 1,
+            'num_legajo' => 0,
+            'fecha_ingreso' => '03/04/2017',
+            'fecha_nacimiento' => '30/07/1978',
+            'puesto' => 'Presidenta',
+            'email' => 'cmtuozzo@odontopraxis.com.ar',
+            'email_personal' => 'cmtuozzo@odontopraxis.com.ar',
+            'contra_mail' => 'Newsist2018',
+            'foto' => 'storage/aplehm.png',
+            'interno' => '181',
+            'estado' => 'online',
+            'ip_maquina' => '192.168.20.35',
+            'password' => bcrypt('123456'),
+        ]);
 
         DB::table('puestos')->insert([
             'id' => 1,

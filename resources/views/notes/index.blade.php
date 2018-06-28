@@ -375,6 +375,11 @@
   .collection.with-header .collection-item {
     padding-left: 10px;
 }
+.modal {
+  background-color: initial;
+  max-height: initial;
+  bottom: initial;
+}
 </style>
 @endsection
 @section('content')
@@ -403,7 +408,7 @@
     <div class="col s10 m10 l10">
       <div class="col s10 m10 l10">
 
-                <a class="nav-link btn grey left" href="#!">Nueva nota <i class="fas fa-plus"></i></a>
+                <a class="nav-link btn grey left modal-trigger" href="#modal1">Nueva nota <i class="fas fa-plus"></i></a>
 
 
                 <a class="nav-link btn grey right" href="#!">Borrar nota <i class="far fa-trash-alt"></i></a>
@@ -418,6 +423,29 @@
     </div>
   </div>
 
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Crear nota</h4>
+        <hr>
+      <div class="row">
+   <form class="col s12" id="modalForm" method="POST" action="{{ route('notes.store') }}">
+     {{ csrf_field() }}
+     <div class="row">
+       <div class="input-field col s12">
+         <input id="nombre_nota" type="text" name="nombre_nota" class="validate" required>
+         <label for="nombre_nota">Nombre de nota</label>
+       </div>
+     </div>
+     <div class="input-field col s7">
+       <button class="btn grey waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
+         <i class="material-icons right">send</i>
+       </button>
+     </div>
+   </form>
+  </div>
+
+    </div>
+  </div>
 @endsection
 @section('javascript')
   <script src="{{ asset('tinymce\js\tinymce\tinymce.min.js') }}"></script>
@@ -463,6 +491,8 @@
           }
      }
   });
+
+  $('.modal').modal();
   });
 </script>
 @endsection

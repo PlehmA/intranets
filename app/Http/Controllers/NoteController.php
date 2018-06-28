@@ -37,11 +37,21 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-      $notas = new Note;
 
-      $notas->nombre_nota = $request->input('nombre_nota');
 
-      $notas->save();
+      try {
+        $notas = new Note;
+
+        $notas->nombre_nota = $request->input('nombre_nota');
+        $notas->id_usuario = Auth::user()->id;
+
+        $notas->save();
+
+        return back()->with('success', 'Nota creada');
+      } catch (Exception $e) {
+        return back()->with('eror', 'No se pudo crear la nota');
+      }
+
     }
 
     /**
