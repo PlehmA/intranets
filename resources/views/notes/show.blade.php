@@ -410,9 +410,25 @@
 
                 <a class="nav-link btn grey left modal-trigger" href="#modal1">Nueva nota <i class="fas fa-plus"></i></a>
 
+                {!! Form::open(['route' => ['notes.destroy', $nota['id']], 'method' => 'DELETE']) !!}
+
+                    <a class="nav-link btn grey right btn-borrar" href="#!">Borrar nota <i class="far fa-trash-alt"></i></a>
+
+                {!! Form::close() !!}
+
+
         </ul>
       </div>
       <div class="col s10 m10 l10">
+
+
+
+
+
+        <textarea id="textarea" autofocus>{{ $nota['notas'] }}</textarea>
+
+      </form>
+
 
       </div>
     </div>
@@ -488,6 +504,23 @@
   });
 
   $('.modal').modal();
+
+  $('.btn-borrar').click(function() {
+    if ( ! confirm('¿Está seguro/a de eliminar la nota?')) {
+      return false;
+    }
+
+    let form = $(this).parents('form');
+    let url  = form.attr('action');
+
+    $.post(url, form.serialize(), function(result) {
+
+      alert(result.success);
+      /*optional stuff to do after success */
+    }).fail(function(){
+      alert('Algo salió mal');
+    });
+  })
   });
 </script>
 @endsection

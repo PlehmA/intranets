@@ -62,8 +62,10 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        $notas = Note::findOrFail($id);
-        return view('notes.index');
+        $nota = Note::findOrFail($id);
+        $notas = Note::all()->where('id_usuario', Auth::user()->id);
+
+        return view('notes.show', compact(['nota', 'notas']));
     }
 
     /**
