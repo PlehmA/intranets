@@ -13,6 +13,8 @@ class ColumnaController extends Controller
   public function __construct()
     {
       $this->middleware('auth');
+
+      //dd(app('request'));
     }
     /**
      * Display a listing of the resource.
@@ -107,13 +109,34 @@ class ColumnaController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $idAgenda = $request->input('agendaId');
+
         $columna1 = Columna::find($id);
 
-        $columna1 = $request->all();
+        $columna1->update([
+          'nomyap'    => $request->input('nomyap'),
+          'correo'    => $request->input('correo'),
+          'direccion' => $request->input('direccion'),
+          'partido'   => $request->input('partido'),
+          'localidad' => $request->input('localidad'),
+          'provincia' => $request->input('provincia'),
+          'tellinea'  => $request->input('tellinea'),
+          'telcel'    => $request->input('telcel'),
+          'interno'   => $request->input('interno')
+        ]);
+        // $columna1->nomyap = $request->input('nomyap');
+        // $columna1->correo = $request->input('correo');
+        // $columna1->direccion = $request->input('direccion');
+        // $columna1->partido = $request->input('partido');
+        // $columna1->localidad = $request->input('localidad');
+        // $columna1->provincia = $request->input('provincia');
+        // $columna1->tellinea = $request->input('tellinea');
+        // $columna1->telcel = $request->input('telcel');
+        // $columna1->interno = $request->input('interno');
+        //
+        // $columna1->save();
 
-        $columna1->save();
-
-        return redirect('datoscol.update', $id)->with('success', 'Se actualizó con exito');
+        return back()->with('success', 'Registro actualizado con éxito');
     }
 
     /**

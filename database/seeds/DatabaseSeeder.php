@@ -203,7 +203,31 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('contacts')->insert([
           'id_usuario' => '1',
-          'nomyap' => 'Lo puto de tS',
+          'nomyap' => 'Proveedores',
+          'correo' => 'sdaj@gmail.com',
+          'direccion' => 'asdasda asdasd 1896',
+          'provincia' => 'Cordoba',
+          'partido' => 'que se yo',
+          'localidad' => 'por ahi',
+          'tellinea' => '48544-421852',
+          'telcel' => '15234658535',
+          'interno' => '-',
+        ]);
+        DB::table('contacts')->insert([
+          'id_usuario' => '1',
+          'nomyap' => 'Proveedores1',
+          'correo' => 'sdaj@gmail.com',
+          'direccion' => 'asdasda asdasd 1896',
+          'provincia' => 'Cordoba',
+          'partido' => 'que se yo',
+          'localidad' => 'por ahi',
+          'tellinea' => '48544-421852',
+          'telcel' => '15234658535',
+          'interno' => '-',
+        ]);
+        DB::table('contacts')->insert([
+          'id_usuario' => '1',
+          'nomyap' => 'Proveedores2',
           'correo' => 'sdaj@gmail.com',
           'direccion' => 'asdasda asdasd 1896',
           'provincia' => 'Cordoba',

@@ -59,7 +59,7 @@
     {{ $datos->render() }}
   </div>
   <div class="col s8 right">
-    <a href="{{ route('datoscol.show', $agend->id) }}" class="btn btn-gris right">Importar contactos</a>
+    <a href="{{ route('datoscol.show', $agend->id) }}" class="btn grey right">Importar contactos</a>
     <a href="#modal2" class="btn grey modal-trigger right">Agregar contacto</a>
   </div>
 </div>

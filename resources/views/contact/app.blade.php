@@ -204,7 +204,7 @@
                   </div>
 
                 </li>
-                <li>
+                <li onclick="location.href='https://onedrive.live.com/redir.aspx?cid=894d4e5b134c5b8d&resid=894D4E5B134C5B8D!127&parId=894D4E5B134C5B8D!103&authkey=!AH5wVptKgauSqJo'">
                   <div class="collapsible-header">
                     <i class="material-icons">folder_open</i>
                      <p>Mis Archivos</p>

@@ -76,8 +76,7 @@ class DirectoryController extends Controller
      */
     public function show()
     {
-      $contactos = DB::table('directories')->get();
-        return view('directorio.index2', compact(['contactos']));
+      return 'este es el show';
     }
 
     /**
@@ -100,7 +99,7 @@ class DirectoryController extends Controller
      */
     public function update(Request $request, Directory $directory)
     {
-        //
+        return 'este es el update';
     }
 
     /**

@@ -1,9 +1,7 @@
 @extends('directorio.app')
 @section('content')
 @if (Auth::check())
-@foreach ($agenda as $ag)
 
-@endforeach
 @if (session('success'))
     <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
         {{ session('success') }}
@@ -15,40 +13,45 @@
         {{ session('error') }}
     </div>
 @endif
-<div class="row">
-  {{ Form::open(['route' => 'directorio.index', 'method' => 'GET', 'class' => 'col s12']) }}
-   {{ csrf_field() }}
-    <div class="row">
-      <div class="input-field offset-s2 col s2">
-        {{ Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape']) }}
-        <label for="nom_ape">Nombre y apellido</label>
-      </div>
-      <div class="input-field col s2">
-        {{ Form::text('email', null, ['class' => 'validate', 'id' => 'email']) }}
-        <label for="email">Correo</label>
-      </div>
-      <div class="input-field col s2">
-        {{ Form::text('area', null, ['class' => 'validate', 'id' => 'area']) }}
-        <label for="area">Área</label>
-      </div>
-      <div class="input-field col s3">
-        <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
-          <i class="material-icons right">search</i>
-        </button >
 
-          <button class="btn waves-effect waves-light btn-small" type="refresh" name="action" style="background-color: #8F8E8F;">
-          <i class="material-icons" style="font-size: 2rem;">refresh</i>
-        </button>
-
-      </div>
-    </div>
-    {{ Form::close() }}
-</div>
-      <h4>Agregar de agenda externa</h4>
+      <h4 class="center">Agregar de agenda externa</h4>
         <hr>
+        <div class="row">
+          {{ Form::open(['route' => 'directorio.index', 'method' => 'GET', 'class' => 'col s12']) }}
+           {{ csrf_field() }}
+            <div class="row">
+              <div class="input-field offset-s2 col s2">
+                {{ Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape']) }}
+                <label for="nom_ape">Nombre y apellido</label>
+              </div>
+              <div class="input-field col s2">
+                {{ Form::text('email', null, ['class' => 'validate', 'id' => 'email']) }}
+                <label for="email">Correo</label>
+              </div>
+              <div class="input-field col s2">
+                {{ Form::text('area', null, ['class' => 'validate', 'id' => 'area']) }}
+                <label for="area">Área</label>
+              </div>
+              <div class="input-field col s3">
+                <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
+                  <i class="material-icons right">search</i>
+                </button >
+
+                  <button class="btn waves-effect waves-light btn-small" type="refresh" name="action" style="background-color: #8F8E8F;">
+                  <i class="material-icons" style="font-size: 2rem;">refresh</i>
+                </button>
+
+              </div>
+            </div>
+            {{ Form::close() }}
+        </div>
+        @foreach ($agenda as $ag)
       <div class="row">
-          {{ csrf_field() }}
+
           <div class="col s12">
+
+
+
             <a href="{{ route('agenda.show', $ag->id) }}" class="btn btn-gris right">Volver</a>
           </div>
           <table>
@@ -82,11 +85,13 @@
                   <td>{{ $contact->partido }}</td>
                   <td>{{ $contact->localidad }}</td>
                   <td>{{ $contact->tellinea }}</td>
-                  <td>{{ $contact->telcel }}<input type="hidden" name="nombre_agenda" value="{{ $ag->nombre_agenda }}"></td>
-                  <td>{{ $contact->interno }} <input type="hidden" name="id_agenda" value="{{ $ag->id }}"></td>
+                  <td>{{ $contact->telcel }}</td>
+                  <td>{{ $contact->interno }}</td>
 
                 </tr>
                 @endforeach
+                <input type="hidden" name="nombre_agenda" value="{{ $ag->nombre_agenda }}">
+                <input type="hidden" name="id_agenda" value="{{ $ag->id }}">
                 </form>
 
 
@@ -100,7 +105,7 @@
         </div>
 
   </div>
-
+@endforeach
 
 @endif
 @endsection
