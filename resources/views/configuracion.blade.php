@@ -8,7 +8,7 @@
         </div>
         <div class="form-group">
 
-                <form method="POST" id="formulario">
+          {!! Form::open(['route' => 'update', 'method' => 'PUT', 'id' => 'formulario']) !!}
                   {{ csrf_field() }}
                   <div class="row">
                   <div class="col s12">
@@ -49,13 +49,23 @@
               </div>
               <div class="input-field center">
 
-                <button id="btnpass" class="btn grey" form="formulario">Cambiar</button>
+                <button type="submit" id="btnpass" class="btn btn-pass grey">Cambiar</button>
 
               </div>
-                </form>
+              {!! Form::close() !!}
 
         </div>
-        <div id="alert" class="container alert alert-success text-center" role="alert" data-dismiss="alert" style="display: none; font-size: 16px;"></div>
+        @if (session('success'))
+            <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+        <br>
+        @if (session('error'))
+            <div class="container alert alert-danger text-center" role="alert" data-dismiss="alert">
+                {{ session('error') }}
+            </div>
+        @endif
     </div>
 
 @endif
@@ -63,38 +73,15 @@
     @section('javascript')
 <script>
   $(document).ready(function() {
-    $('#formulario').submit(function(e) {
-      e.preventDefault();
-      if ( ! confirm('¿Desea cambiar la contraseña?')) {
-        return false;
-      }
 
-      var form = $(this).parent('form');
-      var data = form.serialize();
-
-      $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-      });
-
-
-      $.ajax({
-        url: '{{ action('ConfigController@update') }}',
-        type: 'POST',
-        data: data
-      })
-      .done(function(result) {
-        console.log('success');
-        // $('#alert').show();
-        // $('#alert').html(result.success);
-      })
-      .fail(function(result) {
-        console.log('error');
-        // alert(result.error);
-      });
-
-
+      $('#formulario').submit(function(event) {
+        var pass1 = $("#newPass").val();
+        var pass2 = $("#confirmPass").val();
+        if (pass1 != pass2) {
+            console.log("Las contraseñas no coinciden.");
+            $("#newPass").css('borderColor', '#E34234');
+            $("#confirmPass").css('borderColor', '#E34234');
+        }
       });
 
   });

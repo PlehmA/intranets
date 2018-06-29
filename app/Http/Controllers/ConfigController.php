@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
@@ -82,24 +83,24 @@ class ConfigController extends Controller
      */
     public function update(Request $request)
     {
-      if ($request->ajax()) {
-        if (bcrypt($request->input('verifyPass')) == Auth::user()->password ) {
-          if ($request->input('newPass') == $request->input('confirmPass')) {
-            $input = $request->input('newPass');
+        $contra = decrypt(Auth::user()->password);
 
-             $hashedinput = bcrypt($input);
-             DB::table('users')
-                 ->where('id', Auth::user()->id)
-                 ->update(['password' => $hashedinput]);
-             return response()->json([ 'success' => 'Contraseña modificada correctamente!' ]);
-          }else {
-            return response()->json([ 'error' => 'Las contraseñas no coinciden' ]);
-          }
+        if ($contra != $request->input('verifyPass') ) {
+        return back()->with( 'error', 'La contraseña no es correcta');
+        }elseif ($request->input('newPass') != $request->input('confirmPass')) {
+          return back()->with( 'error', 'Las contraseñas no cinciden.');
+
         }else {
-          return response()->json([ 'error' => 'Contraseña incorrecta' ]);
-        }
+          $input = $request->input('newPass');
 
-      }
+           $hashedinput = bcrypt($input);
+           DB::table('users')
+               ->where('id', Auth::user()->id)
+               ->update(['password' => $hashedinput]);
+
+           return back()->with( 'success', 'Contraseña modificada correctamente.');
+
+          }
 
     }
 

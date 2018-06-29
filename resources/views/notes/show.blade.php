@@ -2,7 +2,7 @@
 @section('css')
 <style>
   .lateralizq {
-    max-height: 75vh;
+    max-height: 65vh;
     overflow-y: scroll;
   }
   .scrollbar-juicy-peach::-webkit-scrollbar-track {
@@ -391,7 +391,7 @@
             <label for="buscador">Buscar...</label>
           </div>
 
-          <ul class="collection with-header lateralizq scrollbar-rare-wind">
+          <ul class="collection with-header lateralizq scrollbar-rare-wind" id="listaizq">
               <li class="collection-header"><h5>Notas</h5></li>
               @foreach ($notas as $note)
                 <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres"><b>
@@ -419,20 +419,20 @@
 
         </ul>
       </div>
-      @if (session('success'))
-          <div class="container alert text-center animated fadeIn" role="alert" data-dismiss="alert">
-              {{ session('success') }}
-          </div>
-      @endif
-      <br>
-      @if (session('error'))
-          <div class="container alert text-center animated fadeIn" role="alert" data-dismiss="alert">
-              {{ session('error') }}
-          </div>
-      @endif
+
       <div class="col s10 m10 l10">
 
-
+        @if (session('success'))
+            <div class="container alert alert-default text-center animated fadeIn" role="alert" data-dismiss="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+        <br>
+        @if (session('error'))
+            <div class="container alert alert-default text-center animated fadeIn" role="alert" data-dismiss="alert">
+                {{ session('error') }}
+            </div>
+        @endif
 
         {!! Form::open(['route' => ['notes.update', $nota['id']], 'method' => 'PUT']) !!}
 
@@ -477,7 +477,7 @@
     <script>
     tinymce.init({
        selector: 'textarea',
-       height: 500,
+       height: 300,
        menubar: false,
        plugins: [
          'advlist autolink lists link image charmap print preview anchor textcolor',
@@ -488,7 +488,12 @@
            });
 </script>
 <script>
+$("#listaizq").hover(function() {
   $(".main-panel").perfectScrollbar('destroy');
+}, function() {
+  $(".main-panel").perfectScrollbar();
+});
+
 
   $(document).ready(function(){
   $('#buscador').keyup(function(){
@@ -539,13 +544,7 @@
     }).fail(function(){
       alert('Algo salió mal');
     });
-  })
-
-
-  $("input[name!='notas']").keyup(function() {
-    console.log('funciona');
   });
-
 
   });
 </script>

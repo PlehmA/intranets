@@ -99,16 +99,7 @@
     .caja-5 {
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
-    div .botonchat {
-      width: 60;
-      height: 40px;
-      margin-top: 5px;
-    }
-    div .botonmail {
-      width: 50;
-      height: 30px;
-      margin-top: 10px;
-    }
+
     div .botonchat:hover {
       -webkit-transform:scale(1.25);
       -moz-transform:scale(1.25);

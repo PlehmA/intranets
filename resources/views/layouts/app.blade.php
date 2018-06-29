@@ -100,16 +100,8 @@
 .caja-5 {
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-div .botonchat {
-  width: 60;
-  height: 40px;
-  margin-top: 5px;
-}
-div .botonmail {
-  width: 50;
-  height: 30px;
-  margin-top: 10px;
-}
+
+
 div .botonchat:hover {
   -webkit-transform:scale(1.25);
   -moz-transform:scale(1.25);
@@ -162,7 +154,7 @@ div .botonmail:hover {
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-                <ul class="collapsible" style="background-color: transparent;">
+                <ul class="collapsible" style="background-color: transparent; color:grey;">
                   <li onclick="location.href='{{ route('correo.index') }}'">
                     <div class="collapsible-header">
                       <i class="material-icons">email</i>
@@ -179,13 +171,15 @@ div .botonmail:hover {
                     </div>
 
                   </li>
-                  <li onclick="location.href='https://onedrive.live.com/redir.aspx?cid=894d4e5b134c5b8d&resid=894D4E5B134C5B8D!127&parId=894D4E5B134C5B8D!103&authkey=!AH5wVptKgauSqJo'">
-                    <div class="collapsible-header">
-                      <i class="material-icons">folder_open</i>
-                       <p>Mis Archivos</p>
-                    </div>
+                  <a href="https://1drv.ms/f/s!Ao1bTBNbTk2Jf87ykAKAkUHulr4" target="_blank" style="color:grey">
+                    <li>
+                      <div class="collapsible-header">
+                        <i class="material-icons">folder_open</i>
+                         <p>Mis Archivos</p>
+                      </div>
 
-                  </li>
+                    </li>
+                  </a>
                   <li onclick="location.href='{{ route('calendar.index') }}'">
                     <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
                     <p>Calendario</p></div>

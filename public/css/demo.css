@@ -193,3 +193,16 @@ background-color: #e0e0e0;
   max-width: initial;
   display: initial;
 }
+.but-menu {
+  margin-top: 10px;
+}
+div .botonmail {
+  width: 50;
+  height: 30px;
+  margin-top: 2px;
+}
+div .botonchat {
+  width: 60;
+  height: 40px;
+  margin-top: -4px;
+}

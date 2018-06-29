@@ -2,7 +2,7 @@
 @section('css')
 <style>
   .lateralizq {
-    max-height: 75vh;
+    max-height: 60vh;
     overflow-y: scroll;
   }
   .scrollbar-juicy-peach::-webkit-scrollbar-track {
@@ -458,6 +458,7 @@
            });
 </script>
 <script>
+
   $(".main-panel").perfectScrollbar('destroy');
 
   $(document).ready(function(){

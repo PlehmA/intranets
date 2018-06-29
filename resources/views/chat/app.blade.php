@@ -109,16 +109,7 @@
       padding-left: 5px;
     }
 
-    div .botonchat {
-      width: 60;
-      height: 40px;
-      margin-top: 5px;
-    }
-    div .botonmail {
-      width: 50;
-      height: 30px;
-      margin-top: 10px;
-    }
+
     div .botonchat:hover {
       -webkit-transform:scale(1.25);
       -moz-transform:scale(1.25);

@@ -32,7 +32,7 @@ Route::get('configuracion', 'ConfigController@index')->name('configuracion');
 
 Route::post('upload', 'ConfigController@store')->name('upload');
 
-Route::post('update', 'ConfigController@update')->name('update');
+Route::put('update', 'ConfigController@update')->name('update');
 
 Route::resource('calendar', 'CalendarController');
 
