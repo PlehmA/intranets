@@ -191,7 +191,7 @@
                   <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
                   <div class="collapsible-body">
                     <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
-                    <span><a href="#">Organigrama corporativo</a></span><hr>
+                    <span><a href="{{ route('organigrama.index') }}">Organigrama corporativo</a></span><hr>
                     <span><a href="#">Plantillas</a></span>
                   </div>
 

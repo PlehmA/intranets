@@ -77,3 +77,5 @@ Route::resource('officebase', 'OfficebaseController');
 Route::resource('officeimpress', 'OfficeimpressController');
 
 Route::resource('notes', 'NoteController');
+
+Route::resource('organigrama', 'OrganigController');

@@ -33,5 +33,18 @@
     top:0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 95%;
+}
+.embed-container2 {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    margin-left: 15vh;
+}
+.embed-container2 iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 85%;
+    height: 89%;
 }

@@ -183,7 +183,7 @@
           <label for="descripcion">Descripción</label>
         </div>
         <div class="input-field col s6">
-          <input id="start" type="date" class="validate" min="2012" max="2088" name="start" required>
+          <input id="start" type="date" class="validate" min="2012" max="2088" name="start" required value="{{ date('Y-m-d') }}" placeholder="{{ date('Y-m-d') }}">
           <label for="start">Fecha de inicio</label>
         </div>
         <div class="input-field col s6">
