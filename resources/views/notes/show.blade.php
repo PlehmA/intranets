@@ -539,7 +539,6 @@ $("#listaizq").hover(function() {
 
     $.post(url, form.serialize(), function(result) {
       window.location='{{route('notes.index')}}';
-      alert(result.success);
       /*optional stuff to do after success */
     }).fail(function(){
       alert('Algo salió mal');

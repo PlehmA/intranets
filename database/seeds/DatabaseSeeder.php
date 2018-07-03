@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '181',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.35',
-            'password' => encrypt('123456')
+            'password' => bcrypt('123456')
         ]);
         DB::table('users')->insert([
             'name' => 'Ivan Picoy',
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '181',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.30',
-            'password' => encrypt('secret')
+            'password' => bcrypt('secret')
         ]);
         DB::table('users')->insert([
             'name' => 'Patricia Palermo',
@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '180',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.124',
-            'password' => encrypt('secret')
+            'password' => bcrypt('secret')
         ]);
         DB::table('users')->insert([
             'name' => 'Agustin Polla',
@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '180',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.191',
-            'password' => encrypt('secret')
+            'password' => bcrypt('secret')
         ]);
         DB::table('users')->insert([
             'name' => 'Marcelo Sifón',
@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '170',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.130',
-            'password' => encrypt('secret')
+            'password' => bcrypt('secret')
         ]);
         DB::table('users')->insert([
             'name' => 'Laura Carimali',
@@ -112,7 +112,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '123',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.1',
-            'password' => encrypt('secret')
+            'password' => bcrypt('secret')
         ]);
         DB::table('users')->insert([
             'name' => 'Brenda Miller',
@@ -129,11 +129,11 @@ class DatabaseSeeder extends Seeder
             'interno' => '100',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.52',
-            'password' => encrypt('secret')
+            'password' => bcrypt('secret')
         ]);
         DB::table('users')->insert([
             'name' => 'Leandro Castro Vila',
-            'username' => 'lcastrov',
+            'username' => 'lcastrovila',
             'rol_usuario' => 1,
             'num_legajo' => 50,
             'fecha_ingreso' => '03/04/2017',
@@ -146,7 +146,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '170',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.146',
-            'password' => encrypt('secret')
+            'password' => bcrypt('123456')
         ]);
         DB::table('users')->insert([
             'name' => 'Claudia Tuozzo',
@@ -163,7 +163,7 @@ class DatabaseSeeder extends Seeder
             'interno' => '181',
             'estado' => 'online',
             'ip_maquina' => '192.168.20.35',
-            'password' => encrypt('123456')
+            'password' => bcrypt('123456')
         ]);
 
         DB::table('puestos')->insert([
