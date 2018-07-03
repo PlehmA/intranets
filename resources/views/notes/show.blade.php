@@ -477,6 +477,7 @@
     <script>
     tinymce.init({
        selector: 'textarea',
+       language: 'es',
        height: 300,
        menubar: false,
        plugins: [
