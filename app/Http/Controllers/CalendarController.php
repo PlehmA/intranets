@@ -74,7 +74,7 @@ class CalendarController extends Controller
           $mail->Subject = 'Invitación a evento';
           $mail->Body    =   "<div class='container'>
               <div style='text-align: center;'>
-                <img src='".asset('images/Recurso1.png')."' alt='>
+                <img src='https://i0.wp.com/www.online-911.com/wp-content/uploads/2015/12/lococacho.jpg?fit=1030%2C478'>
               </div>
                 <div style='text-align: center;'>
                   <p style='text-align: center; font-size: 20px;'><b>".Auth::user()->name."</b> te ha invitado a participar de un envento.</p>
@@ -82,6 +82,7 @@ class CalendarController extends Controller
                       <p style='text-align: center; font-size: 20px;'>Descripción del evento: <b>".$request->input('descripcion')." </b></p>
                       <p style='text-align: center; font-size: 20px;'>Fecha del evento: <b>".date_format($start, 'd/m/Y')." </b></p>
                       <p style='text-align: center; font-size: 20px;'>Hora del evento: <b>". date_format($startime, 'H:i')."hs. </b></p>
+                      </div>
                 </div>
             </div>";
 
