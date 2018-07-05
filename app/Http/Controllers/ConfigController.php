@@ -83,17 +83,17 @@ class ConfigController extends Controller
      */
     public function update(Request $request)
     {
-        $contra = decrypt(Auth::user()->password);
+        $contra = Auth::user()->password;
 
         if ($contra != $request->input('verifyPass') ) {
-        return back()->with( 'error', 'La contraseña no es correcta');
+        return back()->with( 'error', 'La contraseña actual no es correcta');
         }elseif ($request->input('newPass') != $request->input('confirmPass')) {
           return back()->with( 'error', 'Las contraseñas no cinciden.');
 
         }else {
           $input = $request->input('newPass');
 
-           $hashedinput = bcrypt($input);
+           $hashedinput = $input;
            DB::table('users')
                ->where('id', Auth::user()->id)
                ->update(['password' => $hashedinput]);

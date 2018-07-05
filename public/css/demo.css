@@ -189,10 +189,7 @@ background-color: #e0e0e0;
   height: 7vh;
 
 }
-.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
-  max-width: initial;
-  display: initial;
-}
+
 .but-menu {
   margin-top: 10px;
 }
@@ -205,4 +202,8 @@ div .botonchat {
   width: 60;
   height: 40px;
   margin-top: -4px;
+}
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+  max-width: initial;
+  display: initial;
 }

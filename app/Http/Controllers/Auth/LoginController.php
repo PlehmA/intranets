@@ -13,29 +13,41 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $this->validate(request(), [
-            'username' => 'required|string',
-            'password' => 'required|string'
-        ]);
+      $username = $request->input('username');
+      $password = $request->input('password');
 
-        if(Auth::attempt($credentials))
-        {
-            $user= DB::table('users')
-                ->where($credentials)
-                ->get();
+      $user = User::where('username', $username)->where('password', $password)->count();
 
-            return redirect()->route('dashboard', compact('user'));
-        }
 
-        $user= DB::table('users')
-            ->where($credentials)
-            ->count();
+      if ($user >= 1) {
+
+        $usuario = User::where('username', $username)->where('password', $password)->first();
+
+        Auth::loginUsingId($usuario->id);
+
+
+
+         return view('dashboard');
+      }
+      // $credentials = $this->validate(request(), [
+      //   'username' => 'required|string',
+      //   'password' => 'required|string'
+      // ]);
+      //
+      // if(Auth::attempt($credentials))
+      // {
+      //   $user= User::where($credentials)
+      //   ->get();
+      //   return 'hola';
+      //   // return redirect()->route('dashboard', compact('user'));
+      // }
+      //   $user= User::where($credentials)
+      //       ->count();
 
         if($user == 0)
         {
           return redirect('inicioder')->with('errorses', 'Usuario y/o Contraseña incorrectos.');
         }
-
 
 
     }
