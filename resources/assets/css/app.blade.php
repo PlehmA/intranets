@@ -123,19 +123,7 @@ div .botonmail:hover {
   -o-transform:scale(1.25);
   transform:scale(1.25);
 }
-.carousel.carousel-slider {
-    top: 0;
-    left: 0;
-    margin-top: 100px;
-}
-.carousel .indicators {
-    position: absolute;
-    text-align: center;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: -23px;
-}
+
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
