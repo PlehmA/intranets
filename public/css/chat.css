@@ -4,7 +4,7 @@
   max-width: 1000px;
   height: 92vh;
   min-height: 300px;
-  max-height: 720px;
+  max-height: 80vh;
   background: #E6EAEA;
   color: black;
   -webkit-box-shadow: 2px 2px 5px #999;
@@ -584,7 +584,7 @@ color: black;
 }
 @media screen and (min-width: 735px) {
   #frame .content .messages ul li p {
-    max-width: 300px;
+    max-width: 45vh;
   }
 }
 #frame .content .message-input {

@@ -23,6 +23,10 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
 
 </head>
 
@@ -152,17 +156,19 @@
                   <div class="collapsible-body">
                     <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
                     <span><a href="{{ route('organigrama.index') }}">Organigrama corporativo</a></span><hr>
-                    <span><a href="#">Plantillas</a></span>
+                    <span><a href="{{ route('plantillas.index') }}">Plantillas</a></span>
                   </div>
 
                 </li>
-                <li onclick="location.href='https://onedrive.live.com/redir.aspx?cid=894d4e5b134c5b8d&resid=894D4E5B134C5B8D!127&parId=894D4E5B134C5B8D!103&authkey=!AH5wVptKgauSqJo'">
-                  <div class="collapsible-header">
-                    <i class="material-icons">folder_open</i>
-                     <p>Mis Archivos</p>
-                  </div>
+                <a href="https://1drv.ms/f/s!Ao1bTBNbTk2Jf87ykAKAkUHulr4" target="_blank" style="color:grey">
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">folder_open</i>
+                       <p>Mis Archivos</p>
+                    </div>
 
-                </li>
+                  </li>
+                </a>
                 <li onclick="location.href='{{ route('calendar.index') }}'">
                   <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
                   <p>Calendario</p></div>
@@ -193,12 +199,15 @@
                 </li>
               </ul>
             </ul>
-            <div class="carousel">
-              <a class="carousel-item" href="#one!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
-              <a class="carousel-item" href="#two!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
-              <a class="carousel-item" href="#three!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
-              <a class="carousel-item" href="#four!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
-              <a class="carousel-item" href="#five!"><img src="{{ asset('images/maxresdefault.jpg') }}"></a>
+            <div class="autoplay">
+
+              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
+
             </div>
         </div>
     </div>
@@ -294,6 +303,7 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script type="text/javascript" src="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
@@ -319,6 +329,16 @@ $(document).ready(function(){
 </script>
 <script>
   $(".main-panel").perfectScrollbar('destroy');
+</script>
+<script>
+$(document).ready(function() {
+  $('.autoplay').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+});
 </script>
 </body>
 </html>

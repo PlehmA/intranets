@@ -438,7 +438,7 @@
 
         {{ csrf_field() }}
 
-        <textarea name="notas" id="textarea" autofocus>{{ $nota['notas'] }}</textarea>
+        <textarea name="notas" maxlength="5000" onkeyup="validar();" id="textarea" autofocus>{{ $nota['notas'] }}</textarea>
 
           <button class="btn grey btn-update center" type="submit">Guardar cambios</button>
         {!! Form::close() !!}
@@ -485,7 +485,7 @@
          'searchreplace visualblocks code fullscreen',
          'insertdatetime media table contextmenu paste code help wordcount'
        ],
-       toolbar: 'insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+       toolbar: 'undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
            });
 </script>
 <script>
@@ -545,6 +545,19 @@ $("#listaizq").hover(function() {
       alert('Algo salió mal');
     });
   });
+
+  });
+</script>
+<script>
+  $(document).ready(function() {
+    function validar(){
+      var tag = $('#textarea').val();
+      var largo = tag.length();
+
+      if (largo >= 5000) {
+        alert('Esta superando el limite de 5000 caracteres')
+      }
+    }
 
   });
 </script>

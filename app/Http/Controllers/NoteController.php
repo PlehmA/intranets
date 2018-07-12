@@ -88,13 +88,20 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $notas = Note::find($id);
 
-      $notas->notas = $request->input('notas');
+      if (strlen($request->input('notas')) >= 5001) {
+        return back()->with('success', 'Está superando el límite de 5000 caracteres.');
+      }else {
+        $notas = Note::find($id);
 
-      $notas->save();
+        $notas->notas = $request->input('notas');
 
-      return back()->with('success', 'Cambios guardados.');
+        $notas->save();
+
+        return back()->with('success', 'Cambios guardados.');
+      }
+
+
     }
 
     /**

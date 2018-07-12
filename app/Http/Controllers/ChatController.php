@@ -50,6 +50,8 @@ class ChatController extends Controller
         $mensaje = $request->input('mensaje');
         date_default_timezone_set('America/Argentina/Buenos_Aires');
 
+        DB::table('users')->where('id', Auth::user()->id)->update(['ult_mensaje' => $mensaje]);
+
         \App\Chat::create([
           'user_envia_id' => $user_envia,
           'user_recibe_id' => $user_recibe,
@@ -57,6 +59,8 @@ class ChatController extends Controller
           'mensaje' => $mensaje,
           'hora_msj' => date('Y-m-d H:i:s'),
         ]);
+
+
 
         return back();
 
@@ -77,9 +81,13 @@ class ChatController extends Controller
         $messages = DB::table('chats')->orderBy('hora_msj', 'ASC')->whereIn('user_recibe_id', [Auth::user()->id, $usuario->id])
                                                                   ->whereIn('user_envia_id',[Auth::user()->id, $usuario->id])
                                                                   ->get();
+        $lastmessage = DB::table('chats')->where('user_recibe_id', Auth::user()->id)
+                                                                  ->where('user_envia_id', $usuario->id)
+                                                                  ->orderBy('hora_msj', 'DESC')
+                                                                  ->first();
 
 
-       return view('chat.show', compact(['users', 'messages', 'usuario']));
+       return view('chat.show', compact(['users', 'messages', 'usuario', 'lastmessage']));
 
 
     }

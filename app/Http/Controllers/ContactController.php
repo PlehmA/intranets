@@ -20,14 +20,16 @@ class ContactController extends Controller
      */
     public function index(Request $request)
     {
-      $nomyap  = $request->get('nomyap');
+      $nomyap  = $request->get('name');
       $correo = $request->get('correo');
       $localidad  = $request->get('localidad');
+      $direccion  = $request->get('direccion');
 
       $contactos = Contact::orderBy('nomyap', 'ASC')
                                                     ->nomyap($nomyap)
                                                     ->correo($correo)
                                                     ->localidad($localidad)
+                                                    ->direccion($direccion)
                                                     ->paginate(15);
       $agenda = Agenda::all()
                         ->where('id_usr_agenda', Auth::user()->id);

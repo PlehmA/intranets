@@ -74,7 +74,7 @@ class CalendarController extends Controller
           $mail->Subject = 'Invitación a evento';
           $mail->Body    =   "<div class='container'>
               <div style='text-align: center;'>
-                <img src='https://i0.wp.com/www.online-911.com/wp-content/uploads/2015/12/lococacho.jpg?fit=1030%2C478'>
+                <img src='".asset('images/recurso3.png')."'>
               </div>
                 <div style='text-align: center;'>
                   <p style='text-align: center; font-size: 20px;'><b>".Auth::user()->name."</b> te ha invitado a participar de un envento.</p>

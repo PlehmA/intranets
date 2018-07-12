@@ -23,11 +23,18 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
   <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
 
 </head>
 
 <body>
 <style>
+.content{
+  margin-top: 90px
+}
 /* Dropdown Button */
 .dropbtn {
     background-color: #ddd;
@@ -126,6 +133,39 @@ div .botonmail:hover {
 .sidebar .logo:after, .off-canvas-sidebar .logo:after{
   background-color: initial;
 }
+a:active {
+  background-color: transparent !important;
+}
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 8px;
+  padding: 0;
+}
+@media only screen and (max-width: 1400px) {
+
+  .slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 15px;
+    margin-top: 0px;
+    padding: 0;
+    max-height: 250px
+}
+.sidebar .nav, .off-canvas-sidebar .nav {
+    margin-top: 0px;
+    margin-bottom: -8px;
+}
+
+  }
+
+
+  .navbar.navbar-transparent {
+    background-color: #f5f5f5;
+    z-index: 999;
+  }
 </style>
 @yield('css')
 <div class="wrapper">
@@ -153,7 +193,7 @@ div .botonmail:hover {
                     <div class="collapsible-body">
                       <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
                       <span><a href="{{ route('organigrama.index') }}">Organigrama corporativo</a></span><hr>
-                      <span><a href="#">Plantillas</a></span>
+                      <span><a href="{{ route('plantillas.index') }}">Plantillas</a></span>
                     </div>
 
                   </li>
@@ -198,46 +238,19 @@ div .botonmail:hover {
             </ul>
             {{-- Aca termina la barra lateral --}}
             {{-- Slider --}}
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                  <!-- Indicators -->
-                <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                    <img src="{{ asset('images/yogur_ser.jpg') }}" alt="...">
-                    <div class="carousel-caption">
-                      ...
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="{{ asset('images/yogur_ser2.png') }}" alt="...">
-                    <div class="carousel-caption">
-                      ...
-                    </div>
-                  </div>
-                  ...
-                </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
+            <div class="autoplay">
+              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
+            </div>
              {{-- Slider --}}
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent" style="box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); min-height: 90px;">
+        <nav class="navbar navbar-transparent" style="box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); height: 90px; max-width: 89%; position: fixed; background-color: #f5f5f5;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -250,7 +263,7 @@ div .botonmail:hover {
 
                       <div class="col-md-2">
                         <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
-                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
+                          <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
                         </a>
                       </div>
 
@@ -261,7 +274,7 @@ div .botonmail:hover {
                       </div>
 
                       <div class="col-md-2">
-                        <a class="navbar-brand but-menu notas" href="{{ route('notes.index') }}" title="Notas">
+                        <a class="navbar-brand but-menu notas no-autoinit" href="{{ route('notes.index') }}" title="Notas">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
@@ -281,7 +294,6 @@ div .botonmail:hover {
                         <a href="{{ route('configuracion') }}" id="imagenPerf">
                           <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive">
                         </a>
-
 
                       </div>
                       <!-- Dropdown Structure -->
@@ -328,7 +340,7 @@ div .botonmail:hover {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
-
+<script type="text/javascript" src="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
@@ -369,6 +381,23 @@ $(document).ready(function(){
   tippy('.notas');
   tippy('.agenda');
 </script>
+<script>
+$(document).ready(function() {
+
+});
+$('.autoplay').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+    });
+</script>
 @yield('javascript')
+<script>
+  $('.wrapper').perfectScrollbar('destroy');
+  $('.sidebar').perfectScrollbar('destroy');
+  $('.sidebar .sidebar-wrapper, .off-canvas-sidebar .sidebar-wrapper').perfectScrollbar('destroy');
+
+</script>
 </body>
 </html>

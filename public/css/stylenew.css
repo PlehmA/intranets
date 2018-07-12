@@ -1,3 +1,49 @@
 nav ul a:hover {
   background-color: transparent !important;
 }
+.card .card-image {
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: -10px;
+    border-radius: 2px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .collapsible-header {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      line-height: 1.5;
+      padding: 6px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+  }
+  .slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 15px;
+    padding: 0;
+}
+  }
+
+/* @media only screen and (min-width: 800px) {
+  .collapsible-header {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      line-height: 1.5;
+      padding: 15px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+  }
+} */

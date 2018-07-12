@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->increments('id');
             $table->integer('id_usuario');
             $table->string('nombre_nota');
-            $table->string('notas', 1500)->nullable();
+            $table->string('notas', 5000)->nullable();
             $table->timestamps();
             $table->index(['id', 'notas']);
             $table->index(['id', 'nombre_nota']);

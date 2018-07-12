@@ -241,10 +241,13 @@
           </div>
         </div>
         <div class="input-field col s8" id="emailcito">
-          <input id="email" type="email" class="validate" name="email[]">
-          <label for="title">¿A quién desea notificar del evento?</label>
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate" name="email[]" autocomplete="">
+                    <label for="email">¿A quién desea notificar del evento?</label>
+                  </div>
 
-        </div>
+                </div>
     </div>
     <div class="modal-footer">
       <a class="btn grey" href="#btnadd" id="btnadd">Añadir mail</a>
@@ -320,8 +323,9 @@
           </div>
         </div>
         <div class="input-field col s8" id="emailcito">
+
           <input id="email" type="email" class="validate" name="email[]">
-          <label for="title">¿A quién desea notificar del evento?</label>
+          <label for="email">¿A quién desea notificar del evento?</label>
 
         </div>
     </div>
@@ -477,7 +481,7 @@ $('#btnBorrar').click(function() {
  });
 
  $('#btnadd').click(function() {
-   $('#emailcito').append('<input id="email" type="email" class="validate" name="email[]">');
+   $('#emailcito').append('<div class="input-field col s6"><i class="material-icons prefix">email</i><input id="email" type="email" class="validate" name="email[]" autocomplete="">');
    $('#btnadd').scrollTop();
  });
 

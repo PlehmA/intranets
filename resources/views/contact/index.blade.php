@@ -47,6 +47,34 @@
 
     <div class="container-fluid">
       <h3 class="center">Agenda externa</h3>
+      <div class="row">
+        {{ Form::open(['route' => 'contact.index', 'method' => 'GET', 'class' => 'col s12']) }}
+         @csrf
+          <div class="row">
+            <div class="input-field offset-s2 col s2">
+              {{ Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape']) }}
+              <label for="nom_ape">Nombre y apellido</label>
+            </div>
+            <div class="input-field col s2">
+              {{ Form::text('email', null, ['class' => 'validate', 'id' => 'email']) }}
+              <label for="email">Correo</label>
+            </div>
+            <div class="input-field col s2">
+              {{ Form::text('localidad', null, ['class' => 'validate', 'id' => 'localidad']) }}
+              <label for="localidad">Localidad</label>
+            </div>
+            <div class="input-field col s2">
+              {{ Form::text('direccion', null, ['class' => 'validate', 'id' => 'direccion']) }}
+              <label for="direccion">Dirección</label>
+            </div>
+            <div class="input-field col s1">
+              <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
+                <i class="material-icons right">search</i>
+              </button >
+            </div>
+          </div>
+          {{ Form::close() }}
+      </div>
       <div class="col s4 right">
         <a href="{{ route('contact.create') }}" class="btn btn-gris">Agregar</a>
       </div>
