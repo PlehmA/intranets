@@ -162,18 +162,32 @@
         padding: 0;
         max-height: 250px
     }
-    .sidebar .nav, .off-canvas-sidebar .nav {
+  .sidebar .nav, .off-canvas-sidebar .nav {
         margin-top: 0px;
         margin-bottom: -8px;
     }
 
-      }
+       } /* media query */
 
 
-      .navbar.navbar-transparent {
+  .navbar.navbar-transparent {
         background-color: #f5f5f5;
         z-index: 999;
       }
+      span.badge {
+        min-width: 2rem;
+        padding: 0 6px;
+        margin-left: 14px;
+        margin-top: -7px;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 22px;
+        height: 22px;
+        color: white;
+        float: right;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
     @yield('style')
 
 </style>
@@ -270,6 +284,10 @@
                       <div class="col-md-2">
                         <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
                         <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
+                        @if ($count = Auth::user()->notifications->count())
+                          <span class="badge grey">{{ $count }}</span>
+                        @endif
+
                         </a>
                       </div>
 

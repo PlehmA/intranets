@@ -9,6 +9,9 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 class MessageSent extends Notification
 {
+
+  protected $message;
+
     use Queueable;
 
     /**
