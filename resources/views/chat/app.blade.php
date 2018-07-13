@@ -30,7 +30,6 @@
     <!-- Add the slick-theme.css if you want default styling -->
     <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
 </head>
-
 <body>
 <style>
     /* Dropdown Button */
@@ -145,7 +144,6 @@
     .sidebar .logo:after, .off-canvas-sidebar .logo:after{
       background-color: initial;
     }
-    @yield('style')
     .slick-list {
       position: relative;
       display: block;
@@ -176,6 +174,8 @@
         background-color: #f5f5f5;
         z-index: 999;
       }
+    @yield('style')
+
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">

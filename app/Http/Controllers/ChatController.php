@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Chat;
 use App\User;
 use Auth;
+use App\Notifications\MessageSent;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -52,7 +53,7 @@ class ChatController extends Controller
 
         DB::table('users')->where('id', Auth::user()->id)->update(['ult_mensaje' => $mensaje]);
 
-        \App\Chat::create([
+      $message =  Chat::create([
           'user_envia_id' => $user_envia,
           'user_recibe_id' => $user_recibe,
           'user_envia_name' => $user_envia_name,
@@ -60,6 +61,9 @@ class ChatController extends Controller
           'hora_msj' => date('Y-m-d H:i:s'),
         ]);
 
+      $recipient = User::find($request->input('user_recibe'));
+
+      $recipient->notify(new MessageSent($message));
 
 
         return back();
