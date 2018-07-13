@@ -170,6 +170,36 @@
     .sidebar .logo:after, .off-canvas-sidebar .logo:after{
       background-color: initial;
     }
+    .slick-list {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 8px;
+      padding: 0;
+    }
+    @media only screen and (max-width: 1400px) {
+
+      .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 15px;
+        margin-top: 0px;
+        padding: 0;
+        max-height: 250px
+    }
+    .sidebar .nav, .off-canvas-sidebar .nav {
+        margin-top: 0px;
+        margin-bottom: -8px;
+    }
+
+      }
+
+
+      .navbar.navbar-transparent {
+        background-color: #f5f5f5;
+        z-index: 999;
+      }
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -240,14 +270,12 @@
               </ul>
             </ul>
             <div class="autoplay">
-
-              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/yogur_ser.jpg') }}" alt="" class="img-rounded center-block"></div>
-
+              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
             </div>
         </div>
     </div>
