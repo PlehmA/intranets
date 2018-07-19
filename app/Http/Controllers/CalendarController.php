@@ -9,6 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Pusher\Laravel\Facades\Pusher;
 
 class CalendarController extends Controller
 {
@@ -87,6 +88,12 @@ class CalendarController extends Controller
             </div>";
 
           $mail->send();
+
+          Pusher::trigger('my-channel', 'my-event', 'Hola que hace');
+          // We're done here - how easy was that, it just works!
+
+          Pusher::getSettings();
+          // This example is simple and there are far more methods available.
 
       } catch (Exception $e) {
           echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
