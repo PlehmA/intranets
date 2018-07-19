@@ -311,7 +311,7 @@ a:active {
                 </div>
             </div>
         </nav>
-        <div class="content">
+        <div class="content" style="overflow: -webkit-paged-y">
 
                 @yield('content')
 
