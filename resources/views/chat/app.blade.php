@@ -187,6 +187,7 @@
         float: right;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
+        background-color: #DB6F7D;
     }
     @yield('style')
 
@@ -285,9 +286,8 @@
                         <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
                         <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
                         @if ($count = Auth::user()->notifications->count())
-                          <span class="badge grey">{{ $count }}</span>
+                          <span class="badge" style="color: white;">{{ $count }}</span>
                         @endif
-
                         </a>
                       </div>
 

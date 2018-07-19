@@ -21,25 +21,25 @@
         <div class="col s3 plantillas">
             <img src="{{ asset('images/plantillas/1.jpg') }}" alt="asd" class="materialboxed z-depth-2">
             <br>
-            <a href="">Descargar plantilla</a>
+            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
         </div>
 
         <div class="col s3 plantillas">
             <img src="{{ asset('images/plantillas/2.jpg') }}" alt="asd" class="materialboxed z-depth-2">
             <br>
-            <a href="">Descargar plantilla</a>
+            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
         </div>
 
         <div class="col s3 plantillas">
             <img src="{{ asset('images/plantillas/3.jpg') }}" alt="asd" class="materialboxed z-depth-2">
             <br>
-            <a href="">Descargar plantilla</a>
+            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
         </div>
 
         <div class="col s3 plantillas">
             <img src="{{ asset('images/plantillas/4.jpg') }}" alt="asd" class="materialboxed z-depth-2">
             <br>
-            <a href="">Descargar plantilla</a>
+            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
         </div>
 
     </div>
@@ -47,7 +47,7 @@
         <div class="col s3 plantillas">
             <img src="{{ asset('images/plantillas/5.jpg') }}" alt="asd" class="materialboxed z-depth-2">
             <br>
-            <a href="">Descargar plantilla</a>
+            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
         </div>
 </div>
 </div>
