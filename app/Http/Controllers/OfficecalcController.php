@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tutorial;
 use App\Notify;
+use Auth;
 use Illuminate\Http\Request;
 
 class OfficecalcController extends Controller

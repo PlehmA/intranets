@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Officewriter;
 use App\Notify;
+use Auth;
 use Illuminate\Http\Request;
 
 class OfficewriterController extends Controller
@@ -20,6 +21,8 @@ class OfficewriterController extends Controller
     {
       $wroffice = Officewriter::where('id_programa', 2)->paginate(1);
       $wrmenu   = Officewriter::where('id_programa', 2)->get();
+      $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
       return view('tutos.officewr', compact(['wroffice', 'wrmenu', 'notificacion']));
     }
 

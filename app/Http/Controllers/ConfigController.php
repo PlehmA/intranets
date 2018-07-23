@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Auth;
+use App\Notify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;

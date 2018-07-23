@@ -18,7 +18,7 @@ class DashboardController extends Controller
     {
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('dashboard', compact(['notificaciones']));
+        return view('dashboard', compact(['notificacion']));
     }
 
 

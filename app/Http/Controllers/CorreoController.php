@@ -20,7 +20,7 @@ class CorreoController extends Controller
     {
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('correo.index', (['notificaciones']));
+        return view('correo.index', compact(['notificacion']));
     }
 
     /**

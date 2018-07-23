@@ -16,7 +16,7 @@ class DiaryController extends Controller
     public function index()
     {
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
-        return view('agendapers.diary', compact(['notificaciones']));
+        return view('agendapers.diary', compact(['notificacion']));
     }
 
     /**

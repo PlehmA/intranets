@@ -17,6 +17,6 @@ class TemplateController extends Controller
   {
     $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-      return view('plantillas.index', compact(['notificaciones']));
+      return view('plantillas.index', compact(['notificacion']));
   }
 }

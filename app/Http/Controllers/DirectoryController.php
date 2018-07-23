@@ -37,7 +37,7 @@ class DirectoryController extends Controller
                           ->where('id_usr_agenda', Auth::user()->id);
     $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('directorio.index', compact(['usuarios', 'agenda']));
+        return view('directorio.index', compact(['usuarios', 'agenda', 'notificacion']));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Officebase;
 use App\Notify;
+use Auth;
 use Illuminate\Http\Request;
 
 class OfficebaseController extends Controller
