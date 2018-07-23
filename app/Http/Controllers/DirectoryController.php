@@ -6,6 +6,7 @@ use App\Directory;
 use App\User;
 use App\Agenda;
 use App\Columna;
+use App\Notify;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +35,7 @@ class DirectoryController extends Controller
                                             ->paginate(15);
         $agenda = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id);
-
+    $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
         return view('directorio.index', compact(['usuarios', 'agenda']));
     }

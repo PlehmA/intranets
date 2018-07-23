@@ -7,7 +7,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: 6;
+    z-index: 9991;
     padding-top: 20px;
     left: 0;
     top: 0;
@@ -173,6 +173,7 @@
 </style>
 @endsection
 @section('content')
+
 <div id='calendar'></div>
 
 <div id="myModal" class="modal">
@@ -331,7 +332,7 @@
     </div>
     <div class="modal-footer">
       <a class="btn grey" href="#btnadd" id="btnadd">Añadir mail</a>
-      <button type="submit" class="btn grey" id="btn-agregar" form="formularito">Agregar Evento</button>
+      <button type="submit" class="btn grey" id="btn-agregar" form="formularito" onclick="notificar()">Agregar Evento</button>
     </div>
   </div>
   </form>
@@ -490,5 +491,29 @@ $('#btnBorrar').click(function() {
   });
 
 </script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function (){
+    let url = "{{ url('calendar.index') }}";
 
+$("#formularito").submit(function () { 
+
+  var notifications = new Notification("Han creado un nuevo evento", {
+
+icon: "{{ asset('images/Recurso1.png') }}",
+body: "Este es el contenido del body"
+});
+  
+});
+
+     if (Notification.permission !== "granted") {
+    Notification.requestPermission();
+  }else{ 
+    
+   notifications.onclick = function(){
+    window.open(url);
+  } 
+  
+ }
+  });
+</script>
 @endsection

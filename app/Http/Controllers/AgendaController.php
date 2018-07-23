@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Agenda;
 use App\Columna;
 use App\Contact;
+use App\Notify;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -113,10 +114,11 @@ return back()->with('success', 'Registro cargado exitosamente');
         $datos   = Columna::where('id_usuario', Auth::user()->id)
                                  ->where('id_agenda', $id)
                                  ->paginate(10);
-
+        
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
       // if ($agendas->id_usr_agenda != Auth::user()->id) {
-        return view('directorio.agendapers', compact(['agenda', 'agendas', 'datos', 'contactos']));
+        return view('directorio.agendapers', compact(['agenda', 'agendas', 'datos', 'contactos', 'notificacion']));
       //
       // }else{
       //   return redirect('directorio')->with('error', 'Usted no tiene permiso para chusmear en esa agenda');

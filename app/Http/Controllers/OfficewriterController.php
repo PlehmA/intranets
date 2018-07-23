@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Officewriter;
+use App\Notify;
 use Illuminate\Http\Request;
 
 class OfficewriterController extends Controller
@@ -19,7 +20,7 @@ class OfficewriterController extends Controller
     {
       $wroffice = Officewriter::where('id_programa', 2)->paginate(1);
       $wrmenu   = Officewriter::where('id_programa', 2)->get();
-      return view('tutos.officewr', compact(['wroffice', 'wrmenu']));
+      return view('tutos.officewr', compact(['wroffice', 'wrmenu', 'notificacion']));
     }
 
     /**

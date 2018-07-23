@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Note;
 use Auth;
+use App\Notify;
 use Illuminate\Http\Request;
 
 class NoteController extends Controller
@@ -16,7 +17,8 @@ class NoteController extends Controller
     public function index()
     {
       $notas = Note::where('id_usuario', Auth::user()->id)->get();
-        return view('notes.index', compact('notas'));
+      $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+        return view('notes.index', compact('notas', 'notificaciones'));
     }
 
     /**
@@ -64,8 +66,9 @@ class NoteController extends Controller
     {
         $nota = Note::findOrFail($id);
         $notas = Note::all()->where('id_usuario', Auth::user()->id);
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('notes.show', compact(['nota', 'notas']));
+        return view('notes.show', compact(['nota', 'notas', 'notificaciones']));
     }
 
     /**

@@ -28,7 +28,9 @@ class ConfigController extends Controller
      */
     public function index()
     {
-        return view('configuracion');
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('configuracion', compact(['notificacion']));
     }
 
     /**

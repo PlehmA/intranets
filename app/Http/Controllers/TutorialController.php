@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tutorial;
+use App\Notify;
 use Illuminate\Http\Request;
 
 class TutorialController extends Controller
@@ -18,7 +19,9 @@ class TutorialController extends Controller
      */
     public function index()
     {
-        return view('tutos.index');
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('tutos.index', compact(['notificaciones']));
     }
 
     /**

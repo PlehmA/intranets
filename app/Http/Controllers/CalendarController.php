@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use \App\Calendar;
 use App\Mail\Invite;
+use App\Notify;
 use Auth;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -20,8 +21,9 @@ class CalendarController extends Controller
     public function index()
     {
       $eventos = \App\Calendar::where('id_usuario', Auth::user()->id)->get();
+      $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('calendario.calendar', compact('eventos'));
+        return view('calendario.calendar', compact('eventos', 'notificacion'));
 
     }
 

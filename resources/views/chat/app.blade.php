@@ -285,7 +285,7 @@
                       <div class="col-md-2">
                         <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
                         <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
-                        @if ($count = Auth::user()->notifications->count())
+                        @if ($count = $notificacion->count())
                           <span class="badge" style="color: white;">{{ $count }}</span>
                         @endif
                         </a>
@@ -341,7 +341,6 @@
             <div class="container-fluid">
 
                 @yield('chatent')
-
             </div>
         </div>
     </div>

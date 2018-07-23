@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Contact;
 use App\Agenda;
+use App\Notify;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,10 @@ class ContactController extends Controller
                                                     ->paginate(15);
       $agenda = Agenda::all()
                         ->where('id_usr_agenda', Auth::user()->id);
-        return view('contact.index', compact(['contactos', 'agenda']));
+
+    $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('contact.index', compact(['contactos', 'agenda', 'notificaciones']));
     }
 
     /**

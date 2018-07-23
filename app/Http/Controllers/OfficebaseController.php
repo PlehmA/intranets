@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Officebase;
+use App\Notify;
 use Illuminate\Http\Request;
 
 class OfficebaseController extends Controller
@@ -19,7 +20,8 @@ class OfficebaseController extends Controller
     {
       $baseoffice = Officebase::where('id_programa', 4)->paginate(1);
       $basemenu   = Officebase::where('id_programa', 4)->get();
-      return view('tutos.officebase', compact(['baseoffice', 'basemenu']));
+      $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+      return view('tutos.officebase', compact(['baseoffice', 'basemenu', 'notificacion']));
     }
 
     /**

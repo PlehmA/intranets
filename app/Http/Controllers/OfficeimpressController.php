@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Officeimpress;
+use App\Notify;
+use Auth;
 use Illuminate\Http\Request;
 
 class OfficeimpressController extends Controller
@@ -19,7 +21,8 @@ class OfficeimpressController extends Controller
     {
       $impoffice = Officeimpress::where('id_programa', 3)->paginate(1);
       $impmenu   = Officeimpress::where('id_programa', 3)->get();
-      return view('tutos.officeimpress', compact(['impoffice', 'impmenu']));
+      $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+      return view('tutos.officeimpress', compact(['impoffice', 'impmenu', 'notificacion']));
     }
 
     /**

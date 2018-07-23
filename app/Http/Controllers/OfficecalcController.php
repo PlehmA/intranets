@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tutorial;
+use App\Notify;
 use Illuminate\Http\Request;
 
 class OfficecalcController extends Controller
@@ -19,7 +20,8 @@ class OfficecalcController extends Controller
     {
       $calcoffice = Tutorial::where('id_programa', 1)->paginate(1);
       $calcmenu   = Tutorial::where('id_programa', 1)->get();
-      return view('tutos.officecalc', compact(['calcoffice', 'calcmenu']));
+      $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+      return view('tutos.officecalc', compact(['calcoffice', 'calcmenu', 'notificacion']));
     }
 
     /**

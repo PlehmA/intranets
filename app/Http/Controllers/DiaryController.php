@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Diary;
+use App\Notify;
 use Illuminate\Http\Request;
 
 class DiaryController extends Controller
@@ -14,7 +15,8 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        return view('agendapers.diary');
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+        return view('agendapers.diary', compact(['notificaciones']));
     }
 
     /**

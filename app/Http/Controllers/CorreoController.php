@@ -6,6 +6,8 @@ use App\Correo;
 use Google_Client;
 use Google_Service_Gmail;
 use Illuminate\Http\Request;
+use App\Notify;
+use Auth;
 
 class CorreoController extends Controller
 {
@@ -16,7 +18,9 @@ class CorreoController extends Controller
      */
     public function index()
     {
-        return view('correo.index');
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('correo.index', (['notificaciones']));
     }
 
     /**

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Organig;
 use App\Notify;
-use Auth;
 use Illuminate\Http\Request;
 
-class OrganigController extends Controller
+class NotifyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class OrganigController extends Controller
      */
     public function index()
     {
-        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
-
-        return view('organigrama.index', compact(['notificacion']));
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class OrganigController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Organig  $organig
+     * @param  \App\Notify  $notify
      * @return \Illuminate\Http\Response
      */
-    public function show(Organig $organig)
+    public function show(Notify $notify)
     {
         //
     }
@@ -56,10 +52,10 @@ class OrganigController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Organig  $organig
+     * @param  \App\Notify  $notify
      * @return \Illuminate\Http\Response
      */
-    public function edit(Organig $organig)
+    public function edit(Notify $notify)
     {
         //
     }
@@ -68,10 +64,10 @@ class OrganigController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Organig  $organig
+     * @param  \App\Notify  $notify
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Organig $organig)
+    public function update(Request $request, Notify $notify)
     {
         //
     }
@@ -79,10 +75,10 @@ class OrganigController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Organig  $organig
+     * @param  \App\Notify  $notify
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Organig $organig)
+    public function destroy(Notify $notify)
     {
         //
     }

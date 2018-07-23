@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
+use App\Notify;
 
 class DashboardController extends Controller
 {
@@ -14,8 +16,9 @@ class DashboardController extends Controller
 
     public function index()
     {
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('dashboard');
+        return view('dashboard', compact(['notificaciones']));
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Notify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +16,9 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        return view('rrhh.index');
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('rrhh.index', compact(['notificacion']));
     }
 
     /**
@@ -82,7 +85,9 @@ class PersonalController extends Controller
     {
         $users = DB::table('users')->paginate(20);
 
-        return view('rrhh.personal', ['users' => $users]);
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('rrhh.personal', ['users' => $users, 'notificacion' => $notificacion]);
     }
 
     /**
@@ -96,7 +101,9 @@ class PersonalController extends Controller
         $users = User::where('id', $id)
             ->first();
 
-        return view('rrhh.editar', compact('users', 'id'));
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('rrhh.editar', compact('users', 'id', 'notificaciones'));
     }
 
     /**

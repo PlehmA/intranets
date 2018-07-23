@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Chat;
 use App\User;
+use App\Notify;
 use Auth;
 use App\Notifications\MessageSent;
 use Illuminate\Http\Request;
@@ -23,7 +24,9 @@ class ChatController extends Controller
     {
         $users = DB::table('users')->orderBy('id', 'ASC')->where('id', '<>', Auth::user()->id)->get();
 
-        return view('chat.index', compact('users'));
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('chat.index', compact('users', 'notificacion'));
     }
 
     /**
@@ -61,10 +64,13 @@ class ChatController extends Controller
           'hora_msj' => date('Y-m-d H:i:s'),
         ]);
 
-      $recipient = User::find($request->input('user_recibe'));
-
-      $recipient->notify(new MessageSent($message));
-
+        $notifie = Notify::create([
+            'data'              => json_encode($message),
+            'user_envia_id'     => Auth::user()->id,
+            'user_recibe_id'    => $request->input('user_recibe'),
+            'leido'             => false
+        ]);
+    
 
         return back();
 
@@ -89,9 +95,14 @@ class ChatController extends Controller
                                                                   ->where('user_envia_id', $usuario->id)
                                                                   ->orderBy('hora_msj', 'DESC')
                                                                   ->first();
+        $readMessage = Notify::where('user_envia_id', $id)
+                                ->where('user_recibe_id', Auth::user()->id)
+                                ->update(['leido' => true]);
 
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+        
 
-       return view('chat.show', compact(['users', 'messages', 'usuario', 'lastmessage']));
+       return view('chat.show', compact(['users', 'messages', 'usuario', 'lastmessage', 'notificacion']));
 
 
     }

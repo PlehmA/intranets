@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Columna;
 use App\Contact;
 use App\Agenda;
+use App\Notify;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -82,9 +83,9 @@ class ColumnaController extends Controller
                         ->where('id_usr_agenda', Auth::user()->id)
                         ->where('id', $id);
 
+      $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-
-      return view('directorio.agragext', compact('contactos', 'agenda'));
+      return view('directorio.agragext', compact('contactos', 'agenda', 'notificacion'));
     }
 
     /**
