@@ -107,7 +107,7 @@
                 <td>{{ $contact->tellinea }}</td>
                 <td>{{ $contact->telcel }}</td>
                 <td>{{ $contact->interno }}</td>
-                <td><center><a href="#" class="btn btn-azul btn-small center-align">Editar</a></center></td>
+              <td><center><a href="{{ route('contact.show', $contact->id) }}" class="btn btn-azul btn-small center-align">Editar</a></center></td>
                 <td>
                  {!! Form::open(['method' => 'DELETE','route' => ['contact.destroy', $contact->id]]) !!}
                   <center><a href="#" class="btn btn-rojo btn-small center-align btn-borrar"><i class="material-icons">delete_forever</i></a></center>
@@ -157,7 +157,7 @@
         let form = $(this).parents('form');
         let url  = form.attr('action');
 
-        
+
         $('#alert').show();
 
         $.post(url, form.serialize(), function(result) {

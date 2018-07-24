@@ -1,75 +1,71 @@
-@extends('directorio.app')
+@extends('contact.app')
 @section('content')
   @if (Auth::check())
-    @if (session('success'))
-        <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
-            {{ session('success') }}
-        </div>
-    @endif
-    <br>
-    @if (session('error'))
-        <div class="container alert alert-danger text-center" role="alert" data-dismiss="alert">
-            {{ session('error') }}
-        </div>
-    @endif
-    @foreach ($coledit as $co)
+  <div class="container">
+    <div class="col s7 right-align">
+      <a href="{{ route('contact.index') }}" class="btn grey">Volver</a>
+    </div>
 
-    @endforeach
-    <a href="{{ route('agenda.show', $co->id_agenda) }}" class="btn btn-gris right">Volver</a>
-    <h4 class="center">Actualizar contacto</h4>
-      <hr>
-    <div class="row">
-      @foreach ($coledit as $col)
-      <form class="" action="{{ route('datoscol.update', $col->id) }}" method="POST" >
-        <input type="hidden" name="_method" value="put" />
+    @if (session('success'))
+
+      <div class="alert alert-success col-sm-7 text-center" role="alert" data-dismiss="alert"><strong>{{ session('success') }}</strong></div>
+
+    @endif
+<br>
+    <div class="col s12">
+      
+            {!! Form::open(['method' => 'PUT','route' => ['contact.update', $contact->id]]) !!}
         {{ csrf_field() }}
         <div class="row">
-          <div class="input-field col s5 offset-s3">
-            <input id="nomyap" type="text" class="validate" name="nomyap" value="{{ $col->nomyap }}">
-            <label for="nomyap">Nombre y Apellido</label>
+          <div class="input-field col s7">
+            <input id="nomyap" type="text" class="validate" name="nomyap" value="{{$contact->nomyap}}">
+            
           </div>
-        <div class="input-field col s5 offset-s3">
-          <input id="correo" type="text" class="validate" name="correo" value="{{ $col->correo }}">
-          <label for="correo">Correo</label>
+        <div class="input-field col s7">
+          <input id="correo" type="text" class="validate" name="correo" value="{{$contact->correo}}">
+          
         </div>
-        <div class="input-field col s5 offset-s3">
-          <input id="direccion" type="text" class="validate" name="direccion" value="{{ $col->direccion }}">
-          <label for="direccion">Dirección</label>
+        <div class="input-field col s7">
+          <input id="direccion" type="text" class="validate" name="direccion" value="{{$contact->direccion}}">
+          
         </div>
-        <div class="input-field col s5 offset-s3">
-          <input id="partido" type="text" class="validate" name="partido" value="{{ $col->direccion }}">
-          <label for="partido">Partido</label>
+        <div class="input-field col s7">
+          <input id="partido" type="text" class="validate" name="partido" value="{{$contact->partido}}">
+          
         </div>
-        <div class="input-field col s5 offset-s3">
-          <input id="localidad" type="text" class="validate" name="localidad" value="{{ $col->localidad }}">
-          <label for="localidad">Localidad</label>
+        <div class="input-field col s7">
+          <input id="localidad" type="text" class="validate" name="localidad" value="{{$contact->localidad}}">
+          
         </div>
-        <div class="input-field col s5 offset-s3">
-          <input id="provincia" type="text" class="validate" name="provincia" value="{{ $col->provincia }}">
-          <label for="provincia">Provincia</label>
+        <div class="input-field col s7">
+          <input id="provincia" type="text" class="validate" name="provincia" value="{{$contact->provincia}}">
+          
         </div>
-        <div class="input-field col s5 offset-s3">
-          <input id="tellinea" type="text" class="validate" name="tellinea" value="{{ $col->tellinea }}">
-          <label for="tellinea">Telefono de linea</label>
+        <div class="input-field col s7">
+          <input id="tellinea" type="text" class="validate" name="tellinea" value="{{$contact->tellinea}}">
+          
         </div>
-        <div class="input-field col s5 offset-s3">
+        <div class="input-field col s7">
+          <input id="telcel" type="text" class="validate" name="telcel" value="{{$contact->telcel}}">
+         
+        </div>
+        <div class="input-field col s7">
+          <input id="interno" type="text" class="validate" name="interno" value="{{$contact->interno}}">
+          
+        </div>
+        <div class="col s7 right-align">
+          <input type="submit" name="" value="Actualizar" class="btn pulse">
+        </div>
+      </div>
+      {!! Form::close() !!}
 
-          <input id="telcel" type="text" class="validate" name="telcel" value="{{ $col->telcel }}">
-          <label for="telcel">Telefono Celular</label>
-        </div>
-        <div class="input-field col s5 offset-s3">
-          <input id="interno" type="number" class="validate" name="interno" value="{{ $col->interno }}">
-          <label for="interno">Interno</label>
-        </div>
-        <input type="hidden" name="agendaId" value="{{ $col->id_agenda }}">
-   <div class="input-field col s7">
-     <button class="btn btn-gris waves-effect waves-light right" type="submit" name="submit" >Actualizar
-       
-     </button>
-   </div>
-   @endforeach
- </form>
-</div>
+    </div>
 
+    <div class="container">
+      <div class="offset-s6 col s6">
+        <a href="index"></a>
+      </div>
+    </div>
+  </div>
   @endif
-  @endsection
+@endsection

@@ -97,9 +97,13 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show($id)
     {
-        //
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        $contact = Contact::find($id);
+
+        return view('contact.update', compact(['notificacion', 'contact']));
     }
 
     /**
@@ -120,9 +124,23 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+
+        $contact = Contact::find($id);
+
+        $contact->update([
+          'nomyap'    => $request->input('nomyap'),
+          'correo'    => $request->input('correo'),
+          'direccion' => $request->input('direccion'),
+          'partido'   => $request->input('partido'),
+          'localidad' => $request->input('localidad'),
+          'provincia' => $request->input('provincia'),
+          'tellinea'  => $request->input('tellinea'),
+          'telcel'    => $request->input('telcel'),
+          'interno'   => $request->input('interno')
+        ]);
+        return back()->with('success', 'Actualizado correctamente');
     }
 
     /**
