@@ -45,14 +45,16 @@
                     <select id="rol_usuario" name="rol_usuario" class="form-control" value="{{ $users->rol_usuario }}">
                         <option value="1">Presidencia</option>
                         <option value="2">Gerencia</option>
-                        <option value="3">Sistemas</option>
+                        <option value="3">Departamento de Sistemas</option>
                         <option value="4">Call-Center</option>
-                        <option value="5">Recursos Humanos</option>
-                        <option value="6">Auditoria</option>
-                        <option value="7">Profesionales</option>
-                        <option value="8">Desarrollo</option>
+                        <option value="5">Departamenteo de Recursos Humanos</option>
+                        <option value="6">Departamento de Auditoria</option>
+                        <option value="7">Departamento de Profesionales</option>
+                        <option value="8">Departamento de Desarrollo</option>
                         <option value="9">Administración</option>
                         <option value="10">Recepción</option>
+                        <option value="11">Secretaria</option>
+                        <option value="12">Marketing</option>
                     </select>
                 </div>
             </div>

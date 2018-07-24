@@ -4,6 +4,13 @@
   .contacts:hover {
     background-color: #e3e3e3;
   }
+  #frame .content .messages ul li.replies p{
+    word-break: break-word;
+  }
+  #frame .content .messages ul li.sent p{
+    word-break: break-word;
+  }
+  
   </style>
 @endsection
 @section('chatent')
@@ -67,13 +74,13 @@
               @if ($message->user_envia_id == Auth::user()->id && $message->user_recibe_id == $usuario->id)
                 <li class="replies">
         					<img src="{{ asset(Auth::user()->foto) }}" alt="" />
-        					<p>{{ $message->mensaje }}</p>
+        					<p>{{ str_replace(chr(10),"<br>",$message->mensaje) }}</p>
         				</li>
               @endif
               @if ($message->user_recibe_id == Auth::user()->id && $message->user_envia_id == $usuario->id)
                 <li class="sent">
                   <img src="{{ asset($usuario->foto) }}" alt="" />
-                  <p>{{ $message->mensaje }}</p>
+                  <p>{{ str_replace(chr(10),"<br>",$message->mensaje) }}</p>
                 </li>
               @endif
             @endforeach
@@ -126,5 +133,12 @@
        }
     });
   });
+  
+  </script>
+  <script>
+   $(document).keypress(function(e) {
+     var input = $("#input-loco").val();
+    
+});
   </script>
 @endsection

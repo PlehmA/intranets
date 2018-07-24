@@ -68,7 +68,7 @@ class NoteController extends Controller
         $notas = Note::all()->where('id_usuario', Auth::user()->id);
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('notes.show', compact(['nota', 'notas', 'notificaciones']));
+        return view('notes.show', compact(['nota', 'notas', 'notificacion']));
     }
 
     /**

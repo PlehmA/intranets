@@ -3,7 +3,7 @@
   @if (Auth::check())
   <div class="container">
     <div class="col s7 right-align">
-      <a href="{{ route('contact.index') }}" class="btn blue lighten-2">Volver</a>
+      <a href="{{ route('contact.index') }}" class="btn grey">Volver</a>
     </div>
 
     @if (session('add'))

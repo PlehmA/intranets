@@ -100,7 +100,7 @@
 
        <div class="input-field col s7">
          <button class="btn btn-gris waves-effect waves-light right" type="submit" name="action" id="formcheck" form="form1">Agregar
-           <i class="material-icons right">send</i>
+         
          </button>
         </div>
 

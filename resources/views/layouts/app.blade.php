@@ -302,7 +302,13 @@ a:active {
                         <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
-
+                      @if(Auth::user()->rol_usuario === 11)
+                      <div class="col-md-2">
+                          <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda" id="agenda">
+                          <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
+                          </a>
+                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">

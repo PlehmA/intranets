@@ -427,5 +427,6 @@ $(document).ready(function() {
       });
 });
 </script>
+@yield('script')
 </body>
 </html>

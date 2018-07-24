@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Auth;
 use App\User;
+use App\Notify;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,12 +23,12 @@ class LoginController extends Controller
       if ($user >= 1) {
 
         $usuario = User::where('username', $username)->where('password', $password)->first();
-
+        $notificacion = Notify::where('user_recibe_id', $usuario->id)->where('leido', false)->get();
         Auth::loginUsingId($usuario->id);
 
 
 
-         return view('dashboard');
+         return view('dashboard', compact(['notificacion']));
       }
       // $credentials = $this->validate(request(), [
       //   'username' => 'required|string',

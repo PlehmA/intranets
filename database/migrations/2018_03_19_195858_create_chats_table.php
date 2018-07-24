@@ -19,7 +19,7 @@ class CreateChatsTable extends Migration
             $table->integer('user_recibe_id')->unsigned();
             $table->string('user_envia_name');
             $table->datetime('hora_msj');
-            $table->longText('mensaje');
+            $table->text('mensaje');
             $table->timestamps();
         });
     }

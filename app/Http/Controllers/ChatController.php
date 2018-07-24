@@ -65,7 +65,6 @@ class ChatController extends Controller
         ]);
 
         $notifie = Notify::create([
-            'data'              => json_encode($message),
             'user_envia_id'     => Auth::user()->id,
             'user_recibe_id'    => $request->input('user_recibe'),
             'leido'             => false

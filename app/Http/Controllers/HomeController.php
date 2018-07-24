@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Notify;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
         
-        return view('home');
+        return view('home', compact(['notificacion']));
     }
 }

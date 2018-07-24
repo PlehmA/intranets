@@ -22,9 +22,10 @@
            <label for="nombre_agenda">Nombre de agenda</label>
          </div>
        </div>
+       <div class="alert alert-success" role="alert" id="alert"></div>
        <div class="input-field col s7">
          <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
-           <i class="material-icons right">send</i>
+           
          </button>
        </div>
      </form>
@@ -107,7 +108,11 @@
                 <td>{{ $contact->telcel }}</td>
                 <td>{{ $contact->interno }}</td>
                 <td><center><a href="#" class="btn btn-azul btn-small center-align">Editar</a></center></td>
-                <td><center><a href="#" class="btn btn-rojo btn-small center-align"><i class="material-icons">delete_forever</i></a></center></td>
+                <td>
+                 {!! Form::open(['method' => 'DELETE','route' => ['contact.destroy', $contact->id]]) !!}
+                  <center><a href="#" class="btn btn-rojo btn-small center-align btn-borrar"><i class="material-icons">delete_forever</i></a></center>
+                 {!! Form::close() !!} 
+                </td>
               </tr>
             @endforeach
 
@@ -129,7 +134,6 @@
        </div>
        <div class="input-field col s7">
          <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
-           <i class="material-icons right">send</i>
          </button>
        </div>
      </form>
@@ -138,4 +142,32 @@
       </div>
     </div>
   @endif
+@endsection
+@section('script')
+<script>
+  $(document).ready(function() {
+    $('.btn-borrar').click(function(e){
+      
+        e.preventDefault();
+        if ( ! confirm('¿Está seguro/a de eliminar el contacto?')) {
+          return false;
+        }
+
+        let row  = $(this).parents('tr');
+        let form = $(this).parents('form');
+        let url  = form.attr('action');
+
+        
+        $('#alert').show();
+
+        $.post(url, form.serialize(), function(result) {
+          row.fadeOut();
+          $('#alert').html(result.success);
+          /*optional stuff to do after success */
+        }).fail(function(){
+          $('#alert').html('Algo salió mal');
+        });
+  });
+  });
+</script>
 @endsection

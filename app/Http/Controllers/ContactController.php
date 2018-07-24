@@ -47,7 +47,9 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('contact.agregar');
+        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        return view('contact.agregar', compact(['notificacion']));
     }
 
     /**
@@ -129,8 +131,13 @@ class ContactController extends Controller
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Request $request, $id)
     {
-        $contact = \App\Contact::find();
+        if($request->ajax()){
+            $contact = \App\Contact::find($id);
+
+            $contact->delete();
+        }
+        
     }
 }

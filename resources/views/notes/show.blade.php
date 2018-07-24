@@ -463,7 +463,7 @@
      </div>
      <div class="input-field col s7">
        <button class="btn grey waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
-         <i class="material-icons right">send</i>
+         
        </button>
      </div>
    </form>
