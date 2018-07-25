@@ -170,6 +170,9 @@
       text-decoration: none;
       cursor: pointer;
   }
+  button:focus {
+    background-color: transparent !important;
+  }
 </style>
 @endsection
 @section('content')
@@ -381,7 +384,7 @@ $(document).ready(function() {
       header: {
         left: 'prev,next today, BotonEvento',
         center: 'title',
-        right: ''
+        right: 'month,agendaWeek,agendaDay'
       },
       customButtons: {
         BotonEvento: {

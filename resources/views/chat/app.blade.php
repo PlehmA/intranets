@@ -416,7 +416,9 @@ $('.contact').click(function(){
    $(this).toggleClass('active');
 });
 </script>
+
 @yield('scripts')
+
 <script>
 $(document).ready(function(){
     $('.collapsible').collapsible();
@@ -434,7 +436,7 @@ $(document).ready(function() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 5000,
       });
 });
 </script>
