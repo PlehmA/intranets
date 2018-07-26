@@ -1,6 +1,189 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('content')
+<div id='calendar'></div>
 
+<div id="myModal" class="modal">
+<form action="{{ action('CalendarController@store') }}" method="POST" id="formularito">
+  <!-- Modal content -->
+  <div class="modal-content scrollbar-info">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h4>Crear evento</h4>
+    </div>
+    <div class="modal-body">
+
+        {{ csrf_field() }}
+        <div class="input-field col s6">
+          <input placeholder="Nombre del evento." id="title" type="text" class="validate" name="title" required>
+          <label for="title">Título</label>
+        </div>
+        <div class="input-field col s6">
+          <textarea name="descripcion" rows="8" cols="80" placeholder="Opcional" id="descripcion" class="materialize-textarea"></textarea>
+          <label for="descripcion">Descripción</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="start" type="date" class="validate" min="2012" max="2088" name="start" required value="{{ date('Y-m-d') }}">
+          <label for="start">Fecha de inicio</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="end" type="date" class="validate" min="2012" max="2088" name="end">
+          <label for="end">Fecha de fin</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input placeholder="" id="timeStart" type="time" class="validate" value="00:00:00" name="startime" min="00:00:00" max="23:59:59" list="">
+          <label for="timeStart">Hora de inicio</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="" id="timeEnd" type="time" class="validate" value="" name="endtime">
+          <label for="timeEnd">Hora de fin</label>
+        </div>
+        <div class="input-field col s6">
+        <p>  ¿El evento dura todo el día? </p>
+        <div class="row">
+          <p>
+            <label>
+              <input class="with-gap" name="allday" type="radio"  value="true" required/>
+              <span>Si</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input class="with-gap" name="allday" type="radio"  value="false" required/>
+              <span>No</span>
+            </label>
+          </p>
+
+        </div>
+
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            Color del evento:
+            <input id="color" type="color" class="validate" name="color" value="#1197C1">
+          </div>
+          <div class="input-field col s6">
+            Color del texto:
+            <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
+          </div>
+        </div>
+        <div class="input-field col s8" id="emailcito">
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate" name="email[]" autocomplete="">
+                    <label for="email">¿A quién desea notificar del evento?</label>
+                  </div>
+
+                </div>
+    </div>
+    <div class="modal-footer">
+      <a class="btn grey" href="#btnadd" id="btnadd">Añadir mail</a>
+      <button type="submit" class="btn grey" id="btn-agregar" form="formularito">Agregar Evento</button>
+    </div>
+  </div>
+  </form>
+</div>
+
+<div id="myModal3" class="modal">
+<form action="{{ action('CalendarController@store') }}" method="POST" id="formularito">
+  <!-- Modal content -->
+  <div class="modal-content scrollbar-info">
+    <div class="modal-header">
+      <span class="close3">&times;</span>
+      <h4>Crear evento</h4>
+    </div>
+    <div class="modal-body">
+
+        {{ csrf_field() }}
+        <div class="input-field col s6">
+          <input placeholder="Nombre del evento." id="title" type="text" class="validate" name="title" required>
+          <label for="title">Título</label>
+        </div>
+        <div class="input-field col s6">
+          <textarea name="descripcion" rows="8" cols="80" placeholder="Opcional" id="descripcion" class="materialize-textarea"></textarea>
+          <label for="descripcion">Descripción</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="start" type="date" class="validate" min="2012" max="2088" name="start" required value="{{ date('Y-m-d') }}">
+          <label for="start">Fecha de inicio</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="end" type="date" class="validate" min="2012" max="2088" name="end">
+          <label for="end">Fecha de fin</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input placeholder="" id="timeStart" type="time" class="validate" value="00:00:00" name="startime" min="00:00:00" max="23:59:59" list="">
+          <label for="timeStart">Hora de inicio</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="" id="timeEnd" type="time" class="validate" value="" name="endtime">
+          <label for="timeEnd">Hora de fin</label>
+        </div>
+        <div class="input-field col s6">
+        <p>  ¿El evento dura todo el día? </p>
+        <div class="row">
+          <p>
+            <label>
+              <input class="with-gap" name="allday" type="radio"  value="true" required/>
+              <span>Si</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input class="with-gap" name="allday" type="radio"  value="false" required/>
+              <span>No</span>
+            </label>
+          </p>
+
+        </div>
+
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            Color del evento:
+            <input id="color" type="color" class="validate" name="color" value="#1197C1">
+          </div>
+          <div class="input-field col s6">
+            Color del texto:
+            <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
+          </div>
+        </div>
+        <div class="input-field col s8" id="emailcito">
+
+          <input id="email" type="email" class="validate" name="email[]">
+          <label for="email">¿A quién desea notificar del evento?</label>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+      <a class="btn grey" href="#btnadd" id="btnadd">Añadir mail</a>
+      <button type="submit" class="btn grey" id="btn-agregar" form="formularito" onclick="notificar()">Agregar Evento</button>
+    </div>
+  </div>
+  </form>
+</div>
+
+<div id="myModal1" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <div id="tituloEvent"></div>
+    </div>
+    <div class="modal-body" id="contenidoEvent"></div>
+    <div class="modal-footer">
+      <form action="" id="formci" method="DELETE">
+        {{ csrf_field() }}
+        <a href="#" class="btn grey" data-id="" id="btnBorrar">Borrar evento</a>
+      </form>
+
+
+    </div>
+  </div>
+
+</div>
 @endsection
 @section('javascript')
 <script>

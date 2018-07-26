@@ -11,7 +11,7 @@
                 {{ session('status1') }}
             </div>
         @endif
-        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ action('PersonalController@update', $id) }}">
+        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('rrhh.update', $id) }}">
 
             <!-- Text input-->
             <div class="form-group">

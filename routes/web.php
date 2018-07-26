@@ -46,15 +46,7 @@ Route::get('/friend', 'FriendController@index')->middleware('auth');
 
 Route::get('correo', 'CorreoController@index')->middleware('auth')->name('correo.index');
 
-Route::get('rrhh', 'PersonalController@index')->middleware('auth')->name('rrhh.index');
-
-Route::get('personal', 'PersonalController@show')->middleware('auth')->name('rrhh.personal');
-
-Route::post('ingpersonal', 'PersonalController@store')->name('ingpersonal');
-
-Route::get('/edit/users/{id}','PersonalController@edit')->name('rrhh.editar');
-
-Route::post('/edit/users/{id}','PersonalController@update')->name('rrhh.update');
+Route::resource('rrhh', 'PersonalController');
 
 Route::resource('directorio', 'DirectoryController');
 

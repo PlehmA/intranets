@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Pusher\Laravel\Facades\Pusher;
 
-class CalendarController extends Controller
+class CpresiController extends Controller
 {
     public function __construct()
     {
@@ -23,7 +23,7 @@ class CalendarController extends Controller
       $eventos = \App\Calendar::where('id_usuario', 1)->get();
       $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('presidencia.calpres', compact('eventos', 'notificacion'));
+        return view('presidencia.calpres', compact(['eventos', 'notificacion']));
 
     }
 

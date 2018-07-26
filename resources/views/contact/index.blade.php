@@ -22,9 +22,9 @@
            <label for="nombre_agenda">Nombre de agenda</label>
          </div>
        </div>
-       <div class="alert alert-success" role="alert" id="alert"></div>
+       
        <div class="input-field col s7">
-         <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
+         <button class="btn grey waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
            
          </button>
        </div>

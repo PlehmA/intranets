@@ -237,10 +237,18 @@ a:active {
 
                   </li>
               @if(Auth::user()->rol_usuario == 5)
-                  <li onclick="location.href='{{ route('rrhh.personal') }}'">
+                  <li onclick="location.href='{{ route('rrhh.index') }}'">
                     <div class="collapsible-header">
                           <i class="material-icons text-gray">people</i>
                           <p>Recursos Humanos</p>
+                    </div>
+                  </li>
+                  @endif
+                  @if(Auth::user()->rol_usuario == 11)
+                  <li onclick="location.href='{{ route('presidencia.index') }}'">
+                    <div class="collapsible-header">
+                          <i class="material-icons text-gray">people</i>
+                          <p>Presidencia</p>
                     </div>
                   </li>
                   @endif
@@ -361,7 +369,7 @@ a:active {
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/ar.js"></script>
 <script src="{{ asset('js/materialize.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+<script src='{{ asset('js/fullcalendar.js') }}'></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
@@ -384,15 +392,6 @@ a:active {
     alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
     window.location.assign('{{ url('/logout') }}');
   }, miliSegundos);
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-$('.carousel.carousel-slider').carousel({
- fullWidth: true,
- indicators: true,
- duration: 100,
-});
- });
 </script>
 <script>
 $(document).ready(function(){

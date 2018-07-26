@@ -10,7 +10,7 @@
             {{ session('status1') }}
         </div>
     @endif
-    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('ingpersonal') }}">
+    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('rrhh.store') }}">
 
             <!-- Text input-->
             <div class="form-group">

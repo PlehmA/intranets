@@ -272,7 +272,7 @@ div .botonmail:hover {
 
                   </li>
               @if(Auth::user()->rol_usuario == 5)
-                  <li onclick="location.href='{{ route('rrhh.personal') }}'">
+                  <li onclick="location.href='{{ route('rrhh.index') }}'">
                     <div class="collapsible-header">
                           <i class="material-icons text-gray">people</i>
                           <p>Recursos Humanos</p>

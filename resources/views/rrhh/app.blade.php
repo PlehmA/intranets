@@ -21,19 +21,23 @@
   <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
   <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
   <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
   <!-- Add the slick-theme.css if you want default styling -->
   <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
   <!-- Add the slick-theme.css if you want default styling -->
   <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
+
 </head>
 
 <body>
 <style>
+.content{
+  margin-top: 90px
+}
 /* Dropdown Button */
 .dropbtn {
-    background-color: #e5e6e7;
+    background-color: #ddd;
     color: #767676;
     padding: 16px;
     font-size: 16px;
@@ -45,7 +49,7 @@
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #e5e6e7;
+    background-color: #ddd;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -58,7 +62,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #e5e6e7;
+    background-color: #ddd;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -83,9 +87,7 @@
     transition-delay: inherit;
 }
 .cajaloca {
-    border-width: 1px;
-    margin: 0 20rem 0 20rem;
-    background-color: #f2f2f2;
+
 }
 .caja-1 {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -102,33 +104,8 @@
 .caja-5 {
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-.navbar {
-  min-height: 100px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  background-color: #f1f3f5;
-}
-.navbar .but-menu {
-  width: 100px;
-  height: 80px;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  display: inline-block;
-  margin-left: 3px;
-  margin-right: 3px;
 
-}
-.navbar a .but-menu {
-  padding-left: 5px;
-}
-div .botonchat {
-  width: 60;
-  height: 40px;
-  margin-top: 5px;
-}
-div .botonmail {
-  width: 50;
-  height: 30px;
-  margin-top: 10px;
-}
+
 div .botonchat:hover {
   -webkit-transform:scale(1.25);
   -moz-transform:scale(1.25);
@@ -143,6 +120,7 @@ div .botonmail:hover {
   -o-transform:scale(1.25);
   transform:scale(1.25);
 }
+
 #agenda {
   margin-left: -3px;
 }
@@ -154,6 +132,9 @@ div .botonmail:hover {
 }
 .sidebar .logo:after, .off-canvas-sidebar .logo:after{
   background-color: initial;
+}
+a:active {
+  background-color: transparent !important;
 }
 .slick-list {
   position: relative;
@@ -200,7 +181,11 @@ div .botonmail:hover {
         box-sizing: border-box;
         background-color: #DB6F7D;
     }
+    .nav-wrapper{
+      background-color: #a9afbb;
+    }
 </style>
+@yield('css')
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
         <!--
@@ -213,62 +198,64 @@ div .botonmail:hover {
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
-              <ul class="collapsible" style="background-color: transparent;">
-                <li onclick="location.href='{{ route('correo.index') }}'">
-                  <div class="collapsible-header">
-                    <i class="material-icons">email</i>
-                    <p>Correo</p>
-                  </div>
-
-                </li>
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
-                  <div class="collapsible-body">
-                    <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
-                    <span><a href="{{ route('organigrama.index') }}">Organigrama corporativo</a></span><hr>
-                    <span><a href="{{ route('plantillas.index') }}">Plantillas</a></span>
-                  </div>
-
-                </li>
-                <a href="https://1drv.ms/f/s!Ao1bTBNbTk2Jf87ykAKAkUHulr4" target="_blank" style="color:grey">
-                  <li>
+                <ul class="collapsible" style="background-color: transparent; color:grey;">
+                  <li onclick="location.href='{{ route('correo.index') }}'">
                     <div class="collapsible-header">
-                      <i class="material-icons">folder_open</i>
-                       <p>Mis Archivos</p>
+                      <i class="material-icons">email</i>
+                      <p>Correo</p>
                     </div>
 
                   </li>
-                </a>
-                <li onclick="location.href='{{ route('calendar.index') }}'">
-                  <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
-                  <p>Calendario</p></div>
+                  <li>
+                    <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
+                    <div class="collapsible-body">
+                      <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
+                      <span><a href="{{ route('organigrama.index') }}">Organigrama corporativo</a></span><hr>
+                      <span><a href="{{ route('plantillas.index') }}">Plantillas</a></span>
+                    </div>
 
-                </li>
-                <li onclick="location.href='{{ route('directorio') }}'">
-                  <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
-                  <p>Agenda</p></div>
+                  </li>
+                  <a href="https://1drv.ms/f/s!Ao1bTBNbTk2Jf87ykAKAkUHulr4" target="_blank" style="color:grey">
+                    <li>
+                      <div class="collapsible-header">
+                        <i class="material-icons">folder_open</i>
+                         <p>Mis Archivos</p>
+                      </div>
 
-                </li>
-                <li onclick="location.href='{{ route('dashboard') }}'">
-                  <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
-                  <p>Novedades</p></div>
+                    </li>
+                  </a>
+                  <li onclick="location.href='{{ route('calendar.index') }}'">
+                    <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
+                    <p>Calendario</p></div>
 
-                </li>
-            @if(Auth::user()->rol_usuario == 5)
-                <li onclick="location.href='{{ route('rrhh.personal') }}'">
-                  <div class="collapsible-header">
-                        <i class="material-icons text-gray">people</i>
-                        <p>Recursos Humanos</p>
-                  </div>
-                </li>
-                @endif
-                <li onclick="location.href='{{ route('configuracion') }}'">
-                  <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
-                  <p>Seguridad</p></div>
+                  </li>
+                  <li onclick="location.href='{{ route('directorio.index') }}'">
+                    <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
+                    <p>Agenda</p></div>
 
-                </li>
-              </ul>
+                  </li>
+                  <li onclick="location.href='{{ route('dashboard') }}'">
+                    <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
+                    <p>Novedades</p></div>
+
+                  </li>
+              @if(Auth::user()->rol_usuario == 5)
+                  <li onclick="location.href='{{ route('rrhh.index') }}'">
+                    <div class="collapsible-header">
+                          <i class="material-icons text-gray">people</i>
+                          <p>Recursos Humanos</p>
+                    </div>
+                  </li>
+                  @endif
+                  <li onclick="location.href='{{ route('configuracion') }}'">
+                    <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
+                    <p>Seguridad</p></div>
+
+                  </li>
+                </ul>
             </ul>
+            {{-- Aca termina la barra lateral --}}
+            {{-- Slider --}}
             <div class="autoplay">
               <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
               <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
@@ -277,10 +264,11 @@ div .botonmail:hover {
               <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
               <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
             </div>
+             {{-- Slider --}}
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar" style="border-style: solid">
+        <nav class="navbar navbar-transparent" style="box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); height: 90px; max-width: 89%; position: fixed; background-color: #f5f5f5;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -293,8 +281,8 @@ div .botonmail:hover {
 
                       <div class="col-md-2">
                         <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
-                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
-                        @if ($count = $notificacion->count())
+                          <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
+                          @if ($count = $notificacion->count())
                           <span class="badge" style="color: white;">{{ $count }}</span>
                         @endif
                         </a>
@@ -307,31 +295,32 @@ div .botonmail:hover {
                       </div>
 
                       <div class="col-md-2">
-                        <a class="navbar-brand but-menu notas" href="{{ route('chats.index') }}" title="Notas">
+                        <a class="navbar-brand but-menu notas no-autoinit" href="{{ route('notes.index') }}" title="Notas">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 
                       <div class="col-md-2">
-                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio') }}" title="Agenda">
+                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda" id="agenda">
                         <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
-
+                      @if(Auth::user()->rol_usuario === 11)
+                      <div class="col-md-2">
+                          <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda" id="agenda">
+                          <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
+                          </a>
+                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Avatar image -->
                       <div class="col-sm-2 col-md-3 dropdown">
-
                         <a href="{{ route('configuracion') }}" id="imagenPerf">
                           <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive">
                         </a>
-                        <div class="dropdown-content">
-                          <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
-                          <div class="desc">Microsoft's OS Logo since Windows 8</div>
-                        </div>
 
                       </div>
                       <!-- Dropdown Structure -->
@@ -349,16 +338,14 @@ div .botonmail:hover {
                 </div>
             </div>
         </nav>
-        <div class="content">
-            <div class="container-fluid">
-                <ol class="breadcrumb">
-                    <li><a href="{{ route('rrhh.personal') }}">Listado del Personal</a></li>
-                    <li><a href="{{ route('rrhh.index') }}">Ingreso de Personal</a></li>
-                    <li class="active">Data</li>
-                </ol>
+        <div class="content" style="overflow: -webkit-paged-y">
+            <ol class="breadcrumb">
+            <li><a href="{{ route('rrhh.index') }}">Listado del personal</a></li>
+                <li><a href="#">Agregar <i class="fas fa-plus"></i></a></li>
+                <li class="active">Data</li>
+              </ol>
                 @yield('content')
 
-            </div>
         </div>
     </div>
 </div>
@@ -379,7 +366,10 @@ div .botonmail:hover {
 <script src="{{ asset('js/material-dashboard.js?v=1.2.0') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/ar.js"></script>
+<script src="{{ asset('js/materialize.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
 <script type="text/javascript">
@@ -396,26 +386,20 @@ div .botonmail:hover {
    $('.dropdown-trigger1').dropdown();
 </script>
 <script>
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
+  var miliSegundos = 1800000
+  setTimeout(function(){
+    alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
+    window.location.assign('{{ url('/logout') }}');
+  }, miliSegundos);
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('.carousel.carousel-slider').carousel({
+ fullWidth: true,
+ indicators: true,
+ duration: 100,
+});
+ });
 </script>
 <script>
 $(document).ready(function(){
@@ -423,20 +407,27 @@ $(document).ready(function(){
   });
 </script>
 <script>
-tippy('.chat');
-tippy('.correo');
-tippy('.notas');
-tippy('.agenda');
+  tippy('.chat');
+  tippy('.correo');
+  tippy('.notas');
+  tippy('.agenda');
 </script>
 <script>
 $(document).ready(function() {
   $('.autoplay').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 5000,
-      });
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 5000,
+    });
 });
+</script>
+@yield('javascript')
+<script>
+  $('.wrapper').perfectScrollbar('destroy');
+  $('.sidebar').perfectScrollbar('destroy');
+  $('.sidebar .sidebar-wrapper, .off-canvas-sidebar .sidebar-wrapper').perfectScrollbar('destroy');
+
 </script>
 </body>
 </html>

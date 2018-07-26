@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class PersonalController extends Controller
 {
+
+    public function __construct(){
+
+        $this->middleware('auth');
+
+      }
     /**
      * Display a listing of the resource.
      *
@@ -17,9 +23,11 @@ class PersonalController extends Controller
      */
     public function index()
     {
+        $users = User::orderBy('id', 'ASC')->paginate(10);
+
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('rrhh.index', compact(['notificacion']));
+        return view('rrhh.personal', compact(['users' , 'notificacion' ]));
     }
 
     /**
@@ -73,6 +81,7 @@ class PersonalController extends Controller
         ]);
 
         }
+        
         return back()->with('status1', 'Datos ingresados correctamente!');
     }
 
@@ -88,7 +97,7 @@ class PersonalController extends Controller
 
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('rrhh.personal', ['users' => $users, 'notificacion' => $notificacion]);
+        return view('rrhh.personal', compact(['users' , 'notificacion' ]));
     }
 
     /**
@@ -129,8 +138,16 @@ class PersonalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->ajax()) {
+            $user = User::find($id);
+    
+            $user->delete();
+    
+            return response()->json([
+              'success' => 'Borrado correctamente'
+            ]);
+          }
     }
 }
