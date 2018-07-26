@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('telefono_particular')->nullable();
             $table->string('telefono_celular')->nullable();
             $table->string('estado')->nullable();
-            $table->string('password');
+            $table->string('password')->default('secret');
             $table->text('ult_mensaje')->nullable();
             $table->datetime('hora_msj')->nullable();
             $table->string('cuil')->nullable();

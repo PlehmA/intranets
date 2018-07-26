@@ -341,7 +341,7 @@ a:active {
         <div class="content" style="overflow: -webkit-paged-y">
             <ol class="breadcrumb">
             <li><a href="{{ route('rrhh.index') }}">Listado del personal</a></li>
-                <li><a href="#">Agregar <i class="fas fa-plus"></i></a></li>
+            <li><a href="{{ route('addpers.index') }}">Ingreso del personal</a></li>
                 <li class="active">Data</li>
               </ol>
                 @yield('content')
@@ -411,6 +411,8 @@ $(document).ready(function(){
   tippy('.correo');
   tippy('.notas');
   tippy('.agenda');
+  tippy('.borrar');
+  tippy('.editar');
 </script>
 <script>
 $(document).ready(function() {

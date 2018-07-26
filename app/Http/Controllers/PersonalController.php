@@ -23,7 +23,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'ASC')->paginate(10);
+        $users = User::orderBy('id', 'ASC')->paginate(5);
 
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
@@ -125,10 +125,7 @@ class PersonalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user = $request->all();
-        $user->save();
-        return back()->with('actualizacion', 'Actualización completa');
+    //
 
     }
 

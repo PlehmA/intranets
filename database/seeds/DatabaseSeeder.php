@@ -54,6 +54,14 @@ class DatabaseSeeder extends Seeder
             'id' => 10,
             'nombre_puesto' => 'Recepción',
         ]);
+        DB::table('puestos')->insert([
+          'id' => 11,
+          'nombre_puesto' => 'Secretaria',
+      ]);
+      DB::table('puestos')->insert([
+        'id' => 12,
+        'nombre_puesto' => 'Marketing',
+    ]);
         DB::table('contacts')->insert([
           'id_usuario' => '1',
           'nomyap' => 'Itprouser',

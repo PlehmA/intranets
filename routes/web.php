@@ -75,3 +75,5 @@ Route::resource('organigrama', 'OrganigController');
 Route::resource('plantillas', 'TemplateController');
 
 Route::resource('presidencia', 'CpresiController');
+
+Route::resource('addpers', 'AddPersController');

@@ -2,7 +2,7 @@
 @section('content')
     <div class="panel">
         <div class="panel-heading">
-            <legend>Listado del Personal</legend>
+            <h5>Listado del Personal</h5>
         </div>
         <div class="panel-body">
             
@@ -34,16 +34,17 @@
                         <td>{{ $user->fecha_nacimiento }}</td>
                         <td>{{ $user->puesto }}</td>
                         <td>{{ $user->email }}</td>
-                        <td><a href="{{ route('rrhh.show', $user->id)}}" class="btn grey btn-small">Editar</a></td>
+                        <td><a href="{{ route('rrhh.show', $user->id)}}" class="btn grey btn-small editar" title="Editar"><i class="far fa-edit"></i></a></td>
                         <td>
                         {!! Form::open(['method' => 'DELETE', 'route' => ['rrhh.destroy', $user->id]]) !!}
-                            <button type="submit" class="btn red btn-small btn-borrar">Eliminar</button>
+                            <button type="submit" class="btn red btn-small btn-borrar borrar" title="Borrar"><i class="far fa-trash-alt"></i></button>
                         {!! Form::close() !!}
                         </td>
                     </tr>
                    @endforeach
                </tbody>
            </table>
+           {{ $users->render() }}
         </div>
     </div>
 
