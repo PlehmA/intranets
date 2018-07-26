@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('estado')->nullable();
             $table->string('password');
             $table->text('ult_mensaje')->nullable();
+            $table->datetime('hora_msj')->nullable();
             $table->string('cuil')->nullable();
             $table->rememberToken();
             $table->timestamps();

@@ -22,7 +22,7 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $users = DB::table('users')->orderBy('id', 'ASC')->where('id', '<>', Auth::user()->id)->get();
+        $users = DB::table('users')->orderBy('hora_msj', 'ASC')->where('id', '<>', Auth::user()->id)->get();
 
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
@@ -54,7 +54,10 @@ class ChatController extends Controller
         $mensaje = $request->input('mensaje');
         date_default_timezone_set('America/Argentina/Buenos_Aires');
 
-        DB::table('users')->where('id', Auth::user()->id)->update(['ult_mensaje' => $mensaje]);
+        DB::table('users')->where('id', Auth::user()->id)->update([
+            'ult_mensaje' => $mensaje,
+            'hora_msj'    => date('Y-m-d H:i:s')
+            ]);
 
       $message =  Chat::create([
           'user_envia_id' => $user_envia,
@@ -86,7 +89,7 @@ class ChatController extends Controller
     {
 
         $usuario = User::findOrFail($id);
-        $users = DB::table('users')->orderBy('id', 'ASC')->where('id', '<>', Auth::user()->id)->get();
+        $users = DB::table('users')->orderBy('hora_msj', 'ASC')->where('id', '<>', Auth::user()->id)->get();
         $messages = DB::table('chats')->orderBy('hora_msj', 'ASC')->whereIn('user_recibe_id', [Auth::user()->id, $usuario->id])
                                                                   ->whereIn('user_envia_id',[Auth::user()->id, $usuario->id])
                                                                   ->get();
