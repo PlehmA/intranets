@@ -75,5 +75,11 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script>
+        var miliSegundos = 18000
+      setTimeout(function(){
+        window.location.assign('{{ url('inicioder') }}');
+      }, miliSegundos);
+    </script>
 </body>
 </html>

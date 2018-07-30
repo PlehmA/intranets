@@ -276,6 +276,14 @@
                   </div>
                 </li>
                 @endif
+                @if(Auth::user()->rol_usuario == 11)
+                  <li onclick="location.href='{{ route('presidencia.index') }}'">
+                    <div class="collapsible-header">
+                          <i class="material-icons text-gray">people</i>
+                          <p>Presidencia</p>
+                    </div>
+                  </li>
+                  @endif
                 <li onclick="location.href='{{ route('configuracion') }}'">
                   <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
                   <p>Seguridad</p></div>

@@ -8,7 +8,7 @@
             
                 {{ $users->render() }}
           
-           <table class="table table-sm table-striped">
+           <table class="table table-striped highlight">
                <thead>
                 <tr>
                     <th>ID</th>
@@ -52,9 +52,10 @@
 @section('javascript')
 <script>
     $(document).ready(function () {
-        $('.btn-borrar').click(function() {
+        $('.btn-borrar').click(function(e) {
+            e.preventDefault();
 
-        if ( ! confirm('¿Está seguro/a de eliminar al personal?')) {
+        if ( ! confirm('¿Está seguro/a de eliminar al usuario?')) {
         return false;
         }
         $.ajaxSetup({
@@ -63,14 +64,17 @@
         }
         });
 
+        let row  = $(this).parents('tr');
         let form = $(this).parents('form');
         let url  = form.attr('action');
 
         $.post(url, form.serialize(), function(result) {
-        window.location='{{route('notes.index')}}';
+            row.fadeOut();
+            M.toast({html: result.success});
         /*optional stuff to do after success */
+        $("#alert")
         }).fail(function(){
-        alert('Algo salió mal');
+            M.toast({html: 'Algo salió mal'});
         });
         });
     });

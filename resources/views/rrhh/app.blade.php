@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/Isologotipo.png') }}" />
@@ -239,6 +239,14 @@ a:active {
                     <p>Novedades</p></div>
 
                   </li>
+                  @if(Auth::user()->rol_usuario == 11)
+                  <li onclick="location.href='{{ route('presidencia.index') }}'">
+                    <div class="collapsible-header">
+                          <i class="material-icons text-gray">people</i>
+                          <p>Presidencia</p>
+                    </div>
+                  </li>
+                  @endif
               @if(Auth::user()->rol_usuario == 5)
                   <li onclick="location.href='{{ route('rrhh.index') }}'">
                     <div class="collapsible-header">
@@ -340,12 +348,12 @@ a:active {
         </nav>
         <div class="content" style="overflow: -webkit-paged-y">
             <ol class="breadcrumb">
-            <li><a href="{{ route('rrhh.index') }}">Listado del personal</a></li>
-            <li><a href="{{ route('addpers.index') }}">Ingreso del personal</a></li>
-                <li class="active">Data</li>
-              </ol>
+              <li><a href="{{ route('rrhh.index') }}">Listado del personal</a></li>
+              <li><a href="{{ route('addpers.index') }}">Ingreso del personal</a></li>
+            </ol>
+            @if(Auth::user()->rol_usuario == 5)
                 @yield('content')
-
+            @endif
         </div>
     </div>
 </div>

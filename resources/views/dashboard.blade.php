@@ -15,7 +15,7 @@
 <div class="container-fluid">
     <div class="animado valign-wrapper" style="margin-top: 8vh;"> <!-- ACA EMPIEZA SLIDER -->
 
-      <div class="card">
+      <div class="card hoverable">
           <div class="card-image">
             <img src="{{ asset('images/imagenprueba1.jpg') }}">
             <span class="card-title">Card Title</span>
@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card hoverable">
             <div class="card-image">
               <img src="{{ asset('images/imagenprueba2.jpg') }}">
               <span class="card-title">Card Title</span>
@@ -43,7 +43,7 @@
             </div>
           </div>
 
-          <div class="card">
+          <div class="card hoverable">
               <div class="card-image">
                 <img src="{{ asset('images/imagenprueba3.jpg') }}">
                 <span class="card-title">Card Title</span>
@@ -57,7 +57,7 @@
               </div>
             </div>
 
-            <div class="card">
+            <div class="card hoverable">
                 <div class="card-image">
                   <img src="{{ asset('images/imagenprueba3.jpg') }}">
                   <span class="card-title">Card Title</span>
@@ -71,7 +71,7 @@
                 </div>
               </div>
 
-              <div class="card">
+              <div class="card hoverable">
                   <div class="card-image">
                     <img src="{{ asset('images/imagenprueba2.jpg') }}">
                     <span class="card-title">Card Title</span>
@@ -85,7 +85,7 @@
                   </div>
                 </div>
 
-                <div class="card">
+                <div class="card hoverable">
                     <div class="card-image">
                       <img src="{{ asset('images/imagenprueba1.jpg') }}">
                       <span class="card-title">Card Title</span>

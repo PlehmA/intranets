@@ -56,8 +56,7 @@ class CalendarController extends Controller
 
       $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
       try {
-          //Server settings
-          $mail->SMTPDebug = 2;                                  // Enable verbose debug output
+          //Server settings                            // Enable verbose debug output
           $mail->CharSet = 'UTF-8';
           $mail->isSMTP();                                      // Set mailer to use SMTP
           $mail->Host = 'mail.odontopraxis.com.ar';  // Specify main and backup SMTP servers
