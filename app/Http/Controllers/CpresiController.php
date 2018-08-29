@@ -39,7 +39,7 @@ class CpresiController extends Controller
         $calendar->descripcion = $request->input('descripcion');
       }
       $calendar->start = $request->input('start')." ".$request->input('startime');
-      if ($request->input('end') == "") {
+      if ($request->input('end') == '') {
         $calendar->end = null;
       }else {
         $calendar->end = $request->input('end')." ".$request->input('endtime');
@@ -47,17 +47,19 @@ class CpresiController extends Controller
       $calendar->color = $request->input('color');
       $calendar->textcolor = $request->input('textcolor');
       $calendar->allday = $request->input('allday');
-
-      if ($request->input('email') != "") {
-
+      
+      if ($request->input('email')[0] == null) {
+        $calendar->save();
+          return back()->with('success', 'Evento agregado correctamente');
+      }else{
       foreach ($request->email as $email) {
+        
         $start = date_create($request->input('start'));
         $startime = date_create($request->input('startime'));
 
       $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
       try {
-          //Server settings
-          $mail->SMTPDebug = 2;                                  // Enable verbose debug output
+          //Server settings                            // Enable verbose debug output
           $mail->CharSet = 'UTF-8';
           $mail->isSMTP();                                      // Set mailer to use SMTP
           $mail->Host = 'mail.odontopraxis.com.ar';  // Specify main and backup SMTP servers
@@ -68,7 +70,7 @@ class CpresiController extends Controller
           $mail->Port = 25;                                    // TCP port to connect to
 
           //Recipients
-          $mail->setFrom(Auth::user()->email, Auth::user()->name);
+          $mail->setFrom(Auth::user()->email, 'Claudia Tuozzo');
 
           $mail->addAddress($email);     // Add a recipient
 
@@ -80,7 +82,7 @@ class CpresiController extends Controller
                 <img src='".asset('images/recurso3.png')."'>
               </div>
                 <div style='text-align: center;'>
-                  <p style='text-align: center; font-size: 20px;'><b>".Auth::user()->name."</b> te ha invitado a participar de un envento.</p>
+                  <p style='text-align: center; font-size: 20px;'><b>Claudia Tuozzo</b> te ha invitado a participar de un envento.</p>
                       <p style='text-align: center; font-size: 20px;'>Nombre del evento: <b>".$request->input('title')." </b></p>
                       <p style='text-align: center; font-size: 20px;'>Descripción del evento: <b>".$request->input('descripcion')." </b></p>
                       <p style='text-align: center; font-size: 20px;'>Fecha del evento: <b>".date_format($start, 'd/m/Y')." </b></p>
@@ -89,13 +91,9 @@ class CpresiController extends Controller
                 </div>
             </div>";
 
-          $mail->send();
-
-          Pusher::trigger('my-channel', 'my-event', 'Hola que hace');
-          // We're done here - how easy was that, it just works!
-
-          Pusher::getSettings();
-          // This example is simple and there are far more methods available.
+          $mail->send(); 
+        
+  
 
       } catch (Exception $e) {
           echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
@@ -103,7 +101,7 @@ class CpresiController extends Controller
 }
 }
 $calendar->save();
-return back()->with('success', 'Evento agregado correctamente');
+ return back()->with('success', 'Evento agregado correctamente');
     }
 
     public function destroy(Request $request, $id)

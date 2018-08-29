@@ -452,9 +452,11 @@ $(document).ready(function() {
                 modal.style.display = "none";
             }
           }
+        moment.locale('es'); 
+        let fecha = moment(calEvent.start._i).format('L');
 
-          $('#tituloEvent').html("<h4>Evento: "+calEvent.title+"</h4>");
-          $('#contenidoEvent').html("<p>Fecha de evento: "+calEvent.start._i+"</p><br><p>"+calEvent.descripcion+"</p>");
+          $('#tituloEvent').html("<h3>Evento: "+calEvent.title+"</h3>");
+          $('#contenidoEvent').html("<p>Fecha de evento: "+fecha+"</p><br><p>"+calEvent.descripcion+"</p>");
 
           $('#btnBorrar').attr('data-id', calEvent.id);
 

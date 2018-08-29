@@ -1,5 +1,5 @@
 nav ul a:hover {
-  background-color: transparent !important;
+  background-color: grey !important;
 }
 .card .card-image {
     height: 60%;
@@ -7,7 +7,7 @@ nav ul a:hover {
     overflow: hidden;
     margin-left: 0px;
     margin-right: 0px;
-    margin-top: -10px;
+    margin-top: 0px;
     border-radius: 2px;
 }
 
@@ -20,7 +20,7 @@ nav ul a:hover {
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       line-height: 1.5;
-      padding: 6px;
+      padding: 3px;
       background-color: #fff;
       border-bottom: 1px solid #ddd;
   }
@@ -31,6 +31,7 @@ nav ul a:hover {
     margin: 15px;
     padding: 0;
 }
+
   }
 
 /* @media only screen and (min-width: 800px) {
@@ -47,3 +48,46 @@ nav ul a:hover {
       border-bottom: 1px solid #ddd;
   }
 } */
+
+.slider-izquierdo{
+    height: 283px;
+}
+@media only screen and (max-width: 1400px) {
+    .slider-izquierdo{
+        height: 34vh;
+    }
+    #imagenPerf img{
+        width: 9vh; 
+        height: 9vh;
+        margin-right: 4vh;
+    }
+}
+.navbar.navbar-transparent {
+    background-color: #f5f5f5;
+    box-shadow: none;
+    border-bottom: 0;
+    z-index: 999;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    height: 90px;
+    position: fixed;
+    width: 84%;
+}
+@media only screen and (min-width: 1400px) {
+
+    #imagenPerf img{
+        width: 7vh; 
+        height: 7vh;
+        margin-right: 7vh;
+        display: inline;
+    }
+    .navbar.navbar-transparent {
+        background-color: #f5f5f5;
+        box-shadow: none;
+        border-bottom: 0;
+        z-index: 999;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        height: 90px;
+        position: fixed;
+        width: 90%;
+    }
+}

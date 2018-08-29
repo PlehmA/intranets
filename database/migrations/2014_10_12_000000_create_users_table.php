@@ -18,14 +18,15 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('username')->unique();
             $table->string('rol_usuario');
+            $table->integer('tipo_rol')->nullable();
             $table->integer('num_legajo');
             $table->date('fecha_ingreso');
-            $table->date('fecha_nacimiento');
+            $table->date('fecha_nacimiento')->nullable();
             $table->string('puesto');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('email_personal')->nullable();
             $table->string('contra_mail')->nullable();
-            $table->ipAddress('ip_maquina');
+            $table->ipAddress('ip_maquina')->nullable();
             $table->string('foto')->default('storage/user_default.png');
             $table->integer('interno')->nullable();
             $table->string('telefono_particular')->nullable();
@@ -35,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->text('ult_mensaje')->nullable();
             $table->datetime('hora_msj')->nullable();
             $table->string('cuil')->nullable();
+            $table->boolean('terminos')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -68,22 +68,30 @@
               </a>
 
             </div>
-
+            
             <div class="col-md-4 animated fadeIn">
-              <a href="">
+                    <a href="{{ route('onedrive.index') }}">
 
-                <div class="center">
-
-                  <img src="{{ asset('img/Correo.png') }}" alt="" class="img-responsive">
-
-                </div>
-
-              </a>
+                            <div class="center">
+            
+                              <img src="{{ asset('img/onedrive/one_drive_icon.png') }}" alt="" class="img-responsive">
+            
+                            </div>
+            
+                          </a>
             </div>
-
-            <div class="col-md-4">
-
+            <div class="col-md-4 animated fadeIn">
+                <a href="">
+                    
+                    <div class="center">
+                        
+                        <img src="{{ asset('img/Correo.png') }}" alt="" class="img-responsive">
+                        
+                    </div>
+                    
+                </a>
             </div>
+            
 
           </div>
         </div>

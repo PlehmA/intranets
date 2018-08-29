@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Notify;
 use Auth;
+use App\Puesto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'ASC')->paginate(5);
+        $users = User::orderBy('id', 'ASC')->where('id', '<>', Auth::user()->id)->paginate(6);
 
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
@@ -49,40 +50,7 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
 
-        if ($request->hasFile('image')) {
-            $request->image->storeAs('public',$request->input('username').'.jpg');
-
-        }
-        $rol = $request->input('rol_usuario');
-
-        $puesto = DB::table('puestos')->where('id', $rol)->first();
-        $password = $request->input('password');
-        $enc_pass = bcrypt($password);
-        if ($request->has('username', 'rol_usuario'))
-        {
-        DB::table('users')->insert([
-            'name' => $request->input('name'),
-            'username' => $request->input('username'),
-            'rol_usuario' => $request->input('rol_usuario'),
-            'num_legajo' => $request->input('legajo'),
-            'fecha_ingreso' => $request->input('fecha_ingreso'),
-            'fecha_nacimiento' => $request->input('fecha_nacimiento'),
-            'email' => $request->input('email'),
-            'email_personal' => $request->input('email_personal'),
-            'ip_maquina' => $request->input('ip_maquina'),
-            'telefono_particular' => $request->input('telefono_per'),
-            'telefono_celular' => $request->input('telefono_part'),
-            'remember_token' => $request->input('_token'),
-            'password' => $enc_pass,
-            'foto' => 'storage/'.$request->input('username').'.jpg',
-            'puesto' => $puesto->nombre_puesto,
-
-
-        ]);
-
-        }
-        
-        return back()->with('status1', 'Datos ingresados correctamente!');
+       //
     }
 
     /**
@@ -91,13 +59,15 @@ class PersonalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $users = DB::table('users')->paginate(20);
+        $user = User::find($id);
+
+        $puesto = Puesto::find($user->rol_usuario);
 
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('rrhh.personal', compact(['users' , 'notificacion' ]));
+        return view('rrhh.editar', compact(['user' , 'notificacion', 'puesto']));
     }
 
     /**
@@ -108,12 +78,7 @@ class PersonalController extends Controller
      */
     public function edit($id)
     {
-        $users = User::where('id', $id)
-            ->first();
-
-        $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
-
-        return view('rrhh.editar', compact('users', 'id', 'notificaciones'));
+        //
     }
 
     /**
@@ -125,8 +90,24 @@ class PersonalController extends Controller
      */
     public function update(Request $request, $id)
     {
-    //
+        $user = User::find($id);
 
+        $user->update([
+            'name' => $request->input('name'),
+            'username' => $request->input('username'),
+            'puesto' => $request->input('puesto'),
+            'num_legajo' => $request->input('num_legajo'),
+            'fecha_nacimiento' => $request->input('fecha_nacimiento'),
+            'email' => $request->input('email'),
+            'email_personal' => $request->input('email_personal'),
+            'telefono_celular' => $request->input('telefono_celular'),
+            'cuil' => $request->input('cuil'),
+            'telefono_particular' => $request->input('telefono_particular'),
+            'ip_maquina' => $request->input('ip_maquina'),
+            'interno' => $request->input('interno'),
+        ]);
+
+        return back()->with('success', 'Usuario actualizado exitosamente');
     }
 
     /**

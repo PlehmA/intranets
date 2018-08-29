@@ -11,7 +11,9 @@
     .main-panel{
         height: calc(100% - 30px) !important;
     }
-
+.content{
+    margin-top: 12vh;
+}
 </style>
 @endsection 
 @section('content')

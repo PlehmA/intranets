@@ -26,7 +26,7 @@ class ContactController extends Controller
       $localidad  = $request->get('localidad');
       $direccion  = $request->get('direccion');
 
-      $contactos = Contact::orderBy('nomyap', 'ASC')
+      $contactos = Contact::orderBy('nomyap', 'ASC')->where('rol_usuario', Auth::user()->rol_usuario)
                                                     ->nomyap($nomyap)
                                                     ->correo($correo)
                                                     ->localidad($localidad)
@@ -74,6 +74,7 @@ class ContactController extends Controller
 
       \App\Contact::create([
         'id_usuario' => Auth::user()->id,
+        'rol_usuario'=> Auth::user()->rol_usuario,
         'nomyap'     => $nomyap,
         'correo'     => $correo,
         'direccion'  => $direccion,

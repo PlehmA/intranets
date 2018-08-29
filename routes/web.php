@@ -11,16 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HelloController@index');
+
 Route::post('inicio', 'InicioController@index');
 
 Route::get('inicioder', 'InicioController@show');
-
-Route::get('hogar', function () {
-    return view('hogar');
-});
 
 Route::post('login', 'Auth\LoginController@login')->name('login');
 
@@ -66,6 +61,8 @@ Route::resource('officewriter', 'OfficewriterController');
 
 Route::resource('officebase', 'OfficebaseController');
 
+Route::resource('onedrive', 'OnedriveController');
+
 Route::resource('officeimpress', 'OfficeimpressController');
 
 Route::resource('notes', 'NoteController');
@@ -77,3 +74,22 @@ Route::resource('plantillas', 'TemplateController');
 Route::resource('presidencia', 'CpresiController');
 
 Route::resource('addpers', 'AddPersController');
+
+Route::resource('noticia', 'NewsController');
+
+Route::resource('autorizaciones', 'AutorizationController');
+
+Route::resource('autojf', 'AutojfController');
+
+Route::get('/api/mensaje', 'MessageController@index');
+Route::post('/api/mensaje', 'MessageController@store');
+
+Route::get('/api/convers', 'ConversationController@index');
+
+Route::get('/api/user', 'UserController@index');
+
+Route::resource('modal', 'ModalController');
+
+Route::get('uichat', 'UichatController@index');
+
+Route::get('send', 'UichatController@send');

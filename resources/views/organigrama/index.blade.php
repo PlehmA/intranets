@@ -6,6 +6,9 @@
   padding: 0 0;
   min-height: calc(100% - 123px);
 }
+.content{
+    margin-top: 12vh;
+}
 </style>
 @endsection
 @section('content')

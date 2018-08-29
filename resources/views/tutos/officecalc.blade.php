@@ -129,7 +129,7 @@ a .material-icons {
 <div class="container-fluid"> {{-- Empieza el contenedor --}}
 
 <div class="row" style="margin-bottom: 0px;">
-  <div class="col-sm-9">
+  <div class="col-sm-9" style="margin-top: 4vh;">
 <a href="{{ route('tutos.index') }}" class="btn grey btn-small">Volver</a>
   </div>
 
@@ -186,5 +186,10 @@ a .material-icons {
     <script>
     tippy('.anterior');
     tippy('.siguiente');
+    </script>
+ <script>
+    $(document).ready(function () {
+        $('.main-panel').perfectScrollbar('destroy');
+    });
     </script>
   @endsection

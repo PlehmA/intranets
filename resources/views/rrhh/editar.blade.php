@@ -3,164 +3,114 @@
 @section('content')
 
 
-    <legend>Editar datos del personal</legend>
+    
+<div class="container">
 
     <div class="panel">
-        @if (session('status1'))
-            <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
-                {{ session('status1') }}
+            <h5 style="margin-left: 1vh; margin-bottom: 2vh;">Editar datos del usuario</h5>
+            @if (session('success'))
+            <div class="container alert alert-success text-center animated fadeIn" role="alert" data-dismiss="alert">
+                {{ session('success') }}
             </div>
-        @endif
-        <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ route('rrhh.update', $id) }}">
+            @endif
+    
+        
+              {!! Form::open(['method' => 'PUT', 'route' => ['rrhh.update', $user->id], 'class' => 'form-horizontal']) !!}
+                      @csrf
+                          <div class="row"><!-- Row -->
+                            
+                            <div class="input-field col s6">
+                            <input id="name" type="text" class="validate" name="name" autocomplete="off" required value="{{ $user->name }}">
+                            <label for="name">Nombre y apellido</label>
+                            </div>
+    
+                            <div class="input-field col s6">
+                              <input id="username" type="text" class="validate" name="username" autocomplete="off" required value="{{ $user->username }}">
+                              <label for="username">Nombre de usuario</label>
+                    
+                            </div>
+                            
+                          </div><!-- Row -->
+                          <div class="row"><!-- Row -->
+    
+                           <div class="input-field col s4">
+                            
+                           <input id="puesto" type="text" class="validate" name="puesto" autocomplete="off" required value="{{ $user->puesto }}">
+                           <label for="puesto">Área</label>
+                           </div>
+    
+                            <div class="input-field col s4">
+                              <input id="num_legajo" type="number" class="validate" name="num_legajo" autocomplete="off" required value="{{ $user->num_legajo }}">
+                              <label for="num_legajo">Número de legajo</label>
+                            </div>
+    
+                            <div class="input-field col s4">
+                              <input id="fecha_nacimiento" type="date" class="validate" name="fecha_nacimiento" autocomplete="off" value="{{ $user->fecha_nacimiento }}">
+                              <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                            </div>
+    
+                          </div><!-- Row -->
+    
+                          <div class="row"><!-- Row -->
+    
+                            <div class="input-field col s6">
+                                <input id="email" type="email" class="validate" name="email" autocomplete="off" value="{{ $user->email }}">
+                                <label for="email">Email corporativo</label>
+                            </div>
+    
+                            <div class="input-field col s6">
+                              <input id="email_personal" type="text" class="validate" name="email_personal" autocomplete="off" value="{{ $user->email_personal }}">
+                              <label for="email_personal">Email personal</label>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="name"></label>
-                <div class="col-md-4">
-                    <input id="name" name="name" type="text" placeholder="{{ $users->name }}" class="form-control input-md">
+                            </div>
+    
+                          </div><!-- Row -->
+    
+                          <div class="row"><!-- Row -->
+    
+                            <div class="input-field col s4">
+                                <input id="telefono_celular" type="number" class="validate" name="telefono_celular" autocomplete="off" value="{{ $user->telefono_celular }}">
+                                <label for="telefono_celular">Teléfono celular</label>
 
-                </div>
-            </div>
+                            </div>
+    
+                            <div class="input-field col s4">
+                              <input id="cuil" type="number" class="validate" name="cuil" autocomplete="off" value="{{ $user->cuil }}">
+                              <label for="cuil">Cuil</label>
 
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="username"></label>
-                <div class="col-md-4">
-                    <input id="username" name="username" type="text" placeholder="{{ $users->username }}" class="form-control input-md">
+                            </div>
+    
+                            <div class="input-field col s4">
+                              <input id="telefono_particular" type="tel" class="validate" name="telefono_particular" autocomplete="off" value="{{ $user->telefono_particular }}">
+                              <label for="telefono_particular">Teléfono particular</label>
 
-                </div>
-            </div>
+                            </div>
+    
+                          </div><!-- Row -->
+                          <div class="row"><!-- Row -->
+    
+                            <div class="input-field col s6">
+                        <input id="ip_maquina" type="text" class="validate" name="ip_maquina" autocomplete="off" pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="{{ $user->ip_maquina }}">
+                        <label for="ip_maquina">Dirección IP de su PC</label>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="password"></label>
-                <div class="col-md-4">
-                    <input id="password" name="password" type="password" placeholder="Contraseña" class="form-control input-md">
+                            </div>
+    
+                            <div class="input-field col s6">
+                                <input id="interno" type="number" class="validate" name="interno" autocomplete="off"value="{{ $user->interno }}">
+                                <label for="interno">Interno</label>
 
-                </div>
-            </div>
-            <!-- Select Basic -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="rol_usuario"></label>
-                <div class="col-md-4" id="id_100">
-                    <select id="rol_usuario" name="rol_usuario" class="form-control" value="{{ $users->rol_usuario }}">
-                        <option value="1">Presidencia</option>
-                        <option value="2">Gerencia</option>
-                        <option value="3">Departamento de Sistemas</option>
-                        <option value="4">Call-Center</option>
-                        <option value="5">Departamenteo de Recursos Humanos</option>
-                        <option value="6">Departamento de Auditoria</option>
-                        <option value="7">Departamento de Profesionales</option>
-                        <option value="8">Departamento de Desarrollo</option>
-                        <option value="9">Administración</option>
-                        <option value="10">Recepción</option>
-                        <option value="11">Secretaria</option>
-                        <option value="12">Marketing</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="legajo"></label>
-                <div class="col-md-4">
-                    <input id="legajo" name="legajo" type="number" placeholder="{{ $users->num_legajo }}" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-4 col-md-4">
-                    <label class="control-label" for="fecha_ingreso">Fecha de Ingreso: </label>
-                </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group">
-                <div class="col-md-offset-4 col-md-4">
-                    <input id="fecha_ingreso" name="fecha_ingreso" type="date" placeholder="{{ $users->legajo }}" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-4 col-md-4">
-                    <label class="control-label" for="fecha_ingreso">Fecha de Nacimiento: </label>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <div class="col-md-offset-4 col-md-4">
-                    <input id="fecha_nacimiento" name="fecha_nacimiento" type="date" placeholder="Fecha de Nacimiento" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="email"></label>
-                <div class="col-md-4">
-                    <input id="email" name="email" type="email" placeholder="Correo Corporativo" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="email_personal"></label>
-                <div class="col-md-4">
-                    <input id="email_personal" name="email_personal" type="email" placeholder="Correo Personal" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="ip_maquina"></label>
-                <div class="col-md-4">
-                    <input id="ip_maquina" name="ip_maquina" type="text" placeholder="Dirección de IP" class="form-control input-md">
-                    <span class="help-block">Completa Sistemas.</span>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="telefono_per"></label>
-                <div class="col-md-4">
-                    <input id="telefono_per" name="telefono_per" type="text" placeholder="Teléfono Personal" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="telefono_part"></label>
-                <div class="col-md-4">
-                    <input id="telefono_part" name="telefono_part" type="text" placeholder="Teléfono Particular" class="form-control input-md">
-
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-4 col-md-4">
-                    <label class="label label-placeholder">Foto:</label>
-                    <hr>
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="file" name="image">
-                </div>
-            </div>
-
-
-            <!-- Button (Double) -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="submit"></label>
-                <div class="col-md-8">
-                    <input type="submit" name="submit" class="btn btn-success" value="Enviar">
-                    <input type="reset" name="reset" class="btn btn-danger" value="Borrar">
-                </div>
-            </div>
-
-
-        </form>
+                            </div>
+    
+                          </div><!-- Row -->
+                          <div class="row"><!-- Row -->
+    
+                            <div class="file-field input-field col s4 offset-s5">
+                              <input type="submit" class="btn grey hoverable center-align" value="Actualizar">
+                            </div>
+    
+                          </div><!-- Row -->
+    
+                          {!! Form::close() !!}
     </div>
-
+</div>
 @endsection
