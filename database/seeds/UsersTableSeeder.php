@@ -388,7 +388,10 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Agustina Carla Gonzalez',
                 'username' => 'acgonzalez',
                 'rol_usuario' => 6,
+<<<<<<< HEAD
                 'tipo_rol'  => 3,
+=======
+>>>>>>> f23b2c228454d36a27815af21f34176cd99d73b7
                 'num_legajo' => 114,
                 'fecha_ingreso' => '03/04/2017',
                 'fecha_nacimiento' => '30/07/1987',

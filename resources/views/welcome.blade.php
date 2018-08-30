@@ -165,6 +165,7 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
+<<<<<<< HEAD
     $(document).ready(function () {
         $('.modal-trigger').click(function (e) { 
             e.preventDefault();
@@ -192,6 +193,12 @@ $(span).click(function (e) {
 
     });
 
+=======
+    var miliSegundos = 18000
+  setTimeout(function(){
+    window.location.assign('{{ url('/') }}');
+  }, miliSegundos);
+>>>>>>> f23b2c228454d36a27815af21f34176cd99d73b7
 </script>
 </body>
 </html>

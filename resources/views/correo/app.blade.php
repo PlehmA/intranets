@@ -190,6 +190,7 @@
           <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
       </div>
         <div class="sidebar-wrapper">
+<<<<<<< HEAD
                 <ul class="nav">
                         <ul class="collapsible" style="background-color: transparent; color:grey;">
                           <li onclick="location.href='{{ route('correo.index') }}'">
@@ -277,6 +278,81 @@
                         </ul>
                     </ul>
                     {{-- Aca termina la barra lateral --}}
+=======
+            <ul class="nav">
+              <ul class="collapsible" style="background-color: transparent;">
+                <li onclick="location.href='{{ route('correo.index') }}'">
+                  <div class="collapsible-header">
+                    <i class="material-icons">email</i>
+                    <p>Correo</p>
+                  </div>
+
+                </li>
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
+                  <div class="collapsible-body">
+                    <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
+                    <span><a href="{{ route('organigrama.index') }}">Organigrama corporativo</a></span><hr>
+                    <span><a href="{{ route('plantillas.index') }}">Plantillas</a></span>
+                  </div>
+
+                </li>
+                <a href="https://1drv.ms/f/s!Ao1bTBNbTk2Jf87ykAKAkUHulr4" target="_blank" style="color:grey">
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">folder_open</i>
+                       <p>Mis Archivos</p>
+                    </div>
+
+                  </li>
+                </a>
+                <li onclick="location.href='{{ route('calendar.index') }}'">
+                  <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
+                  <p>Calendario</p></div>
+
+                </li>
+                <li onclick="location.href='{{ route('directorio.index') }}'">
+                  <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
+                  <p>Agenda</p></div>
+
+                </li>
+                <li onclick="location.href='{{ route('dashboard') }}'">
+                  <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
+                  <p>Novedades</p></div>
+
+                </li>
+                @if(Auth::user()->rol_usuario == 11)
+                  <li onclick="location.href='{{ route('presidencia.index') }}'">
+                    <div class="collapsible-header">
+                          <i class="material-icons text-gray">people</i>
+                          <p>Presidencia</p>
+                    </div>
+                  </li>
+                  @endif
+            @if(Auth::user()->rol_usuario == 5)
+                <li onclick="location.href='{{ route('rrhh.index') }}'">
+                  <div class="collapsible-header">
+                        <i class="material-icons text-gray">people</i>
+                        <p>Recursos Humanos</p>
+                  </div>
+                </li>
+                @endif
+                <li onclick="location.href='{{ route('configuracion') }}'">
+                  <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
+                  <p>Seguridad</p></div>
+
+                </li>
+              </ul>
+            </ul>
+            <div class="autoplay">
+              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
+              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
+            </div>
+>>>>>>> f23b2c228454d36a27815af21f34176cd99d73b7
         </div>
     </div>
     <div class="main-panel">

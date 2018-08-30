@@ -81,8 +81,11 @@
 <div class="container-fluid">
     <div class="animado valign-wrapper" style="margin-top: 8vh;"> <!-- ACA EMPIEZA SLIDER -->
 
+<<<<<<< HEAD
         @foreach ($news as $noticia)
             
+=======
+>>>>>>> f23b2c228454d36a27815af21f34176cd99d73b7
       <div class="card hoverable">
           <div class="card-image">
             <img src="{{ asset('storage/images/'.$noticia->foto) }}">
@@ -98,6 +101,7 @@
         
         @endforeach
 
+<<<<<<< HEAD
     </div><!-- ACA TERMINA SLIDER -->
 </div>
 
@@ -109,6 +113,77 @@
         <div class="modals-content">
             <div class="slider-modal">
                     @foreach ($news as $noticia)
+=======
+        <div class="card hoverable">
+            <div class="card-image">
+              <img src="{{ asset('images/imagenprueba2.jpg') }}">
+              <span class="card-title">Card Title</span>
+            </div>
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.
+              I am convenient because I require little markup to use effectively.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+
+          <div class="card hoverable">
+              <div class="card-image">
+                <img src="{{ asset('images/imagenprueba3.jpg') }}">
+                <span class="card-title">Card Title</span>
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+              </div>
+            </div>
+
+            <div class="card hoverable">
+                <div class="card-image">
+                  <img src="{{ asset('images/imagenprueba3.jpg') }}">
+                  <span class="card-title">Card Title</span>
+                </div>
+                <div class="card-content">
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+
+              <div class="card hoverable">
+                  <div class="card-image">
+                    <img src="{{ asset('images/imagenprueba2.jpg') }}">
+                    <span class="card-title">Card Title</span>
+                  </div>
+                  <div class="card-content">
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">This is a link</a>
+                  </div>
+                </div>
+
+                <div class="card hoverable">
+                    <div class="card-image">
+                      <img src="{{ asset('images/imagenprueba1.jpg') }}">
+                      <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                      <p>I am a very simple card. I am good at containing small bits of information.
+                      I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">This is a link</a>
+                    </div>
+                  </div>
+>>>>>>> f23b2c228454d36a27815af21f34176cd99d73b7
 
                     <div>
                         <a href="{{ route('noticia.show', $noticia->id) }}" target="_blank">
