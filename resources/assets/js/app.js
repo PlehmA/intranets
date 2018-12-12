@@ -1,55 +1,39 @@
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
+
 window.Vue = require('vue');
+import Vue from 'vue'
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll)
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+Vue.component('chat', require('./components/Chat.vue'));
+Vue.component('app-report', require('./components/Report.vue'));
 
-Vue.component('chat-messages', require('./components/ChatMessages.vue'));
-Vue.component('chat-form', require('./components/ChatForm.vue'));
+ // Initialize Firebase
+ var VueFire = require('vuefire');
+ var firebase = require('firebase');
+ Vue.use(VueFire)
 
-const app = new Vue({
-    el: '#app',
+  firebase.initializeApp({
+    apiKey: "AIzaSyAM-yEyuS_8_pJ4lp1JNq-Umtlqc4V-zoI",
+    authDomain: "uitalk-f38cc.firebaseapp.com",
+    databaseURL: "https://uitalk-f38cc.firebaseio.com",
+    projectId: "uitalk-f38cc",
+    storageBucket: "uitalk-f38cc.appspot.com",
+    messagingSenderId: "975271494041"
+});
+const debe = firebase.database();
 
+const frame = new Vue({
+    el: '#frame',
     data: {
-        messages: []
+        formu: null,
+        mensajes: [],
+        loading: false
     },
-
-    created() {
-        this.fetchMessages();
-        Echo.private('chat')
-            .listen('MessageSent', (e) => {
-                this.messages.push({
-                    message: e.message.message,
-                    user: e.user
-                });
-            });
-    },
-
-
-    methods: {
-        fetchMessages() {
-            axios.get('/messages').then(response => {
-                this.messages = response.data;
-            });
-        },
-
-        addMessage(message) {
-            this.messages.push(message);
-
-            axios.post('/messages', message).then(response => {
-                console.log(response.data);
-            });
-        }
-    }
+    firebase: {
+        mensajes: debe.ref('/chats'),
+      }
+      
 });

@@ -56,6 +56,8 @@ class ChatController extends Controller
 
         DB::table('users')->where('id', Auth::user()->id)->update([
             'ult_mensaje' => $mensaje,
+            'from'        => Auth::user()->id,
+            'to'          => $user_recibe,
             'hora_msj'    => date('Y-m-d H:i:s')
             ]);
 
@@ -97,9 +99,6 @@ class ChatController extends Controller
                                                                   ->where('user_envia_id', $usuario->id)
                                                                   ->orderBy('hora_msj', 'DESC')
                                                                   ->first();
-        $readMessage = Notify::where('user_envia_id', $id)
-                                ->where('user_recibe_id', Auth::user()->id)
-                                ->update(['leido' => true]);
 
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
         

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notify;
+use Auth;
 use Illuminate\Http\Request;
 
 class NotifyController extends Controller
@@ -14,7 +15,16 @@ class NotifyController extends Controller
      */
     public function index()
     {
-        //
+        $tmp=Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
+
+        $arrayEnvia=$tmp->groupBy('user_envia_id');
+
+        $arrayEnvia['todos']=$tmp;
+       
+
+        //dd($arrayEnvia);
+
+        return $arrayEnvia;
     }
 
     /**

@@ -13,7 +13,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
       $this->call(UsersTableSeeder::class);
-      
+      $this->call(FriendTableSeeder::class);
+      $this->call(NewsTableSeeder::class);
+      $this->call(MessageTableSeeder::class);
+      $this->call(OnedriveTableSeeder::class);
+      $this->call(ExcelTableSeeder::class);
+      $this->call(WordTableSeeder::class);
+      $this->call(TemplateTableSeeder::class);
+
         DB::table('puestos')->insert([
             'id' => 1,
             'nombre_puesto' => 'Presidencia',
@@ -32,20 +39,17 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('puestos')->insert([
             'id' => 5,
-            'nombre_puesto' => 'Recursos Humanos',
+            'nombre_puesto' => 'Departamento de recursos humanos',
         ]);
         DB::table('puestos')->insert([
             'id' => 6,
-            'nombre_puesto' => 'Auditoria',
+            'nombre_puesto' => 'Departamento de auditoría',
         ]);
         DB::table('puestos')->insert([
             'id' => 7,
-            'nombre_puesto' => 'Profesionales',
+            'nombre_puesto' => 'Departamento de profesionales',
         ]);
-        DB::table('puestos')->insert([
-            'id' => 8,
-            'nombre_puesto' => 'Desarrollo',
-        ]);
+        
         DB::table('puestos')->insert([
             'id' => 9,
             'nombre_puesto' => 'Administración',
@@ -62,54 +66,7 @@ class DatabaseSeeder extends Seeder
         'id' => 12,
         'nombre_puesto' => 'Marketing',
     ]);
-        DB::table('contacts')->insert([
-          'id_usuario' => '1',
-          'nomyap' => 'Itprouser',
-          'correo' => 'sdaj@gmail.com',
-          'direccion' => 'sdasdasd 1515',
-          'provincia' => 'Buenos Aires',
-          'partido' => 'Capital Federal',
-          'localidad' => 'Capital Federal',
-          'tellinea' => '48596587',
-          'telcel' => '1569876483',
-          'interno' => '-',
-        ]);
-        DB::table('contacts')->insert([
-          'id_usuario' => '1',
-          'nomyap' => 'Proveedores',
-          'correo' => 'sdaj@gmail.com',
-          'direccion' => 'asdasda asdasd 1896',
-          'provincia' => 'Cordoba',
-          'partido' => 'que se yo',
-          'localidad' => 'por ahi',
-          'tellinea' => '48544-421852',
-          'telcel' => '15234658535',
-          'interno' => '-',
-        ]);
-        DB::table('contacts')->insert([
-          'id_usuario' => '1',
-          'nomyap' => 'Proveedores1',
-          'correo' => 'sdaj@gmail.com',
-          'direccion' => 'asdasda asdasd 1896',
-          'provincia' => 'Cordoba',
-          'partido' => 'que se yo',
-          'localidad' => 'por ahi',
-          'tellinea' => '48544-421852',
-          'telcel' => '15234658535',
-          'interno' => '-',
-        ]);
-        DB::table('contacts')->insert([
-          'id_usuario' => '1',
-          'nomyap' => 'Proveedores2',
-          'correo' => 'sdaj@gmail.com',
-          'direccion' => 'asdasda asdasd 1896',
-          'provincia' => 'Cordoba',
-          'partido' => 'que se yo',
-          'localidad' => 'por ahi',
-          'tellinea' => '48544-421852',
-          'telcel' => '15234658535',
-          'interno' => '-',
-        ]);
+  
         ##################################################                    ############################################
         ##################################################                    ############################################
         ##################################################                    ############################################
@@ -731,247 +688,7 @@ class DatabaseSeeder extends Seeder
           'video'       => 'videos\office_base\13-Personalizacion.mp4',
           'id_programa' => '4'
         ]);
-
-#######################################################################################################################
-#######################################################################################################################
-#######################################################################################################################
-#######################################################################################################################
-#######################################################################################################################
-#######################################################################################################################
-#######################################################################################################################
-
-
-
-        DB::table('calendars')->insert([
-          'id_usuario'  => '1',
-          'title'       => 'Prueba de calendar 1',
-          'descripcion' => 'Estamos probando el Calendar!!!',
-          'start'       => '2018-06-11 02:08:30',
-          'end'         => '2018-06-12 02:08:30',
-          'color'       => 'grey',
-          'textcolor'  => 'white',
-          'allday'      => false
-          ]);
-
-          DB::table('calendars')->insert([
-            'id_usuario'  => '1',
-            'title'       => 'Prueba de calendar 2',
-            'descripcion' => 'Estamos probando el Calendar 2!!!',
-            'start'       => '2018-06-13 02:08:30',
-            'end'         => '2018-06-14 02:08:30',
-            'color'       => 'black',
-            'textcolor'  => 'white',
-            'allday'      => false
-            ]);
-
-            DB::table('calendars')->insert([
-              'id_usuario'  => '1',
-              'title'       => 'Prueba de calendar 3',
-              'descripcion' => 'Estamos probando el Calendar 3!!!',
-              'start'       => '2018-06-15 02:08:30',
-              'end'         => '2018-06-16 02:08:30',
-              'color'       => 'blue',
-              'textcolor'  => 'white',
-              'allday'      => false
-
-              ]);
-
-              DB::table('calendars')->insert([
-                'id_usuario'  => '1',
-                'title'       => 'Prueba de calendar 4',
-                'descripcion' => 'Estamos probando el Calendar 4!!!',
-                'start'       => '2018-06-17 02:08:30',
-                'color'       => 'red',
-                'textcolor'  => 'white',
-                'allday'      => true
-
-                ]);
-      #######################################################################################################################
-      #######################################################################################################################
-      #######################################################################################################################
-      #######################################################################################################################
-      #######################################################################################################################
-      #######################################################################################################################
-      #######################################################################################################################
-
-          DB::table('notes')->insert([
-            'id_usuario' => '1',
-            'nombre_nota'=> 'Aviso de notario',
-            'notas'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a metus non nisl finibus semper at at risus. Praesent ac ipsum a libero feugiat faucibus. Mauris in nulla tristique, molestie dui a, finibus mi. Morbi ac felis mauris. Quisque bibendum ultrices scelerisque. Aliquam ut quam erat. Curabitur eget est id mauris rhoncus eleifend et et felis. Sed vel eleifend leo. Nulla vel metus bibendum, sodales tortor eu, hendrerit lectus. Phasellus malesuada purus eget ante mollis, eget consequat nisi lobortis. Nullam imperdiet vitae urna sit amet ultrices. Mauris at tristique nulla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '1',
-            'nombre_nota'=> 'No te olvides',
-            'notas'      => 'Cras fermentum pharetra lorem, eu tincidunt purus viverra sed. Ut scelerisque massa eget nunc gravida, in malesuada est pretium. In odio orci, tincidunt tincidunt rutrum sed, vulputate quis nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor porta dapibus. Nullam ornare ullamcorper tristique. Vestibulum eu massa quis arcu malesuada feugiat. Etiam eget ex nulla. Duis et pulvinar arcu, et consequat justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean ac elementum nibh.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo3',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo4',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo5',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo6',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo7',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Aviso de notario',
-            'notas'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a metus non nisl finibus semper at at risus. Praesent ac ipsum a libero feugiat faucibus. Mauris in nulla tristique, molestie dui a, finibus mi. Morbi ac felis mauris. Quisque bibendum ultrices scelerisque. Aliquam ut quam erat. Curabitur eget est id mauris rhoncus eleifend et et felis. Sed vel eleifend leo. Nulla vel metus bibendum, sodales tortor eu, hendrerit lectus. Phasellus malesuada purus eget ante mollis, eget consequat nisi lobortis. Nullam imperdiet vitae urna sit amet ultrices. Mauris at tristique nulla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'No te olvides',
-            'notas'      => 'Cras fermentum pharetra lorem, eu tincidunt purus viverra sed. Ut scelerisque massa eget nunc gravida, in malesuada est pretium. In odio orci, tincidunt tincidunt rutrum sed, vulputate quis nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor porta dapibus. Nullam ornare ullamcorper tristique. Vestibulum eu massa quis arcu malesuada feugiat. Etiam eget ex nulla. Duis et pulvinar arcu, et consequat justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean ac elementum nibh.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo3',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo4',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo5',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo6',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo7',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Aviso de notario',
-            'notas'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a metus non nisl finibus semper at at risus. Praesent ac ipsum a libero feugiat faucibus. Mauris in nulla tristique, molestie dui a, finibus mi. Morbi ac felis mauris. Quisque bibendum ultrices scelerisque. Aliquam ut quam erat. Curabitur eget est id mauris rhoncus eleifend et et felis. Sed vel eleifend leo. Nulla vel metus bibendum, sodales tortor eu, hendrerit lectus. Phasellus malesuada purus eget ante mollis, eget consequat nisi lobortis. Nullam imperdiet vitae urna sit amet ultrices. Mauris at tristique nulla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'No te olvides',
-            'notas'      => 'Cras fermentum pharetra lorem, eu tincidunt purus viverra sed. Ut scelerisque massa eget nunc gravida, in malesuada est pretium. In odio orci, tincidunt tincidunt rutrum sed, vulputate quis nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor porta dapibus. Nullam ornare ullamcorper tristique. Vestibulum eu massa quis arcu malesuada feugiat. Etiam eget ex nulla. Duis et pulvinar arcu, et consequat justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean ac elementum nibh.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo3',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo4',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo5',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo6',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo7',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Aviso de notario',
-            'notas'      => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a metus non nisl finibus semper at at risus. Praesent ac ipsum a libero feugiat faucibus. Mauris in nulla tristique, molestie dui a, finibus mi. Morbi ac felis mauris. Quisque bibendum ultrices scelerisque. Aliquam ut quam erat. Curabitur eget est id mauris rhoncus eleifend et et felis. Sed vel eleifend leo. Nulla vel metus bibendum, sodales tortor eu, hendrerit lectus. Phasellus malesuada purus eget ante mollis, eget consequat nisi lobortis. Nullam imperdiet vitae urna sit amet ultrices. Mauris at tristique nulla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'No te olvides',
-            'notas'      => 'Cras fermentum pharetra lorem, eu tincidunt purus viverra sed. Ut scelerisque massa eget nunc gravida, in malesuada est pretium. In odio orci, tincidunt tincidunt rutrum sed, vulputate quis nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor porta dapibus. Nullam ornare ullamcorper tristique. Vestibulum eu massa quis arcu malesuada feugiat. Etiam eget ex nulla. Duis et pulvinar arcu, et consequat justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean ac elementum nibh.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo2',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo3',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo4',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo5',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo6',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
-          DB::table('notes')->insert([
-            'id_usuario' => '2',
-            'nombre_nota'=> 'Llamar al psicologo7',
-            'notas'      => 'Nunc ornare diam dictum accumsan fringilla. Ut finibus tortor ut scelerisque volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent fermentum sem in sapien porta, ac interdum libero porttitor. Vestibulum gravida tempus bibendum. Maecenas iaculis, turpis quis convallis venenatis, risus velit vehicula risus, ac consequat eros sapien sed erat. Pellentesque sed ante venenatis elit egestas gravida ut in metus. Aenean velit risus, accumsan vel nibh ac, tincidunt finibus libero. Fusce pharetra sem aliquam hendrerit fringilla.'
-          ]);
+     
 
     }
 

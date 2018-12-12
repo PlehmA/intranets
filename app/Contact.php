@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-  protected $fillable = [ 'id', 'id_usuario', 'nomyap', 'correo', 'direccion', 'provincia', 'partido', 'localidad', 'tellinea', 'telcel', 'interno',
+  protected $fillable = [ 'id', 'id_usuario', 'nomyap', 'correo', 'direccion', 'provincia', 'partido', 'localidad', 'tellinea', 'telcel', 'interno', 'rol_usuario'
   ];
+
+  protected $redirectTo = "/";
 
   /**
  *

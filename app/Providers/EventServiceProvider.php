@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
+        'App\Events\ChatEvent' => [
+            'App\Listeners\ChatListener',
         ],
     ];
 
@@ -27,6 +27,10 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        /*Event::listen('*', function ($eventName, array $data) {
+            dump($eventName);
+            dump($data);
+
+        });*/
     }
 }

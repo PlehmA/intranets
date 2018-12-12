@@ -15,8 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'rol_usuario', 'num_legajo', 'fecha_ingreso', 'fecha_nacimiento', 'puesto', 'email', 'email_personal', 'ip_maquina', 'foto',
-        'telefono_particular', 'telefono_celular', 'estado', 'interno',
+        'name', 'username', 'rol_usuario', 'tipo_rol', 'num_legajo', 'fecha_ingreso', 'fecha_nacimiento', 'puesto', 'email', 'email_personal', 'ip_maquina', 'foto',
+        'telefono_particular', 'telefono_celular', 'cuil', 'estado', 'interno',
     ];
 
     protected $guarded = [
@@ -28,8 +28,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-         'remember_token',
+         'remember_token', 'password'
     ];
+    protected $redirectTo = "/";
     /**
     *
     * Scopes para el filtrado de busqueda by Andres

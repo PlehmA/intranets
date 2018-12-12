@@ -24,4 +24,6 @@ class Puesto extends Model
      * @var array
      */
     protected $hidden = [];
+
+    protected $redirectTo = "/";
 }

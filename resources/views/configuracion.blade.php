@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+    .content {
+    margin-top: 5vh;
+}
+</style>
+@endsection
 @section('content')
     @if(Auth::check())
 
@@ -67,6 +74,7 @@
             </div>
         @endif
     </div>
+
 
 @endif
     @endsection

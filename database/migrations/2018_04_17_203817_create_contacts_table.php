@@ -16,6 +16,7 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_usuario');
+            $table->integer('rol_usuario')->nullable();
             $table->string('nomyap');
             $table->string('correo')->nullable();
             $table->string('direccion')->nullable();

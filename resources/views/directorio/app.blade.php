@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Intranet</title>
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/Isologotipo.png') }}" />
-    <link rel="icon" type="image/png" href="{{ asset('img/Isologotipo.png') }}" />
+    <title>Uitalk</title>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/faviconuitalk.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('img/faviconuitalk.png') }}" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width" />
@@ -17,23 +17,20 @@
     <link href="{{ asset('css/demo.css') }}" rel="stylesheet" />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
     <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
 </head>
 
 <body>
 <style>
-* {
-  font-family: 'lunchtype21regular';
-}
 .btn-rojo {
   background-color: #DB6F7D;
 }
@@ -93,10 +90,7 @@
     /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
     .show {display:block;}
 
-    #myDropdown:hover{
-        background-color: #d1ecf1;
-        transition-delay: inherit;
-    }
+    
     .cajaloca {
         border-width: 1px;
         margin: 0 20rem 0 20rem;
@@ -124,8 +118,8 @@
     }
     .navbar .but-menu {
       display: inline-block;
-      margin-left: 3px;
-      margin-right: 3px;
+      margin-left: 0px;
+      margin-right: 0px;
     }
     .navbar a .but-menu {
       padding-left: 5px;
@@ -179,44 +173,42 @@
     }
     @media only screen and (max-width: 1400px) {
 
-      .slick-list {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        margin: 15px;
-        margin-top: 0px;
-        padding: 0;
-        max-height: 250px
-    }
-    .sidebar .nav, .off-canvas-sidebar .nav {
-        margin-top: 0px;
-        margin-bottom: -8px;
-    }
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 15px;
+  margin-top: 0px;
+  padding: 0;
+  max-height: 250px
+}
+.sidebar .nav, .off-canvas-sidebar .nav {
+  margin-top: 0px;
+  margin-bottom: -8px;
+}
+}
 
-      }
+}
 
-      .navbar.navbar-transparent {
-        background-color: #f5f5f5;
-        z-index: 999;
-      }
-      span.badge {
-        min-width: 2rem;
-        padding: 0 6px;
-        margin-left: 14px;
-        margin-top: -7px;
-        text-align: center;
-        font-size: 1rem;
-        line-height: 22px;
-        height: 22px;
-        color: white;
-        float: right;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        background-color: #DB6F7D;
-    }
+span.badge {
+  min-width: 2rem;
+  padding: 0 6px;
+  margin-left: 14px;
+  margin-top: -7px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 22px;
+  height: 22px;
+  color: white;
+  float: right;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #DB6F7D;
+}
+
 </style>
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
+    <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.png') }}">
         <!--
     Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
@@ -226,75 +218,107 @@
             <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
         </div>
         <div class="sidebar-wrapper">
-            <ul class="nav">
-              <ul class="collapsible" style="background-color: transparent;">
-                <li onclick="location.href='{{ route('correo.index') }}'">
-                  <div class="collapsible-header">
-                    <i class="material-icons">email</i>
-                    <p>Correo</p>
-                  </div>
-
-                </li>
-                <li>
-                  <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
-                  <div class="collapsible-body">
-                    <span><a href="{{ route('tutos.index') }}">Tutoriales</a></span><hr>
-                    <span><a href="{{ route('organigrama.index') }}">Organigrama corporativo</a></span><hr>
-                    <span><a href="{{ route('plantillas.index') }}">Plantillas</a></span>
-                  </div>
-
-                </li>
-                <a href="https://1drv.ms/f/s!Ao1bTBNbTk2Jf87ykAKAkUHulr4" target="_blank" style="color:grey">
-                  <li>
-                    <div class="collapsible-header">
-                      <i class="material-icons">folder_open</i>
-                       <p>Mis Archivos</p>
-                    </div>
-
-                  </li>
-                </a>
-                <li onclick="location.href='{{ route('calendar.index') }}'">
-                  <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
-                  <p>Calendario</p></div>
-
-                </li>
-                <li onclick="location.href='{{ route('directorio.index') }}'">
-                  <div class="collapsible-header"><i class="material-icons">perm_contact_calendar</i>
-                  <p>Agenda</p></div>
-
-                </li>
-                <li onclick="location.href='{{ route('dashboard') }}'">
-                  <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
-                  <p>Novedades</p></div>
-
-                </li>
-            @if(Auth::user()->rol_usuario == 5)
-                <li onclick="location.href='{{ route('rrhh.index') }}'">
-                  <div class="collapsible-header">
-                        <i class="material-icons text-gray">people</i>
-                        <p>Recursos Humanos</p>
-                  </div>
-                </li>
-                @endif
-                <li onclick="location.href='{{ route('configuracion') }}'">
-                  <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
-                  <p>Seguridad</p></div>
-
-                </li>
-              </ul>
-            </ul>
-            <div class="autoplay">
-              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/imagenprueba1.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/imagenprueba3.jpg') }}" alt="" class="img-rounded center-block"></div>
-              <div><img src="{{ asset('images/imagenprueba2.jpg') }}" alt="" class="img-rounded center-block"></div>
-            </div>
+                <ul class="nav">
+                        <ul class="collapsible" style="background-color: transparent; color:grey;">
+                          <li onclick="location.href='{{ route('correo.index') }}'">
+                            <div class="collapsible-header">
+                                <img src="{{ asset('images/correo-atajo.png') }}" class="correo-icon">
+                              <p>Correo</p>
+                            </div>
+        
+                          </li>
+                          <li>
+                            <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
+                            <div class="collapsible-body">
+                              <span><a href="{{ route('tutos.index') }}" class="grey-text text-darken-2">Tutoriales</a></span><hr>
+                              {{-- <span><a href="{{ route('organigrama.index') }}" class="grey-text text-darken-2">Organigrama corporativo</a></span><hr> --}}
+                              <span><a href="{{ route('plantillas.index') }}" class="grey-text text-darken-2">Plantillas</a></span>
+                            </div>
+        
+                          </li>
+                          <a href="{{ url(Auth::user()->dir_onedrive) }}" target="_blank" style="color:grey">
+                            <li>
+                              <div class="collapsible-header">
+                                <i class="material-icons">folder_open</i>
+                                 <p>Mis Archivos</p>
+                              </div>
+        
+                            </li>
+                          </a>
+                          <li onclick="location.href='{{ route('calendar.index') }}'">
+                            <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
+                            <p>Calendario</p></div>
+        
+                          </li>
+                          <li onclick="location.href='{{ route('directorio.index') }}'">
+                            <div class="collapsible-header"> <img src="{{ asset('images/agenda_icon.png') }}" class="agenda-icon">
+                            <p>Agenda</p></div>
+                          </li>
+        
+                          <li>
+                                <div class="collapsible-header"><i class="material-icons text-gray">insert_drive_file</i> <p>Gestiones</p> </div>
+                                <div class="collapsible-body">
+                                  <span><a href="{{ url('tickets') }}" class="grey-text text-darken-2">Tickets</a></span><hr>
+                                  <span><a href="{{ url('registroticket') }}" class="grey-text text-darken-2">Registro de tickets</a></span><hr>
+                                @if(5 != Auth::user()->rol_usuario && 1 != Auth::user()->tipo_rol)
+                                  <span><a href="{{ route('autorizaciones.create') }}" class="grey-text text-darken-2">Licencias</a></span><hr>
+                                @endif
+                                  <span><a href="{{ route('autorizaciones.index') }}" class="grey-text text-darken-2">Registro de licencias</a></span>
+                                </div>
+            
+                              </li>
+        
+                          <li onclick="location.href='{{ route('dashboard') }}'">
+                            <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
+                            <p>Novedades</p></div>
+        
+                          </li>
+                          @if(Auth::user()->rol_usuario == 5 && Auth::user()->tipo_rol == 2|| 'aplehm' == Auth::user()->username || 'ipicoy' == Auth::user()->username || 'ppalermo' == Auth::user()->username)
+                          <li onclick="location.href='{{ route('rrhh.index') }}'">
+                            <div class="collapsible-header">
+                                  <i class="material-icons text-gray">people</i>
+                                  <p>Recursos Humanos</p>
+                            </div>
+                          </li>
+                          @endif
+                          @if(Auth::user()->rol_usuario == 11)
+                          <li onclick="location.href='{{ route('presidencia.index') }}'">
+                            <div class="collapsible-header">
+                                  <i class="material-icons text-gray">people</i>
+                                  <p>Presidencia</p>
+                            </div>
+                          </li>
+                          @endif
+                          <li onclick="location.href='{{ route('configuracion') }}'">
+                            <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
+                            <p>Seguridad</p></div>
+        
+                          </li>
+                          @if(Auth::user()->rol_usuario == 12 || Auth::user()->rol_usuario == 3 &&  Auth::user()->username != 'udemo')
+                            <li onclick="location.href='{{ route('noticia.index') }}'">
+                                <div class="collapsible-header"><i class="material-icons text-gray">file_upload</i>
+                                <p>Entradas</p></div>
+            
+                              </li>
+                          @endif
+                       
+                          <li>
+                            <div class="collapsible-header"><i class="fas fa-door-open" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
+                                <p>Accesos</p></div>
+                            <div class="collapsible-body">
+                              <span><a href="http://192.168.0.8:8080/PREPAGA" target="_blank" class="grey-text text-darken-2">ThinkSoft</a></span><hr>
+                           
+                        
+                            </div>
+        
+                          </li>
+                        </ul>
+                    </ul>
+                    {{-- Aca termina la barra lateral --}}
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar" data-color="purple" data-image="{{ asset('img/sidebar-1.jpg') }}">
+        <nav class="navbar navbar-transparent">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -305,71 +329,62 @@
                     </button>
                     <div class="row">
 
-                      <div class="col-md-2">
-                        <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
+                      <div class="col s2">
+                        <a class="navbar-brand but-menu chat" href="{{ url('uichat') }}" title="Chat">
                         <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
-                        @if ($count = $notificacion->count())
-                        <span class="badge" style="color: white;">{{ $count }}</span>
-                      @endif
+
+                        <span class="badge noticount" style="color: white;"></span>
+
                         </a>
                       </div>
 
-                      <div class="col-md-2 .botonchat">
+                      <div class="col s2 .botonchat">
                         <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo">
                         <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
                         </a>
                       </div>
 
-                      <div class="col-md-2">
+                      <div class="col s2">
                         <a class="navbar-brand but-menu notas" href="{{ route('notes.index') }}" title="Notas">
                         <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
 
-                      <div class="col-md-2">
-                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda">
+                      <div class="col s2">
+                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda" id="agenda">
                         <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
                         </a>
                       </div>
+                    
 
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
-                  <ul class="nav navbar-nav navbar-right">
-                      <!-- Avatar image -->
-                      <div class="col-sm-2 col-md-3 dropdown">
-
-                        <a href="{{ route('configuracion') }}" id="imagenPerf">
-                          <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive">
-                        </a>
-
-                        <div class="dropdown-content">
-                          <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
-                          <div class="desc">Microsoft's OS Logo since Windows 8</div>
+                    <ul class="nav navbar-nav navbar-right" id="imagenPerf">
+                        <!-- Avatar image -->
+                        <div class="row">
+                              <div class="col s2">
+                                      <img src="{{ asset( Auth::user()->foto ) }}" alt="">
+            
+                                  </div>
+                                  <div class="col s2">
+                                        <a class='dropdown-trigger1 grey btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                                        <!-- Dropdown Structure -->
+                                        <ul id='dropdown1' class='dropdown-content'>
+                                          <li><a href="{{ url('/logout') }}" class="white-text grey">Salir</a></li>
+                                        </ul>
+                                  </div>
                         </div>
-
-                      </div>
-                      <!-- Dropdown Structure -->
-                      <ul id='dropdown2' class='dropdown-content'>
-                        <li><a href="#!">Seguridad</a></li>
-                      </ul>
-                      <a class='dropdown-trigger1 grey btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
-                      <!-- Dropdown Structure -->
-                      <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="{{ url('/logout') }}">Salir</a></li>
-                      </ul>
-
-                  </ul>
-
-                </div>
+                    </ul>
+  
+                  </div>
             </div>
         </nav>
-        <div class="content">
-            <div class="container-fluid">
+        <div class="content" style="margin-top: 12vh;">
+        
 
                 @yield('content')
 
-            </div>
         </div>
     </div>
 </div>
@@ -385,15 +400,14 @@
 
 <!--  Notifications Plugin    -->
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
-<!--  Google Maps Plugin    -->
-<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
 <!-- Material Dashboard javascript methods -->
 <script src="{{ asset('js/material-dashboard.js?v=1.2.0') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
@@ -432,5 +446,53 @@ $(document).ready(function() {
       });
 });
 </script>
+<script type="text/javascript">
+    var count = {{$notificacion->count()}};
+   
+    document.addEventListener("DOMContentLoaded", function (){
+   if (count >= 1) {
+       let url = "{{ url('/uichat') }}";
+     var notifications = new Notification("Uitalk", {
+   
+   icon: "{{ asset('/images/Recurso1.png') }}",
+   body: "Tienes "+count+" mensajes nuevos en el chat.",
+   url: url
+   });
+     
+   
+   
+        if (Notification.permission !== "granted") {
+       Notification.requestPermission();
+     }else{ 
+       
+      notifications.onclick = function(){
+       window.open(url);
+     } 
+     
+    }   
+   }
+       });
+     </script>
+<script>
+  $(document).ready(function () {
+    setInterval(function(){ 
+      axios.get('/api/notificaciones')
+  .then(function (response) {
+    // handle success
+    // console.log(response.data.todos.length);
+    if (response.data.todos.length >= 1) {
+      $('.noticount').css('display', 'inline-block');
+      $('.noticount').html(response.data.todos.length);
+      $('title').html('('+response.data.todos.length+')Uitalk');
+    }else{
+      $('.noticount').css('display', 'none');
+      $('title').html('Uitalk');
+    }
+    
+  });
+  }, 1000);
+  
+  });
+  </script>
 </body>
 </html>

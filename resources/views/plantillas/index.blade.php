@@ -11,46 +11,29 @@
     .main-panel{
         height: calc(100% - 30px) !important;
     }
-
+.content{
+    margin-top: 12vh;
+}
 </style>
 @endsection 
 @section('content')
 <div class="container">
     <div class="row">
-
+        @foreach($plantillas as $plantilla)
         <div class="col s3 plantillas">
-            <img src="{{ asset('images/plantillas/1.jpg') }}" alt="asd" class="materialboxed z-depth-2">
+            <img src="{{ asset($plantilla->foto) }}" alt="asd" class="materialboxed z-depth-2" style="height: 15vh; margin-left: 4vh;">
             <br>
-            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
+        <a href="{{$plantilla->enlace}}" target="_blank">{{ $plantilla->titulo }}</a>
         </div>
-
-        <div class="col s3 plantillas">
-            <img src="{{ asset('images/plantillas/2.jpg') }}" alt="asd" class="materialboxed z-depth-2">
-            <br>
-            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
-        </div>
-
-        <div class="col s3 plantillas">
-            <img src="{{ asset('images/plantillas/3.jpg') }}" alt="asd" class="materialboxed z-depth-2">
-            <br>
-            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
-        </div>
-
-        <div class="col s3 plantillas">
-            <img src="{{ asset('images/plantillas/4.jpg') }}" alt="asd" class="materialboxed z-depth-2">
-            <br>
-            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
-        </div>
-
+@endforeach
     </div>
-<div class="row">
-        <div class="col s3 plantillas">
-            <img src="{{ asset('images/plantillas/5.jpg') }}" alt="asd" class="materialboxed z-depth-2">
-            <br>
-            <a href="{{ url('images/plantillas/doc1.pdf') }}">Descargar plantilla</a>
-        </div>
+@if(0 == $plantillas->count())
+    <div class="col s12">
+        <h6 class="center-align"> No hay plantillas disponibles... <i class="far fa-sad-tear fa-2x"></i></h6>
+    </div>
+@endif
 </div>
-</div>
+
 @endsection
 
 @section('javascript')

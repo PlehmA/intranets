@@ -15,8 +15,7 @@ class FriendController extends Controller
      */
     public function index()
     {
-        $friends = Auth::user()->friends();
-        return view('chat.index')->withFriends($friends);
+       
     }
 
     /**
@@ -37,13 +36,7 @@ class FriendController extends Controller
      */
     public function store(Request $request)
     {
-        $friend = new Friend;
-        $friend->user_id = Auth::user()->id;
-        $friend->friend_id = $request->friend_id;
-        $friend->save();
-
-        Session::flash('success', Auth::user()->name.' fue añadido a tu lista de amigos.');
-        return redirect()->back();
+    
 
     }
 

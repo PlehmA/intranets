@@ -24,7 +24,7 @@
        </div>
        
        <div class="input-field col s7">
-         <button class="btn grey waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
+         <button class="btn grey right" type="submit" name="action" form="modalForm">Crear
            
          </button>
        </div>
@@ -69,15 +69,14 @@
               <label for="direccion">Dirección</label>
             </div>
             <div class="input-field col s1">
-              <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
-                <i class="material-icons right">search</i>
+              <button class="btn btn-small grey" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
               </button >
             </div>
           </div>
           {{ Form::close() }}
       </div>
       <div class="col s4 right">
-        <a href="{{ route('contact.create') }}" class="btn btn-gris">Agregar</a>
+        <a href="{{ route('contact.create') }}" class="btn grey">Agregar</a>
       </div>
       <table class="table responsive-table table-bordered">
         <thead>
@@ -133,7 +132,7 @@
          </div>
        </div>
        <div class="input-field col s7">
-         <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
+         <button class="btn grey right" type="submit" name="action" form="modalForm">Crear
          </button>
        </div>
      </form>

@@ -177,19 +177,6 @@ background-color: #e0e0e0;
   background-color: #8F8E8F;
 }
 
-#imagenPerf {
-  width: 7vh;
-  height: 7vh;
-  margin-right: 100px;
-  border-radius: 50%;
-
-}
-#imagenPerf img {
-  width: 7vh;
-  height: 7vh;
-
-}
-
 .but-menu {
   margin-top: 10px;
 }

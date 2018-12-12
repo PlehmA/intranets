@@ -53,7 +53,7 @@
           <label for="interno">Interno</label>
         </div>
         <div class="col s7 right-align">
-          <input type="submit" name="" value="Agregar" class="btn pulse">
+          <input type="submit" name="" value="Agregar" class="btn pulse grey">
         </div>
       </div>
       </form>

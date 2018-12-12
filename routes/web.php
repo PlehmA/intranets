@@ -1,26 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Route::group(['middleware' => ['auth']], function () {
+    
+// });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HelloController@index');
+
 Route::post('inicio', 'InicioController@index');
 
 Route::get('inicioder', 'InicioController@show');
-
-Route::get('hogar', function () {
-    return view('hogar');
-});
 
 Route::post('login', 'Auth\LoginController@login')->name('login');
 
@@ -64,7 +52,13 @@ Route::resource('officecalc', 'OfficecalcController');
 
 Route::resource('officewriter', 'OfficewriterController');
 
+Route::resource('word', 'WordController');
+
+Route::resource('excel', 'ExcelController');
+
 Route::resource('officebase', 'OfficebaseController');
+
+Route::resource('onedrive', 'OnedriveController');
 
 Route::resource('officeimpress', 'OfficeimpressController');
 
@@ -77,3 +71,55 @@ Route::resource('plantillas', 'TemplateController');
 Route::resource('presidencia', 'CpresiController');
 
 Route::resource('addpers', 'AddPersController');
+
+Route::resource('report', 'ReportController');
+
+Route::resource('noticia', 'NewsController');
+
+Route::resource('autorizaciones', 'AutorizationController');
+
+Route::resource('autojf', 'AutojfController');
+
+Route::get('/api/mensaje', 'MessageController@index');
+
+Route::post('/api/mensaje', 'MessageController@store');
+
+Route::get('/api/convers', 'ConversationController@index');
+
+Route::get('/api/user', 'UserController@index');
+
+Route::resource('modal', 'ModalController');
+
+Route::get('/contacts', 'ContactsController@get');
+
+Route::get('/conversation/{id}', 'ContactsController@getMessagesFor');
+
+Route::post('/conversation/send', 'ContactsController@send');
+
+Route::put('/conversation/{id}', 'ContactsController@readed');
+
+Route::get('/uichat', 'UichatController@index');
+
+Route::get('/api/notificaciones', 'NotifyController@index');
+
+Route::get('/correotutos', 'CorreotutoController@index');
+
+Route::put('/api/user/{id}', 'UserController@update');
+
+Route::get('/correotutos2', 'Correotuto1Controller@index');
+
+Route::get('/correotutos3', 'Correotuto2Controller@index');
+
+Route::get('/correotutos4', 'Correotuto3Controller@index');
+
+Route::post('/calguardar', 'CalendarController@guardar');
+
+Route::resource('/files', 'FileController');
+
+Route::get('tickets', 'TicketController@index')->name('tickets.index');
+
+Route::get('registroticket', 'RegistroticketController@index')->name('rticket.index');
+
+Route::post('recordatorio', 'RecordatoryController@store')->name('recordatorio.store');
+
+Route::get('testing', 'TestingController@index')->name('testing.index');

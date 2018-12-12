@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
+use App\Friend;
 
 class UserController extends Controller
 {
@@ -12,8 +15,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {   $user = Friend::where('amigo_de', Auth::user()->id)->where('username', '<>', Auth::user()->username)->get();
+        return response()->json($user);
     }
 
     /**
@@ -68,7 +71,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $state = $request->estado;
+
+        Friend::where('id_user', $id)
+          ->update(['estado' => $state]);
+
+        $estado = User::find($id);
+
+        $estado->estado = $state;
+
+        $estado->save();
+
+        return response()->json($estado);
     }
 
     /**

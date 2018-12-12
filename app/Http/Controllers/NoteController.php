@@ -16,7 +16,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-      $notas = Note::where('id_usuario', Auth::user()->id)->get();
+      $notas = Note::where('id_usuario', Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
       $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
         return view('notes.index', compact('notas', 'notificacion'));
     }
@@ -42,6 +42,7 @@ class NoteController extends Controller
 
 
       try {
+
         $notas = new Note;
 
         $notas->nombre_nota = $request->input('nombre_nota');
@@ -50,22 +51,19 @@ class NoteController extends Controller
         $notas->save();
 
         return back()->with('success', 'Nota creada');
+
       } catch (Exception $e) {
+
         return back()->with('eror', 'No se pudo crear la nota');
+
       }
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Note  $note
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $nota = Note::findOrFail($id);
-        $notas = Note::all()->where('id_usuario', Auth::user()->id);
+        $notas = Note::where('id_usuario', Auth::user()->id)->orderBy('updated_at', 'DESC')->get();
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
         return view('notes.show', compact(['nota', 'notas', 'notificacion']));

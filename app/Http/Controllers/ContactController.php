@@ -26,7 +26,7 @@ class ContactController extends Controller
       $localidad  = $request->get('localidad');
       $direccion  = $request->get('direccion');
 
-      $contactos = Contact::orderBy('nomyap', 'ASC')
+      $contactos = Contact::orderBy('nomyap', 'ASC')->where('rol_usuario', Auth::user()->rol_usuario)
                                                     ->nomyap($nomyap)
                                                     ->correo($correo)
                                                     ->localidad($localidad)
@@ -60,7 +60,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-      if ($request->isMethod('post')) {
+    
 
       $nomyap = $request->input('nomyap');
       $correo = $request->input('correo');
@@ -72,20 +72,21 @@ class ContactController extends Controller
       $telcel = $request->input('telcel');
       $interno = $request->input('interno');
 
-      \App\Contact::create([
-        'id_usuario' => Auth::user()->id,
-        'nomyap'     => $nomyap,
-        'correo'     => $correo,
-        'direccion'  => $direccion,
-        'provincia'  => $provincia,
-        'partido'    => $partido,
-        'localidad'  => $localidad,
-        'tellinea'   => $tellinea,
-        'telcel'     => $telcel,
-        'interno'    => $interno
+      Contact::create([
+        'id_usuario'    => Auth::user()->id,
+        'rol_usuario'   => Auth::user()->rol_usuario,
+        'nomyap'        => $nomyap,
+        'correo'        => $correo,
+        'direccion'     => $direccion,
+        'provincia'     => $provincia,
+        'partido'       => $partido,
+        'localidad'     => $localidad,
+        'tellinea'      => $tellinea,
+        'telcel'        => $telcel,
+        'interno'       => $interno
 
       ]);
-        }
+
 
         return back()->with('add', 'Contacto agregado');
 

@@ -47,7 +47,7 @@
                           <img src="{{ url($user->foto) }}" alt="" />
                           <div class="meta">
                             <p class="name">{{ $user->name }}</p>
-                            <p class="preview">{{ $user->ult_mensaje }}</p>
+                            <p class="preview"></p>
                           </div>
                         </div>
                       </li>

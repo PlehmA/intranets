@@ -25,7 +25,7 @@
        </div>
      </div>
      <div class="input-field col s7">
-       <button class="btn waves-effect waves-light right" type="submit" name="action" form="modalForm">Crear
+       <button class="btn waves-effect waves-light right grey" type="submit" name="action" form="modalForm">Crear
          
        </button>
      </div>
@@ -85,19 +85,19 @@
       <table class="table highlight responsive-table table-bordered">
         <thead>
           <tr>
+            <th><b>Interno</b></th>
             <th><b>Nombre y apellido</b></th>
             <th><b>Correo</b></th>
             <th><b>Área</b></th>
-            <th><b>Interno</b></th>
           </tr>
         </thead>
         <tbody>
           @foreach ($usuarios as $dir)
             <tr>
+              <td>{{ $dir->interno }}</td>
               <td>{{ $dir->name }}</td>
               <td>{{ $dir->email }}</td>
               <td>{{ $dir->puesto }}</td>
-              <td>{{ $dir->interno }}</td>
             </tr>
           @endforeach
         </tbody>

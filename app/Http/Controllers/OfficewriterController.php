@@ -19,7 +19,7 @@ class OfficewriterController extends Controller
      */
     public function index()
     {
-      $wroffice = Officewriter::where('id_programa', 2)->paginate(1);
+       $wroffice = Officewriter::where('id_programa', 2)->paginate(1);
       $wrmenu   = Officewriter::where('id_programa', 2)->get();
       $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 

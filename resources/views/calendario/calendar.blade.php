@@ -173,10 +173,93 @@
   button:focus {
     background-color: transparent !important;
   }
+  .hollow-dots-spinner, .hollow-dots-spinner * {
+      box-sizing: border-box;
+    }
+
+    .hollow-dots-spinner {
+      height: 15px;
+      width: calc(30px * 3);
+      left: 35%;
+      top: 50%;
+      position: absolute;
+    }
+
+    .hollow-dots-spinner .dot {
+      width: 15px;
+      height: 15px;
+      margin: 0 calc(15px / 2);
+      border: calc(15px / 5) solid #8c8c8c;
+      border-radius: 50%;
+      float: left;
+      transform: scale(0);
+      animation: hollow-dots-spinner-animation 1000ms ease infinite 0ms;
+    }
+
+    .hollow-dots-spinner .dot:nth-child(1) {
+      animation-delay: calc(300ms * 1);
+    }
+
+    .hollow-dots-spinner .dot:nth-child(2) {
+      animation-delay: calc(300ms * 2);
+    }
+
+    .hollow-dots-spinner .dot:nth-child(3) {
+      animation-delay: calc(300ms * 3);
+
+    }
+
+    @keyframes hollow-dots-spinner-animation {
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+@media only screen and (max-width: 1400px) {
+
+.title-spinner{
+    top: 40%;
+    left: 35%;
+    position: relative;
+    color: #8c8c8c;
+  }
+}
+@media only screen and (min-width: 1400px) {
+
+.title-spinner{
+    top: 43%;
+    left: 35%;
+    position: relative;
+    color: #8c8c8c;
+  }
+}
+.fondo-spinner{
+    position: fixed;
+    height: 100vh;
+    width: 200vh;
+    z-index: 999;
+    margin-top: -2vh;
+    margin-left: -1vh;
+    background-color: rgba(238, 238, 238, 1);
+}
 </style>
 @endsection
 @section('content')
-
+<div class="fondo-spinner" style="display: none;" id="spinnerloco">
+    <div class="title-spinner">
+      <h4>Uitalk</h4>
+      <br>
+      <p>Enviando mails...</p>
+    </div>
+    <div class="hollow-dots-spinner">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
 <div id='calendar'></div>
 
 <div id="myModal" class="modal">
@@ -244,7 +327,20 @@
             <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
           </div>
         </div>
+        <div class="row">
+                <label for="">Seleccione a los invitados</label>
+                <div class="input-field col s12">
+                   
+                        <select multiple class="browser-default" name="selecMultiple[]">
+                                @foreach ($usuarios as $user)
+                                <option value="{{  $user->id  }}">{{  $user->name  }}</option>
+                                @endforeach
+                               
+                              </select>
+            </div>
+        </div>
         <div class="input-field col s8" id="emailcito">
+          
                   <div class="input-field col s6">
                     <i class="material-icons prefix">email</i>
                     <input id="email" type="email" class="validate" name="email[]" autocomplete="">
@@ -262,7 +358,7 @@
 </div>
 
 <div id="myModal3" class="modal">
-<form action="{{ action('CalendarController@store') }}" method="POST" id="formularito">
+<form action="{{ action('CalendarController@store') }}" method="POST" id="formularitox">
   <!-- Modal content -->
   <div class="modal-content scrollbar-info">
     <div class="modal-header">
@@ -335,7 +431,7 @@
     </div>
     <div class="modal-footer">
       <a class="btn grey" href="#btnadd" id="btnadd">Añadir mail</a>
-      <button type="submit" class="btn grey" id="btn-agregar" form="formularito" onclick="notificar()">Agregar Evento</button>
+      <button type="submit" class="btn grey hoverable" id="btn-agregar" form="formularitox" >Agregar Evento</button>
     </div>
   </div>
   </form>
@@ -353,7 +449,8 @@
     <div class="modal-footer">
       <form action="" id="formci" method="DELETE">
         {{ csrf_field() }}
-        <a href="#" class="btn grey" data-id="" id="btnBorrar">Borrar evento</a>
+        <a href="#" class="btn grey" data-id="" id="btnBorrar">Eliminar
+        </a>
       </form>
 
 
@@ -361,6 +458,48 @@
   </div>
 
 </div>
+<!-- Modal RECORDATORIO -->
+<div id="modalRecordatorio" class="modal">
+
+  <!-- Modal RECORDATORIO -->
+  <div class="modal-content">
+    <div class="modal-header">
+      
+      <span class="close">&times;</span>
+      <h5>Recordatorio nuevo</h5>
+    </div>
+    <div class="modal-body">
+    <form action="{{ route('recordatorio.store') }}" method="POST">
+            @csrf
+
+            <input type="hidden" name="id_user" class="id_user" value="{{ Auth::user()->id }}">
+
+            <input type="hidden" name="user_email" class="user_email" value="{{ Auth::user()->email }}">
+
+            <input type="hidden" name="username" class="username" value="{{ Auth::user()->name }}">
+
+            <input type="text" name="notification_name" class="notification_name" placeholder="Nombre del recordatorio" required>
+
+            <input type="text" name="text" class="text" placeholder="Anotaciones( *Opcional )">
+
+            <input type="datetime-local" name="fecha_hora" class="fecha_hora">
+
+    </div>
+    <div class="modal-footer">
+     
+     
+        <button class="btn grey">Crear Recordatorio</button>
+      </form>
+
+
+    </div>
+  </div>
+
+</div>
+<!-- Modal RECORDATORIO -->
+{{-- @for ($i = 0; $i < 60; $i++)
+    {{ $i }},
+@endfor --}}
 @endsection
 
 @section('jsscript')
@@ -377,6 +516,7 @@ $(document).ready(function() {
 
     var calendar = $('#calendar').fullCalendar({
       locale: 'es',
+      eventLimit: true,
       monthNames: [
          'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio',
         'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
@@ -384,13 +524,13 @@ $(document).ready(function() {
       header: {
         left: 'prev,next today, BotonEvento',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        right: 'BotonRecordatorio, month,agendaWeek,agendaDay'
       },
       customButtons: {
         BotonEvento: {
           text: "Agregar Evento",
           click: function(date, jsEvent, view){
-
+            $('.main-panel').perfectScrollbar('destroy');
             var modal = document.getElementById('myModal3');
             var span = document.getElementsByClassName("close3")[0];
 
@@ -398,14 +538,26 @@ $(document).ready(function() {
 
             span.onclick = function() {
               modal.style.display = "none";
+              $('.main-panel').perfectScrollbar();
             }
 
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
               if (event.target == modal) {
                   modal.style.display = "none";
+                  $('.main-panel').perfectScrollbar();
               }
             }
+          },
+        },
+        BotonRecordatorio: {
+          text: "Agregar Recordatorio",
+          click: function(date, jsEvent, view){
+          
+            $('#modalRecordatorio').css('display', 'block');
+
+
+            
           },
         }
       },
@@ -452,9 +604,16 @@ $(document).ready(function() {
                 modal.style.display = "none";
             }
           }
+        moment.locale('es'); 
+        let fecha = moment(calEvent.start._i).format('L');
 
-          $('#tituloEvent').html("<h4>Evento: "+calEvent.title+"</h4>");
-          $('#contenidoEvent').html("<p>Fecha de evento: "+calEvent.start._i+"</p><br><p>"+calEvent.descripcion+"</p>");
+          $('#tituloEvent').html("<h3>"+calEvent.title+"</h3>");
+          if(calEvent.descripcion == null){
+            $('#contenidoEvent').html("<p>Fecha: "+fecha+"</p><br><p></p>");
+          }else{
+            $('#contenidoEvent').html("<p>Fecha: "+fecha+"</p><br><p>"+calEvent.descripcion+"</p>");
+          }
+          
 
           $('#btnBorrar').attr('data-id', calEvent.id);
 
@@ -475,6 +634,7 @@ $('#btnBorrar').click(function() {
   })
   .done(function(response) {
     $('#myModal1').css("display", "none");
+    
     window.setTimeout('location.reload()', 1);
     // alert('Evento borrado exitosamente');
   })
@@ -500,12 +660,24 @@ $('#btnBorrar').click(function() {
 
 $("#formularito").submit(function () { 
 
-  var notifications = new Notification("Han creado un nuevo evento", {
+  var notifications = new Notification("Uitalk", {
 
 icon: "{{ asset('images/Recurso1.png') }}",
-body: "Este es el contenido del body"
+body: "Has creado un nuevo evento."
 });
-  
+$('.modal').css('display', 'none');
+
+});
+
+$("#formularitox").submit(function () { 
+
+var notifications = new Notification("Uitalk", {
+
+icon: "{{ asset('images/Recurso1.png') }}",
+body: "Has creado un nuevo evento."
+});
+$('.modal').css('display', 'none');
+
 });
 
      if (Notification.permission !== "granted") {
@@ -518,5 +690,15 @@ body: "Este es el contenido del body"
   
  }
   });
+</script>
+<script>
+$(document).ready(function () {
+  $('.close').click(function (e) { 
+    e.preventDefault();
+    $('#modalRecordatorio').css('display', 'none');
+  });
+ 
+});
+
 </script>
 @endsection

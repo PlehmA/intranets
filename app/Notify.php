@@ -15,4 +15,6 @@ class Notify extends Model
     ];
 
     protected $hidden = [];
+
+    protected $redirectTo = "/";
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Notify;
 use Auth;
+use App\Template;
 
 class TemplateController extends Controller
 {
@@ -16,7 +17,7 @@ class TemplateController extends Controller
   public function index()
   {
     $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
-
-      return view('plantillas.index', compact(['notificacion']));
+    $plantillas = Template::where('rol_usuario', Auth::user()->rol_usuario)->get();
+      return view('plantillas.index', compact(['notificacion', 'plantillas']));
   }
 }

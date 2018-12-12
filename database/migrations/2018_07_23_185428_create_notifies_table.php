@@ -15,7 +15,7 @@ class CreateNotifiesTable extends Migration
     {
         Schema::create('notifies', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('data')->nullable();
+            $table->string('data');
             $table->integer('user_envia_id');
             $table->integer('user_recibe_id');
             $table->boolean('leido');

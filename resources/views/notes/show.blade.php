@@ -394,7 +394,7 @@
           <ul class="collection with-header lateralizq scrollbar-rare-wind" id="listaizq">
               <li class="collection-header"><h5>Notas</h5></li>
               @foreach ($notas as $note)
-                <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres"><b>
+                <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres grey-text text-darken-2"><b>
                   @if (strlen($note->nombre_nota) >= 17)
                     {{ substr_replace($note->nombre_nota, '...', 16) }}
                     @else
@@ -475,18 +475,19 @@
 @section('javascript')
   <script src="{{ asset('tinymce\js\tinymce\tinymce.min.js') }}"></script>
     <script>
-    tinymce.init({
-       selector: 'textarea',
-       language: 'es',
-       height: 300,
-       menubar: false,
-       plugins: [
-         'advlist autolink lists link image charmap print preview anchor textcolor',
-         'searchreplace visualblocks code fullscreen',
-         'insertdatetime media table contextmenu paste code help wordcount'
-       ],
-       toolbar: 'undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-           });
+           tinymce.init({
+           selector: 'textarea',
+           language: 'es',
+           height: 300,
+           menubar: true,
+           toolbar: 'fontsizeselect insert link image charmap print preview anchor textcolor pastetext spellchecker bold italic underline strikethrough styleselect fontselect numlist bullist',
+           fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+           plugins: [
+             'advlist autolink lists link image charmap print preview anchor textcolor',
+             'searchreplace visualblocks code fullscreen',
+             'insertdatetime media table contextmenu paste code help'
+           ]
+               });
 </script>
 <script>
 $("#listaizq").hover(function() {

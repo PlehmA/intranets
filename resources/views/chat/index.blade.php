@@ -1,7 +1,8 @@
 @extends('chat.app')
 @section('chatent')
   @if (Auth::check())
-    <div id="frame">
+ 
+   <div id="frame">
     	<div id="sidepanel">
     		<div id="profile">
     			<div class="wrap">
@@ -45,10 +46,14 @@
       <div class="content" style="background-image: url({{ asset('images/chatfondologo.png') }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
       </div>
 
-    </div>
+    </div> 
   @endif
 @endsection
 @section('scripts')
+<script>
+$("#testLoad").load("https://espaciouitalk.slack.com");
+</script>
+
   <script>
   $(document).ready(function(){
     $('#buscador').keyup(function(){
