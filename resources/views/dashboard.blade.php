@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('css')
-<style>
+<!-- <style>
 
 .card {
       margin-right: 5px;
@@ -105,7 +105,7 @@
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: #424242;
 }
-</style>
+</style> -->
 @endsection
 @section('content')
 <div class="container-fluid">

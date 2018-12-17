@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('style'); ?>
 <style>
 #frame #sidepanel #contacts ul li.contact .wrap .meta .preview {

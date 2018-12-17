@@ -1,48 +1,47 @@
 nav ul a:hover {
-  background-color: grey !important;
-  color: white;
+    background-color: grey !important;
+    color: white;
 }
-
 
 @media only screen and (max-width: 1400px) {
-  .collapsible-header {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      line-height: 1.5;
-      padding: 3px;
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-  }
-  .slick-list {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    margin: 15px;
-    padding: 0;
-}
-.card .card-image {
-    height: 70%;
-    position: relative;
-    overflow: hidden;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    border-radius: 2px;
-}
-.card .card-content {
-    padding: 24px;
-    border-radius: 0 0 2px 2px;
-    height: 20vh;
-}
-.card .card-action:last-child {
-    border-radius: 0 0 2px 2px;
+    .collapsible-header {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        line-height: 1.5;
+        padding: 3px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+    .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 15px;
+        padding: 0;
+    }
+    .card .card-image {
+        height: 70%;
+        position: relative;
+        overflow: hidden;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0px;
+        border-radius: 2px;
+    }
+    .card .card-content {
+        padding: 24px;
+        border-radius: 0 0 2px 2px;
+        height: 20vh;
+    }
+    .card .card-action:last-child {
+        border-radius: 0 0 2px 2px;
+    }
 }
 
-  }
 
 /* @media only screen and (min-width: 800px) {
   .collapsible-header {
@@ -59,19 +58,21 @@ nav ul a:hover {
   }
 } */
 
-.slider-izquierdo{
+.slider-izquierdo {
     height: 283px;
 }
+
 @media only screen and (max-width: 1400px) {
-    .slider-izquierdo{
+    .slider-izquierdo {
         height: 34vh;
     }
-    #imagenPerf img{
-        width: 9vh; 
+    #imagenPerf img {
+        width: 9vh;
         height: 9vh;
         margin-right: 4vh;
     }
 }
+
 .navbar.navbar-transparent {
     background-color: #f5f5f5;
     box-shadow: none;
@@ -82,14 +83,8 @@ nav ul a:hover {
     position: fixed;
     width: 84%;
 }
-@media only screen and (min-width: 1400px) {
 
-    #imagenPerf img{
-        width: 7vh; 
-        height: 7vh;
-        margin-right: 7vh;
-        display: inline;
-    }
+@media only screen and (min-width: 1400px) {
     .navbar.navbar-transparent {
         background-color: #f5f5f5;
         box-shadow: none;
@@ -118,24 +113,88 @@ nav ul a:hover {
         border-radius: 0 0 2px 2px;
     }
 }
+
 .card {
     z-index: 1;
 }
-img.agenda-icon{
+
+img.agenda-icon {
     width: 22px;
     height: 26px;
     margin-left: 2px;
     margin-right: 21px;
-  }
-  img.correo-icon {
+}
+
+img.correo-icon {
     margin-left: 2px;
     margin-right: 14px;
     width: 29px;
     height: 19px;
     margin-top: 4px;
     opacity: 0.7 !important;
-  }
-  .sidebar .nav p, .off-canvas-sidebar .nav p {
+}
+
+.sidebar .nav p,
+.off-canvas-sidebar .nav p {
     font-weight: 500;
     color: #444;
+}
+
+
+/* BARRA LATERAL */
+
+@media only screen and (min-width: 1140px) {
+    .sidebar {
+        width: 60px;
+        z-index: 9999;
+        opacity: 1;
+        background-color: #eeeeee;
+    }
+    .sidebar .sidebar-wrapper {
+        width: 60px;
+    }
+    .sidebar .sidebar-wrapper li {
+        height: 58px;
+        display: contents;
+    }
+    .sidebar .sidebar-wrapper li div p {
+        display: none;
+    }
+    .main-panel {
+        width: 100%;
+        padding: 0px 60px;
+        overflow: hidden;
+    }
+    .content {
+        margin: 60px;
+    }
+    .navbar.navbar-transparent {
+        width: 100%;
+        max-height: 60px;
+    }
+    .collapsible {
+        margin: initial;
+    }
+    .menu-top {
+        margin: -18px;
+    }
+    .menu-top-right {
+        margin: -16px;
+        margin-right: 20px;
+    }
+    #imagenPerf img {
+        width: 6vh;
+        height: 6vh;
+        margin-right: 1vh;
+        margin-top: 5px;
+        display: inline;
+    }
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: gray;
+}
+
+.card {
+    margin-left: 5px;
 }

@@ -185,14 +185,7 @@ img.agenda-icon{
 <?php echo $__env->yieldContent('css'); ?>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="<?php echo e(asset('img/barralateral.png')); ?>">
-        <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
-    Tip 2: you can also add an image using data-image tag
--->
-        <div class="logo">
-            <a href="<?php echo e(route('dashboard')); ?>"> <img src="<?php echo e(asset('images/Recurso1.png')); ?>" class="img-responsive"> </a>
-        </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <ul class="collapsible" style="background-color: transparent; color:grey;">
@@ -305,7 +298,7 @@ img.agenda-icon{
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <div class="row">
+                    <div class="row menu-top">
 
                       <div class="col s2">
                         <a class="navbar-brand but-menu chat" href="<?php echo e(url('/uichat')); ?>" title="Chat">
@@ -339,7 +332,7 @@ img.agenda-icon{
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right" id="imagenPerf">
                       <!-- Avatar image -->
-                      <div class="row">
+                      <div class="row menu-top-right">
                             <div class="col s2">
                                     <img src="<?php echo e(asset( Auth::user()->foto )); ?>" alt="">
           
@@ -401,6 +394,31 @@ img.agenda-icon{
    $('.dropdown-trigger1').dropdown();
 </script>
 <script>
+$(document).ready(function () {
+  $('.sidebar').hover(function () {
+     $('.sidebar .sidebar-wrapper li div p').css('display', 'block');
+     $('.sidebar').css('width', '220px');
+     $('.sidebar').css('opacity', '1');
+     $('.sidebar').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper').css('width', '220px');
+     $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
+     
+    }, function () {
+          $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
+          $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+          $('.sidebar').css('width', '60px');
+          $('.sidebar').css('opacity', '1');
+          $('.sidebar .sidebar-wrapper').css('width', '60px');
+          $('.sidebar .sidebar-wrapper li').css('height', '58px');
+          $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
+
+    });
+    
+});
+
+</script>
+<script>
   var miliSegundos = 1800000
   setTimeout(function(){
     alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
@@ -431,6 +449,9 @@ $(document).ready(function() {
 </script>
 <?php echo $__env->yieldContent('javascript'); ?>
 <script>
+ps.destroy();
+$('.main-panel').perfectScrollbar('destroy');
+$('.content').perfectScrollbar('destroy');
   $('.wrapper').perfectScrollbar('destroy');
   $('.sidebar').perfectScrollbar('destroy');
   $('.sidebar .sidebar-wrapper, .off-canvas-sidebar .sidebar-wrapper').perfectScrollbar('destroy');
@@ -482,5 +503,6 @@ $(document).ready(function() {
   
   });
   </script>
+
 </body>
 </html>

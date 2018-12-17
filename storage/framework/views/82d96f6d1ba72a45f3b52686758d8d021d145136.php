@@ -1,5 +1,5 @@
 <?php $__env->startSection('css'); ?>
-<style>
+<!-- <style>
 
 .card {
       margin-right: 5px;
@@ -104,7 +104,7 @@
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: #424242;
 }
-</style>
+</style> -->
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 <div class="container-fluid">
