@@ -198,3 +198,9 @@ img.correo-icon {
 .card {
     margin-left: 5px;
 }
+
+.logo_completo {
+    display: none;
+    width: 80px;
+    height: 27px;
+}

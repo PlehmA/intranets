@@ -189,6 +189,15 @@ img.agenda-icon{
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <ul class="collapsible" style="background-color: transparent; color:grey;">
+
+                <li onclick="location.href='{{ route('dashboard') }}'">
+                    <div class="collapsible-header">
+                        <img src="{{ asset('img/faviconuitalk.png') }}" class="logo_mini">
+                        <img src="{{ asset('images/Recurso1.png') }}" class="logo_completo">
+                    </div>
+
+                  </li>
+
                   <li onclick="location.href='{{ route('correo.index') }}'">
                     <div class="collapsible-header">
                         <img src="{{ asset('images/correo-atajo.png') }}" class="correo-icon">
@@ -376,7 +385,7 @@ img.agenda-icon{
 <script src="{{ asset('js/demo.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/ar.js"></script>
 <script src="{{ asset('js/materialize.js') }}"></script>
-<script src='{{ asset('js/fullcalendar.js') }}'></script>
+<script src="{{ asset('js/fullcalendar.js') }}""></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
@@ -403,6 +412,9 @@ $(document).ready(function () {
      $('.sidebar .sidebar-wrapper').css('width', '220px');
      $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
      $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
+     $('.logo_mini').css('display', 'none');
+     $('.logo_completo').css('display', 'block');
+
      
     }, function () {
           $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
@@ -412,6 +424,8 @@ $(document).ready(function () {
           $('.sidebar .sidebar-wrapper').css('width', '60px');
           $('.sidebar .sidebar-wrapper li').css('height', '58px');
           $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
+          $('.logo_completo').css('display', 'none');
+          $('.logo_mini').css('display', 'block');
 
     });
     
