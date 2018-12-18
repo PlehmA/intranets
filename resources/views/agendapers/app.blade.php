@@ -153,12 +153,21 @@ div .botonmail:hover {
 
     Tip 2: you can also add an image using data-image tag
 -->
-        <div class="logo">
-            <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
-        </div>
+     
         <div class="sidebar-wrapper">
             <ul class="nav">
               <ul class="collapsible" style="background-color: transparent;">
+
+
+              <li onclick="location.href='{{ route('dashboard') }}'">
+                        
+                        <div class="collapsible-header">
+                            <img src="{{ asset('img/faviconuitalk.png') }}" class="logo_mini">
+                            <img src="{{ asset('images/Recurso1.png') }}" class="logo_completo">
+                        </div>
+
+                      </li>
+
                 <li onclick="location.href='{{ route('correo.index') }}'">
                   <div class="collapsible-header">
                     <i class="material-icons">email</i>
@@ -328,6 +337,36 @@ div .botonmail:hover {
 </script>
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
+</script>
+<script>
+$(document).ready(function () {
+  $('.sidebar').hover(function () {
+     $('.sidebar .sidebar-wrapper li div p').css('display', 'block');
+     $('.sidebar').css('width', '220px');
+     $('.sidebar').css('opacity', '1');
+     $('.sidebar').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper').css('width', '220px');
+     $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
+     $('.logo_mini').css('display', 'none');
+     $('.logo_completo').css('display', 'block');
+
+     
+    }, function () {
+          $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
+          $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+          $('.sidebar').css('width', '60px');
+          $('.sidebar').css('opacity', '1');
+          $('.sidebar .sidebar-wrapper').css('width', '60px');
+          $('.sidebar .sidebar-wrapper li').css('height', '58px');
+          $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
+          $('.logo_completo').css('display', 'none');
+          $('.logo_mini').css('display', 'block');
+
+    });
+    
+});
+
 </script>
 <script>
   var miliSegundos = 1800000

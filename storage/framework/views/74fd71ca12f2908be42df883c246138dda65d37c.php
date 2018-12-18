@@ -211,12 +211,20 @@ img.correo-icon{
 
     Tip 2: you can also add an image using data-image tag
 -->
-        <div class="logo">
-            <a href="<?php echo e(route('dashboard')); ?>"> <img src="<?php echo e(asset('images/Recurso1.png')); ?>" class="img-responsive"> </a>
-        </div>
+       
         <div class="sidebar-wrapper">
                 <ul class="nav">
                         <ul class="collapsible" style="background-color: transparent; color:grey;">
+
+                        <li onclick="location.href='<?php echo e(route('dashboard')); ?>'">
+                        
+                        <div class="collapsible-header">
+                            <img src="<?php echo e(asset('img/faviconuitalk.png')); ?>" class="logo_mini">
+                            <img src="<?php echo e(asset('images/Recurso1.png')); ?>" class="logo_completo">
+                        </div>
+
+                      </li>
+
                           <li onclick="location.href='<?php echo e(route('correo.index')); ?>'">
                             <div class="collapsible-header">
                                 <img src="<?php echo e(asset('images/correo-atajo.png')); ?>" class="correo-icon">
@@ -453,6 +461,38 @@ img.correo-icon{
            $(this).toggleClass('active');
         });
         </script>
+
+
+<script>
+$(document).ready(function () {
+  $('.sidebar').hover(function () {
+     $('.sidebar .sidebar-wrapper li div p').css('display', 'block');
+     $('.sidebar').css('width', '220px');
+     $('.sidebar').css('opacity', '1');
+     $('.sidebar').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper').css('width', '220px');
+     $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
+     $('.logo_mini').css('display', 'none');
+     $('.logo_completo').css('display', 'block');
+
+     
+    }, function () {
+          $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
+          $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+          $('.sidebar').css('width', '60px');
+          $('.sidebar').css('opacity', '1');
+          $('.sidebar .sidebar-wrapper').css('width', '60px');
+          $('.sidebar .sidebar-wrapper li').css('height', '58px');
+          $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
+          $('.logo_completo').css('display', 'none');
+          $('.logo_mini').css('display', 'block');
+
+    });
+    
+});
+
+</script>
 
 <?php echo $__env->yieldContent('scripts'); ?>
 

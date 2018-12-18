@@ -23,7 +23,7 @@ class RecordatoryController extends Controller
         $recordatory->text = $request->text;
         $recordatory->username = $request->username;
         $recordatory->notification_name = $request->notification_name;
-        $recordatory->fecha_hora = $request->fecha_hora;
+        $recordatory->fecha_hora = $request->fecha." ".$request->hora;
 
         $recordatory->save();
 
@@ -32,9 +32,9 @@ class RecordatoryController extends Controller
         $event->id_usuario = Auth::user()->id;
         $event->title = '* '.$request->notification_name;
         $event->descripcion = $request->text;
-        $event->start = $request->fecha_hora;
-        $event->end = $request->fecha_hora;
-        $event->color = '#37474f';
+        $event->start = $request->fecha." ".$request->hora;
+        $event->end = $request->fecha." ".$request->hora;
+        $event->color = $request->recordcolor;
         $event->textcolor = '#ffffff';
         $event->allday = false;
 

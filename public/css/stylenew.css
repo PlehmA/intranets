@@ -204,3 +204,40 @@ img.correo-icon {
     width: 80px;
     height: 27px;
 }
+
+.perfect-scrollbar-off .sidebar .sidebar-wrapper,
+.perfect-scrollbar-off .main-panel {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 1400px) {
+    .embed-container {
+        /* position: absolute; */
+        padding-bottom: 100vh;
+    }
+    .embed-container iframe {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 95%;
+        height: 85%;
+        /* margin-top: 60px; */
+        margin-left: 60px;
+    }
+}
+
+@media only screen and (min-width:1400px) {
+    .embed-container {
+        /* position: absolute; */
+        padding-bottom: 100vh;
+    }
+    .embed-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 95%;
+        height: 93%;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+}

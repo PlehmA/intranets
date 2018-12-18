@@ -1,0 +1,6 @@
+[17-Dec-2018 16:34:59 America/Sao_Paulo] PHP Deprecated:  idn_to_ascii(): INTL_IDNA_VARIANT_2003 is deprecated in /var/www/html/intranet3/public/roundcubemail/installer/test.php on line 291
+[17-Dec-2018 16:34:59 America/Sao_Paulo] PHP Deprecated:  idn_to_ascii(): INTL_IDNA_VARIANT_2003 is deprecated in /var/www/html/intranet3/public/roundcubemail/installer/test.php on line 292
+[17-Dec-2018 16:35:04 America/Sao_Paulo] PHP Deprecated:  idn_to_ascii(): INTL_IDNA_VARIANT_2003 is deprecated in /var/www/html/intranet3/public/roundcubemail/installer/test.php on line 291
+[17-Dec-2018 16:35:04 America/Sao_Paulo] PHP Deprecated:  idn_to_ascii(): INTL_IDNA_VARIANT_2003 is deprecated in /var/www/html/intranet3/public/roundcubemail/installer/test.php on line 292
+[17-Dec-2018 16:35:30 America/Sao_Paulo] PHP Deprecated:  idn_to_ascii(): INTL_IDNA_VARIANT_2003 is deprecated in /var/www/html/intranet3/public/roundcubemail/installer/test.php on line 416
+[17-Dec-2018 16:35:30 America/Sao_Paulo] PHP Deprecated:  idn_to_ascii(): INTL_IDNA_VARIANT_2003 is deprecated in /var/www/html/intranet3/public/roundcubemail/installer/test.php on line 417

@@ -480,11 +480,31 @@
 
             <input type="hidden" name="username" class="username" value="<?php echo e(Auth::user()->name); ?>">
 
+            <input type="hidden" name="rol_usuario" class="rol_usuario" value="<?php echo e(Auth::user()->rol_usuario); ?>">
+
             <input type="text" name="notification_name" class="notification_name" placeholder="Nombre del recordatorio" required>
 
             <input type="text" name="text" class="text" placeholder="Anotaciones( *Opcional )">
 
-            <input type="datetime-local" name="fecha_hora" class="fecha_hora">
+            <input type="date" name="fecha" class="fecha" value="<?php echo e(date('Y-m-d')); ?>" min="2016-01-01" max="2500-01-01" >
+
+            <input type="time" name="hora" class="hora" value="<?php echo e(date('H:i')); ?>">
+          
+          <div class="row">
+          <label for="colorcito">Color del recordatorio</label>
+              <input type="color" name="recordcolor" value="#000000" id="colorcito">
+          </div>
+
+          <div class="input-field col s12">
+                <select multiple>
+                  <option value="" disabled selected>Choose your option</option>
+                  <option value="1">Option 1</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+                </select>
+                <label>Materialize Multiple Select</label>
+            </div>
+                      
 
     </div>
     <div class="modal-footer">
@@ -503,12 +523,16 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('jsscript'); ?>
-
+<script>
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
   <script>
        var eventoShow = <?php echo json_encode($eventos); ?>;
 
 $(document).ready(function() {
-
+  $('.main-panel').perfectScrollbar();
     // var date = new Date();
     // var d = date.getDate();
     // var m = date.getMonth();

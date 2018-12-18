@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
-  <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
+  <link rel='stylesheet' href="{{ asset('css/stylenew.css') }}" />
   <!-- Add the slick-theme.css if you want default styling -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
   <!-- Add the slick-theme.css if you want default styling -->
