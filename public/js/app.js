@@ -27333,7 +27333,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_chat_scroll__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_chat_scroll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_chat_scroll__);
-
 __webpack_require__(19);
 
 window.Vue = __webpack_require__(15);
@@ -59598,7 +59597,7 @@ exports = module.exports = __webpack_require__(51)(false);
 
 
 // module
-exports.push([module.i, "\ni[data-v-70854734]{\r\n    line-height: normal;\n}\r\n", ""]);
+exports.push([module.i, "\ni[data-v-70854734]{\n    line-height: normal;\n}\n", ""]);
 
 // exports
 
@@ -60361,11 +60360,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 return;
             }
             var fecha = new Date();
-            debe.ref('/chats').push({
+            var dia = fecha.getDate() + '/' + fecha.getMonth() + '/' + fecha.getFullYear();
+            var hora = fecha.getHours() + ':' + fecha.getMinutes();
+            var diaguion = fecha.getDate() + '-' + fecha.getMonth() + '-' + fecha.getFullYear();
+            debe.ref('/chats/' + diaguion).push({
                 from: this.user.id,
                 to: this.contact.id_user,
                 mensaje: messages,
-                leido: false
+                leido: false,
+                fecha: dia,
+                hora: hora
             });
             debe.ref('conversation/' + this.user.id + '/' + this.contact.id_user).set({
                 from: this.user.id,
@@ -60449,6 +60453,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
@@ -60468,6 +60475,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             required: true
         }
     },
+    mounted: function mounted() {
+        var myJson = this.mensajes;
+        document.write(myJson);
+    },
+
     watch: {
         contact: function contact(_contact) {},
         messages: function messages(_messages) {}
@@ -60490,21 +60502,30 @@ var render = function() {
           directives: [{ name: "chat-scroll", rawName: "v-chat-scroll" }],
           staticClass: "messages"
         },
-        _vm._l(_vm.mensajes, function(mensaje) {
+        _vm._l(_vm.mensajes.key, function(mensaje) {
           return (mensaje.to == _vm.contact.id_user &&
             mensaje.from == _vm.user.id) ||
             (mensaje.from == _vm.contact.id_user && mensaje.to == _vm.user.id)
             ? _c(
                 "li",
-                {
-                  directives: [
-                    { name: "chat-scroll", rawName: "v-chat-scroll" }
-                  ],
-                  class:
-                    "message" +
-                    (mensaje.to == _vm.contact.id_user ? " replies" : " sent")
-                },
-                [_c("p", [_vm._v(_vm._s(mensaje.mensaje))])]
+                _vm._b(
+                  {
+                    directives: [
+                      { name: "chat-scroll", rawName: "v-chat-scroll" }
+                    ],
+                    class:
+                      "message" +
+                      (mensaje.to == _vm.contact.id_user ? " replies" : " sent")
+                  },
+                  "li",
+                  mensaje.key,
+                  false
+                ),
+                [
+                  _c("div", { staticClass: "locoto" }),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(mensaje[0]))])
+                ]
               )
             : _vm._e()
         })
@@ -73595,7 +73616,7 @@ var WebSocketConnection = /** @class */ (function () {
                     }
                 };
                 // Plumb appropriate http_proxy environment variable into faye-websocket if it exists.
-                var env = Object({"MIX_PUSHER_APP_KEY":"6aae31572600692fadb8","MIX_PUSHER_APP_CLUSTER":"us2","NODE_ENV":"development"});
+                var env = Object({"MIX_PUSHER_APP_KEY":"","MIX_PUSHER_APP_CLUSTER":"mt1","NODE_ENV":"development"});
                 var proxy = this.connURL.indexOf('wss://') == 0
                     ? env['HTTPS_PROXY'] || env['https_proxy']
                     : env['HTTP_PROXY'] || env['http_proxy'];

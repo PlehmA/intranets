@@ -51,12 +51,17 @@ import MessageComposer from './MessageComposer';
                return;
            }
            var fecha = new Date();
-           debe.ref('/chats')
+           var dia = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
+           var hora = fecha.getHours()+':'+fecha.getMinutes();
+           var diaguion = fecha.getDate()+'-'+fecha.getMonth()+'-'+fecha.getFullYear();
+           debe.ref('/chats/'+diaguion)
                 .push({
                     from: this.user.id,
                     to: this.contact.id_user,
                     mensaje: messages,
-                    leido: false
+                    leido: false,
+                    fecha: dia,
+                    hora: hora
                 });
             debe.ref('conversation/' + this.user.id + '/' + this.contact.id_user)
                 .set({

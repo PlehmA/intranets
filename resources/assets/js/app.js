@@ -1,4 +1,3 @@
-
 require('./bootstrap');
 
 
@@ -10,12 +9,12 @@ Vue.use(VueChatScroll)
 Vue.component('chat', require('./components/Chat.vue'));
 Vue.component('app-report', require('./components/Report.vue'));
 
- // Initialize Firebase
- var VueFire = require('vuefire');
- var firebase = require('firebase');
- Vue.use(VueFire)
+// Initialize Firebase
+var VueFire = require('vuefire');
+var firebase = require('firebase');
+Vue.use(VueFire)
 
-  firebase.initializeApp({
+firebase.initializeApp({
     apiKey: "AIzaSyAM-yEyuS_8_pJ4lp1JNq-Umtlqc4V-zoI",
     authDomain: "uitalk-f38cc.firebaseapp.com",
     databaseURL: "https://uitalk-f38cc.firebaseio.com",
@@ -24,6 +23,7 @@ Vue.component('app-report', require('./components/Report.vue'));
     messagingSenderId: "975271494041"
 });
 const debe = firebase.database();
+
 
 const frame = new Vue({
     el: '#frame',
@@ -34,6 +34,6 @@ const frame = new Vue({
     },
     firebase: {
         mensajes: debe.ref('/chats'),
-      }
-      
+    }
+
 });

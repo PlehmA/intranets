@@ -331,7 +331,8 @@
                 <label for="">Seleccione a los invitados</label>
                 <div class="input-field col s12">
                    
-                        <select multiple class="browser-default" name="selecMultiple[]">
+                        <select multiple name="selecMultiple[]">
+                        <option value="" disabled selected>Lista de invitados</option>
                                 @foreach ($usuarios as $user)
                                 <option value="{{  $user->id  }}">{{  $user->name  }}</option>
                                 @endforeach
@@ -422,6 +423,19 @@
             <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
           </div>
         </div>
+        <div class="row">
+                <label for="">Seleccione a los invitados</label>
+                <div class="input-field col s12">
+                   
+                        <select multiple name="selecMultiple[]">
+                        <option value="" disabled selected>Lista de invitados</option>
+                                @foreach ($usuarios as $user)
+                                <option value="{{  $user->id  }}">{{  $user->name  }}</option>
+                                @endforeach
+                               
+                              </select>
+            </div>
+        </div>
         <div class="input-field col s8" id="emailcito">
 
           <input id="email" type="email" class="validate" name="email[]">
@@ -493,15 +507,17 @@
               <input type="color" name="recordcolor" value="#000000" id="colorcito">
           </div>
 
+@if(Auth::user()->tipo_rol == 2)
           <div class="input-field col s12">
-                <select multiple>
-                  <option value="" disabled selected>Choose your option</option>
-                  <option value="1">Option 1</option>
-                  <option value="2">Option 2</option>
-                  <option value="3">Option 3</option>
+                <select multiple name="invitados[]">
+                  <option value="0" disabled selected>Lista de usuarios</option>
+                  @foreach($users as $us)
+                  <option value="{{ $us->id }}">{{ $us->name }}</option>
+              @endforeach
                 </select>
-                <label>Materialize Multiple Select</label>
+                <label>Otros usuarios para agregar al recordatorio: </label>
             </div>
+@endif
                       
 
     </div>
@@ -722,6 +738,23 @@ $(document).ready(function () {
     $('#modalRecordatorio').css('display', 'none');
   });
  
+});
+
+</script>
+<script>
+$(document).ready(function () {
+  window.onkeyup = compruebaTecla;
+function compruebaTecla(){
+    var e = window.event;
+    var tecla = (document.all) ? e.keyCode : e.which;
+    if(tecla == 27){
+        document.getElementById("myModal").style.display = "none";
+        document.getElementById("myModal1").style.display = "none";
+        document.getElementById("myModal1").style.display = "none";
+        document.getElementById("modalRecordatorio").style.display = "none";
+        $('.main-panel').perfectScrollbar();
+    }
+}
 });
 
 </script>

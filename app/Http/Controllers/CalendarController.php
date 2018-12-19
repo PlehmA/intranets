@@ -34,7 +34,9 @@ class CalendarController extends Controller
 
       $usuarios = User::all();
 
-        return view('calendario.calendar', compact('eventos', 'notificacion', 'usuarios'));
+      $users = User::where('rol_usuario', Auth::user()->rol_usuario)->where('id', '!=', Auth::user()->id)->get();
+
+        return view('calendario.calendar', compact('eventos', 'notificacion', 'usuarios', 'users'));
 
     }
 
