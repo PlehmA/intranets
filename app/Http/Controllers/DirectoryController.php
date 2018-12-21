@@ -32,7 +32,7 @@ class DirectoryController extends Controller
                                             ->name($name)
                                             ->email($email)
                                             ->area($area)
-                                            ->paginate(15);
+                                            ->get();
         $agenda = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id);
     $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();

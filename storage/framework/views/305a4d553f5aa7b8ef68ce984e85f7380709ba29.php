@@ -1,12 +1,11 @@
-@extends('contact.app')
-@section('content')
-  @if (Auth::check())
+<?php $__env->startSection('content'); ?>
+  <?php if(Auth::check()): ?>
     <ol class="breadcrumb">
-      <li><a href="{{ route('directorio.index') }}">Agenda interna</a></li>
-      <li><a href="{{ route('contact.index') }}">Agenda externa</a></li>
-      @foreach ($agenda as $agend)
-        <li><a href="{{ action('AgendaController@show', $agend->id) }}">{{ $agend->nombre_agenda }}</a></li>
-      @endforeach
+      <li><a href="<?php echo e(route('directorio.index')); ?>">Agenda interna</a></li>
+      <li><a href="<?php echo e(route('contact.index')); ?>">Agenda externa</a></li>
+      <?php $__currentLoopData = $agenda; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $agend): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <li><a href="<?php echo e(action('AgendaController@show', $agend->id)); ?>"><?php echo e($agend->nombre_agenda); ?></a></li>
+      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
       <li><a href="#modal1" class="modal-trigger agendapers" title="Crea tu agenda personal!">Crear agenda <i class="fas fa-plus"></i> </a></li>
     </ol>
     <div id="modal1" class="modal">
@@ -14,8 +13,9 @@
         <h4>Crear agenda</h4>
           <hr>
         <div class="row">
-     <form class="col s12" id="modalForm" method="GET" action="{{ route('agenda.create') }}">
-       {{ csrf_field() }}
+     <form class="col s12" id="modalForm" method="GET" action="<?php echo e(route('agenda.create')); ?>">
+       <?php echo e(csrf_field()); ?>
+
        <div class="row">
          <div class="input-field col s12">
            <input id="nombre_agenda" type="text" name="nombre_agenda" class="validate" required>
@@ -34,23 +34,25 @@
       </div>
     </div>
 
-      @if (session('success'))
+      <?php if(session('success')): ?>
           <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
-              {{ session('success') }}
-          </div>
-      @endif
+              <?php echo e(session('success')); ?>
 
-      @if (session('error'))
-          <div class="container alert alert-danger text-center" role="alert" data-dismiss="alert">
-              {{ session('error') }}
           </div>
-      @endif
+      <?php endif; ?>
+
+      <?php if(session('error')): ?>
+          <div class="container alert alert-danger text-center" role="alert" data-dismiss="alert">
+              <?php echo e(session('error')); ?>
+
+          </div>
+      <?php endif; ?>
 
     <div class="container-fluid">
       <h3 class="center">Agenda externa</h3>
       </div>
       <div class="col s4 right">
-        <a href="{{ route('contact.create') }}" class="btn grey">Agregar</a>
+        <a href="<?php echo e(route('contact.create')); ?>" class="btn grey">Agregar</a>
       </div>
       <table id="tableagenda">
         <thead>
@@ -69,25 +71,26 @@
           </tr>
         </thead>
         <tbody>
-            @foreach ($contactos as $contact)
+            <?php $__currentLoopData = $contactos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <tr>
-                <td>{{ $contact->nomyap }}</td>
-                <td>{{ $contact->correo }}</td>
-                <td>{{ $contact->direccion }}</td>
-                <td>{{ $contact->provincia }}</td>
-                <td>{{ $contact->partido }}</td>
-                <td>{{ $contact->localidad }}</td>
-                <td>{{ $contact->tellinea }}</td>
-                <td>{{ $contact->telcel }}</td>
-                <td>{{ $contact->interno }}</td>
-              <td><center><a href="{{ route('contact.show', $contact->id) }}" class="btn btn-azul btn-small center-align">Editar</a></center></td>
+                <td><?php echo e($contact->nomyap); ?></td>
+                <td><?php echo e($contact->correo); ?></td>
+                <td><?php echo e($contact->direccion); ?></td>
+                <td><?php echo e($contact->provincia); ?></td>
+                <td><?php echo e($contact->partido); ?></td>
+                <td><?php echo e($contact->localidad); ?></td>
+                <td><?php echo e($contact->tellinea); ?></td>
+                <td><?php echo e($contact->telcel); ?></td>
+                <td><?php echo e($contact->interno); ?></td>
+              <td><center><a href="<?php echo e(route('contact.show', $contact->id)); ?>" class="btn btn-azul btn-small center-align">Editar</a></center></td>
                 <td>
-                 {!! Form::open(['method' => 'DELETE','route' => ['contact.destroy', $contact->id]]) !!}
+                 <?php echo Form::open(['method' => 'DELETE','route' => ['contact.destroy', $contact->id]]); ?>
+
                   <center><a href="#" class="btn btn-rojo btn-small center-align btn-borrar"><i class="material-icons">delete_forever</i></a></center>
-                 {!! Form::close() !!} 
+                 <?php echo Form::close(); ?> 
                 </td>
               </tr>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
         </tbody>
       </table>
@@ -97,8 +100,9 @@
         <h4>Crear agenda</h4>
           <hr>
         <div class="row">
-     <form class="col s12" id="modalForm" method="GET" action="{{ route('datoscol.store') }}">
-       {{ csrf_field() }}
+     <form class="col s12" id="modalForm" method="GET" action="<?php echo e(route('datoscol.store')); ?>">
+       <?php echo e(csrf_field()); ?>
+
        <div class="row">
          <div class="input-field col s12">
            <input id="nombre_agenda" type="text" name="nombre_agenda" class="validate" required>
@@ -114,9 +118,9 @@
 
       </div>
     </div>
-  @endif
-@endsection
-@section('script')
+  <?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
 <script>
   $(document).ready(function() {
     $('.btn-borrar').click(function(e){
@@ -154,4 +158,5 @@
     });
   });
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('contact.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

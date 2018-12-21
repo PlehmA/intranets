@@ -50,11 +50,16 @@ import MessageComposer from './MessageComposer';
            if(!this.contact){
                return;
            }
+          
            var fecha = new Date();
-           var dia = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
-           var hora = fecha.getHours()+':'+fecha.getMinutes();
-           var diaguion = fecha.getDate()+'-'+fecha.getMonth()+'-'+fecha.getFullYear();
-           debe.ref('/chats/'+diaguion)
+           var mes = ("0" + (fecha.getMonth() + 1)).slice(-2)
+           var dias = ("0" + fecha.getDate()).slice(-2);
+           var minutos = ("0" + (fecha.getMinutes() + 1)).slice(-2);
+           var dia = dias+'/'+mes+'/'+fecha.getFullYear();
+           var hora = fecha.getHours()+':'+minutos;
+           var diaguion = dias+'-'+mes+'-'+fecha.getFullYear();
+
+           debe.ref('/chats/fecha/'+diaguion)
                 .push({
                     from: this.user.id,
                     to: this.contact.id_user,

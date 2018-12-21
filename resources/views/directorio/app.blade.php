@@ -18,15 +18,10 @@
     <!--     Fonts and icons     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
-    <!-- Add the slick-theme.css if you want default styling -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 
 <body>
@@ -111,19 +106,6 @@
     .caja-5 {
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     }
-    .navbar {
-      min-height: 90px;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-      background-color: #f1f3f5;
-    }
-    .navbar .but-menu {
-      display: inline-block;
-      margin-left: 0px;
-      margin-right: 0px;
-    }
-    .navbar a .but-menu {
-      padding-left: 5px;
-    }
 
     div .botonchat:hover {
       -webkit-transform:scale(1.25);
@@ -164,31 +146,9 @@
     .sidebar .logo:after, .off-canvas-sidebar .logo:after{
       background-color: initial;
     }
-    .slick-list {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      margin: 8px;
-      padding: 0;
-    }
-    @media only screen and (max-width: 1400px) {
+   
+ 
 
-.slick-list {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  margin: 15px;
-  margin-top: 0px;
-  padding: 0;
-  max-height: 250px
-}
-.sidebar .nav, .off-canvas-sidebar .nav {
-  margin-top: 0px;
-  margin-bottom: -8px;
-}
-}
-
-}
 
 span.badge {
   min-width: 2rem;
@@ -335,7 +295,7 @@ span.badge {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <div class="row">
+                    <div class="row menu-top">
 
                       <div class="col s2">
                         <a class="navbar-brand but-menu chat" href="{{ url('uichat') }}" title="Chat">
@@ -370,7 +330,7 @@ span.badge {
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right" id="imagenPerf">
                         <!-- Avatar image -->
-                        <div class="row">
+                        <div class="row menu-top-right">
                               <div class="col s2">
                                       <img src="{{ asset( Auth::user()->foto ) }}" alt="">
             

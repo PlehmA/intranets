@@ -51,46 +51,9 @@
         </div>
     <?php endif; ?>
     <br>
-    <div class="row">
-      <?php echo e(Form::open(['route' => 'directorio.index', 'method' => 'GET', 'class' => 'col s12'])); ?>
-
-       <?php echo csrf_field(); ?>
-        <div class="row">
-          <div class="input-field offset-s2 col s2">
-            <?php echo e(Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape'])); ?>
-
-            <label for="nom_ape">Nombre y apellido</label>
-          </div>
-          <div class="input-field col s2">
-            <?php echo e(Form::text('email', null, ['class' => 'validate', 'id' => 'email'])); ?>
-
-            <label for="email">Correo</label>
-          </div>
-          <div class="input-field col s2">
-            <?php echo e(Form::text('area', null, ['class' => 'validate', 'id' => 'area'])); ?>
-
-            <label for="area">Área</label>
-          </div>
-          <div class="input-field col s3">
-            <button class="btn waves-effect waves-light btn-small" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
-              <i class="material-icons right">search</i>
-            </button >
-          </div>
-        </div>
-        <?php echo e(Form::close()); ?>
-
-    </div>
+   
     <div class="container">
-
-
-
-<div class="right">
-<?php echo e($usuarios->render()); ?>
-
-</div>
-
-
-      <table class="table highlight responsive-table table-bordered">
+      <table id="tableagenda">
         <thead>
           <tr>
             <th><b>Interno</b></th>
@@ -110,17 +73,23 @@
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
       </table>
-      <div class="right">
-      <?php echo e($usuarios->render()); ?>
-
-      </div>
     </div>
   <?php endif; ?>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('scripts'); ?>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function(){
     $('.modal').modal();
+
+    $('#tableagenda').DataTable({
+      "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+            }
+
+    });
+    $('select').formSelect();
+
   });
 </script>
 <?php $__env->stopSection(); ?>

@@ -33,7 +33,10 @@ const frame = new Vue({
         loading: false
     },
     firebase: {
-        mensajes: debe.ref('/chats'),
+        mensajes: debe.ref('/chats').child('fecha')
+            // .on('child_added', function(snapshot) {
+            //     frame.mensajes.push(snapshot)
+            // })
     }
 
 });

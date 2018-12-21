@@ -525,7 +525,7 @@ $('#buscador').keyup(function(){
    var buscando = $(this).val();
    var item='';
    for( var i = 0; i < nombres.length; i++ ){
-       item = $(nombres[i]).html().toLowerCase();
+       item = $(nombres[i]).html();
        item = item.replace(new RegExp(/\s/g),"");
        item = item.replace(new RegExp(/[àáâãäå]/g),"a");
        item = item.replace(new RegExp(/[èéêë]/g),"e");

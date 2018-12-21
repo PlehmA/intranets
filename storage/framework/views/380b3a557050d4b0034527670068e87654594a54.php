@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Uitalk</title>
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo e(asset('img/faviconuitalk.png')); ?>" />
     <link rel="icon" type="image/png" href="<?php echo e(asset('img/faviconuitalk.png')); ?>" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Uitalk</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <meta name="viewport" content="width=device-width" />
@@ -18,14 +18,19 @@
     <!--     Fonts and icons     -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="<?php echo e(asset('css/animate.css')); ?>">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel='stylesheet' href='<?php echo e(asset('css/stylenew.css')); ?>' />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel='stylesheet' href='<?php echo e(asset('css/stylenew.css')); ?>' />
+
 </head>
 
 <body>
 <style>
+* {
+  font-family: 'lunchtype21regular';
+}
 .btn-rojo {
   background-color: #DB6F7D;
 }
@@ -83,9 +88,7 @@
     .dropdown-content a:hover {background-color: #ddd}
 
     /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-    .show {display:block;}
 
-    
     .cajaloca {
         border-width: 1px;
         margin: 0 20rem 0 20rem;
@@ -105,6 +108,19 @@
     }
     .caja-5 {
         box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+    .navbar {
+      min-height: 90px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+      background-color: #f1f3f5;
+    }
+    .navbar .but-menu {
+      display: inline-block;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .navbar a .but-menu {
+      padding-left: 0px;
     }
 
     div .botonchat:hover {
@@ -146,26 +162,47 @@
     .sidebar .logo:after, .off-canvas-sidebar .logo:after{
       background-color: initial;
     }
-   
- 
+    .slick-list {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 8px;
+      padding: 0;
+    }
+    @media  only screen and (max-width: 1400px) {
 
+      .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 15px;
+        margin-top: 0px;
+        padding: 0;
+        max-height: 250px
+    }
+    .sidebar .nav, .off-canvas-sidebar .nav {
+        margin-top: 0px;
+        margin-bottom: -8px;
+    }
+  
 
-span.badge {
-  min-width: 2rem;
-  padding: 0 6px;
-  margin-left: 14px;
-  margin-top: -7px;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 22px;
-  height: 22px;
-  color: white;
-  float: right;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: #DB6F7D;
-}
+      }
 
+      span.badge {
+        min-width: 2rem;
+        padding: 0 6px;
+        margin-left: 14px;
+        margin-top: -7px;
+        text-align: center;
+        font-size: 1rem;
+        line-height: 22px;
+        height: 22px;
+        color: white;
+        float: right;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: #DB6F7D;
+    }
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="<?php echo e(asset('img/barralateral.png')); ?>">
@@ -174,11 +211,11 @@ span.badge {
 
     Tip 2: you can also add an image using data-image tag
 -->
-       
+        
         <div class="sidebar-wrapper">
                 <ul class="nav">
                         <ul class="collapsible" style="background-color: transparent; color:grey;">
-
+                        
                         <li onclick="location.href='<?php echo e(route('dashboard')); ?>'">
                         
                         <div class="collapsible-header">
@@ -269,7 +306,6 @@ span.badge {
             
                               </li>
                           <?php endif; ?>
-                       
                           <li>
                             <div class="collapsible-header"><i class="fas fa-door-open" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
                                 <p>Accesos</p></div>
@@ -280,6 +316,7 @@ span.badge {
                             </div>
         
                           </li>
+                          
                         </ul>
                     </ul>
                     
@@ -295,13 +332,13 @@ span.badge {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <div class="row menu-top">
+                    <div class="row">
 
                       <div class="col s2">
                         <a class="navbar-brand but-menu chat" href="<?php echo e(url('uichat')); ?>" title="Chat">
                         <img src="<?php echo e(asset('images/chats-atajo.png')); ?>" alt="" class="botonchat" >
 
-                        <span class="badge noticount" style="color: white;"></span>
+                          <span class="badge noticount" style="color: white;"></span>
 
                         </a>
                       </div>
@@ -323,14 +360,13 @@ span.badge {
                         <img src="<?php echo e(asset('images/agenda.png')); ?>" alt="" class="botonchat">
                         </a>
                       </div>
-                    
 
                     </div>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right" id="imagenPerf">
                         <!-- Avatar image -->
-                        <div class="row menu-top-right">
+                        <div class="row">
                               <div class="col s2">
                                       <img src="<?php echo e(asset( Auth::user()->foto )); ?>" alt="">
             
@@ -349,7 +385,7 @@ span.badge {
             </div>
         </nav>
         <div class="content" style="margin-top: 12vh;">
-        
+         
 
                 <?php echo $__env->yieldContent('content'); ?>
 
@@ -358,14 +394,13 @@ span.badge {
 </div>
 <!--   Core JS Files   -->
 <script src="<?php echo e(asset('js/app.js')); ?>"></script>
-<script src="<?php echo e(asset('js/perfect-scrollbar.jquery.min.js')); ?>"></script>
 <script src="<?php echo e(asset('js/material.min.js')); ?>" type="text/javascript"></script>
 <!--  Charts Plugin -->
 <script src="<?php echo e(asset('js/chartist.min.js')); ?>"></script>
 <!--  Dynamic Elements plugin -->
 <script src="<?php echo e(asset('js/arrive.min.js')); ?>"></script>
 <!--  PerfectScrollbar Library -->
-
+<script src="<?php echo e(asset('js/perfect-scrollbar.jquery.min.js')); ?>"></script>
 <!--  Notifications Plugin    -->
 <script src="<?php echo e(asset('js/bootstrap-notify.js')); ?>"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
@@ -375,16 +410,13 @@ span.badge {
 <script src="<?php echo e(asset('js/demo.js')); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
 
     });
-</script>
-<script type="text/javascript">
-   $('.dropdown-trigger').dropdown();
 </script>
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
@@ -426,16 +458,18 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
   });
 </script>
+
 <script>
   tippy('.chat');
   tippy('.correo');
   tippy('.notas');
   tippy('.agenda');
-  tippy('.agendapers');
-  tippy('.editar');
-  tippy('.borrar');
 </script>
-<?php echo $__env->yieldContent('scripts'); ?>
+<script>
+$(document).ready(function(){
+  $('.modal').modal();
+});
+</script>
 <script>
 $(document).ready(function() {
   $('.autoplay').slick({
@@ -446,6 +480,7 @@ $(document).ready(function() {
       });
 });
 </script>
+<?php echo $__env->yieldContent('script'); ?>
 <script type="text/javascript">
     var count = <?php echo e($notificacion->count()); ?>;
    
@@ -454,7 +489,7 @@ $(document).ready(function() {
        let url = "<?php echo e(url('/uichat')); ?>";
      var notifications = new Notification("Uitalk", {
    
-   icon: "<?php echo e(asset('/images/Recurso1.png')); ?>",
+   icon: "<?php echo e(asset('images/Recurso1.png')); ?>",
    body: "Tienes "+count+" mensajes nuevos en el chat.",
    url: url
    });

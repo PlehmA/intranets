@@ -122,6 +122,8 @@ $(document).ready(function () {
   $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight}, 1);
 });
 </script>
+
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('uichat.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
