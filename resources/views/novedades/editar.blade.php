@@ -16,6 +16,9 @@
                 border: 1px;
                 border-color: black;
         }
+        .main-panel{
+    overflow: auto;
+}
 </style>
 @endsection 
 @section('content')

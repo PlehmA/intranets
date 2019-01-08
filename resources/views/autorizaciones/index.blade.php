@@ -43,6 +43,10 @@
 [type="radio"]:not(:checked) + span, [type="radio"]:checked + span{
   color: gray;
 }
+
+.main-panel{
+    overflow: auto;
+}
 </style>
 @endsection
 @section('content')

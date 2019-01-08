@@ -48,37 +48,11 @@
 
     <div class="container-fluid">
       <h3 class="center">Agenda externa</h3>
-      <div class="row">
-        {{ Form::open(['route' => 'contact.index', 'method' => 'GET', 'class' => 'col s12']) }}
-         @csrf
-          <div class="row">
-            <div class="input-field offset-s2 col s2">
-              {{ Form::text('name', null, ['class' => 'validate', 'id' => 'nom_ape']) }}
-              <label for="nom_ape">Nombre y apellido</label>
-            </div>
-            <div class="input-field col s2">
-              {{ Form::text('email', null, ['class' => 'validate', 'id' => 'email']) }}
-              <label for="email">Correo</label>
-            </div>
-            <div class="input-field col s2">
-              {{ Form::text('localidad', null, ['class' => 'validate', 'id' => 'localidad']) }}
-              <label for="localidad">Localidad</label>
-            </div>
-            <div class="input-field col s2">
-              {{ Form::text('direccion', null, ['class' => 'validate', 'id' => 'direccion']) }}
-              <label for="direccion">Dirección</label>
-            </div>
-            <div class="input-field col s1">
-              <button class="btn btn-small grey" type="submit" name="action" style="background-color: #8F8E8F;">Buscar
-              </button >
-            </div>
-          </div>
-          {{ Form::close() }}
       </div>
       <div class="col s4 right">
         <a href="{{ route('contact.create') }}" class="btn grey">Agregar</a>
       </div>
-      <table class="table responsive-table table-bordered">
+      <table id="tableagenda">
         <thead>
           <tr>
             <th><b>Nombre y apellido</b></th>
@@ -167,6 +141,17 @@
           $('#alert').html('Algo salió mal');
         });
   });
+  });
+</script>
+<script>
+  $(document).ready(function () {
+    $('select').formSelect();
+    $('#tableagenda').DataTable({
+      "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+            }
+
+    });
   });
 </script>
 @endsection

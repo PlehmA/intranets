@@ -59,7 +59,7 @@
                             </div>
     
                             <div class="input-field col s6">
-                              <input id="email_personal" type="text" class="validate" name="email_personal" autocomplete="off" value="{{ $user->email_personal }}">
+                              <input id="email_personal" type="email" class="validate" name="email_personal" autocomplete="off" value="{{ $user->email_personal }}">
                               <label for="email_personal">Email personal</label>
 
                             </div>
@@ -75,7 +75,7 @@
                             </div>
     
                             <div class="input-field col s4">
-                              <input id="cuil" type="number" class="validate" name="cuil" autocomplete="off" value="{{ $user->cuil }}">
+                              <input id="cuil" type="text" class="validate" name="cuil" autocomplete="off" value="{{ $user->cuil }}">
                               <label for="cuil">Cuil</label>
 
                             </div>

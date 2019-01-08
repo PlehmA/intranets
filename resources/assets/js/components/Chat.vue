@@ -2,7 +2,7 @@
 
  <div>
          <Sidepanel :contacts="contacts" @selected="startConversationWith" :user="user" :notreaded="notreaded"/>
-         <Content :contact="selectedContact" :messages="messages" @new="saveNewMessage" :user="user" :mensajes="mensajes"/>
+         <Content :contact="selectedContact" @new="saveNewMessage" :user="user" :mensajes="mensajes"/>
 </div>
 
 </template>
@@ -40,18 +40,12 @@ import Content from './Content';
                 .then((response) => {
                     this.contacts = response.data;
                 });
-                axios.get('/api/notificaciones')
-                .then((response) => {
-                    this.notreaded = response.data;
-                });
                  }, 2000);
             
              axios.get('/api/convers')
                 .then((response) => {
                     this.ultmensaje = response.data;
                 });
-            
-            
             
         },
         methods: {

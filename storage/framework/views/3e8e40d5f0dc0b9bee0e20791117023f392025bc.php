@@ -331,7 +331,8 @@
                 <label for="">Seleccione a los invitados</label>
                 <div class="input-field col s12">
                    
-                        <select multiple class="browser-default" name="selecMultiple[]">
+                        <select multiple name="selecMultiple[]">
+                        <option value="" disabled selected>Lista de invitados</option>
                                 <?php $__currentLoopData = $usuarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -423,6 +424,19 @@
             <input id="textcolor" type="color" class="validate" name="textcolor" value="#FFFFFF">
           </div>
         </div>
+        <div class="row">
+                <label for="">Seleccione a los invitados</label>
+                <div class="input-field col s12">
+                   
+                        <select multiple name="selecMultiple[]">
+                        <option value="" disabled selected>Lista de invitados</option>
+                                <?php $__currentLoopData = $usuarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                               
+                              </select>
+            </div>
+        </div>
         <div class="input-field col s8" id="emailcito">
 
           <input id="email" type="email" class="validate" name="email[]">
@@ -476,15 +490,31 @@
 
             <input type="hidden" name="id_user" class="id_user" value="<?php echo e(Auth::user()->id); ?>">
 
-            <input type="hidden" name="user_email" class="user_email" value="<?php echo e(Auth::user()->email); ?>">
-
-            <input type="hidden" name="username" class="username" value="<?php echo e(Auth::user()->name); ?>">
-
             <input type="text" name="notification_name" class="notification_name" placeholder="Nombre del recordatorio" required>
 
             <input type="text" name="text" class="text" placeholder="Anotaciones( *Opcional )">
 
-            <input type="datetime-local" name="fecha_hora" class="fecha_hora">
+            <input type="date" name="fecha" class="fecha" value="<?php echo e(date('Y-m-d')); ?>" min="2016-01-01" max="2500-01-01" >
+
+            <input type="time" name="hora" class="hora" value="<?php echo e(date('H:i')); ?>">
+          
+          <div class="row">
+          <label for="colorcito">Color del recordatorio</label>
+              <input type="color" name="recordcolor" value="#000000" id="colorcito">
+          </div>
+
+<?php if(Auth::user()->tipo_rol == 2 || Auth::user()->tipo_rol == 1): ?>
+          <div class="input-field col s12">
+                <select multiple name="invitados[]">
+                  <option value="0" disabled selected>Lista de usuarios</option>
+                  <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $us): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <option value="<?php echo e($us->id); ?>"><?php echo e($us->name); ?></option>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+                <label>Otros usuarios para agregar al recordatorio: </label>
+            </div>
+<?php endif; ?>
+                      
 
     </div>
     <div class="modal-footer">
@@ -503,12 +533,16 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('jsscript'); ?>
-
+<script>
+$(document).ready(function(){
+    $('select').formSelect();
+  });
+</script>
   <script>
        var eventoShow = <?php echo json_encode($eventos); ?>;
 
 $(document).ready(function() {
-
+  $('.main-panel').perfectScrollbar();
     // var date = new Date();
     // var d = date.getDate();
     // var m = date.getMonth();
@@ -698,6 +732,23 @@ $(document).ready(function () {
     $('#modalRecordatorio').css('display', 'none');
   });
  
+});
+
+</script>
+<script>
+$(document).ready(function () {
+  window.onkeyup = compruebaTecla;
+function compruebaTecla(){
+    var e = window.event;
+    var tecla = (document.all) ? e.keyCode : e.which;
+    if(tecla == 27){
+        document.getElementById("myModal").style.display = "none";
+        document.getElementById("myModal1").style.display = "none";
+        document.getElementById("myModal1").style.display = "none";
+        document.getElementById("modalRecordatorio").style.display = "none";
+        $('.main-panel').perfectScrollbar();
+    }
+}
 });
 
 </script>

@@ -5,7 +5,7 @@
             <img :src="contact ? contact.foto : ''" alt="" />
             <p>{{ contact ? contact.name : 'Selecciona una charla' }}</p>
           </div>
-        <MessagesFeed :contact="contact" :messages="messages" :mensajes="mensajes" :user="user"/>
+        <MessagesFeed :contact="contact" :mensajes="mensajes" :user="user"/>
 
     	
     <MessageComposer @send="sendMessage" />
@@ -24,10 +24,6 @@ import MessageComposer from './MessageComposer';
        contact: {
            type: Object,
            default: null
-       },
-       messages: {
-           type: Array,
-           default: []
        },
        user: {
            type: Object,
@@ -50,13 +46,23 @@ import MessageComposer from './MessageComposer';
            if(!this.contact){
                return;
            }
+          
            var fecha = new Date();
-           debe.ref('/chats')
+           var mes = ("0" + (fecha.getMonth() + 1)).slice(-2)
+           var dias = ("0" + fecha.getDate()).slice(-2);
+           var minutos = ("0" + (fecha.getMinutes() + 1)).slice(-2);
+           var dia = dias+'/'+mes+'/'+fecha.getFullYear();
+           var hora = fecha.getHours()+':'+minutos;
+           var diaguion = dias+'-'+mes+'-'+fecha.getFullYear();
+
+           debe.ref('/chats/')
                 .push({
                     from: this.user.id,
                     to: this.contact.id_user,
                     mensaje: messages,
-                    leido: false
+                    leido: false,
+                    fecha: dia,
+                    hora: hora
                 });
             debe.ref('conversation/' + this.user.id + '/' + this.contact.id_user)
                 .set({

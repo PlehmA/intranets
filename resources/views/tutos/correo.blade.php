@@ -149,7 +149,7 @@ a .material-icons {
                 <a href="{{ url('/correotutos') }}" class="collection-item active">Creación de carpetas</a>
                 <a href="{{ url('/correotutos4') }}" class="collection-item">Eliminar carpeta</a>
                 <a href="{{ url('/correotutos2') }}" class="collection-item">Crear contactos</a>
-                <a href="{{ url('/correotutos3') }}" class="collection-item">Importar contactos</a>
+                {{-- <a href="{{ url('/correotutos3') }}" class="collection-item">Importar contactos</a> --}}
               </div>
         </div>
     

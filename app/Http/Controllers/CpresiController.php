@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use \App\Calendar;
 use App\Mail\Invite;
 use App\Notify;
+use App\User;
 use Auth;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -21,9 +22,11 @@ class CpresiController extends Controller
     public function index()
     {
       $eventos = \App\Calendar::where('id_usuario', 1)->get();
+      $usuarios = User::all();
+      $users = User::where('id', '<>', Auth::user()->id)->get();
       $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('presidencia.calpres', compact(['eventos', 'notificacion']));
+        return view('presidencia.calpres', compact(['eventos', 'notificacion', 'usuarios', 'users']));
 
     }
 

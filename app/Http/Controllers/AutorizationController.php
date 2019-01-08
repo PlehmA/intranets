@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use PDF;
 use Illuminate\Support\Facades\Mail;
 use PHPMailer\PHPMailer\PHPMailer;
+use DateTime;
+use DateInterval;
+use DatePeriod;
 
 
 class AutorizationController extends Controller
@@ -71,6 +74,27 @@ class AutorizationController extends Controller
             case 1:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+                 
+                $date_1 = date_create($request->input('dematrimonio'));
+                $date_2 = date_create($request->input('hastamatrimonio'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
                 
@@ -86,7 +110,8 @@ class AutorizationController extends Controller
                     'autorizacion_id'   =>  $request->input('opcionauto'),
                     'fecha_de'          =>  $request->input('dematrimonio'),
                     'fecha_hasta'       =>  $request->input('hastamatrimonio'),
-                    'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                    'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                    'dias_count'        => $volador
                 ]);
                 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
                 try {
@@ -118,6 +143,27 @@ class AutorizationController extends Controller
             } ##//CATCH
            }elseif (2 == Auth::user()->tipo_rol){
 
+            $date_1 = date_create($request->input('dematrimonio'));
+            $date_2 = date_create($request->input('hastamatrimonio'));
+            if ($date_1 > $date_2) return FALSE;
+            $bussiness_days = array();
+            while ($date_1 <= $date_2) {
+                $day_week = $date_1->format('w');
+                if ($day_week > 0 && $day_week < 7) {
+                    $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                }
+                date_add($date_1, date_interval_create_from_date_string('1 day'));
+            }
+            if (strtolower('array') === 'sum') {
+                array_map(function($k) use(&$bussiness_days) {
+                    $bussiness_days[$k] = count($bussiness_days[$k]);
+                }, array_keys($bussiness_days));
+            }
+            $array_dias = [];
+            foreach($bussiness_days as $loco){
+               $volador = count($loco);
+            }
+
                 $autorization = Autorization::create([
                     'tipo_ro'  =>  Auth::user()->tipo_rol,
                     'nombre_usuario'    =>  Auth::user()->name,
@@ -128,7 +174,7 @@ class AutorizationController extends Controller
                     'rol_usuario'       =>  Auth::user()->rol_usuario,
                     'sector'            =>  $puesto->nombre_puesto,
                     'autorizacion_id'   =>  $request->input('opcionauto'),
-                
+                    'dias_count'        =>  $volador,
                     'fecha_de'          =>  $request->input('dematrimonio'),
                     'fecha_hasta'       =>  $request->input('hastamatrimonio'),
                     'fecha_creacion'    =>  date('Y-m-d H:i:s')
@@ -137,6 +183,26 @@ class AutorizationController extends Controller
             return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
            }else {
+            $date_1 = date_create($request->input('dematrimonio'));
+            $date_2 = date_create($request->input('hastamatrimonio'));
+            if ($date_1 > $date_2) return FALSE;
+            $bussiness_days = array();
+            while ($date_1 <= $date_2) {
+                $day_week = $date_1->format('w');
+                if ($day_week > 0 && $day_week < 7) {
+                    $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                }
+                date_add($date_1, date_interval_create_from_date_string('1 day'));
+            }
+            if (strtolower('array') === 'sum') {
+                array_map(function($k) use(&$bussiness_days) {
+                    $bussiness_days[$k] = count($bussiness_days[$k]);
+                }, array_keys($bussiness_days));
+            }
+            $array_dias = [];
+            foreach($bussiness_days as $loco){
+               $volador = count($loco);
+            }
             $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
                 
             $autorization = Autorization::create([
@@ -152,7 +218,7 @@ class AutorizationController extends Controller
                 'fecha_de'          =>  $request->input('dematrimonio'),
                 'fecha_hasta'       =>  $request->input('hastamatrimonio'),
                 'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -186,9 +252,32 @@ class AutorizationController extends Controller
                 break;
             case 2:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
+
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
-            
-                $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
+                
+                $date_1 = date_create($request->input('dehijos'));
+                $date_2 = date_create($request->input('hastahijos'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
+
+            $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
@@ -201,7 +290,8 @@ class AutorizationController extends Controller
                 'autorizacion_id'   =>  $request->input('opcionauto'),
                 'fecha_de'          =>  $request->input('dehijos'),
                 'fecha_hasta'       =>  $request->input('hastahijos'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -232,6 +322,26 @@ class AutorizationController extends Controller
             echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
         }   
     }elseif (2 == Auth::user()->tipo_rol){
+        $date_1 = date_create($request->input('dehijos'));
+        $date_2 = date_create($request->input('hastahijos'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
 
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -243,7 +353,7 @@ class AutorizationController extends Controller
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('dehijos'),
                 'fecha_hasta'       =>  $request->input('hastahijos'),
                 'fecha_creacion'    =>  date('Y-m-d H:i:s')
@@ -252,6 +362,26 @@ class AutorizationController extends Controller
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+        $date_1 = date_create($request->input('dehijos'));
+        $date_2 = date_create($request->input('hastahijos'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -266,6 +396,7 @@ class AutorizationController extends Controller
             'fecha_de'          =>  $request->input('dehijos'),
             'fecha_hasta'       =>  $request->input('hastahijos'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+            'dias_count'        =>  $volador
         
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
@@ -301,6 +432,27 @@ class AutorizationController extends Controller
             case 3:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('decasahijos'));
+                $date_2 = date_create($request->input('hastacasahijos'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -315,7 +467,9 @@ class AutorizationController extends Controller
                 'autorizacion_id'   =>  $request->input('opcionauto'),
                 'fecha_de'          =>  $request->input('decasahijos'),
                 'fecha_hasta'       =>  $request->input('hastacasahijos'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
+
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -347,6 +501,27 @@ class AutorizationController extends Controller
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('decasahijos'));
+        $date_2 = date_create($request->input('hastacasahijos'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
@@ -357,7 +532,7 @@ class AutorizationController extends Controller
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('decasahijos'),
                 'fecha_hasta'       =>  $request->input('hastacasahijos'),
                 'fecha_creacion'    =>  date('Y-m-d H:i:s')
@@ -366,6 +541,28 @@ class AutorizationController extends Controller
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('decasahijos'));
+        $date_2 = date_create($request->input('hastacasahijos'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -380,7 +577,8 @@ class AutorizationController extends Controller
             'fecha_de'          =>  $request->input('decasahijos'),
             'fecha_hasta'       =>  $request->input('hastacasahijos'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -417,6 +615,27 @@ class AutorizationController extends Controller
             
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('demudanza'));
+                $date_2 = date_create($request->input('hastamudanza'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -440,7 +659,8 @@ class AutorizationController extends Controller
                 'localidad'         =>  $request->input('localidad'),
                 'provincia'         =>  $request->input('provincia'),
                 'telefono'          =>  $request->input('telefono'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -472,6 +692,27 @@ class AutorizationController extends Controller
         }   
     }elseif(2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('demudanza'));
+        $date_2 = date_create($request->input('hastamudanza'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
@@ -482,7 +723,7 @@ class AutorizationController extends Controller
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('demudanza'),
                 'fecha_hasta'       =>  $request->input('hastamudanza'),
                 'calle'             =>  $request->input('calle'),
@@ -500,6 +741,28 @@ class AutorizationController extends Controller
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('demudanza'));
+        $date_2 = date_create($request->input('hastamudanza'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -523,7 +786,8 @@ class AutorizationController extends Controller
             'provincia'         =>  $request->input('provincia'),
             'telefono'          =>  $request->input('telefono'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -558,6 +822,27 @@ class AutorizationController extends Controller
             case 5:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('deenffamiliar'));
+                $date_2 = date_create($request->input('hastaenffamiliar'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -572,7 +857,8 @@ class AutorizationController extends Controller
                 'autorizacion_id'   =>  $request->input('opcionauto'),
                 'fecha_de'          =>  $request->input('deenffamiliar'),
                 'fecha_hasta'       =>  $request->input('hastaenffamiliar'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -604,17 +890,38 @@ class AutorizationController extends Controller
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('deenffamiliar'));
+        $date_2 = date_create($request->input('hastaenffamiliar'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+                'cuil'              =>  Auth::user()->cuil,
                 'tipo_autorizacion' =>  'Licencia por enfermedad del familiar',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('deenffamiliar'),
                 'fecha_hasta'       =>  $request->input('hastaenffamiliar'),
                 'fecha_creacion'    =>  date('Y-m-d H:i:s')
@@ -623,6 +930,28 @@ class AutorizationController extends Controller
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('deenffamiliar'));
+        $date_2 = date_create($request->input('hastaenffamiliar'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -637,7 +966,8 @@ class AutorizationController extends Controller
             'fecha_de'          =>  $request->input('deenffamiliar'),
             'fecha_hasta'       =>  $request->input('hastaenffamiliar'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -673,13 +1003,34 @@ class AutorizationController extends Controller
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
             
+                $date_1 = date_create($request->input('delicexamen'));
+                $date_2 = date_create($request->input('hastalicexamen'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
+
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+                'cuil'              =>  Auth::user()->cuil,
                 'tipo_autorizacion' =>  'Licencia por exámen/días de estudio',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'materia'           =>  $request->input('materia'),
@@ -687,7 +1038,8 @@ class AutorizationController extends Controller
                 'autorizacion_id'   =>  $request->input('opcionauto'),
                 'fecha_de'          =>  $request->input('delicexamen'),
                 'fecha_hasta'       =>  $request->input('hastalicexamen'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -719,33 +1071,78 @@ class AutorizationController extends Controller
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('delicexamen'));
+        $date_2 = date_create($request->input('hastalicexamen'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+                'cuil'              =>  Auth::user()->cuil,
                 'tipo_autorizacion' =>  'Licencia por exámen/días de estudio',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'materia'           =>  $request->input('materia'),
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('delicexamen'),
                 'fecha_hasta'       =>  $request->input('hastalicexamen'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+
             ]);
 
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('delicexamen'));
+        $date_2 = date_create($request->input('hastalicexamen'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
+
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
             'nombre_usuario'    =>  Auth::user()->name,
             'user_id'           =>  Auth::user()->id,
             'legajo'            =>  Auth::user()->num_legajo,
-                'cuil'              =>  Auth::user()->cuil,
+            'cuil'              =>  Auth::user()->cuil,
             'tipo_autorizacion' =>  'Licencia por exámen/días de estudio',
             'rol_usuario'       =>  Auth::user()->rol_usuario,
             'materia'           =>  $request->input('materia'),
@@ -754,7 +1151,8 @@ class AutorizationController extends Controller
             'fecha_de'          =>  $request->input('delicexamen'),
             'fecha_hasta'       =>  $request->input('hastalicexamen'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -789,6 +1187,28 @@ class AutorizationController extends Controller
             case 7:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('depemestudio'));
+                $date_2 = date_create($request->input('hastapemestudio'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
+
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -805,7 +1225,8 @@ class AutorizationController extends Controller
                 'fecha_hasta'       =>  $request->input('depemestudio'),
                 'hora_de'           =>  $request->input('hastapemestudio'),
                 'hora_hasta'        =>  $request->input('hastapemestudio'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -837,6 +1258,28 @@ class AutorizationController extends Controller
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('depemestudio'));
+        $date_2 = date_create($request->input('hastapemestudio'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
@@ -847,7 +1290,7 @@ class AutorizationController extends Controller
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('depemestudio'),
                 'fecha_hasta'       =>  $request->input('depemestudio'),
                 'hora_de'           =>  $request->input('hastapemestudio'),
@@ -858,6 +1301,29 @@ class AutorizationController extends Controller
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('depemestudio'));
+        $date_2 = date_create($request->input('hastapemestudio'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -874,7 +1340,8 @@ class AutorizationController extends Controller
                 'hora_de'           =>  $request->input('hastapemestudio'),
                 'hora_hasta'        =>  $request->input('hastapemestudio'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -909,6 +1376,28 @@ class AutorizationController extends Controller
             case 8:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('delicjuzcom'));
+                $date_2 = date_create($request->input('hastalicjuzcom'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
+
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -925,7 +1414,9 @@ class AutorizationController extends Controller
                 'fecha_hasta'       =>  $request->input('delicjuzcom'),
                 'hora_de'           =>  $request->input('hastalicjuzcom'),
                 'hora_hasta'        =>  $request->input('hastalicjuzcom'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
+
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -957,17 +1448,38 @@ class AutorizationController extends Controller
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+                'cuil'              =>  Auth::user()->cuil,
                 'tipo_autorizacion' =>  'Por asuntos judiciales',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('delicjuzcom'),
                 'hora_de'           =>  $request->input('hastalicjuzcom'),
@@ -978,6 +1490,29 @@ class AutorizationController extends Controller
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -994,7 +1529,8 @@ class AutorizationController extends Controller
             'hora_de'           =>  $request->input('hastalicjuzcom'),
             'hora_hasta'        =>  $request->input('hastalicjuzcom'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -1029,6 +1565,27 @@ class AutorizationController extends Controller
                 case 9:
                 $puesto = Puesto::find(Auth::user()->rol_usuario);
                 if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                    $date_1 = date_create($request->input('delicjuzcom'));
+                    $date_2 = date_create($request->input('hastalicjuzcom'));
+                    if ($date_1 > $date_2) return FALSE;
+                    $bussiness_days = array();
+                    while ($date_1 <= $date_2) {
+                        $day_week = $date_1->format('w');
+                        if ($day_week > 0 && $day_week < 7) {
+                            $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                        }
+                        date_add($date_1, date_interval_create_from_date_string('1 day'));
+                    }
+                    if (strtolower('array') === 'sum') {
+                        array_map(function($k) use(&$bussiness_days) {
+                            $bussiness_days[$k] = count($bussiness_days[$k]);
+                        }, array_keys($bussiness_days));
+                    }
+                    $array_dias = [];
+                    foreach($bussiness_days as $loco){
+                       $volador = count($loco);
+                    }
                 
                     $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
                 $autorization = Autorization::create([
@@ -1045,7 +1602,8 @@ class AutorizationController extends Controller
                     'fecha_hasta'       =>  $request->input('delicjuzcom'),
                     'hora_de'           =>  $request->input('hastalicjuzcom'),
                     'hora_hasta'        =>  $request->input('hastalicjuzcom'),
-                    'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                    'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                    'dias_count'        =>  $volador
                 ]);
                 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
                 try {
@@ -1076,6 +1634,26 @@ class AutorizationController extends Controller
                 echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
             }   
         }elseif (2 == Auth::user()->tipo_rol){
+            $date_1 = date_create($request->input('delicjuzcom'));
+            $date_2 = date_create($request->input('hastalicjuzcom'));
+            if ($date_1 > $date_2) return FALSE;
+            $bussiness_days = array();
+            while ($date_1 <= $date_2) {
+                $day_week = $date_1->format('w');
+                if ($day_week > 0 && $day_week < 7) {
+                    $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                }
+                date_add($date_1, date_interval_create_from_date_string('1 day'));
+            }
+            if (strtolower('array') === 'sum') {
+                array_map(function($k) use(&$bussiness_days) {
+                    $bussiness_days[$k] = count($bussiness_days[$k]);
+                }, array_keys($bussiness_days));
+            }
+            $array_dias = [];
+            foreach($bussiness_days as $loco){
+               $volador = count($loco);
+            }
     
                 $autorization = Autorization::create([
                     'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -1087,7 +1665,7 @@ class AutorizationController extends Controller
                     'rol_usuario'       =>  Auth::user()->rol_usuario,
                     'sector'            =>  $puesto->nombre_puesto,
                     'autorizacion_id'   =>  $request->input('opcionauto'),
-                
+                    'dias_count'        =>  $volador,
                     'fecha_de'          =>  $request->input('delicjuzcom'),
                     'fecha_hasta'       =>  $request->input('delicjuzcom'),
                     'hora_de'           =>  $request->input('hastalicjuzcom'),
@@ -1098,6 +1676,28 @@ class AutorizationController extends Controller
             return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
     
            }else {
+
+            $date_1 = date_create($request->input('delicjuzcom'));
+            $date_2 = date_create($request->input('hastalicjuzcom'));
+            if ($date_1 > $date_2) return FALSE;
+            $bussiness_days = array();
+            while ($date_1 <= $date_2) {
+                $day_week = $date_1->format('w');
+                if ($day_week > 0 && $day_week < 7) {
+                    $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                }
+                date_add($date_1, date_interval_create_from_date_string('1 day'));
+            }
+            if (strtolower('array') === 'sum') {
+                array_map(function($k) use(&$bussiness_days) {
+                    $bussiness_days[$k] = count($bussiness_days[$k]);
+                }, array_keys($bussiness_days));
+            }
+            $array_dias = [];
+            foreach($bussiness_days as $loco){
+               $volador = count($loco);
+            }
+
             $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -1113,7 +1713,8 @@ class AutorizationController extends Controller
                 'fecha_hasta'       =>  $request->input('delicjuzcom'),
                 'hora_de'           =>  $request->input('hastalicjuzcom'),
                 'hora_hasta'        =>  $request->input('hastalicjuzcom'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -1149,6 +1750,27 @@ class AutorizationController extends Controller
             case 10:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('delicjuzcom'));
+                $date_2 = date_create($request->input('hastalicjuzcom'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -1163,7 +1785,9 @@ class AutorizationController extends Controller
                 'autorizacion_id'   =>  $request->input('opcionauto'),
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
+
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -1195,6 +1819,28 @@ class AutorizationController extends Controller
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
@@ -1208,12 +1854,35 @@ class AutorizationController extends Controller
             
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
 
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -1228,7 +1897,8 @@ class AutorizationController extends Controller
             'fecha_de'          =>  $request->input('delicjuzcom'),
             'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -1264,6 +1934,28 @@ class AutorizationController extends Controller
 case 11:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('delicjuzcom'));
+                $date_2 = date_create($request->input('hastalicjuzcom'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
+
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -1280,7 +1972,8 @@ case 11:
                 'fecha_hasta'       =>  $request->input('delicjuzcom'),
                 'hora_de'           =>  $request->input('hastalicjuzcom'),
                 'hora_hasta'        =>  $request->input('hastalicjuzcom'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -1312,6 +2005,27 @@ case 11:
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
@@ -1322,7 +2036,7 @@ case 11:
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('delicjuzcom'),
                 'hora_de'           =>  $request->input('hastalicjuzcom'),
@@ -1333,13 +2047,35 @@ case 11:
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else {
+
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
             'nombre_usuario'    =>  Auth::user()->name,
             'user_id'           =>  Auth::user()->id,
             'legajo'            =>  Auth::user()->num_legajo,
-                'cuil'              =>  Auth::user()->cuil,
+            'cuil'              =>  Auth::user()->cuil,
             'tipo_autorizacion' =>  'Reunión de padres en jardín o colegio',
             'rol_usuario'       =>  Auth::user()->rol_usuario,
             'sector'            =>  $puesto->nombre_puesto,
@@ -1349,7 +2085,8 @@ case 11:
             'hora_de'           =>  $request->input('hastalicjuzcom'),
             'hora_hasta'        =>  $request->input('hastalicjuzcom'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        =>  $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -1385,6 +2122,27 @@ case 11:
             case 12:
             $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('delicjuzcom'));
+                $date_2 = date_create($request->input('hastalicjuzcom'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
             
                 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -1392,14 +2150,15 @@ case 11:
                 'nombre_usuario'    =>  Auth::user()->name,
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+                'cuil'              =>  Auth::user()->cuil,
                 'tipo_autorizacion' =>  'Tramites Personales',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -1431,17 +2190,39 @@ case 11:
         }   
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+                'cuil'              =>  Auth::user()->cuil,
                 'tipo_autorizacion' =>  'Tramites Personales',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
                 'fecha_creacion'    =>  date('Y-m-d H:i:s')
@@ -1450,6 +2231,28 @@ case 11:
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else{
+
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -1463,7 +2266,9 @@ case 11:
             'autorizacion_id'   =>  $request->input('opcionauto'),
             'fecha_de'          =>  $request->input('delicjuzcom'),
             'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
-            'fecha_creacion'    =>  date('Y-m-d H:i:s')
+            'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+            'dias_count'        =>  $volador
+
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -1500,6 +2305,27 @@ case 11:
                 case 13:
                 $puesto = Puesto::find(Auth::user()->rol_usuario);
             if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
+
+                $date_1 = date_create($request->input('delicjuzcom'));
+                $date_2 = date_create($request->input('hastalicjuzcom'));
+                if ($date_1 > $date_2) return FALSE;
+                $bussiness_days = array();
+                while ($date_1 <= $date_2) {
+                    $day_week = $date_1->format('w');
+                    if ($day_week > 0 && $day_week < 7) {
+                        $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+                    }
+                    date_add($date_1, date_interval_create_from_date_string('1 day'));
+                }
+                if (strtolower('array') === 'sum') {
+                    array_map(function($k) use(&$bussiness_days) {
+                        $bussiness_days[$k] = count($bussiness_days[$k]);
+                    }, array_keys($bussiness_days));
+                }
+                $array_dias = [];
+                foreach($bussiness_days as $loco){
+                   $volador = count($loco);
+                }
             
             $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
             $autorization = Autorization::create([
@@ -1507,7 +2333,7 @@ case 11:
                 'nombre_usuario'    =>  Auth::user()->name,
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+                'cuil'              =>  Auth::user()->cuil,
                 'tipo_autorizacion' =>  'Vacaciones',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
@@ -1515,7 +2341,9 @@ case 11:
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
                 'motivo'            =>  $request->input('motivo'),
-                'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                'dias_count'        =>  $volador
+
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {
@@ -1550,6 +2378,28 @@ case 11:
     
     }elseif (2 == Auth::user()->tipo_rol){
 
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
+
             $autorization = Autorization::create([
                 'tipo_ro'  =>  Auth::user()->tipo_rol,
                 'nombre_usuario'    =>  Auth::user()->name,
@@ -1560,7 +2410,7 @@ case 11:
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
-            
+                'dias_count'        =>  $volador,
                 'fecha_de'          =>  $request->input('delicjuzcom'),
                 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
                 'motivo'            =>  $request->input('motivo'),
@@ -1570,6 +2420,28 @@ case 11:
         return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
        }else{
+
+        $date_1 = date_create($request->input('delicjuzcom'));
+        $date_2 = date_create($request->input('hastalicjuzcom'));
+        if ($date_1 > $date_2) return FALSE;
+        $bussiness_days = array();
+        while ($date_1 <= $date_2) {
+            $day_week = $date_1->format('w');
+            if ($day_week > 0 && $day_week < 7) {
+                $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+            }
+            date_add($date_1, date_interval_create_from_date_string('1 day'));
+        }
+        if (strtolower('array') === 'sum') {
+            array_map(function($k) use(&$bussiness_days) {
+                $bussiness_days[$k] = count($bussiness_days[$k]);
+            }, array_keys($bussiness_days));
+        }
+        $array_dias = [];
+        foreach($bussiness_days as $loco){
+           $volador = count($loco);
+        }
+
         $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
         $autorization = Autorization::create([
             'tipo_ro'  =>  Auth::user()->tipo_rol,
@@ -1585,7 +2457,8 @@ case 11:
             'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
             'motivo'            =>  $request->input('motivo'),
             'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-            'estado_jefe'       =>  true
+            'estado_jefe'       =>  true,
+            'dias_count'        => $volador
         ]);
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
@@ -1624,13 +2497,34 @@ case 14:
 $puesto = Puesto::find(Auth::user()->rol_usuario);
 if(3 == Auth::user()->tipo_rol && 5 != Auth::user()->rol_usuario){
 
+    $date_1 = date_create($request->input('delicjuzcom'));
+    $date_2 = date_create($request->input('hastalicjuzcom'));
+    if ($date_1 > $date_2) return FALSE;
+    $bussiness_days = array();
+    while ($date_1 <= $date_2) {
+        $day_week = $date_1->format('w');
+        if ($day_week > 0 && $day_week < 7) {
+            $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+        }
+        date_add($date_1, date_interval_create_from_date_string('1 day'));
+    }
+    if (strtolower('array') === 'sum') {
+        array_map(function($k) use(&$bussiness_days) {
+            $bussiness_days[$k] = count($bussiness_days[$k]);
+        }, array_keys($bussiness_days));
+    }
+    $array_dias = [];
+    foreach($bussiness_days as $loco){
+       $volador = count($loco);
+    }
+
 $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
 $autorization = Autorization::create([
     'tipo_ro'  =>  Auth::user()->tipo_rol,
 'nombre_usuario'    =>  Auth::user()->name,
 'user_id'           =>  Auth::user()->id,
 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+'cuil'              =>  Auth::user()->cuil,
 'tipo_autorizacion' =>  'Otros',
 'rol_usuario'       =>  Auth::user()->rol_usuario,
 'sector'            =>  $puesto->nombre_puesto,
@@ -1638,7 +2532,9 @@ $autorization = Autorization::create([
 'fecha_de'          =>  $request->input('delicjuzcom'),
 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
 'motivo'            =>  $request->input('motivo'),
-'fecha_creacion'    =>  date('Y-m-d H:i:s')
+'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+'dias_count'        =>  $volador
+
 ]);
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {
@@ -1673,12 +2569,33 @@ echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 
 }elseif (2 == Auth::user()->tipo_rol){
 
+    $date_1 = date_create($request->input('delicjuzcom'));
+    $date_2 = date_create($request->input('hastalicjuzcom'));
+    if ($date_1 > $date_2) return FALSE;
+    $bussiness_days = array();
+    while ($date_1 <= $date_2) {
+        $day_week = $date_1->format('w');
+        if ($day_week > 0 && $day_week < 7) {
+            $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+        }
+        date_add($date_1, date_interval_create_from_date_string('1 day'));
+    }
+    if (strtolower('array') === 'sum') {
+        array_map(function($k) use(&$bussiness_days) {
+            $bussiness_days[$k] = count($bussiness_days[$k]);
+        }, array_keys($bussiness_days));
+    }
+    $array_dias = [];
+    foreach($bussiness_days as $loco){
+       $volador = count($loco);
+    }
+
 $autorization = Autorization::create([
     'tipo_ro'  =>  Auth::user()->tipo_rol,
 'nombre_usuario'    =>  Auth::user()->name,
 'user_id'           =>  Auth::user()->id,
 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+'cuil'              =>  Auth::user()->cuil,
 'tipo_autorizacion' =>  'Otros',
 'rol_usuario'       =>  Auth::user()->rol_usuario,
 'sector'            =>  $puesto->nombre_puesto,
@@ -1686,19 +2603,42 @@ $autorization = Autorization::create([
 'fecha_de'          =>  $request->input('delicjuzcom'),
 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
 'motivo'            =>  $request->input('motivo'),
-'fecha_creacion'    =>  date('Y-m-d H:i:s')
+'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+'dias_count'        =>  $volador
 ]);
 
 return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
 
 }else {
+
+    $date_1 = date_create($request->input('delicjuzcom'));
+    $date_2 = date_create($request->input('hastalicjuzcom'));
+    if ($date_1 > $date_2) return FALSE;
+    $bussiness_days = array();
+    while ($date_1 <= $date_2) {
+        $day_week = $date_1->format('w');
+        if ($day_week > 0 && $day_week < 7) {
+            $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
+        }
+        date_add($date_1, date_interval_create_from_date_string('1 day'));
+    }
+    if (strtolower('array') === 'sum') {
+        array_map(function($k) use(&$bussiness_days) {
+            $bussiness_days[$k] = count($bussiness_days[$k]);
+        }, array_keys($bussiness_days));
+    }
+    $array_dias = [];
+    foreach($bussiness_days as $loco){
+       $volador = count($loco);
+    }
+
     $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
 $autorization = Autorization::create([
     'tipo_ro'  =>  Auth::user()->tipo_rol,
 'nombre_usuario'    =>  Auth::user()->name,
 'user_id'           =>  Auth::user()->id,
 'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
+'cuil'              =>  Auth::user()->cuil,
 'tipo_autorizacion' =>  'Otros',
 'rol_usuario'       =>  Auth::user()->rol_usuario,
 'sector'            =>  $puesto->nombre_puesto,
@@ -1706,7 +2646,8 @@ $autorization = Autorization::create([
 'fecha_de'          =>  $request->input('delicjuzcom'),
 'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
 'motivo'            =>  $request->input('motivo'),
-'fecha_creacion'    =>  date('Y-m-d H:i:s')
+'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+'dias_count'        =>  $volador
 ]);
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {

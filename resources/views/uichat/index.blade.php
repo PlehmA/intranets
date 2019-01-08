@@ -115,12 +115,8 @@
 <script>
 setTimeout(() => {
      $('.fondo-spinner').css('display', 'none');
-     }, 2500);
+     }, 3000);
 
 </script>
-<script>
-$(document).ready(function () {
-  $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight}, 1);
-});
-</script>
+
 @endsection

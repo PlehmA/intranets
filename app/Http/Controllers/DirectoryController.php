@@ -24,15 +24,9 @@ class DirectoryController extends Controller
      */
     public function index(Request $request)
     {
-      $name  = $request->get('name');
-      $email = $request->get('email');
-      $area  = $request->get('area');
 
       $usuarios = User::orderBy('id', 'ASC')
-                                            ->name($name)
-                                            ->email($email)
-                                            ->area($area)
-                                            ->paginate(15);
+                                            ->get();
         $agenda = Agenda::all()
                           ->where('id_usr_agenda', Auth::user()->id);
     $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();

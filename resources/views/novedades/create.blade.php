@@ -10,6 +10,9 @@
         .content{
             margin-top: 7vh;
         }
+        .main-panel{
+    overflow: auto;
+}
 </style>
 @endsection 
 @section('content')

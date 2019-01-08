@@ -9,7 +9,7 @@
 
         </ol>
         <div class="container-fluid">
-          <table class="table responsive-table table-bordered">
+          <table id="tableagenda">
             <thead>
               <tr>
                 <th><b>Nombre y apellido</b></th>

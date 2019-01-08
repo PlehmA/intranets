@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('css'); ?>
 <style>
 
@@ -42,6 +41,10 @@
 }
 [type="radio"]:not(:checked) + span, [type="radio"]:checked + span{
   color: gray;
+}
+
+.main-panel{
+    overflow: auto;
 }
 </style>
 <?php $__env->stopSection(); ?>

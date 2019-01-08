@@ -20,6 +20,9 @@ h3{
 }
 
   }
+  .main-panel{
+    overflow: auto;
+}
 </style>
 @endsection
 @section('content')
@@ -37,9 +40,9 @@ h3{
                             <th>De</th>
                             <th>Hasta</th>
                             <th>Hora</th>
+                            <th>Días</th>
                             <th>Estado RRHH</th>
                             <th>Estado Jefe</th>
-                            
                             <th>&nbsp;</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -52,6 +55,7 @@ h3{
                                 <td>{{ date_format($date = date_create($autosjefe->fecha_de), 'd/m/Y') }}</td>
                                 <td>{{ date_format($date = date_create($autosjefe->fecha_hasta), 'd/m/Y') }}</td>
                                 <td>{{ date_format($date = date_create($autosjefe->hora_de), 'H:i') }}</td>
+                                <td>{{ $autosjefe->dias_count }}</td>
                            
                             @if(true === $autosjefe->estado_rrhh)
                                 <td style="width: 2vh;" title="Aprobado" class="aprobado"><i class="fas fa-check" style="color: #8bc34a;"></i></td>
@@ -109,6 +113,7 @@ h3{
                             <th>Tipo</th>
                             <th>De</th>
                             <th>Hasta</th>
+                            <th>Días</th>
                             <th>Estado RRHH</th>
                             <th>Estado Jefe</th>
                             <th>&nbsp;</th>
@@ -122,6 +127,7 @@ h3{
                                 <td style="width: 50vh;">{{$autosjefe->tipo_autorizacion}}</td>
                                 <td>{{ date_format($date = date_create($autosjefe->fecha_de), 'd/m/Y') }}</td>
                                 <td>{{ date_format($date = date_create($autosjefe->fecha_hasta), 'd/m/Y') }}</td>
+                                <td>{{ $autosjefe->dias_count }}</td>
                            
                             @if(true === $autosjefe->estado_rrhh)
                                 <td style="width: 2vh;" title="Aprobado" class="aprobado"><i class="fas fa-check" style="color: #8bc34a;"></i></td>
@@ -183,6 +189,7 @@ h3{
                             <th>Sector</th>
                             <th>De</th>
                             <th>Hasta</th>
+                            <th>Días</th>
                             <th>Estado RRHH</th>
                             <th>Estado Jefe</th>
                             <th>&nbsp;</th>
@@ -200,6 +207,7 @@ h3{
                             <td>{{ $autrrhh->sector }}</td>
                             <td>{{date_format($date = date_create($autrrhh->fecha_de), 'd/m/Y')}}</td>
                             <td>{{date_format($date = date_create($autrrhh->fecha_hasta), 'd/m/Y')}}</td>
+                            <td>{{ $autrrhh->dias_count }}</td>
                             @if(true === $autrrhh->estado_rrhh)
                             <td style="width: 2vh;" title="Aprobado" class="aprobado"><i class="fas fa-check" style="color: #8bc34a;"></i></td>
                             @elseif(false === $autrrhh->estado_rrhh)
@@ -260,6 +268,7 @@ h3{
                     <th>Tipo</th>
                     <th>De</th>
                     <th>Hasta</th>
+                    <th>Días</th>
                     <th>Estado RRHH</th>
                     <th>Estado Jefe</th>
                     <th>&nbsp;</th>
@@ -274,6 +283,7 @@ h3{
                      
                     <td>{{ date_format($date = date_create($auser->fecha_de), 'd/m/Y') }}</td>
                     <td>{{date_format($date = date_create($auser->fecha_hasta), 'd/m/Y')}}</td>
+                    <td>{{ $auser->dias_count }}</td>
                     @if(true === $auser->estado_rrhh)
                     <td style="width: 2vh;" title="Aprobado" class="aprobado"><i class="fas fa-check" style="color: #8bc34a;"></i></td>
                     @elseif(false === $auser->estado_rrhh)

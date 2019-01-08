@@ -33,6 +33,10 @@ p {
     margin: -3px 10px 10px;
 }
 
+.main-panel{
+    overflow: auto;
+}
+
 </style>
 @endsection
 @section('header')

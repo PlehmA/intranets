@@ -18,10 +18,9 @@
   <!--     Fonts and icons     -->
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?php echo e(asset('css/animate.css')); ?>">
-  <link rel="stylesheet" href="<?php echo e(asset('css/correo.css')); ?>">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo e(asset('css/materialize.css')); ?>">
-  <link rel='stylesheet' href='<?php echo e(asset('css/stylenew.css')); ?>' />
+  <link rel='stylesheet' href="<?php echo e(asset('css/stylenew.css')); ?>" />
   <!-- Add the slick-theme.css if you want default styling -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.css"/>
   <!-- Add the slick-theme.css if you want default styling -->
@@ -185,17 +184,19 @@ img.agenda-icon{
 <?php echo $__env->yieldContent('css'); ?>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="<?php echo e(asset('img/barralateral.png')); ?>">
-        <!--
-    Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
-    Tip 2: you can also add an image using data-image tag
--->
-        <div class="logo">
-            <a href="<?php echo e(route('dashboard')); ?>"> <img src="<?php echo e(asset('images/Recurso1.png')); ?>" class="img-responsive"> </a>
-        </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
                 <ul class="collapsible" style="background-color: transparent; color:grey;">
+
+                <li onclick="location.href='<?php echo e(route('dashboard')); ?>'">
+                    <div class="collapsible-header">
+                        <img src="<?php echo e(asset('img/faviconuitalk.png')); ?>" class="logo_mini">
+                        <img src="<?php echo e(asset('images/Recurso1.png')); ?>" class="logo_completo">
+                    </div>
+
+                  </li>
+
                   <li onclick="location.href='<?php echo e(route('correo.index')); ?>'">
                     <div class="collapsible-header">
                         <img src="<?php echo e(asset('images/correo-atajo.png')); ?>" class="correo-icon">
@@ -305,7 +306,7 @@ img.agenda-icon{
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <div class="row">
+                    <div class="row menu-top">
 
                       <div class="col s2">
                         <a class="navbar-brand but-menu chat" href="<?php echo e(url('/uichat')); ?>" title="Chat">
@@ -339,7 +340,7 @@ img.agenda-icon{
                 <div class="collapse navbar-collapse">
                   <ul class="nav navbar-nav navbar-right" id="imagenPerf">
                       <!-- Avatar image -->
-                      <div class="row">
+                      <div class="row menu-top-right">
                             <div class="col s2">
                                     <img src="<?php echo e(asset( Auth::user()->foto )); ?>" alt="">
           
@@ -383,7 +384,7 @@ img.agenda-icon{
 <script src="<?php echo e(asset('js/demo.js')); ?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/locale/ar.js"></script>
 <script src="<?php echo e(asset('js/materialize.js')); ?>"></script>
-<script src='<?php echo e(asset('js/fullcalendar.js')); ?>'></script>
+<script src="<?php echo e(asset('js/fullcalendar.js')); ?>""></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video.js"></script>
 <script src="https://unpkg.com/tippy.js@2.5.2/dist/tippy.all.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick/slick/slick.min.js"></script>
@@ -391,7 +392,6 @@ img.agenda-icon{
     $(document).ready(function() {
         // Javascript method's body can be found in assets/js/demos.js
         demo.initDashboardPageCharts();
-
     });
 </script>
 <script type="text/javascript">
@@ -399,6 +399,45 @@ img.agenda-icon{
 </script>
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
+</script>
+<script>
+$(document).ready(function () {
+  $('.sidebar').hover(function () {
+    if ($( window ).width() > 1400) {
+            $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+            $('.sidebar .sidebar-wrapper li').css('height', '58px');
+            $('.sidebar .sidebar-wrapper').css('width', '220px');
+            $('.sidebar').css('width', '220px');
+          }
+    if($(window).width() < 1400){
+      $('.sidebar .sidebar-wrapper').css('width', '200px');
+      $('.sidebar').css('width', '200px');
+    }
+     $('.sidebar .sidebar-wrapper li div p').css('display', 'block');
+     $('.sidebar').css('opacity', '1');
+     $('.sidebar').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
+     $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
+     $('.logo_mini').css('display', 'none');
+     $('.logo_completo').css('display', 'block');
+
+    }, function () {
+          $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
+          if ($( window ).width() > 1400) {
+            $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+            $('.sidebar .sidebar-wrapper li').css('height', '58px');
+          }
+          $('.sidebar').css('width', '60px');
+          $('.sidebar').css('opacity', '1');
+          $('.sidebar .sidebar-wrapper').css('width', '60px');
+          $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
+          $('.logo_completo').css('display', 'none');
+          $('.logo_mini').css('display', 'block');
+
+    });
+    
+});
+
 </script>
 <script>
   var miliSegundos = 1800000
@@ -431,6 +470,9 @@ $(document).ready(function() {
 </script>
 <?php echo $__env->yieldContent('javascript'); ?>
 <script>
+ps.destroy();
+$('.main-panel').perfectScrollbar('destroy');
+$('.content').perfectScrollbar('destroy');
   $('.wrapper').perfectScrollbar('destroy');
   $('.sidebar').perfectScrollbar('destroy');
   $('.sidebar .sidebar-wrapper, .off-canvas-sidebar .sidebar-wrapper').perfectScrollbar('destroy');
@@ -482,5 +524,11 @@ $(document).ready(function() {
   
   });
   </script>
+  <script>
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+  </script>
+
 </body>
 </html>

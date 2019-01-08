@@ -32,9 +32,11 @@ class CalendarController extends Controller
       $eventos = \App\Calendar::where('id_usuario', Auth::user()->id)->get();
       $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
+      $users = User::where('id', '<>', Auth::user()->id)->get();
+
       $usuarios = User::all();
 
-        return view('calendario.calendar', compact('eventos', 'notificacion', 'usuarios'));
+        return view('calendario.calendar', compact('eventos', 'notificacion', 'usuarios', 'users'));
 
     }
 

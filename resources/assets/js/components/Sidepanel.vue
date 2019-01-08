@@ -64,8 +64,7 @@
              required: true
          },
          notreaded: {
-             type: Object,
-             required: true
+             type: Array
          }
 			},
 			data(){

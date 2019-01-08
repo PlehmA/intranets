@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('css')
     <style>
-    select {
-    display: initial;
-}
 .miniImagen{
     height: 7vh;
     width: 7vh;
 }
+.main-panel{
+    overflow: auto;
+}
     </style>
 @endsection
 @section('content')
-<div class="container-fluid" style="margin-top: 7vh;">
+<div class="container-fluid">
     <div class="col s12">
         <div class="row">
             <h3 class="center-align">Listado de entradas</h3>

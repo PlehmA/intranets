@@ -22,10 +22,7 @@
   <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.3.3/video-js.css" rel="stylesheet">
-
+  <link rel='stylesheet' href="{{ asset('css/stylenew.css') }}" />
 </head>
 
 <body>
@@ -145,6 +142,9 @@ div .botonmail:hover {
 .sidebar .logo:after, .off-canvas-sidebar .logo:after{
   background-color: initial;
 }
+select{
+  display: block;
+}
 </style>
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.jpg') }}">
@@ -153,12 +153,21 @@ div .botonmail:hover {
 
     Tip 2: you can also add an image using data-image tag
 -->
-        <div class="logo">
-            <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
-        </div>
+     
         <div class="sidebar-wrapper">
             <ul class="nav">
               <ul class="collapsible" style="background-color: transparent;">
+
+
+              <li onclick="location.href='{{ route('dashboard') }}'">
+                        
+                        <div class="collapsible-header">
+                            <img src="{{ asset('img/faviconuitalk.png') }}" class="logo_mini">
+                            <img src="{{ asset('images/Recurso1.png') }}" class="logo_completo">
+                        </div>
+
+                      </li>
+
                 <li onclick="location.href='{{ route('correo.index') }}'">
                   <div class="collapsible-header">
                     <i class="material-icons">email</i>
@@ -222,71 +231,67 @@ div .botonmail:hover {
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent" style="box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); min-height: 90px;">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="row">
+      <nav class="navbar navbar-transparent">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="row menu-top">
 
-                      <div class="col-md-3">
-                        <a class="navbar-brand but-menu chat" href="{{ route('chats.index') }}" title="Chat">
-                        <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
-                        </a>
-                      </div>
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu chat" href="{{ url('/uichat') }}" title="Chat">
+                      <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
 
-                      <div class="col-md-3 .botonchat">
-                        <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo">
-                        <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
-                        </a>
-                      </div>
+                      <span class="badge noticount" style="color: white;"></span>
 
-                      <div class="col-md-3">
-                        <a class="navbar-brand but-menu notas" href="{{ route('notes.index') }}" title="Notas">
-                        <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
-                        </a>
-                      </div>
+                    </a>
+                  </div>
 
-                      <div class="col-md-3">
-                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda">
-                        <img src="{{ asset('images/tareaspendientes-atajo.png') }}" alt="" class="botonchat">
-                        </a>
-                      </div>
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo">
+                    <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
+                    </a>
+                  </div>
 
-                    </div>
-                </div>
-                <div class="collapse navbar-collapse">
-                  <ul class="nav navbar-nav navbar-right">
-                      <!-- Avatar image -->
-                      <div class="col-sm-2 col-md-3 dropdown">
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu notas no-autoinit" href="{{ route('notes.index') }}" title="Notas">
+                    <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
+                    </a>
+                  </div>
 
-                        <img src="{{ url( Auth::user()->foto ) }}" alt="" class="img-responsive img-circle" style="width: 160px; height: 70px;">
-
-                        <div class="dropdown-content">
-                          <img src="winlogo.png" alt="Windows Logo" width="300" height="200">
-                          <div class="desc">Microsoft's OS Logo since Windows 8</div>
-                        </div>
-
-                      </div>
-                      <!-- Dropdown Structure -->
-                      <ul id='dropdown2' class='dropdown-content'>
-                        <li><a href="#!">Seguridad</a></li>
-                      </ul>
-                      <a class='dropdown-trigger1 green btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
-                      <!-- Dropdown Structure -->
-                      <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="{{ url('/logout') }}">Log Out</a></li>
-                      </ul>
-
-                  </ul>
-
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda" id="agenda">
+                    <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
+                    </a>
+                  </div>
+                 
                 </div>
             </div>
-        </nav>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right" id="imagenPerf">
+                  <!-- Avatar image -->
+                  <div class="row menu-top-right">
+                        <div class="col s2">
+                                <img src="{{ asset( Auth::user()->foto ) }}" alt="">
+      
+                            </div>
+                            <div class="col s2">
+                                  <a class='dropdown-trigger1 grey btn hoverable' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                                  <!-- Dropdown Structure -->
+                                  <ul id='dropdown1' class='dropdown-content'>
+                                    <li><a href="{{ url('/logout') }}" class="white-text grey">Salir</a></li>
+                                  </ul>
+                            </div>
+                  </div>
+              </ul>
+
+            </div>
+        </div>
+    </nav>
         <div class="content">
             <div class="container-fluid">
                 @yield('content')
@@ -330,21 +335,53 @@ div .botonmail:hover {
    $('.dropdown-trigger1').dropdown();
 </script>
 <script>
+  $(document).ready(function () {
+    $('.sidebar').hover(function () {
+      if ($( window ).width() > 1400) {
+              $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+              $('.sidebar .sidebar-wrapper li').css('height', '58px');
+              $('.sidebar .sidebar-wrapper').css('width', '220px');
+              $('.sidebar').css('width', '220px');
+            }
+      if($(window).width() < 1400){
+        $('.sidebar .sidebar-wrapper').css('width', '200px');
+        $('.sidebar').css('width', '200px');
+      }
+       $('.sidebar .sidebar-wrapper li div p').css('display', 'block');
+       $('.sidebar').css('opacity', '1');
+       $('.sidebar').css('transition-duration', '0.5s')
+       $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
+       $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
+       $('.logo_mini').css('display', 'none');
+       $('.logo_completo').css('display', 'block');
+  
+      }, function () {
+            $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
+            if ($( window ).width() > 1400) {
+              $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+              $('.sidebar .sidebar-wrapper li').css('height', '58px');
+            }
+  
+            $('.sidebar').css('width', '60px');
+            $('.sidebar').css('opacity', '1');
+            $('.sidebar .sidebar-wrapper').css('width', '60px');
+            $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
+            $('.logo_completo').css('display', 'none');
+            $('.logo_mini').css('display', 'block');
+  
+      });
+      
+  });
+  
+  </script>
+<script>
   var miliSegundos = 1800000
   setTimeout(function(){
     alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
     window.location.assign('{{ url('/logout') }}');
   }, miliSegundos);
 </script>
-<script type="text/javascript">
-$(document).ready(function(){
-$('.carousel.carousel-slider').carousel({
- fullWidth: true,
- indicators: true,
- duration: 100,
-});
- });
-</script>
+
 <script>
 $(document).ready(function(){
     $('.collapsible').collapsible();
@@ -355,6 +392,17 @@ tippy('.chat');
 tippy('.correo');
 tippy('.notas');
 tippy('.agenda');
+</script>
+<script>
+  $(document).ready(function () {
+    $('select').formSelect();
+    $('#tableagenda').DataTable({
+      "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+            }
+
+    });
+  });
 </script>
 </body>
 </html>

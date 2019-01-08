@@ -13,6 +13,9 @@
 #contenido{
   background-color: #FAFAFA;
 }
+.main-panel{
+    overflow: auto;
+}
 </style>
 @endsection 
 @section('content')

@@ -384,7 +384,7 @@
 @endsection
 @section('content')
   <div class="row">
-    <div class="col s2 m2 l2">
+    <div class="col s3 m3 l3">
 
           <div class="input-field">
             <input id="buscador" type="text" class="validate">
@@ -392,11 +392,15 @@
           </div>
 
           <ul class="collection with-header lateralizq scrollbar-rare-wind">
-              <li class="collection-header"><h5>Notas</h5></li>
+              <li class="collection-header">
+                <h5>Notas</h5>
+              </li>
               @foreach ($notas as $note)
-                <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;"><li class="collection-item"><div class="nombres grey-text text-darken-2"><b>
-                  @if (strlen($note->nombre_nota) >= 17)
-                    {{ substr_replace($note->nombre_nota, '...', 16) }}
+                <a href="{{ action('NoteController@show', $note->id) }}" class="secondary-content" style="width: 100%;">
+                <li class="collection-item">
+                <div class="nombres grey-text text-darken-2"><b>
+                  @if (strlen($note->nombre_nota) >= 47)
+                    {{ substr_replace($note->nombre_nota, '...', 46) }}
                     @else
                       {{ $note->nombre_nota }}
                 @endif
@@ -405,14 +409,14 @@
 
             </ul>
     </div>
-    <div class="col s10 m10 l10">
-      <div class="col s10 m10 l10">
+    <div class="col s9 m9 l9">
+      <div class="col s9 m9 l9">
 
                 <a class="nav-link btn grey left modal-trigger" href="#modal1">Nueva nota <i class="fas fa-plus"></i></a>
 
         </ul>
       </div>
-      <div class="col s10 m10 l10">
+      <div class="col s9 m9 l9">
 
       </div>
     </div>

@@ -14,6 +14,9 @@
     height: 7vh;
     width: 7vh;
 }
+.main-panel{
+    overflow: auto;
+}
     </style>
 @endsection
 @section('content')

@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/materialize.css') }}">
   <link rel='stylesheet' href='{{ asset('css/stylenew.css') }}' />
@@ -34,9 +33,6 @@
 
 <body>
 <style>
-.content{
-  margin-top: 90px
-}
 /* Dropdown Button */
 .dropbtn {
     background-color: #ddd;
@@ -199,6 +195,9 @@ img.correo-icon{
     height: 19px;
     margin-top: 4px;
 }
+.main-panel{
+  overflow: auto !important;
+}
 </style>
 @yield('css')
 <div class="wrapper">
@@ -208,12 +207,20 @@ img.correo-icon{
 
     Tip 2: you can also add an image using data-image tag
 -->
-        <div class="logo">
-            <a href="{{ route('dashboard') }}"> <img src="{{ asset('images/Recurso1.png') }}" class="img-responsive"> </a>
-        </div>
+        
         <div class="sidebar-wrapper">
                 <ul class="nav">
                         <ul class="collapsible" style="background-color: transparent; color:grey;">
+
+                        <li onclick="location.href='{{ route('dashboard') }}'">
+                        
+                        <div class="collapsible-header">
+                            <img src="{{ asset('img/faviconuitalk.png') }}" class="logo_mini">
+                            <img src="{{ asset('images/Recurso1.png') }}" class="logo_completo">
+                        </div>
+
+                      </li>
+
                           <li onclick="location.href='{{ route('correo.index') }}'">
                             <div class="collapsible-header">
                                 <img src="{{ asset('images/correo-atajo.png') }}" class="correo-icon">
@@ -312,69 +319,68 @@ img.correo-icon{
         </div>
     </div>
     <div class="main-panel">
-        <nav class="navbar navbar-transparent" style="box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); height: 90px; max-width: 89%; position: fixed; background-color: #f5f5f5;">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="row">
+      <nav class="navbar navbar-transparent">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="row menu-top">
 
-                      <div class="col s2">
-                        <a class="navbar-brand but-menu chat" href="{{ url('uichat') }}" title="Chat">
-                          <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu chat" href="{{ url('/uichat') }}" title="Chat">
+                      <img src="{{ asset('images/chats-atajo.png') }}" alt="" class="botonchat" >
 
-                          <span class="badge noticount" style="color: white;"></span>
+                      <span class="badge noticount" style="color: white;"></span>
 
-                        </a>
-                      </div>
+                    </a>
+                  </div>
 
-                      <div class="col s2 .botonchat">
-                        <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo">
-                        <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
-                        </a>
-                      </div>
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu correo" href="{{ route('correo.index') }}" title="Correo">
+                    <img src="{{ asset('images/correo-atajo.png') }}" alt="" class="botonmail">
+                    </a>
+                  </div>
 
-                      <div class="col s2">
-                        <a class="navbar-brand but-menu notas no-autoinit" href="{{ route('notes.index') }}" title="Notas">
-                        <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
-                        </a>
-                      </div>
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu notas no-autoinit" href="{{ route('notes.index') }}" title="Notas">
+                    <img src="{{ asset('images/misnotas-atajo.png') }}" alt="" class="botonchat">
+                    </a>
+                  </div>
 
-                      <div class="col s2">
-                        <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda" id="agenda">
-                        <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
-                        </a>
-                      </div>
-                    
-                      
-                    </div>
+                  <div class="col s2">
+                    <a class="navbar-brand but-menu agenda" href="{{ route('directorio.index') }}" title="Agenda" id="agenda">
+                    <img src="{{ asset('images/agenda.png') }}" alt="" class="botonchat">
+                    </a>
+                  </div>
+                 
                 </div>
-                <div class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav navbar-right" id="imagenPerf">
-                            <!-- Avatar image -->
-                            <div class="row">
-                                  <div class="col s2">
-                                          <img src="{{ asset( Auth::user()->foto ) }}" alt="" onclick="location.href='{{ route('configuracion') }}'">
-                
-                                      </div>
-                                      <div class="col s2">
-                                            <a class='dropdown-trigger1 grey btn' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
-                                            <!-- Dropdown Structure -->
-                                            <ul id='dropdown1' class='dropdown-content'>
-                                              <li><a href="{{ url('/logout') }}" class="white-text grey">Salir</a></li>
-                                            </ul>
-                                      </div>
-                            </div>
-                        </ul>
-      
-                      </div>
             </div>
-        </nav>
-        <div class="content" style="overflow: -webkit-paged-y">
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav navbar-right" id="imagenPerf">
+                  <!-- Avatar image -->
+                  <div class="row menu-top-right">
+                        <div class="col s2">
+                                <img src="{{ asset( Auth::user()->foto ) }}" alt="">
+      
+                            </div>
+                            <div class="col s2">
+                                  <a class='dropdown-trigger1 grey btn hoverable' href='#' data-target='dropdown1'>{{ Auth::user()->name }}</a>
+                                  <!-- Dropdown Structure -->
+                                  <ul id='dropdown1' class='dropdown-content'>
+                                    <li><a href="{{ url('/logout') }}" class="white-text grey">Salir</a></li>
+                                  </ul>
+                            </div>
+                  </div>
+              </ul>
+
+            </div>
+        </div>
+    </nav>
+        <div class="content">
             <ol class="breadcrumb">
               <li class="listadoPer"><a href="{{ route('rrhh.index') }}">Listado del personal</a></li>
               <li class="ingresoPer"><a href="{{ route('addpers.index') }}">Ingreso del personal</a></li>
@@ -427,6 +433,47 @@ img.correo-icon{
     window.location.assign('{{ url('/logout') }}');
   }, miliSegundos);
 </script>
+
+<script>
+  $(document).ready(function () {
+    $('.sidebar').hover(function () {
+      if ($( window ).width() > 1400) {
+              $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+              $('.sidebar .sidebar-wrapper li').css('height', '58px');
+              $('.sidebar .sidebar-wrapper').css('width', '220px');
+              $('.sidebar').css('width', '220px');
+            }
+      if($(window).width() < 1400){
+        $('.sidebar .sidebar-wrapper').css('width', '200px');
+        $('.sidebar').css('width', '200px');
+      }
+       $('.sidebar .sidebar-wrapper li div p').css('display', 'block');
+       $('.sidebar').css('opacity', '1');
+       $('.sidebar').css('transition-duration', '0.5s')
+       $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
+       $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
+       $('.logo_mini').css('display', 'none');
+       $('.logo_completo').css('display', 'block');
+  
+      }, function () {
+            $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
+            if ($( window ).width() > 1400) {
+              $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
+              $('.sidebar .sidebar-wrapper li').css('height', '58px');
+            }
+  
+            $('.sidebar').css('width', '60px');
+            $('.sidebar').css('opacity', '1');
+            $('.sidebar .sidebar-wrapper').css('width', '60px');
+            $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
+            $('.logo_completo').css('display', 'none');
+            $('.logo_mini').css('display', 'block');
+  
+      });
+      
+  });
+  
+  </script>
 
 <script>
 $(document).ready(function(){

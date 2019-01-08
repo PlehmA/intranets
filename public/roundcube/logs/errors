@@ -1,0 +1,683 @@
+[13-Dec-2018 18:12:45 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[14-Dec-2018 10:13:38 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_token=MSJZ5HDlEhEoabvKhQl5HixETlYPK3kL)
+[14-Dec-2018 10:13:50 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:26:05 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:26:08 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_action=compose&_id=5835516355c13af7058d27)
+[14-Dec-2018 10:27:05 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[14-Dec-2018 10:27:05 -0300]: <f07h6s39> SMTP Error: Failed to add recipient 'aplehm@odontopraxis.com.ar'. 5.7.1 <sistemas@odontopraxis.com.ar>: Sender address rejected: not logged in (Code: 553) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube.php on line 1667 (POST /roundcube/?_task=mail&_unlock=loading1544794025448&_lang=es&_framed=1&_action=send)
+[14-Dec-2018 10:36:48 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[14-Dec-2018 10:37:08 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[14-Dec-2018 10:38:22 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/)
+[14-Dec-2018 10:38:26 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:39:01 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 10:39:01 -0300]: <f07h6s39> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[14-Dec-2018 10:39:01 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[14-Dec-2018 10:39:01 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 10:39:10 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 10:39:10 -0300]: <f07h6s39> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[14-Dec-2018 10:39:10 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[14-Dec-2018 10:39:10 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 10:39:12 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 10:39:12 -0300]: <f07h6s39> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve-action&_framed=1&_unlock=loading1544794752800&_newset=1)
+[14-Dec-2018 10:39:12 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[14-Dec-2018 10:39:12 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 10:39:16 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 10:39:16 -0300]: <f07h6s39> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve-action&_framed=1&_unlock=loading1544794756044)
+[14-Dec-2018 10:39:16 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 10:39:21 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 10:39:21 -0300]: <f07h6s39> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[14-Dec-2018 10:39:21 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[14-Dec-2018 10:39:21 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 10:39:25 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 10:39:25 -0300]: <f07h6s39> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve-action&_framed=1&_unlock=loading1544794765134)
+[14-Dec-2018 10:39:25 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 10:44:15 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '3' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 10:44:15 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('3', 'Amasis', 'mail.amasis.com.ar', '993', 'sistemas@amasis.com.ar', 'tI+1rHyk1IBdjK3cB3rznAWC9gm4f2ry', NULL, '2', '3')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 10:44:15 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=3&_framed=1)
+[14-Dec-2018 10:45:45 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:45:52 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:53:33 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:53:34 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:53:39 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:53:53 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=3&_framed=1)
+[14-Dec-2018 10:54:00 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=3&_framed=1)
+[14-Dec-2018 10:54:24 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '3' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 10:54:24 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('3', NULL, NULL, '993', NULL, 'cDwjNS/QG5VaDggmCAFQo0MUmAbAXoFl', NULL, '2', '3')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 10:54:24 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 10:54:40 -0300]: <f07h6s39> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=3&_framed=1)
+[14-Dec-2018 10:55:08 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_token=scdYIysKzeGtG87GF9kTSGXxJnf3Soai)
+[14-Dec-2018 10:55:22 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/)
+[14-Dec-2018 10:55:30 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:55:31 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:57:05 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:57:07 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:57:07 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:57:08 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:57:08 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 10:57:08 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:19:23 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:19:26 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:19:34 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/)
+[14-Dec-2018 11:19:48 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:19:49 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:19:50 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:30:04 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:30:27 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '3' AND user_id = '2') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=3&_framed=1)
+[14-Dec-2018 11:30:35 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 11:30:35 -0300]: <63m4q45a> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[14-Dec-2018 11:30:35 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[14-Dec-2018 11:30:35 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 11:32:20 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:43:53 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:43:54 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:43:54 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:43:55 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:43:56 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:44:10 -0300]: <63m4q45a> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '2' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:44:25 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_token=pAfrUTc7v91KFqSPg1uC0HOH2KdgsQV2)
+[14-Dec-2018 11:46:48 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '4' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 11:46:48 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('1', 'Departamento de sistemas', 'mail.odontopraxis.com.ar', '993', 'sistemas@odontopraxis.com.ar', 'crNoCNUMMca2YVw7CSVqENu3rRXGqeKE', NULL, '1', '4')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 11:46:48 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 11:46:56 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 11:46:56 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 11:47:05 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:47:12 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_action=compose&_id=10340873075c13c270bbde5)
+[14-Dec-2018 11:47:37 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 11:49:08 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:14 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:16 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:17 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:18 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:18 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:18 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:18 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:18 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:20 -0300]: <5ti5ns6l> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:52:45 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_token=gP2X9QGyka5QmD3WG5tgedT7eFF0fbJF)
+[14-Dec-2018 11:53:00 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:55:05 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:55:06 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:55:07 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:58:20 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 11:59:11 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '4' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 11:59:11 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('1', 'sistemas@odontopraxis.com.ar', '192.168.0.5', '993', 'sistemas@odontopraxis.com.ar', 'l37QYRQQ8tHVTN6FMJUh2P1O9h3npAVB', NULL, '1', '4')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 11:59:11 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 11:59:20 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:27 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:27 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:28 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:28 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 11:59:37 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 12:07:40 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 12:07:45 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:07:45 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:07:53 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 12:07:58 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:07:58 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:08:08 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:08:08 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:08:13 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:08:13 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:22:53 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:23:01 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 12:27:32 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 12:27:40 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:27:50 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 12:28:12 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '4' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:28:12 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('1', 'sistemas@odontopraxis.com.ar', '192.168.0.5', '993', 'sistemas@odontopraxis.com.ar', 'PZ7IrweAC70tyFO10NaoW0TT3/GnTQXz', NULL, '1', '4')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:28:12 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 12:28:21 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:28:22 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:29:13 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:30:54 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:30:56 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:30:57 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 12:31:08 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 12:40:14 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:18:10 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 14:18:15 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:31:46 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:32:06 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '4' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:32:06 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('1', 'sistemas@odontopraxis.com.ar', '192.168.0.5', '993', 'sistemas@odontopraxis.com.ar', 'DJ1PYrq/uhkAG/toFCB4DNLCEde+Cb7r', NULL, '1', '4')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:32:07 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:35:05 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:36:48 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:38:47 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:40:42 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:43:47 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:44:19 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '4' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:44:19 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('1', 'sistemas@odontopraxis.com.ar', '192.168.0.5', '143', 'sistemas@odontopraxis.com.ar', 'PbNKUotzQeAxYxOeFVmkCTWJWX4rc00a', NULL, '1', '4')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:44:19 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:44:25 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, iid, label, username FROM ident_switch WHERE user...
+                                              ^ (SQL Query: SELECT id, iid, label, username FROM ident_switch WHERE user_id = '1' AND flags & '1' > 0) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[14-Dec-2018 14:46:59 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:49:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT id, password FROM ident_switch WHERE iid = '4' AND us...
+                                  ^ (SQL Query: SELECT id, password FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:49:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: INSERT INTO ident_switch(flags, label, host, port, username,...
+                     ^ (SQL Query: INSERT INTO ident_switch(flags, label, host, port, username, password, delimiter, user_id, iid) VALUES ('1', NULL, NULL, NULL, NULL, '', NULL, '1', '4')) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:49:26 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:49:50 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:49:50 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:50:08 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:50:08 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:56:42 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:56:49 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4'...
+                ^ (SQL Query: UPDATE ident_switch SET flags = flags & '-2' WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:56:49 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-identity)
+[14-Dec-2018 14:56:53 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:57:33 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:58:19 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:58:22 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:58:27 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:58:30 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:59:08 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 14:59:28 -0300]: <jhelplfi> DB Error: [7] ERROR:  relation "ident_switch" does not exist
+LÍNEA 1: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1'
+                       ^ (SQL Query: SELECT * FROM ident_switch WHERE iid = '4' AND user_id = '1') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=settings&_action=edit-identity&_iid=4&_framed=1)
+[14-Dec-2018 15:14:33 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 15:14:33 -0300]: <oqont5mj> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[14-Dec-2018 15:14:33 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[14-Dec-2018 15:14:33 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[14-Dec-2018 15:14:41 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[14-Dec-2018 15:14:41 -0300]: <oqont5mj> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve-action&_framed=1&_unlock=loading1544811280993&_newset=1)
+[14-Dec-2018 15:14:41 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[14-Dec-2018 15:14:41 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[18-Dec-2018 01:29:45 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[18-Dec-2018 01:29:45 -0300]: <e093bq1e> SMTP Error: Failed to add recipient 'leandrocastrovila@gmail.com'. 5.7.1 <lcastrovila@odontopraxis.com>: Sender address rejected: not owned by user lcastrovila (Code: 553) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube.php on line 1667 (POST /roundcube/?_task=mail&_unlock=loading1545107383590&_lang=es&_framed=1&_action=send)
+[18-Dec-2018 01:30:06 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[18-Dec-2018 01:30:06 -0300]: <e093bq1e> SMTP Error: Failed to add recipient 'leandrocastrovila@gmail.com'. 5.7.1 <lcastrovila@odontopraxis.com>: Sender address rejected: not owned by user lcastrovila (Code: 553) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube.php on line 1667 (POST /roundcube/?_task=mail&_unlock=loading1545107404715&_lang=es&_framed=1&_action=send)
+[18-Dec-2018 01:30:21 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[18-Dec-2018 01:30:21 -0300]: <e093bq1e> SMTP Error: Failed to add recipient 'leandrocastrovila@gmail.com'. 5.7.1 <lcastrovila@odontopraxis.com>: Sender address rejected: not owned by user lcastrovila (Code: 553) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube.php on line 1667 (POST /roundcube/?_task=mail&_unlock=loading1545107419119&_lang=es&_framed=1&_action=send)
+[18-Dec-2018 01:31:06 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (553)
+[18-Dec-2018 01:31:06 -0300]: <e093bq1e> SMTP Error: Failed to add recipient 'lcastrovila@odontopraxis.com'. 5.7.1 <lcastrovila@odontopraxis.com>: Sender address rejected: not owned by user lcastrovila (Code: 553) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube.php on line 1667 (POST /roundcube/?_task=mail&_unlock=loading1545107464120&_lang=es&_framed=1&_action=send)
+[18-Dec-2018 01:42:11 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[18-Dec-2018 01:42:11 -0300]: <e093bq1e> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[18-Dec-2018 01:42:11 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[18-Dec-2018 01:42:11 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[18-Dec-2018 11:16:24 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[18-Dec-2018 11:16:24 -0300]: <qp3vovr2> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[18-Dec-2018 11:16:24 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[18-Dec-2018 11:16:24 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[18-Dec-2018 14:47:00 -0300]: <qaho5sfk> DB Error: SQLSTATE[08006] [7] could not connect to server: Connection refused
+	Is the server running on host "192.168.0.5" and accepting
+	TCP/IP connections on port 5432? in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 175 (POST /roundcube/?_task=mail&_action=refresh)
+[18-Dec-2018 14:47:00 -0300]: <qaho5sfk> DB Error: SQLSTATE[08006] [7] could not connect to server: Connection refused
+	Is the server running on host "192.168.0.5" and accepting
+	TCP/IP connections on port 5432? (POST /roundcube/?_task=mail&_action=refresh)
+[26-Dec-2018 14:58:07 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[26-Dec-2018 14:58:07 -0300]: <2b98dmp5> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet5/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[26-Dec-2018 14:58:07 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[26-Dec-2018 14:58:07 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[26-Dec-2018 17:23:36 -0300]: <0bl17u81> IMAP Error: Login failed for aplehm@odontopraxis.com.ar from 192.168.20.32. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (POST /roundcube/?_task=login&_action=login)
+[27-Dec-2018 19:19:28 -0300]: <3ff26g9a> IMAP Error: Login failed for lcastrovila from 190.247.88.4. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (POST /roundcube/?_task=login&_action=login)
+[27-Dec-2018 19:29:36 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[28-Dec-2018 13:03:23 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[28-Dec-2018 13:03:23 -0300]: <4cgkhelj> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[28-Dec-2018 13:03:23 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[28-Dec-2018 13:03:23 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[28-Dec-2018 13:04:48 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[28-Dec-2018 13:04:48 -0300]: <4cgkhelj> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[28-Dec-2018 13:04:48 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[28-Dec-2018 13:04:48 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[29-Dec-2018 12:16:20 -0300]: <qu3dp5vi> IMAP Error: Login failed for lcastrovila@odontopraxis.com.ar from 190.247.88.4. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (POST /roundcube/?_task=login&_action=login)
+[30-Dec-2018 00:29:17 -0300]: <jf5418h0> IMAP Error: Login failed for polachgg@gmail.com from 181.228.109.225. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (POST /roundcube/?_task=login&_action=login)
+[02-Jan-2019 12:35:11 America/Argentina/Buenos_Aires] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /var/www/html/intranet3/public/roundcube/program/include/rcmail_output_html.php on line 1863
+[02-Jan-2019 12:38:37 America/Argentina/Buenos_Aires] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /var/www/html/intranet3/public/roundcube/program/include/rcmail_output_html.php on line 1863
+[02-Jan-2019 12:40:16 -0300]: <br8eshs9> IMAP Error: Login failed for $_session["email"] from 192.168.20.32. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (POST /roundcube/?_task=login&_action=login)
+[02-Jan-2019 12:58:00 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[02-Jan-2019 15:30:33 America/Argentina/Buenos_Aires] PHP Fatal error:  Uncaught Error: Call to a member function kill() on null in /var/www/html/intranet3/public/roundcube/program/include/rcmail.php:776
+Stack trace:
+#0 /var/www/html/intranet3/public/roundcube/index.php(112): rcmail->kill_session()
+#1 {main}
+  thrown in /var/www/html/intranet3/public/roundcube/program/include/rcmail.php on line 776
+[02-Jan-2019 16:19:31 -0300]: <uf5ek91a> DB Error: [7] ERROR:  character with byte sequence 0xe2 0x80 0xa2 in encoding "UTF8" has no equivalent in encoding "LATIN1" (SQL Query: UPDATE "users" SET "preferences" = 'a:3:{s:17:"compose_responses";a:1:{i:0;a:4:{s:4:"name";s:13:"Profesional 1";s:4:"text";s:1714:"Estimado/a Dr/a. NOMBRE, a partir del día FECHA, puede comenzar la atención de pacientes de COBERTURA.
+Adjunto se le envía la siguiente documentación:
+•Fichas de Presentación de Facturación y Fichas de Atención de Pacientes para que pueda imprimir o fotocopiar (incluye ejemplo de confección de fichas).
+•Datos para envío de facturación.
+•Datos para confección y envío de facturas por prestaciones abonadas.
+•Instructivo de Validador para verificar la vigencia de afiliación del paciente. La validación se deberá realizar el día real en que será atendido.
+•Usuario y contraseña personales para ingresar al sistema.
+•Pautas de facturación.
+•Normativas de atención.
+CONSULTAS
+Usted puede comunicarse con Odontopraxis Americana llamando al (011) 4811-5555, de lunes a viernes de 9:30 a 17:30 horas, o enviando un correo electrónico a profesionales@odontopraxis.com.ar
+FECHA TOPE DE RECEPCIÓN DE FACTURACIÓN
+Antes de los días 5 de cada mes o día hábil anterior. Si ingresa posterior a esa fecha, el pago pasa para el mes siguiente.
+DONDE ENVIAR LA FACTURACIÓN
+Av. Córdoba 1345 - Piso 13º “A” (C1055AAD) Ciudad Autónoma de Buenos Aires. Sugerimos envío por correo certificado con acuse de recibo, para evitar extravíos.
+DATOS PARA CONFECCIONAR LA FACTURA UNA VEZ RECIBIDA LA LIQUIDACIÓN
+Si confecciona factura electrónica puede remitirla por mail a emision_factura@odontopraxis.com.ar
+La factura/recibo debe indicar:
+ 
+•Razón Social:           Odontopraxis Americana S.A.
+•Domicilio:                Av. Córdoba 1345 Piso 13 Dpto. “A” (CABA)
+•Condición IVA:        Responsable Inscripto
+•CUIT:                         33-70782006-9";s:6:"format";s:4:"text";s:3:"key";s:16:"a2f53c3a58b46358";}}s:17:"message_threading";a:3:{s:8:"Archivos";b:0;s:4:"Spam";b:0;s:7:"Cerrado";b:0;}s:11:"client_hash";s:16:"8J2tqaoyTPrvyVOL";}', "language" = 'es_ES' WHERE "user_id" = '4') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-response)
+[02-Jan-2019 16:20:35 -0300]: <uf5ek91a> DB Error: [7] ERROR:  character with byte sequence 0xe2 0x80 0xa2 in encoding "UTF8" has no equivalent in encoding "LATIN1" (SQL Query: UPDATE "users" SET "preferences" = 'a:3:{s:17:"compose_responses";a:1:{i:0;a:4:{s:4:"name";s:13:"Profesional 1";s:4:"text";s:1714:"Estimado/a Dr/a. NOMBRE, a partir del día FECHA, puede comenzar la atención de pacientes de COBERTURA.
+Adjunto se le envía la siguiente documentación:
+•Fichas de Presentación de Facturación y Fichas de Atención de Pacientes para que pueda imprimir o fotocopiar (incluye ejemplo de confección de fichas).
+•Datos para envío de facturación.
+•Datos para confección y envío de facturas por prestaciones abonadas.
+•Instructivo de Validador para verificar la vigencia de afiliación del paciente. La validación se deberá realizar el día real en que será atendido.
+•Usuario y contraseña personales para ingresar al sistema.
+•Pautas de facturación.
+•Normativas de atención.
+CONSULTAS
+Usted puede comunicarse con Odontopraxis Americana llamando al (011) 4811-5555, de lunes a viernes de 9:30 a 17:30 horas, o enviando un correo electrónico a profesionales@odontopraxis.com.ar
+FECHA TOPE DE RECEPCIÓN DE FACTURACIÓN
+Antes de los días 5 de cada mes o día hábil anterior. Si ingresa posterior a esa fecha, el pago pasa para el mes siguiente.
+DONDE ENVIAR LA FACTURACIÓN
+Av. Córdoba 1345 - Piso 13º “A” (C1055AAD) Ciudad Autónoma de Buenos Aires. Sugerimos envío por correo certificado con acuse de recibo, para evitar extravíos.
+DATOS PARA CONFECCIONAR LA FACTURA UNA VEZ RECIBIDA LA LIQUIDACIÓN
+Si confecciona factura electrónica puede remitirla por mail a emision_factura@odontopraxis.com.ar
+La factura/recibo debe indicar:
+ 
+•Razón Social:           Odontopraxis Americana S.A.
+•Domicilio:                Av. Córdoba 1345 Piso 13 Dpto. “A” (CABA)
+•Condición IVA:        Responsable Inscripto
+•CUIT:                         33-70782006-9";s:6:"format";s:4:"text";s:3:"key";s:16:"a2f53c3a58b46358";}}s:17:"message_threading";a:3:{s:8:"Archivos";b:0;s:4:"Spam";b:0;s:7:"Cerrado";b:0;}s:11:"client_hash";s:16:"8J2tqaoyTPrvyVOL";}', "language" = 'es_ES' WHERE "user_id" = '4') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=save-response)
+[02-Jan-2019 16:21:39 -0300]: <uf5ek91a> DB Error: [7] ERROR:  character with byte sequence 0xe2 0x80 0x9c in encoding "UTF8" has no equivalent in encoding "LATIN1" (SQL Query: UPDATE "users" SET "preferences" = 'a:3:{s:17:"compose_responses";a:1:{i:0;a:4:{s:4:"name";s:44:"Estimado/a Dr/a. NOMBRE, a partir del dí";s:4:"text";s:1741:"Estimado/a Dr/a. NOMBRE, a partir del día FECHA, puede comenzar la atención de pacientes de COBERTURA.
+
+Adjunto se le envía la siguiente documentación:
+
+Fichas de Presentación de Facturación y Fichas de Atención de Pacientes para que pueda imprimir o fotocopiar (incluye ejemplo de confección de fichas).
+Datos para envío de facturación.
+Datos para confección y envío de facturas por prestaciones abonadas.
+Instructivo de Validador para verificar la vigencia de afiliación del paciente. La validación se deberá realizar el día real en que será atendido.
+Usuario y contraseña personales para ingresar al sistema.
+Pautas de facturación.
+Normativas de atención.
+CONSULTAS
+Usted puede comunicarse con Odontopraxis Americana llamando al (011) 4811-5555, de lunes a viernes de 9:30 a 17:30 horas, o enviando un correo electrónico a profesionales@odontopraxis.com.ar
+
+
+FECHA TOPE DE RECEPCIÓN DE FACTURACIÓN
+Antes de los días 5 de cada mes o día hábil anterior. Si ingresa posterior a esa fecha, el pago pasa para el mes siguiente.
+
+
+DONDE ENVIAR LA FACTURACIÓN
+Av. Córdoba 1345 - Piso 13º “A” (C1055AAD) Ciudad Autónoma de Buenos Aires. Sugerimos envío por correo certificado con acuse de recibo, para evitar extravíos.
+
+
+DATOS PARA CONFECCIONAR LA FACTURA UNA VEZ RECIBIDA LA LIQUIDACIÓN
+Si confecciona factura electrónica puede remitirla por mail a emision_factura@odontopraxis.com.ar
+
+La factura/recibo debe indicar:
+
+ 
+
+Razón Social:           Odontopraxis Americana S.A.
+Domicilio:                Av. Córdoba 1345 Piso 13 Dpto. “A” (CABA)
+Condición IVA:        Responsable Inscripto
+CUIT:                         33-70782006-9";s:6:"format";s:4:"text";s:3:"key";s:16:"36c41e37c4b969bd";}}s:17:"message_threading";a:3:{s:8:"Archivos";b:0;s:4:"Spam";b:0;s:7:"Cerrado";b:0;}s:11:"client_hash";s:16:"8J2tqaoyTPrvyVOL";}', "language" = 'es_ES' WHERE "user_id" = '4') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=responses)
+[02-Jan-2019 16:22:29 -0300]: <uf5ek91a> DB Error: [7] ERROR:  character with byte sequence 0xe2 0x80 0x9c in encoding "UTF8" has no equivalent in encoding "LATIN1" (SQL Query: UPDATE "users" SET "preferences" = 'a:3:{s:17:"compose_responses";a:1:{i:0;a:4:{s:4:"name";s:6:"prueba";s:4:"text";s:1741:"Estimado/a Dr/a. NOMBRE, a partir del día FECHA, puede comenzar la atención de pacientes de COBERTURA.
+
+Adjunto se le envía la siguiente documentación:
+
+Fichas de Presentación de Facturación y Fichas de Atención de Pacientes para que pueda imprimir o fotocopiar (incluye ejemplo de confección de fichas).
+Datos para envío de facturación.
+Datos para confección y envío de facturas por prestaciones abonadas.
+Instructivo de Validador para verificar la vigencia de afiliación del paciente. La validación se deberá realizar el día real en que será atendido.
+Usuario y contraseña personales para ingresar al sistema.
+Pautas de facturación.
+Normativas de atención.
+CONSULTAS
+Usted puede comunicarse con Odontopraxis Americana llamando al (011) 4811-5555, de lunes a viernes de 9:30 a 17:30 horas, o enviando un correo electrónico a profesionales@odontopraxis.com.ar
+
+
+FECHA TOPE DE RECEPCIÓN DE FACTURACIÓN
+Antes de los días 5 de cada mes o día hábil anterior. Si ingresa posterior a esa fecha, el pago pasa para el mes siguiente.
+
+
+DONDE ENVIAR LA FACTURACIÓN
+Av. Córdoba 1345 - Piso 13º “A” (C1055AAD) Ciudad Autónoma de Buenos Aires. Sugerimos envío por correo certificado con acuse de recibo, para evitar extravíos.
+
+
+DATOS PARA CONFECCIONAR LA FACTURA UNA VEZ RECIBIDA LA LIQUIDACIÓN
+Si confecciona factura electrónica puede remitirla por mail a emision_factura@odontopraxis.com.ar
+
+La factura/recibo debe indicar:
+
+ 
+
+Razón Social:           Odontopraxis Americana S.A.
+Domicilio:                Av. Córdoba 1345 Piso 13 Dpto. “A” (CABA)
+Condición IVA:        Responsable Inscripto
+CUIT:                         33-70782006-9";s:6:"format";s:4:"text";s:3:"key";s:16:"c893bad68927b457";}}s:17:"message_threading";a:3:{s:8:"Archivos";b:0;s:4:"Spam";b:0;s:7:"Cerrado";b:0;}s:11:"client_hash";s:16:"8J2tqaoyTPrvyVOL";}', "language" = 'es_ES' WHERE "user_id" = '4') in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (POST /roundcube/?_task=settings&_action=responses)
+[03-Jan-2019 11:38:18 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 12:29:18 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 14:49:07 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 14:53:33 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 15:03:06 -0300]: <lm76cab6> IMAP Error: Login failed for jdalmasso@odontopraxis.com.ar from 192.168.20.94. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=login&email=amRhbG1hc3NvQG9kb250b3ByYXhpcy5jb20uYXI=&contra_mail=TmV3c2lzdDIwMTg=)
+[03-Jan-2019 15:29:15 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 15:43:09 -0300]: <09kfvioq> IMAP Error: Login failed for jrlavalle@odontopraxis.com.ar from 192.168.20.60. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=login&email=anJsYXZhbGxlQG9kb250b3ByYXhpcy5jb20uYXI=&contra_mail=TmV3c2lzdDIwMTg=)
+[03-Jan-2019 15:44:24 -0300]: <09kfvioq> IMAP Error: Login failed for jrlavalle@odontopraxis.com.ar from 192.168.20.60. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=login&email=anJsYXZhbGxlQG9kb250b3ByYXhpcy5jb20uYXI=&contra_mail=TmV3c2lzdDIwMTg=)
+[03-Jan-2019 15:44:30 -0300]: <09kfvioq> IMAP Error: Login failed for jrlavalle@odontopraxis.com.ar from 192.168.20.60. AUTHENTICATE PLAIN: Authentication failed. in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=login&email=anJsYXZhbGxlQG9kb250b3ByYXhpcy5jb20uYXI=&contra_mail=TmV3c2lzdDIwMTg=)
+[03-Jan-2019 15:57:32 -0300]: <9ta3432i> DB Error: [7] ERROR:  duplicate key value violates unique constraint "session_pkey"
+DETALLE:  Key (sess_id)=(9ta3432i7if05u5gea4qhdhanj) already exists. (SQL Query: INSERT INTO "session" ("sess_id", "vars", "ip", "changed") VALUES ('9ta3432i7if05u5gea4qhdhanj', 'bGFuZ3VhZ2V8czo1OiJlc19FUyI7c2tpbnxzOjU6ImxhcnJ5IjtpbWFwX25hbWVzcGFjZXxhOjQ6e3M6ODoicGVyc29uYWwiO2E6MTp7aTowO2E6Mjp7aTowO3M6MDoiIjtpOjE7czoxOiIuIjt9fXM6NToib3RoZXIiO047czo2OiJzaGFyZWQiO047czoxMDoicHJlZml4X291dCI7czowOiIiO31pbWFwX2RlbGltaXRlcnxzOjE6Ii4iO3VzZXJfaWR8aToxO3VzZXJuYW1lfHM6MjY6ImFwbGVobUBvZG9udG9wcmF4aXMuY29tLmFyIjtzdG9yYWdlX2hvc3R8czoxMToiMTkyLjE2OC4wLjUiO3N0b3JhZ2VfcG9ydHxpOjE0MztzdG9yYWdlX3NzbHxOO3Bhc3N3b3JkfHM6MzI6IkhKNnYwTkVvZHNpWlJhT0RlZjZKUEFJRDRhbElOc21pIjtsb2dpbl90aW1lfGk6MTU0NjU0MTg1Mjs=', '192.168.20.32', now())) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 543 (GET /roundcube/?_task=login&email=YXBsZWhtQG9kb250b3ByYXhpcy5jb20uYXI=&contra_mail=TmV3c2lzdDIwMTg=)
+[03-Jan-2019 16:03:47 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:22:09 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:25:06 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:25:30 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:25:53 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:27:31 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:28:49 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:29:18 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[03-Jan-2019 16:29:56 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[04-Jan-2019 10:49:28 -0300]: <n3i66hgp> IMAP Error: Login failed for atencionprestadores@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (mail.odontopraxis.com.ar:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 10:49:35 -0300]: <n3i66hgp> IMAP Error: Login failed for atencionprestadores@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (mail.odontopraxis.com.ar:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 10:51:22 -0300]: <n3i66hgp> IMAP Error: Login failed for atencionprestadores@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (192.168.05:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 10:55:10 -0300]: <n3i66hgp> IMAP Error: Login failed for atencionprestadores@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (192.168.05:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 10:55:13 -0300]: <n3i66hgp> IMAP Error: Login failed for atencionprestadores@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (192.168.05:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 10:55:16 -0300]: <n3i66hgp> IMAP Error: Login failed for atencionprestadores@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (192.168.05:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 10:55:25 -0300]: <323rndue> IMAP Error: Login failed for atencionprestadores@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (192.168.0.5:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 10:56:37 -0300]: <rq5dpin7> IMAP Error: Login failed for auditoria@odontopraxis.com.ar from 192.168.20.60. Empty startup greeting (192.168.0.5:993) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[04-Jan-2019 11:03:31 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[04-Jan-2019 11:05:16 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[04-Jan-2019 11:08:41 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[04-Jan-2019 11:14:29 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[04-Jan-2019 11:17:17 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[04-Jan-2019 11:39:53 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[04-Jan-2019 11:41:12 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[07-Jan-2019 10:12:36 America/Argentina/Buenos_Aires] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap_generic.php on line 1715
+[07-Jan-2019 11:17:39 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (550)
+[07-Jan-2019 11:17:39 -0300]: <45bkfmfk> SMTP Error: Failed to add recipient 'ldraghi@odontopraxis.com.ar'. 5.1.1 <ldraghi@odontopraxis.com.ar>: Recipient address rejected: User unknown in virtual alias table (Code: 550) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube.php on line 1667 (POST /roundcube/?_task=mail&_unlock=loading1546870661821&_lang=es&_framed=1&_action=send)
+[07-Jan-2019 11:18:15 America/Argentina/Buenos_Aires] ERROR: Invalid response code received from server (550)
+[07-Jan-2019 11:18:15 -0300]: <45bkfmfk> SMTP Error: Failed to add recipient 'ldraghi@odontopraxis.com.ar'. 5.1.1 <ldraghi@odontopraxis.com.ar>: Recipient address rejected: User unknown in virtual alias table (Code: 550) in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube.php on line 1667 (POST /roundcube/?_task=mail&_unlock=loading1546870697834&_lang=es&_framed=1&_action=send)
+[08-Jan-2019 09:25:38 -0300]: <i1i79931> IMAP Error: Login failed for sistemas@amasis.com.ar from 192.168.20.32. Could not connect to ssl://mail.amasis.com.ar:993: Unknown reason in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_mbox=INBOX)
+[08-Jan-2019 09:25:38 -0300]: <i1i79931> IMAP Error: Login failed for sistemas@amasis.com.ar from 192.168.20.32. Could not connect to ssl://mail.amasis.com.ar:993: Unknown reason in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_action=list&_refresh=1&_mbox=INBOX&_remote=1&_unlock=loading1546950339264&_=1546950339183)
+[08-Jan-2019 09:25:38 -0300]: <i1i79931> IMAP Error: Login failed for sistemas@amasis.com.ar from 192.168.20.32. Could not connect to ssl://mail.amasis.com.ar:993: Unknown reason in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_imap.php on line 196 (GET /roundcube/?_task=mail&_action=getunread&_page=1&_remote=1&_unlock=0&_=1546950339184)
+[08-Jan-2019 10:28:29 America/Argentina/Buenos_Aires] ERROR: Conexión rehusada (111)
+[08-Jan-2019 10:28:29 -0300]: <ndk51jo0> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
+[08-Jan-2019 10:28:29 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
+[08-Jan-2019 10:28:29 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
