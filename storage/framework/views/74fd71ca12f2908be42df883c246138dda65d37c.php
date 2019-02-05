@@ -178,6 +178,11 @@
       margin-left: 2px;
       margin-right: 21px;
     }
+    @media  only screen and (min-width: 1400px) {
+      .main-panel>.content {
+            margin-top: 10px;
+        }
+    }
     </style>
 <?php echo $__env->yieldContent('style'); ?>
 <div class="wrapper">
@@ -493,7 +498,7 @@ $(document).ready(function(){
 $('#buscador').keyup(function(){
    var nombres = $('.name');
    var buscando = $(this).val();
-   var item='';
+   var item="";
    for( var i = 0; i < nombres.length; i++ ){
        item = $(nombres[i]).html();
        item = item.replace(new RegExp(/\s/g),"");

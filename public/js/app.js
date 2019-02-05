@@ -59791,6 +59791,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.contacts = response.data;
             });
         }, 2000);
+        setInterval(function () {
+            axios.get('/api/notificaciones').then(function (response) {
+                _this.notreaded = response.data;
+            });
+        }, 2000);
 
         axios.get('/api/convers').then(function (response) {
             _this.ultmensaje = response.data;

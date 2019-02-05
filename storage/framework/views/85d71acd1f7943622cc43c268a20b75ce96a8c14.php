@@ -23,7 +23,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 <link rel='stylesheet' href='<?php echo e(asset('css/fullcalendar.css')); ?>' />
 <link rel='stylesheet' href='<?php echo e(asset('css/stylenew.css')); ?>' />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/1.6.4/fullcalendar.print.css" type="text/css" media="print" >
 <?php echo $__env->yieldContent('head'); ?>
 </head>
 
@@ -323,7 +324,7 @@ div .botonmail:hover {
             </div>
         </div>
     </nav>
-        <div class="content" style="margin-top: 12vh;">
+        <div class="content" style="margin-top: 5vh;">
             <div class="container-fluid">
 
                 <?php echo $__env->yieldContent('content'); ?>

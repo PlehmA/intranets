@@ -2,26 +2,38 @@
 @section('css')
 <style>
     .plantillas img {
-        max-width: 10vh;
+        max-width: 10vw;
+        height: 15vh;
+        margin: 0 auto;
+        text-align: center;
     }
     .plantillas a {
-        margin-left: -1vh;
-        line-height: 2;
+        display: block;
+        text-align: center;
+        color: grey;
     }
     .main-panel{
-        height: calc(100% - 30px) !important;
+        overflow: auto;
     }
-.content{
-    margin-top: 12vh;
-}
+/* .content{
+    margin-top: 10vh;
+} */
 </style>
-@endsection 
+@endsection
 @section('content')
-<div class="container">
+
+    @if (Auth::user()->rol_usuario==3)
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ route('plantillas.create') }}" class="btn grey right">Cargar plantilla</a>
+        </div>    
+    </div>
+    
+    @endif
     <div class="row">
         @foreach($plantillas as $plantilla)
-        <div class="col s3 plantillas">
-            <img src="{{ asset($plantilla->foto) }}" alt="asd" class="materialboxed z-depth-2" style="height: 15vh; margin-left: 4vh;">
+        <div class="col s12 l2 xl2 plantillas">
+            <img src="{{ asset($plantilla->foto) }}" alt="asd" class="materialboxed z-depth-2">
             <br>
         <a href="{{$plantilla->enlace}}" target="_blank">{{ $plantilla->titulo }}</a>
         </div>
@@ -32,7 +44,7 @@
         <h6 class="center-align"> No hay plantillas disponibles... <i class="far fa-sad-tear fa-2x"></i></h6>
     </div>
 @endif
-</div>
+
 
 @endsection
 

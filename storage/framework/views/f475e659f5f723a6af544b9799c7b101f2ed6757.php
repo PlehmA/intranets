@@ -194,6 +194,12 @@ img.correo-icon{
     height: 19px;
     margin-top: 4px;
 }
+.main-panel{
+  overflow: auto !important;
+}
+.ps-container>.ps-scrollbar-y-rail>.ps-scrollbar-y{
+  display: none;
+}
 </style>
 <?php echo $__env->yieldContent('css'); ?>
 <div class="wrapper">

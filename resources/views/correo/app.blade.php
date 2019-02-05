@@ -440,7 +440,7 @@ $(document).ready(function () {
 
 </script>
 <script>
-  var miliSegundos = 1800000
+  var miliSegundos = 3600000;
   setTimeout(function(){
     alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
     window.location.assign('{{ url('/logout') }}');

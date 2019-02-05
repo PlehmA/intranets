@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Pusher\Laravel\Facades\Pusher;
 use DB;
+use PDF;
 
 class CalendarController extends Controller
 {
@@ -32,11 +33,13 @@ class CalendarController extends Controller
       $eventos = \App\Calendar::where('id_usuario', Auth::user()->id)->get();
       $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-      $users = User::where('id', '<>', Auth::user()->id)->get();
+      $users = User::where('id', '<>', Auth::user()->id)->where('username', '<>', 'udemo')->orderBy('name', 'asc')->get();
 
       $usuarios = User::all();
 
-        return view('calendario.calendar', compact('eventos', 'notificacion', 'usuarios', 'users'));
+      $companieros = User::where('rol_usuario', Auth::user()->rol_usuario)->get();
+
+        return view('calendario.calendar', compact('eventos', 'notificacion', 'usuarios', 'users', 'companieros'));
 
     }
 
@@ -530,4 +533,89 @@ return back()->with('success', 'Evento agregado correctamente');
         ]);
       }
     }
+
+    public function invitarAmigo(Request $request)
+    {
+
+
+        $evento = Calendar::find($request->idevento);
+
+
+        $usuario  = User::find($request->idusuario);
+
+        $arrInvitado = User::find($request->invitados);
+
+        $start = date_create($evento->start);
+
+        foreach ($arrInvitado as $invitado) {
+
+          $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+          try {
+              //Server settings                            // Enable verbose debug output
+              $mail->CharSet = 'UTF-8';
+              $mail->isSMTP();                                      // Set mailer to use SMTP
+              $mail->Host = 'mail.odontopraxis.com.ar';  // Specify main and backup SMTP servers
+              $mail->SMTPAuth = true;                               // Enable SMTP authentication
+              $mail->Username =  $usuario->email;                 // SMTP username
+              $mail->Password =  $usuario->contra_mail;           // SMTP password
+              $mail->SMTPSecure = 'null';                            // Enable TLS encryption, `ssl` also accepted
+              $mail->Port = 25;                                    // TCP port to connect to
+    
+              //Recipients
+              $mail->setFrom( $usuario->email,  $usuario->name);
+    
+              $mail->addAddress($invitado->email);     // Add a recipient
+    
+              //Content
+              $mail->isHTML(true);                                  // Set email format to HTML
+              $mail->AddEmbeddedImage('/var/www/html/intranet3/public/img/calevento.png', 'logo_2u');
+              $mail->Subject = 'Invitación a evento';
+              $mail->Body    =   "
+              <div class='container'>
+              <div style='text-align: center;'>
+              <img src='cid:logo_2u'>
+              </div>
+            <div style='text-align: center;'>
+            <p style='text-align: center; font-size: 20px;'><b>".$invitado->name."</b></p>
+                <p style='text-align: center; font-size: 20px;'><b>".$usuario->name."</b> te ha invitado al envento.</p>
+                    <p style='text-align: center; font-size: 20px;'><b>".$evento->title." </b></p>
+                    <p style='text-align: center; font-size: 20px;'>Observación: <b>".$evento->descripcion." </b></p>
+                    <p style='text-align: center; font-size: 20px;'>Fecha: <b>".date_format($start, 'd/m/Y')." </b></p>
+                    <p style='text-align: center; font-size: 20px;'>Hora: <b>". date_format($start, 'H:i')."hs. </b></p>
+              </div>
+              <div style='text-align: center;'>
+              <p>Si usted puede participar, por favor confirme su asistencia al evento para que se añada a su calendario</p>
+              <hr>
+              <a style='text-decoration: none;color: #fff;background-color: #9e9e9e;text-align: center;letter-spacing: .5px;-webkit-transition: background-color .2s ease-out;transition: background-color .2s ease-out;cursor: pointer;border: none;border-radius: 2px;display: inline-block;height: 36px;line-height: 36px;padding: 0 16px;text-transform: uppercase;vertical-align: middle;-webkit-tap-highlight-color: transparent;' href='https://intranet.odontopraxis.com.ar:9003/calendar/?invitacion=1&nombre=".encrypt($usuario->name).'&title='.encrypt($evento->title).'&descripcion='.encrypt($evento->descripcion).'&start='.encrypt($evento->start).'&id_usuario='.encrypt($usuario->id)."'>Confirmar</a></p>
+                   
+              <p>Si se encuentra fuera de la oficina haga click <a href='https://test.odontopraxis.com.ar:9003/calendar/?invitacion=1&nombre=".encrypt($usuario->name).'&title='.encrypt($evento->title).'&descripcion='.encrypt($evento->descripcion).'&start='.encrypt($evento->start).'&id_usuario='.encrypt($usuario->id)."'>aquí</a></p>
+              </div>
+           </div>";
+    
+              $mail->send();
+            
+          } catch (Exception $e) {
+            echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        }
+
+        }
+
+
+return response()->json([
+'message' => 'Invitación enviada correctamente.',
+], 201);
+
+    }
+
+public function exportEvent(Request $request){
+  $events = Calendar::where('id_usuario', Auth::user()->id)
+  ->where('isrecordatory', null)
+  ->whereBetween('start', [$request->deevento, $request->hastaevento])
+  ->orderBy('start', 'asc')
+  ->get();
+  $data = ['data'=>$events];
+  $pdf = PDF::loadView('pdf.eventos', $data);
+  return $pdf->download('Eventos'.date('hisddmmYY').'.pdf');
+}
+
 }

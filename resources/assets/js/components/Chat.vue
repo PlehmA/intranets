@@ -41,6 +41,13 @@ import Content from './Content';
                     this.contacts = response.data;
                 });
                  }, 2000);
+             setInterval(() => { 
+                axios.get('/api/notificaciones')
+                .then((response) => {
+                    this.notreaded = response.data;
+                });
+                 }, 2000);
+                 
             
              axios.get('/api/convers')
                 .then((response) => {

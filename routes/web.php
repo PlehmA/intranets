@@ -123,3 +123,7 @@ Route::get('registroticket', 'RegistroticketController@index')->name('rticket.in
 Route::post('recordatorio', 'RecordatoryController@store')->name('recordatorio.store');
 
 Route::get('testing', 'TestingController@index')->name('testing.index');
+
+Route::post('invitarcal', 'CalendarController@invitarAmigo')->name('invitarcal');
+
+Route::post('exportevent', 'CalendarController@exportEvent')->name('exportevent');

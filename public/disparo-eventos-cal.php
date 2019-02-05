@@ -5,8 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require '/var/www/html/intranet3/vendor/autoload.php';
 
+
 $dbconn = pg_connect("host=192.168.0.5 port=5432 dbname=intranet user=postgres password=Odon1234");
-//conectarse a una base de datos llamada "mary" en el host "sheep" con el nombre de usuario y password
 
 if (!$dbconn) {
     echo "No se ha podido conectar a la base de datos.\n";
@@ -14,18 +14,20 @@ if (!$dbconn) {
 }
 $actualDate = date('Y-m-d');
 
-$result = pg_query($dbconn, "SELECT id_usuario FROM calendars where start='".$actualDate."' group by id_usuario");
+$result = pg_query($dbconn, "SELECT id_usuario FROM calendars where start::DATE BETWEEN '".$actualDate."'::DATE AND '".$actualDate."'::DATE group by id_usuario");
 
 if(!$result) {
     echo "No se ha podido ejecutar la query.\n";
     exit;
 }
 
+
 while($arr = pg_fetch_assoc($result)){
 
 $find = pg_query($dbconn, "SELECT email, name FROM users where id=".$arr['id_usuario']);
 
 $resource = pg_fetch_object($find);
+
 
     $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 try {
@@ -58,11 +60,10 @@ try {
     ";
 
     $mail->send();
-    echo 'Message has been sent';
+    echo 'Mensaje enviado!';
 } catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    echo 'El mensaje no pudo ser enviado. Error del mail: ', $mail->ErrorInfo;
 }
-
 
 
 }// primer while

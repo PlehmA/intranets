@@ -380,6 +380,9 @@
   max-height: initial;
   bottom: initial;
 }
+.content{
+  margin: initial;
+}
 </style>
 @endsection
 @section('content')

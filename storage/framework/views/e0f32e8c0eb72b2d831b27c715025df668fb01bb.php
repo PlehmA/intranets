@@ -379,6 +379,9 @@
   max-height: initial;
   bottom: initial;
 }
+.content{
+  margin: initial;
+}
 </style>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>

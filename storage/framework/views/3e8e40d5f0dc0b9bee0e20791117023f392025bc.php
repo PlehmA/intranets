@@ -17,9 +17,12 @@
     background-color: rgba(0,0,0,0.4);
     max-height: 100%;
 }
+button.btn:focus {
+  background-color: grey !important;
+}
 /* Modal Content */
 .modal-content {
-  position: relative; background-color: #fefefe; margin: auto; padding: 0; border: 1px solid #888; width: 40%; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);  -webkit-animation-name: animatetop; -webkit-animation-duration: 0.4s; animation-name: animatetop; animation-duration: 0.4s}
+  position: relative; background-color: #fefefe; margin: auto; padding: 0; border: 1px solid #888; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);  -webkit-animation-name: animatetop; -webkit-animation-duration: 0.4s; animation-name: animatetop; animation-duration: 0.4s}
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
@@ -244,6 +247,12 @@
     margin-left: -1vh;
     background-color: rgba(238, 238, 238, 1);
 }
+.datepicker-date-display{
+  background-color: grey;
+}
+.datepicker-table abbr{
+  color: grey;
+}
 </style>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
@@ -264,7 +273,7 @@
 <div id="myModal" class="modal">
 <form action="<?php echo e(action('CalendarController@store')); ?>" method="POST" id="formularito">
   <!-- Modal content -->
-  <div class="modal-content scrollbar-info">
+  <div class="modal-content scrollbar-info" style="width: 55%">
     <div class="modal-header">
       <span class="close">&times;</span>
       <h4>Crear evento</h4>
@@ -361,7 +370,7 @@
 <div id="myModal3" class="modal">
 <form action="<?php echo e(action('CalendarController@store')); ?>" method="POST" id="formularitox">
   <!-- Modal content -->
-  <div class="modal-content scrollbar-info">
+  <div class="modal-content scrollbar-info" style="width: 55%">
     <div class="modal-header">
       <span class="close3">&times;</span>
       <h4>Crear evento</h4>
@@ -455,20 +464,34 @@
 <div id="myModal1" class="modal">
 
   <!-- Modal content -->
-  <div class="modal-content">
+  <div class="modal-content" style="width: 55%">
     <div class="modal-header">
       <span class="close">&times;</span>
       <div id="tituloEvent"></div>
     </div>
     <div class="modal-body" id="contenidoEvent"></div>
     <div class="modal-footer">
+        <div class="col m12 xl12">
       <form action="" id="formci" method="DELETE">
         <?php echo e(csrf_field()); ?>
 
-        <a href="#" class="btn grey" data-id="" id="btnBorrar">Eliminar
-        </a>
+       <div class="row">
+         <div class="col m7 xl7">
+            <select name="invitados[]" multiple class="selectInvitados">
+                <option value="0" disabled selected>Seleccione invitado</option>
+                <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $compas): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                  <option value="<?php echo e($compas->id); ?>"><?php echo e($compas->name); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              </select>
+         </div>
+         <div class="col m5 xl5">
+            <button type="button" class="btn grey botonInvitacion">Invitar</button>
+            <a href="#" class="btn grey" data-id="" id="btnBorrar">Eliminar
+            </a>
+         </div>
+       </div>
       </form>
-
+    </div>
 
     </div>
   </div>
@@ -478,7 +501,7 @@
 <div id="modalRecordatorio" class="modal">
 
   <!-- Modal RECORDATORIO -->
-  <div class="modal-content">
+  <div class="modal-content" style="width: 55%">
     <div class="modal-header">
       
       <span class="close">&times;</span>
@@ -503,7 +526,7 @@
               <input type="color" name="recordcolor" value="#000000" id="colorcito">
           </div>
 
-<?php if(Auth::user()->tipo_rol == 2 || Auth::user()->tipo_rol == 1): ?>
+<?php if(Auth::user()->tipo_rol == 2 || Auth::user()->tipo_rol == 1 || Auth::user()->rol_usuario == 9): ?>
           <div class="input-field col s12">
                 <select multiple name="invitados[]">
                   <option value="0" disabled selected>Lista de usuarios</option>
@@ -526,22 +549,130 @@
 
     </div>
   </div>
-
 </div>
 <!-- Modal RECORDATORIO -->
+
+<!-- EMPIEZA MODAL EXPORTAR EVENTOS -->
+<div id="modalExpEventos" class="modal">
+    <div class="modal-content" style="width: 55%">
+        <div class="modal-header">
+    
+          <span class="close">&times;</span>
+          <h5>Exportar eventos</h5>
+        </div>
+        <div class="modal-body">
+          <form action="<?php echo e(route('exportevent')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
+            <div class="row">
+              <div class="col s12 xl4">
+                  <label for="deevento">De: </label>
+                  <input type="text" id="deevento" name="deevento" class="datepicker deevento" value="<?php echo e(date('d/m/Y')); ?>">
+              </div>
+              <div class="col s12 xl4">
+                  <label for="hastaevento">Hasta: </label>
+                  <input type="text" name="hastaevento" id="hastaevento" class="datepicker hastaevento" value="<?php echo e(date('d/m/Y')); ?>">
+                </div>
+            </div>
+              
+        </div>
+        <div class="modal-footer">
+    
+          <button class="btn grey btnExport" type="submit">Exportar</button>
+          </form>
+    
+    
+        </div>
+      </div>
+    </div>
+    <!-- TERMINA MODAL EXPORTAR EVENTOS -->
+
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('jsscript'); ?>
-<script>
-$(document).ready(function(){
-    $('select').formSelect();
-  });
-</script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+<script src="<?php echo e(asset('js/from_html.js')); ?>"></script>
+<script src="<?php echo e(asset('js/split_text_to_size.js')); ?>"></script>
+<script src="<?php echo e(asset('js/standard_fonts_metrics.js')); ?>"></script>
   <script>
        var eventoShow = <?php echo json_encode($eventos); ?>;
+    
+   
+    // var elem = document.querySelector('.datepicker');
+    // var instance = M.Datepicker.init(elem, options);
+    // // Or with jQuery
+    //
+    // $(document).ready(function(){
+    //     $('.datepicker').datepicker({elem, options});
+    // });
+
 
 $(document).ready(function() {
+  let inter_es = {
+        cancel: 'Cancelar',
+        clear: 'Limpiar',
+        done:    'Ok',
+        previousMonth:    '‹',
+        nextMonth:    '›',
+        months:    [
+            'Enero',
+            'Febrero',
+            'Marzo',
+            'Abril',
+            'Mayo',
+            'Junio',
+            'Julio',
+            'Agosto',
+            'Septiembre',
+            'Octubre',
+            'Noviembre',
+            'Diciembre'
+        ],
+        monthsShort:    [
+            'Ene',
+            'Feb',
+            'Mar',
+            'Abr',
+            'May',
+            'Jun',
+            'Jul',
+            'Ago',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dic'
+        ],
+
+        weekdays:    [
+            'Domingo',
+            'Lunes',
+            'Martes',
+            'Miércoles',
+            'Jueves',
+            'Viernes',
+            'Sábado'
+        ],
+
+        weekdaysShort:    [
+            'Dom',
+            'Lun',
+            'Mar',
+            'Mié',
+            'Jue',
+            'Vie',
+            'Sáb'
+        ],
+
+        weekdaysAbbrev:    ['D', 'L', 'M', 'M', 'J', 'V', 'S']
+
+    };
+
+  $('.datepicker').datepicker({
+    format: 'dd/mm/yyyy',
+    i18n: inter_es,
+  });
+  $('select').formSelect();
   $('.main-panel').perfectScrollbar();
     // var date = new Date();
     // var d = date.getDate();
@@ -558,7 +689,7 @@ $(document).ready(function() {
       header: {
         left: 'prev,next today, BotonEvento',
         center: 'title',
-        right: 'BotonRecordatorio, month,agendaWeek,agendaDay'
+        right: 'exportarEventos, BotonRecordatorio, month,agendaWeek,agendaDay'
       },
       customButtons: {
         BotonEvento: {
@@ -589,10 +720,15 @@ $(document).ready(function() {
           click: function(date, jsEvent, view){
           
             $('#modalRecordatorio').css('display', 'block');
-
-
             
           },
+        },
+        exportarEventos:{
+          text: "Exportar eventos",
+          click:() => {
+          $('.main-panel').perfectScrollbar('destroy');
+          $("#modalExpEventos").css('display', 'block');
+        },
         }
       },
       selectable: true,
@@ -627,26 +763,32 @@ $(document).ready(function() {
           var modal = document.getElementById('myModal1');
           var span = document.getElementsByClassName("close")[0];
           modal.style.display = "block";
-
+          $('.main-panel').perfectScrollbar('destroy');
           $('.close').click(function(){
             $('#myModal1').css("display", "none");
+            $('.main-panel').perfectScrollbar();
           });
 
           // When the user clicks anywhere outside of the modal, close it
           window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+                $('.main-panel').perfectScrollbar();
             }
           }
         moment.locale('es'); 
         let fecha = moment(calEvent.start._i).format('L');
 
+       
+        
           $('#tituloEvent').html("<h3>"+calEvent.title+"</h3>");
           if(calEvent.descripcion == null){
             $('#contenidoEvent').html("<p>Fecha: "+fecha+"</p><br><p></p>");
           }else{
             $('#contenidoEvent').html("<p>Fecha: "+fecha+"</p><br><p>"+calEvent.descripcion+"</p>");
           }
+          $('#formci').append("<input type='hidden' class='idevento' name='idevento' value='"+calEvent.id+"'>");
+          $('#formci').append("<input type='hidden' class='idusuario' name='idusuario' value='"+calEvent.id_usuario+"'>");
           
 
           $('#btnBorrar').attr('data-id', calEvent.id);
@@ -656,7 +798,7 @@ $(document).ready(function() {
 
     });
 
-$('#btnBorrar').click(function() {
+$('#btnBorrar').click(() => {
   var idEvent = $(this).attr('data-id');
   var url = 'calendar/'+idEvent;
   $.ajax({
@@ -666,17 +808,49 @@ $('#btnBorrar').click(function() {
   },
     type: 'DELETE',
   })
-  .done(function(response) {
+  .done((response) => {
     $('#myModal1').css("display", "none");
     
     window.setTimeout('location.reload()', 1);
     // alert('Evento borrado exitosamente');
   })
-  .fail(function() {
+  .fail(() => {
     alert("Algo salió mal");
   });
 
  });
+
+let inviurl = "<?php echo e(route('invitarcal')); ?>"
+
+$(".botonInvitacion").click(() => { 
+  // e.preventDefault();
+
+
+let idEvento = $('.idevento').val();
+let idUsuario = $('.idusuario').val();
+let invitados = $('.selectInvitados').val();
+
+console.log(idUsuario);
+
+axios.post(inviurl, {
+    idevento: idEvento,
+    idusuario: idUsuario,
+    invitados: invitados
+  })
+  .then((response) => {
+    console.log(response.data);
+    var notifications = new Notification("Uitalk", {
+
+      icon: "<?php echo e(asset('images/Recurso1.png')); ?>",
+      body: response.data.message
+    });
+    $("#myModal1").css('display', 'none');
+  })
+  .catch((error) => {
+    console.log(error);
+  });  
+});
+
 
  $('#btnadd').click(function() {
    $('#emailcito').append('<div class="input-field col s6"><i class="material-icons prefix">email</i><input id="email" type="email" class="validate" name="email[]" autocomplete="">');
@@ -692,19 +866,15 @@ $('#btnBorrar').click(function() {
   document.addEventListener("DOMContentLoaded", function (){
     let url = "<?php echo e(url('calendar.index')); ?>";
 
-$("#formularito").submit(function () { 
-
+$("#formularito").submit(function () {
   var notifications = new Notification("Uitalk", {
-
 icon: "<?php echo e(asset('images/Recurso1.png')); ?>",
 body: "Has creado un nuevo evento."
 });
 $('.modal').css('display', 'none');
-
 });
 
 $("#formularitox").submit(function () { 
-
 var notifications = new Notification("Uitalk", {
 
 icon: "<?php echo e(asset('images/Recurso1.png')); ?>",
@@ -744,13 +914,45 @@ function compruebaTecla(){
     if(tecla == 27){
         document.getElementById("myModal").style.display = "none";
         document.getElementById("myModal1").style.display = "none";
-        document.getElementById("myModal1").style.display = "none";
         document.getElementById("modalRecordatorio").style.display = "none";
         $('.main-panel').perfectScrollbar();
     }
 }
 });
 
+</script>
+<script>
+$(".close").click((e) => { 
+  e.preventDefault();
+  $(".modal").css('display', 'none');
+});
+
+// $(document).ready(() => {
+//   $(".btnExport").click((e) =>{ 
+//     e.preventDefault();
+// let deevento = $(".deevento").val();
+// let hastaevento = $(".hastaevento").val();
+// let url = "<?php echo e(route('exportevent')); ?>";
+
+// axios.get(url, {
+//   deevento: deevento,
+//   hastaevento: hastaevento
+//     })
+//   .then((response)=>{
+//     moment.locale('es');
+//     let fecha = moment().format('hmmss-DD-MMMM-YYYY');
+//     console.log(response);
+//     var blob=new Blob([response.data]);
+//     var link=document.createElement('a');
+//     link.href=window.URL.createObjectURL(blob);
+//     link.download="Evento"+fecha+".pdf";
+//     link.click();
+//   })
+//   .catch((error)=>{
+//     console.error(error);
+//   });
+//   });
+// });
 </script>
 <?php $__env->stopSection(); ?>
 

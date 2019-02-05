@@ -46,6 +46,7 @@ class RecordatoryController extends Controller
             $event->color = $request->recordcolor;
             $event->textcolor = '#ffffff';
             $event->allday = false;
+            $event->isrecordatory = true;
             $event->save();
             
            }
@@ -60,6 +61,7 @@ class RecordatoryController extends Controller
         $event->color = $request->recordcolor;
         $event->textcolor = '#ffffff';
         $event->allday = false;
+        $event->isrecordatory = true;
         $event->save();
         return back();
     }

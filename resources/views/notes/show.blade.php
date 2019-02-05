@@ -409,7 +409,7 @@
             </ul>
     </div>
     <div class="col s9 m9 l9">
-      <div class="col s9 m9 l9">
+      <div class="col s12 m12 l12">
 
                 <a class="nav-link btn grey left modal-trigger" href="#modal1">Nueva nota <i class="fas fa-plus"></i></a>
 
@@ -423,7 +423,7 @@
         </ul>
       </div>
 
-      <div class="col s9 m9 l9">
+      <div class="col s12 m12 l12">
 
         @if (session('success'))
             <div class="container alert alert-default text-center animated fadeIn" role="alert" data-dismiss="alert">
