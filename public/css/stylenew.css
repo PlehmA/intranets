@@ -205,7 +205,11 @@ img.correo-icon {
 
 .logo_completo {
     display: none;
-    width: 80px;
+    width: 73px;
+    height: 27px;
+}
+
+.logo_mini {
     height: 27px;
 }
 
@@ -224,7 +228,7 @@ img.correo-icon {
         margin-right: 4vh;
     }
     .embed-container iframe {
-        min-width: 1280px;
+        min-width: 1320px;
         min-height: 600px;
         margin-left: -60px;
     }
@@ -245,16 +249,16 @@ img.correo-icon {
         margin-left: 60px;
     } */
     .sidebar {
-        width: 60px;
+        width: 45px;
         z-index: 9999;
         opacity: 1;
         background-color: #eeeeee;
     }
     .sidebar .sidebar-wrapper {
-        width: 60px;
+        width: 45px;
     }
     .sidebar .sidebar-wrapper li {
-        height: 58px;
+        height: 40px;
         display: contents;
     }
     .sidebar .sidebar-wrapper li div p {
@@ -262,7 +266,7 @@ img.correo-icon {
     }
     .main-panel {
         width: 100%;
-        padding: 0px 60px;
+        padding: 0px 45px;
         overflow: hidden;
     }
     .content {

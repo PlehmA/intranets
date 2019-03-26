@@ -16,7 +16,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'username', 'rol_usuario', 'tipo_rol', 'num_legajo', 'fecha_ingreso', 'fecha_nacimiento', 'puesto', 'email', 'email_personal', 'ip_maquina', 'foto',
-        'telefono_particular', 'telefono_celular', 'cuil', 'estado', 'interno',
+        'telefono_particular', 'telefono_celular', 'cuil', 'estado', 'interno', 'onedrivepersonal', 'onedrivecompartido'
     ];
 
     protected $guarded = [

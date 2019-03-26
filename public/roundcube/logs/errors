@@ -724,3 +724,10 @@ END:VCARD', 'Jos‚', 'Jos‚', 'jlaragon@jnext.com.ar', ' jos‚ jlaragon@jnext
 [01-Feb-2019 15:16:09 -0300]: <e13ljhad> PHP Error: Unable to connect to managesieve on localhost:4190 in /var/www/html/intranet3/public/roundcube/plugins/managesieve/lib/Roundcube/rcube_sieve_engine.php on line 222 (GET /roundcube/?_task=settings&_action=plugin.managesieve)
 [01-Feb-2019 15:16:09 America/Argentina/Buenos_Aires] ERROR: Not currently in AUTHORISATION state (1)
 [01-Feb-2019 15:16:09 America/Argentina/Buenos_Aires] ERROR: Not currently connected (1)
+[21-Feb-2019 15:53:27 -0300]: <tsplkfm9> DB Error: SQLSTATE[08006] [7] could not connect to server: Connection refused
+	Is the server running on host "192.168.0.5" and accepting
+	TCP/IP connections on port 5432? in /var/www/html/intranet3/public/roundcube/program/lib/Roundcube/rcube_db.php on line 175 (POST /roundcube/?_task=mail&_action=refresh)
+[21-Feb-2019 15:53:27 -0300]: <tsplkfm9> DB Error: SQLSTATE[08006] [7] could not connect to server: Connection refused
+	Is the server running on host "192.168.0.5" and accepting
+	TCP/IP connections on port 5432? (POST /roundcube/?_task=mail&_action=refresh)
+[18-Mar-2019 11:47:41 -0300]: <cs7cinp4> PHP Error: Request security check failed (POST /roundcube/?_task=mail&_action=refresh)

@@ -208,20 +208,22 @@ img.agenda-icon{
                     <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
                     <div class="collapsible-body">
                       <span><a href="<?php echo e(route('tutos.index')); ?>" class="grey-text text-darken-2">Tutoriales</a></span><hr>
+                      <span><a href="https://office.live.com/start/Excel.aspx?ui=es-ES&rs=ES#" class="grey-text text-darken-2" target="_blank">Excel</a></span><hr>
+                      <span><a href="https://office.live.com/start/Word.aspx?ui=es-ES&rs=ES&auth=1&nf=1" class="grey-text text-darken-2" target="_blank">Word</a></span><hr>
                       
                       <span><a href="<?php echo e(route('plantillas.index')); ?>" class="grey-text text-darken-2">Plantillas</a></span>
                     </div>
 
                   </li>
-                  <a href="<?php echo e(url(Auth::user()->dir_onedrive)); ?>" target="_blank" style="color:grey">
-                    <li>
-                      <div class="collapsible-header">
-                        <i class="material-icons">folder_open</i>
-                         <p>Mis Archivos</p>
+                  <?php if(Auth::user()->puesto != 'Call-center'): ?>
+                  <li>
+                      <div class="collapsible-header"><i class="material-icons">folder_open</i> <p>Mis Archivos</p> </div>
+                      <div class="collapsible-body">
+                        <span><a href="<?php echo e(Auth::user()->onedrivecompartido); ?>" target="_blank" class="grey-text text-darken-2">Compartido</a></span><hr>
+                        <span><a href="<?php echo e(Auth::user()->onedrivepersonal); ?>" target="_blank" class="grey-text text-darken-2">Mi carpeta</a></span>
                       </div>
-
-                    </li>
-                  </a>
+                  </li>
+                  <?php endif; ?>
                   <li onclick="location.href='<?php echo e(route('calendar.index')); ?>'">
                     <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
                     <p>Calendario</p></div>
@@ -400,45 +402,7 @@ img.agenda-icon{
 <script type="text/javascript">
    $('.dropdown-trigger1').dropdown();
 </script>
-<script>
-$(document).ready(function () {
-  $('.sidebar').hover(function () {
-    if ($( window ).width() > 1400) {
-            $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
-            $('.sidebar .sidebar-wrapper li').css('height', '58px');
-            $('.sidebar .sidebar-wrapper').css('width', '220px');
-            $('.sidebar').css('width', '220px');
-          }
-    if($(window).width() < 1400){
-      $('.sidebar .sidebar-wrapper').css('width', '200px');
-      $('.sidebar').css('width', '200px');
-    }
-     $('.sidebar .sidebar-wrapper li div p').css('display', 'block');
-     $('.sidebar').css('opacity', '1');
-     $('.sidebar').css('transition-duration', '0.5s')
-     $('.sidebar .sidebar-wrapper').css('transition-duration', '0.5s')
-     $('.sidebar .sidebar-wrapper li div p').addClass('animated fadeInLeft faster');
-     $('.logo_mini').css('display', 'none');
-     $('.logo_completo').css('display', 'block');
-
-    }, function () {
-          $('.sidebar .sidebar-wrapper li div p').css('display', 'none');
-          if ($( window ).width() > 1400) {
-            $('.sidebar .sidebar-wrapper li .collapsible-header').css('height', '58px');
-            $('.sidebar .sidebar-wrapper li').css('height', '58px');
-          }
-          $('.sidebar').css('width', '60px');
-          $('.sidebar').css('opacity', '1');
-          $('.sidebar .sidebar-wrapper').css('width', '60px');
-          $('.sidebar .sidebar-wrapper li div p').removeClass('animated fadeInLeft faster');
-          $('.logo_completo').css('display', 'none');
-          $('.logo_mini').css('display', 'block');
-
-    });
-    
-});
-
-</script>
+<script src="<?php echo e(asset('js/sidebar.js')); ?>"></script>
 <script>
   var miliSegundos = 1800000
   setTimeout(function(){
