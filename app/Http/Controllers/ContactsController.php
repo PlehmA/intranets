@@ -26,6 +26,28 @@ class ContactsController extends Controller
         ->orderBy('updated_at', 'DESC')
         ->get();
 
+        // $usuario = User::find(39);
+
+        // Friend::create([
+        //     'name'  =>  $usuario->name,
+        //     'amigo_de'  =>  40,
+        //     'id_user'   =>  $usuario->id,
+        //     'username'  =>  $usuario->username,
+        //     'rol_usuario'   =>  $usuario->rol_usuario,
+        //     'num_legajo'    =>  $usuario->num_legajo,
+        //     'fecha_ingreso' =>  $usuario->fecha_ingreso,
+        //     'fecha_nacimiento'  =>  $usuario->fecha_nacimiento,
+        //     'puesto'    =>  $usuario->puesto,
+        //     'email' =>  $usuario->email,
+        //     'email_personal'    =>  $usuario->email_personal,
+        //     'ip_maquina'    =>  $usuario->ip_maquina,
+        //     'foto'  =>  $usuario->foto,
+        //     'telefono_particular'   =>  $usuario->telefono_particular,
+        //     'telefono_celular'  =>  $usuario->telefono_celular,
+        //     'estado'    =>  $usuario->estado,
+        //     'interno'   =>  $usuario->interno,
+        // ]);
+
         return response()->json($contacts);
     }
 

@@ -127,3 +127,25 @@ Route::get('testing', 'TestingController@index')->name('testing.index');
 Route::post('invitarcal', 'CalendarController@invitarAmigo')->name('invitarcal');
 
 Route::post('exportevent', 'CalendarController@exportEvent')->name('exportevent');
+
+Route::post('creartabla', 'AddPersController@crearTabla')->name('creartabla');
+
+Route::get('/sistemas', 'SistemasController@index')->name('sistemas');
+
+Route::resource('puesto', 'PuestoController');
+
+Route::resource('video', 'VideoController');
+
+Route::post('subidaloca', 'SistemasController@store')->name('subidaloca');
+
+Route::put('tutoriales/subida', 'EducationController@imageUp')->name('tutoriales/subida');
+
+Route::get('tutoriales/show/{id}', 'EducationController@toEdit')->name('tutoriales/show');
+
+Route::put('tutoriales/update/{id}', 'EducationController@educatUpdate')->name('tutoriales/update');
+
+Route::delete('tutoriales/delete/{id}', 'EducationController@destructionEdu')->name('tutoriales/delete');
+
+Route::post('videos/store', 'VideoController@upVideos')->name('videos/store');
+
+Route::get('mail', 'MailController@index');

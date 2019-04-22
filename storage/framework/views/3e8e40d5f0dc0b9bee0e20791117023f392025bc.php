@@ -526,7 +526,6 @@ button.btn:focus {
               <input type="color" name="recordcolor" value="#000000" id="colorcito">
           </div>
 
-<?php if(Auth::user()->tipo_rol == 2 || Auth::user()->tipo_rol == 1 || Auth::user()->rol_usuario == 9): ?>
           <div class="input-field col s12">
                 <select multiple name="invitados[]">
                   <option value="0" disabled selected>Lista de usuarios</option>
@@ -535,9 +534,7 @@ button.btn:focus {
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
                 <label>Otros usuarios para agregar al recordatorio: </label>
-            </div>
-<?php endif; ?>
-                      
+            </div>               
 
     </div>
     <div class="modal-footer">
@@ -787,10 +784,9 @@ $(document).ready(function() {
           }else{
             $('#contenidoEvent').html("<p>Fecha: "+fecha+"</p><br><p>"+calEvent.descripcion+"</p>");
           }
-          $('#formci').append("<input type='hidden' class='idevento' name='idevento' value='"+calEvent.id+"'>");
+          $('#formci').append("<input type='hidden' id='eventisloco' class='idevento' name='idevento' value='"+calEvent.id+"'>");
           $('#formci').append("<input type='hidden' class='idusuario' name='idusuario' value='"+calEvent.id_usuario+"'>");
           
-
           $('#btnBorrar').attr('data-id', calEvent.id);
 
   },
@@ -798,8 +794,8 @@ $(document).ready(function() {
 
     });
 
-$('#btnBorrar').click(() => {
-  var idEvent = $(this).attr('data-id');
+$("#btnBorrar").click(() => {
+  var idEvent = $("#eventisloco").val();
   var url = 'calendar/'+idEvent;
   $.ajax({
     url: url,

@@ -20,6 +20,11 @@
 @endsection 
 @section('content')
     <div class="panel">
+            @if (session('success'))
+            <div class="alert alert-success text-center" style="opacity: 0.6" role="alert" data-dismiss="alert">
+                {{ session('success') }}
+            </div>
+            @endif
         <div class="panel-body">
            <table id="tableX">
                <thead>
@@ -49,7 +54,8 @@
                         <td>{{ $user->email }}</td>
                         <td><a href="{{ route('rrhh.show', $user->id)}}" class="btn grey btn-small editar" title="Editar"><i class="far fa-edit"></i></a></td>
                         <td>
-                        {!! Form::open(['method' => 'DELETE', 'route' => ['rrhh.destroy', $user->id]]) !!}
+                        {!! Form::open(['method' => 'DELETE', 'route' => ['addpers.destroy', $user->id]]) !!}
+                        @csrf
                             <button type="submit" class="btn red btn-small btn-borrar borrar" title="Borrar"><i class="far fa-trash-alt"></i></button>
                         {!! Form::close() !!}
                         </td>

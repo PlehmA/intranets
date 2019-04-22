@@ -134,7 +134,7 @@ var api_key = 'hMkNHBcvlLb0c1QwMPBj';
                 const IDUSER = data[0].id
 
         $.ajax({
-            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets",
+            url: "https://"+yourdomain+".freshdesk.com/api/v2/tickets?include=description",
             type: 'GET',
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -148,34 +148,34 @@ var api_key = 'hMkNHBcvlLb0c1QwMPBj';
                 if (IDUSER == information) {
                 //    console.log(data[i]);
                 if (data[i].status == 2) {
-
+                    
                     let estado = 'Abierto';
 
-                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge light-blue">'+estado+'</span></td></tr>';
+                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description_text+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge light-blue">'+estado+'</span></td></tr>';
 
                     $('#filas').append(fila);
-
+                    
                 }else if (data[i].status == 3){
-
+                    
                     let estado = 'Pendiente';
 
-                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge deep-orange lighten-1">'+estado+'</span></td></tr>';
+                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description_text+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge deep-orange lighten-1">'+estado+'</span></td></tr>';
 
                     $('#filas').append(fila);
 
                 }else if (data[i].status == 4){
-
+                    
                     let estado = 'Resuelto';
 
-                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge light-green darken-1">'+estado+'</span></td></tr>';
+                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description_text+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge light-green darken-1">'+estado+'</span></td></tr>';
 
                     $('#filas').append(fila);
 
                 }else if (data[i].status == 5){
-
+                    
                     let estado = 'Cerrado';
 
-                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge grey lighten-1">'+estado+'</span></td></tr>';
+                    let fila = '<tr><td><b>#'+data[i].id+'</b></td><td>'+data[i].subject+'</td><td>'+data[i].description_text+'</td><td>'+moment(data[i].created_at).format('L')+'</td><td><span class="badge grey lighten-1">'+estado+'</span></td></tr>';
 
                     $('#filas').append(fila);
 

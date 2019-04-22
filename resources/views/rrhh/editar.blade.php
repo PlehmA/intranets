@@ -1,9 +1,9 @@
 @extends('rrhh.app')
-
+@section('css')
+@toastr_css
+@endsection
 @section('content')
 
-
-    
 <div class="container">
 
     <div class="panel">
@@ -35,8 +35,15 @@
     
                            <div class="input-field col s4">
                             
-                           <input id="puesto" type="text" class="validate" name="puesto" autocomplete="off" required value="{{ $user->puesto }}">
+                           
+                           <select id="puesto" name="puesto" required>
+                              <option value="{{ $user->rol_usuario }}" selected>{{ $user->puesto }}</option>
+                              @foreach ($puestos as $puesto)
+                              <option value="{{ $puesto->id }}">{{ $puesto->nombre_puesto }}</option>
+                              @endforeach
+                            </select>
                            <label for="puesto">Área</label>
+
                            </div>
     
                             <div class="input-field col s4">
@@ -88,19 +95,28 @@
     
                           </div><!-- Row -->
                           <div class="row"><!-- Row -->
-    
-                            <div class="input-field col s6">
-                        <input id="ip_maquina" type="text" class="validate" name="ip_maquina" autocomplete="off" pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="{{ $user->ip_maquina }}" readonly>
-                        <label for="ip_maquina">Dirección IP de su PC</label>
-
-                            </div>
-    
+                         
                             <div class="input-field col s6">
                                 <input id="interno" type="number" class="validate" name="interno" autocomplete="off"value="{{ $user->interno }}">
                                 <label for="interno">Interno</label>
 
                             </div>
-    
+                            @if (Auth::user()->rol_usuario == 3)
+                            <div class="input-field col s6">
+                                <input id="ip_maquina" type="text" class="validate" name="ip_maquina" autocomplete="off" pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="{{ $user->ip_maquina }}">
+                                <label for="ip_maquina">Dirección IP de su PC</label>
+                              </div>
+
+                              <div class="input-field col s12">
+                                <input id="oneCompartido" type="text" name="oneCompartido" autocomplete="off" value="{{ $user->onedrivecompartido }}">
+                                <label for="oneCompartido">Onedrive compartido</label>
+                              </div>
+
+                              <div class="input-field col s12">
+                                <input id="onePersonal" type="text" name="onePersonal" autocomplete="off" value="{{ $user->onedrivepersonal }}">
+                                <label for="onePersonal">Onedrive personal</label>
+                              </div>
+                          @endif
                           </div><!-- Row -->
                           <div class="row"><!-- Row -->
     
@@ -113,4 +129,13 @@
                           {!! Form::close() !!}
     </div>
 </div>
+@endsection
+@section('javascript')
+@toastr_js
+@toastr_render
+    <script>
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+    </script>
 @endsection

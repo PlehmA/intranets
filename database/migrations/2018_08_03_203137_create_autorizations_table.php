@@ -40,6 +40,10 @@ class CreateAutorizationsTable extends Migration
             $table->boolean('estado_jefe')->nullable();
             $table->boolean('estado_rrhh')->nullable();
             $table->dateTime('fecha_creacion');
+            $table->dateTime('hora_de')->nullable();
+            $table->dateTime('hora_hasta')->nullable();
+            $table->integer('tipo_ro')->nullable();
+            $table->bigInteger('dias_count')->nullable();
             $table->timestamps();
         });
     }

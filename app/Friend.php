@@ -11,9 +11,6 @@ class Friend extends Model
         'telefono_particular', 'telefono_celular', 'estado', 'interno',
     ];
 
-    protected $guarded = [
-      'id', 
-    ];
     protected $hidden = [
         'password', 
       ];

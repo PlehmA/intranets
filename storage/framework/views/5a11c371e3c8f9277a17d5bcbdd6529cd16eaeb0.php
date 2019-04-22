@@ -18,11 +18,21 @@
     
     <div class="panel"><!-- Panel -->
         <?php if(session('success')): ?>
-        <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
+        <div class="alert alert-success text-center" style="opacity: 0.6" role="alert" data-dismiss="alert">
             <?php echo e(session('success')); ?>
 
         </div>
         <?php endif; ?>
+        <?php if($errors->any()): ?>
+            <div class="alert text-center animated fadeIn" style="background-color: #EEE">
+                <ul>
+                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li><?php echo e($error); ?></li>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
 
     
           <?php echo Form::open(['method' => 'POST', 'route' => 'addpers.store', 'class' => 'form-horizontal']); ?>
@@ -206,5 +216,13 @@
     
 </div><!-- Container -->
 
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('javascript'); ?>
+    <script>
+    $(".alert").click(function (e) { 
+      e.preventDefault();
+      $(".alert").css("display", "none");
+    });
+    </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('rrhh.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

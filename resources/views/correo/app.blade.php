@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="{{ asset('css/correo.css') }}">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.3.0/css/autoFill.dataTables.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 @yield('header')
 </head>
 
@@ -186,115 +186,7 @@ img.agenda-icon{
   <div class="sidebar" data-color="purple" data-image="{{ asset('img/barralateral.png') }}">
 
     <div class="sidebar-wrapper">
-        <ul class="nav">
-            <ul class="collapsible" style="background-color: transparent; color:grey;">
-
-            <li onclick="location.href='{{ route('dashboard') }}'">
-                <div class="collapsible-header">
-                    <img src="{{ asset('img/faviconuitalk.png') }}" class="logo_mini">
-                    <img src="{{ asset('images/Recurso1.png') }}" class="logo_completo">
-                </div>
-
-              </li>
-
-              <li onclick="location.href='{{ route('correo.index') }}'">
-                <div class="collapsible-header">
-                    <img src="{{ asset('images/correo-atajo.png') }}" class="correo-icon">
-                  <p>Correo</p>
-                </div>
-
-              </li>
-              <li>
-                <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
-                <div class="collapsible-body">
-                  <span><a href="{{ route('tutos.index') }}" class="grey-text text-darken-2">Tutoriales</a></span><hr>
-                  <span><a href="https://office.live.com/start/Excel.aspx?ui=es-ES&rs=ES#" class="grey-text text-darken-2" target="_blank">Excel</a></span><hr>
-                  <span><a href="https://office.live.com/start/Word.aspx?ui=es-ES&rs=ES&auth=1&nf=1" class="grey-text text-darken-2" target="_blank">Word</a></span><hr>
-                  {{-- <span><a href="{{ route('organigrama.index') }}" class="grey-text text-darken-2">Organigrama corporativo</a></span><hr> --}}
-                  <span><a href="{{ route('plantillas.index') }}" class="grey-text text-darken-2">Plantillas</a></span>
-                </div>
-
-              </li>
-              @if (Auth::user()->puesto != 'Call-center')
-              <li>
-                  <div class="collapsible-header"><i class="material-icons">folder_open</i> <p>Mis Archivos</p> </div>
-                  <div class="collapsible-body">
-                    <span><a href="{{ Auth::user()->onedrivecompartido }}" target="_blank" class="grey-text text-darken-2">Compartido</a></span><hr>
-                    <span><a href="{{ Auth::user()->onedrivepersonal }}" target="_blank" class="grey-text text-darken-2">Mi carpeta</a></span>
-                  </div>
-              </li>
-              @endif
-              <li onclick="location.href='{{ route('calendar.index') }}'">
-                <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
-                <p>Calendario</p></div>
-
-              </li>
-              <li onclick="location.href='{{ route('directorio.index') }}'">
-                <div class="collapsible-header">
-                    <img src="{{ asset('images/agenda_icon.png') }}" class="agenda-icon">
-                <p>Agenda</p></div>
-              </li>
-
-              <li>
-                    <div class="collapsible-header"><i class="material-icons text-gray">insert_drive_file</i> <p>Gestiones</p> </div>
-                    <div class="collapsible-body">
-                      <span><a href="{{ url('tickets') }}" class="grey-text text-darken-2">Tickets</a></span><hr>
-                      <span><a href="{{ url('registroticket') }}" class="grey-text text-darken-2">Registro de tickets</a></span><hr>
-                    @if(1 != Auth::user()->tipo_rol)
-                      <span><a href="{{ route('autorizaciones.create') }}" class="grey-text text-darken-2">Licencias</a></span><hr>
-                    @endif
-                      <span><a href="{{ route('autorizaciones.index') }}" class="grey-text text-darken-2">Registro de licencias</a></span>
-                    </div>
-
-                  </li>
-
-              <li onclick="location.href='{{ route('dashboard') }}'">
-                <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
-                <p>Novedades</p></div>
-
-              </li>
-              @if(Auth::user()->rol_usuario == 5 && Auth::user()->tipo_rol == 2|| 'aplehm' == Auth::user()->username || 'ipicoy' == Auth::user()->username || 'ppalermo' == Auth::user()->username)
-              <li onclick="location.href='{{ route('rrhh.index') }}'">
-                <div class="collapsible-header">
-                      <i class="material-icons text-gray">people</i>
-                      <p>Recursos Humanos</p>
-                </div>
-              </li>
-              @endif
-              @if(Auth::user()->rol_usuario == 11)
-              <li onclick="location.href='{{ route('presidencia.index') }}'">
-                <div class="collapsible-header">
-                      <i class="material-icons text-gray">people</i>
-                      <p>Presidencia</p>
-                </div>
-              </li>
-              @endif
-              <li onclick="location.href='{{ route('configuracion') }}'">
-                <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
-                <p>Seguridad</p></div>
-
-              </li>
-              @if(Auth::user()->rol_usuario == 12 || Auth::user()->rol_usuario == 3 &&  Auth::user()->username != 'udemo')
-                <li onclick="location.href='{{ route('noticia.index') }}'">
-                    <div class="collapsible-header"><i class="material-icons text-gray">file_upload</i>
-                    <p>Entradas</p></div>
-
-                  </li>
-              @endif
-              <li>
-                    <div class="collapsible-header"><i class="fas fa-door-open" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
-                        <p>Accesos</p></div>
-                    <div class="collapsible-body">
-                      <span><a href="http://192.168.0.8:8080/PREPAGA" target="_blank" class="grey-text text-darken-2">ThinkSoft</a></span><hr>
-
-                
-                    </div>
-
-                  </li>
-           
-              
-            </ul>
-        </ul>
+      @include('layouts.rutas')
         {{-- Aca termina la barra lateral --}}
     </div>
 </div>
@@ -379,7 +271,7 @@ img.agenda-icon{
 <!--  Notifications Plugin    -->
 <script src="{{ asset('js/bootstrap-notify.js') }}"></script>
 <!--  Google Maps Plugin    -->
-<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 <!-- Material Dashboard javascript methods -->
 <script src="{{ asset('js/material-dashboard.js?v=1.2.0') }}"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
@@ -403,13 +295,6 @@ img.agenda-icon{
    $('.dropdown-trigger1').dropdown();
 </script>
 <script src="{{ asset('js/sidebar.js') }}"></script>
-<script>
-  var miliSegundos = 3600000;
-  setTimeout(function(){
-    alert('Ha pasado el tiempo de sesión, vuelva a conectarse');
-    window.location.assign('{{ url('/logout') }}');
-  }, miliSegundos);
-</script>
 <script>
 $(document).ready(function(){
     $('.collapsible').collapsible();

@@ -60,12 +60,12 @@
                         <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="3" v-model="formu" /><span>Por casamiento de hijo</span></label></p></li>
                         <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="4" v-model="formu" /><span>Por mudanza</span></label></p></li>
                         <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="5" v-model="formu" /><span>Por enfermedad de familiar directo</span></label></p></li>
-                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="6" v-model="formu" /><span>Por exámen / estudio</span></label></p></li>
-                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="7" v-model="formu" /><span>Por consulta médica</span></label></p></li>
-                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="8" v-model="formu" /><span>Por asuntos judiciales</span></label></p></li>
-                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="9" v-model="formu" /><span>Por trámites bancarios</span></label></p></li>
-                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="11" v-model="formu" /><span>Por reunión de padres en jardín o colegios</span></label></p></li>
-                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="12" v-model="formu" /><span>Por trámites personales</span></label></p></li>
+                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="6" v-model="formu" /><span>Por exámen</span></label></p></li>
+                        {{-- <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="7" v-model="formu" /><span>Por consulta médica</span></label></p></li> --}}
+                        {{-- <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="8" v-model="formu" /><span>Por asuntos judiciales</span></label></p></li> --}}
+                        <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="9" v-model="formu" /><span>Por gestiones personales</span></label></p></li>
+                        {{-- <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="11" v-model="formu" /><span>Por reunión de padres en jardín o colegios</span></label></p></li> --}}
+                        {{-- <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="12" v-model="formu" /><span>Por trámites personales</span></label></p></li> --}}
                         <li class="collection-item"><p><label class="grey-text"><input class="text-grey" name="opcionauto" type="radio" :value="13" v-model="formu" /><span>Por vacaciones</span></label></p></li>
               
                 </ul>
@@ -227,6 +227,7 @@
                                               <br>
                                               <label>Motivo: </label> <br> <textarea style="color: black" rows="1400" cols="1400" name="motivo"></textarea>
                                             </div>
+                                            <p class="center-align" style="font-weight: 700;"><b><i> Se deberá traer certificado para constatar.</i></b></p>
                                             <div class="card-action">
                                                     <button class="btn grey hoverable btn-small" >Enviar pedido</button>
                                             </div>
@@ -242,7 +243,7 @@
                                         <div class="col m6 offset-m1">
                                           <div class="card">
                                             <div class="card-content white-text">
-                                              <span class="card-title" style="color: black">Licencia por exámen / estudio</span>
+                                              <span class="card-title" style="color: black">Licencia por exámen</span>
                                               <hr>
                                               <label>Desde: </label> <br> <input type="date" style="color: black" class="browser-default" value="{{ date('Y-m-d') }}" name="delicexamen">
                                               <br>
@@ -319,13 +320,15 @@
                                   <div class="col m6 offset-m1">
                                     <div class="card">
                                       <div class="card-content white-text">
-                                        <span class="card-title" style="color: black">Licencia por tramites bancarios</span>
+                                        <span class="card-title" style="color: black">Por gestiones personales</span>
                                         <hr>
                                         <label>Desde: </label> <br> <input type="date" style="color: black" class="browser-default" value="{{ date('Y-m-d') }}" name="delicjuzcom">
                                         <br>
-                                        <label>Horario: </label> <br> <input type="time" class="browser-default" style="color: black" value="{{ date('H:i:s') }}" name="hastalicjuzcom">
+                                        <label>Hasta: </label> <br> <input type="date" class="browser-default" style="color: black" value="{{ date('Y-m-d') }}" name="hastalicjuzcom">
+                                        <br>
+                                        <label>Motivo: </label> <br> <textarea style="color: black" rows="1400" cols="1400" name="motivo" required></textarea>
                                       </div>
-                                      <p class="center-align" style="font-weight: 700;"><b><i> Esta licencia se deberá solicitar con 72 horas de anticipación.</i></b></p>
+                                      <p class="center-align" style="font-weight: 700;"><b><i> Es obligatorio aclarar los motivos de la licencia. </i></b></p>
 
                                       <div class="card-action">
                                               <button class="btn grey hoverable btn-small" >Enviar pedido</button>
@@ -367,7 +370,7 @@
 
                 </main>
 
-                <main v-else-if="formu == 11">
+                {{-- <main v-else-if="formu == 11">
         
                   <div class="row">
                           <div class="col m6 offset-m1">
@@ -390,7 +393,7 @@
                           </div>
                         </div>
 
-            </main>
+            </main> --}}
                     
             <main v-else-if="formu == 12">
         

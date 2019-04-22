@@ -19,6 +19,12 @@
 <?php $__env->stopSection(); ?> 
 <?php $__env->startSection('content'); ?>
     <div class="panel">
+            <?php if(session('success')): ?>
+            <div class="alert alert-success text-center" style="opacity: 0.6" role="alert" data-dismiss="alert">
+                <?php echo e(session('success')); ?>
+
+            </div>
+            <?php endif; ?>
         <div class="panel-body">
            <table id="tableX">
                <thead>
@@ -48,8 +54,9 @@
                         <td><?php echo e($user->email); ?></td>
                         <td><a href="<?php echo e(route('rrhh.show', $user->id)); ?>" class="btn grey btn-small editar" title="Editar"><i class="far fa-edit"></i></a></td>
                         <td>
-                        <?php echo Form::open(['method' => 'DELETE', 'route' => ['rrhh.destroy', $user->id]]); ?>
+                        <?php echo Form::open(['method' => 'DELETE', 'route' => ['addpers.destroy', $user->id]]); ?>
 
+                        <?php echo csrf_field(); ?>
                             <button type="submit" class="btn red btn-small btn-borrar borrar" title="Borrar"><i class="far fa-trash-alt"></i></button>
                         <?php echo Form::close(); ?>
 

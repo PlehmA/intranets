@@ -65,9 +65,11 @@ class PersonalController extends Controller
 
         $puesto = Puesto::find($user->rol_usuario);
 
+        $puestos = Puesto::all();
+
         $notificacion = Notify::where('user_recibe_id', Auth::user()->id)->where('leido', false)->get();
 
-        return view('rrhh.editar', compact(['user' , 'notificacion', 'puesto']));
+        return view('rrhh.editar', compact(['user' , 'notificacion', 'puesto', 'puestos']));
     }
 
     /**
@@ -92,10 +94,12 @@ class PersonalController extends Controller
     {
         $user = User::find($id);
 
+        $puesto = Puesto::find($request->input('puesto'));        
+
         $user->update([
             'name' => $request->input('name'),
             'username' => $request->input('username'),
-            'puesto' => $request->input('puesto'),
+            'puesto' => $puesto->nombre_puesto,
             'num_legajo' => $request->input('num_legajo'),
             'fecha_nacimiento' => $request->input('fecha_nacimiento'),
             'email' => $request->input('email'),
@@ -105,9 +109,11 @@ class PersonalController extends Controller
             'telefono_particular' => $request->input('telefono_particular'),
             'ip_maquina' => $request->input('ip_maquina'),
             'interno' => $request->input('interno'),
+            'onedrivecompartido' =>  $request->input('oneCompartido'),
+            'onedrivepersonal'   =>  $request->input('onePersonal')
         ]);
-
-        return back()->with('success', 'Usuario actualizado exitosamente');
+        toastr()->success('Usuario actualizado exitosamente.');
+        return back();
     }
 
     /**

@@ -28,7 +28,7 @@
   
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/autofill/2.3.0/css/autoFill.dataTables.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <?php echo $__env->yieldContent('header'); ?>
 </head>
 
@@ -186,115 +186,7 @@ img.agenda-icon{
     <div class="sidebar" data-color="purple" data-image="<?php echo e(asset('img/barralateral.png')); ?>">
 
         <div class="sidebar-wrapper">
-            <ul class="nav">
-                <ul class="collapsible" style="background-color: transparent; color:grey;">
-
-                <li onclick="location.href='<?php echo e(route('dashboard')); ?>'">
-                    <div class="collapsible-header">
-                        <img src="<?php echo e(asset('img/faviconuitalk.png')); ?>" class="logo_mini">
-                        <img src="<?php echo e(asset('images/Recurso1.png')); ?>" class="logo_completo">
-                    </div>
-
-                  </li>
-
-                  <li onclick="location.href='<?php echo e(route('correo.index')); ?>'">
-                    <div class="collapsible-header">
-                        <img src="<?php echo e(asset('images/correo-atajo.png')); ?>" class="correo-icon">
-                      <p>Correo</p>
-                    </div>
-
-                  </li>
-                  <li>
-                    <div class="collapsible-header"><i class="material-icons">build</i> <p>Herramientas</p> </div>
-                    <div class="collapsible-body">
-                      <span><a href="<?php echo e(route('tutos.index')); ?>" class="grey-text text-darken-2">Tutoriales</a></span><hr>
-                      <span><a href="https://office.live.com/start/Excel.aspx?ui=es-ES&rs=ES#" class="grey-text text-darken-2" target="_blank">Excel</a></span><hr>
-                      <span><a href="https://office.live.com/start/Word.aspx?ui=es-ES&rs=ES&auth=1&nf=1" class="grey-text text-darken-2" target="_blank">Word</a></span><hr>
-                      
-                      <span><a href="<?php echo e(route('plantillas.index')); ?>" class="grey-text text-darken-2">Plantillas</a></span>
-                    </div>
-
-                  </li>
-                  <?php if(Auth::user()->puesto != 'Call-center'): ?>
-                  <li>
-                      <div class="collapsible-header"><i class="material-icons">folder_open</i> <p>Mis Archivos</p> </div>
-                      <div class="collapsible-body">
-                        <span><a href="<?php echo e(Auth::user()->onedrivecompartido); ?>" target="_blank" class="grey-text text-darken-2">Compartido</a></span><hr>
-                        <span><a href="<?php echo e(Auth::user()->onedrivepersonal); ?>" target="_blank" class="grey-text text-darken-2">Mi carpeta</a></span>
-                      </div>
-                  </li>
-                  <?php endif; ?>
-                  <li onclick="location.href='<?php echo e(route('calendar.index')); ?>'">
-                    <div class="collapsible-header"><i class="far fa-calendar-alt" style="color: #a9afbb; margin-right: 19px; font-size: 24px; margin-left: 4px; margin-top: 2px"></i>
-                    <p>Calendario</p></div>
-
-                  </li>
-                  <li onclick="location.href='<?php echo e(route('directorio.index')); ?>'">
-                    <div class="collapsible-header">
-                        <img src="<?php echo e(asset('images/agenda_icon.png')); ?>" class="agenda-icon">
-                    <p>Agenda</p></div>
-                  </li>
-
-                  <li>
-                        <div class="collapsible-header"><i class="material-icons text-gray">insert_drive_file</i> <p>Gestiones</p> </div>
-                        <div class="collapsible-body">
-                          <span><a href="<?php echo e(url('tickets')); ?>" class="grey-text text-darken-2">Tickets</a></span><hr>
-                          <span><a href="<?php echo e(url('registroticket')); ?>" class="grey-text text-darken-2">Registro de tickets</a></span><hr>
-                        <?php if(1 != Auth::user()->tipo_rol): ?>
-                          <span><a href="<?php echo e(route('autorizaciones.create')); ?>" class="grey-text text-darken-2">Licencias</a></span><hr>
-                        <?php endif; ?>
-                          <span><a href="<?php echo e(route('autorizaciones.index')); ?>" class="grey-text text-darken-2">Registro de licencias</a></span>
-                        </div>
-    
-                      </li>
-
-                  <li onclick="location.href='<?php echo e(route('dashboard')); ?>'">
-                    <div class="collapsible-header"><i class="fas fa-bullhorn" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
-                    <p>Novedades</p></div>
-
-                  </li>
-                  <?php if(Auth::user()->rol_usuario == 5 && Auth::user()->tipo_rol == 2|| 'aplehm' == Auth::user()->username || 'ipicoy' == Auth::user()->username || 'ppalermo' == Auth::user()->username): ?>
-                  <li onclick="location.href='<?php echo e(route('rrhh.index')); ?>'">
-                    <div class="collapsible-header">
-                          <i class="material-icons text-gray">people</i>
-                          <p>Recursos Humanos</p>
-                    </div>
-                  </li>
-                  <?php endif; ?>
-                  <?php if(Auth::user()->rol_usuario == 11): ?>
-                  <li onclick="location.href='<?php echo e(route('presidencia.index')); ?>'">
-                    <div class="collapsible-header">
-                          <i class="material-icons text-gray">people</i>
-                          <p>Presidencia</p>
-                    </div>
-                  </li>
-                  <?php endif; ?>
-                  <li onclick="location.href='<?php echo e(route('configuracion')); ?>'">
-                    <div class="collapsible-header"><i class="material-icons text-gray">lock</i>
-                    <p>Seguridad</p></div>
-
-                  </li>
-                  <?php if(Auth::user()->rol_usuario == 12 || Auth::user()->rol_usuario == 3 &&  Auth::user()->username != 'udemo'): ?>
-                    <li onclick="location.href='<?php echo e(route('noticia.index')); ?>'">
-                        <div class="collapsible-header"><i class="material-icons text-gray">file_upload</i>
-                        <p>Entradas</p></div>
-    
-                      </li>
-                  <?php endif; ?>
-                  <li>
-                        <div class="collapsible-header"><i class="fas fa-door-open" style="color: #a9afbb; margin-right: 19px; font-size: 20px; margin-left: 4px; margin-top: 2px"></i>
-                            <p>Accesos</p></div>
-                        <div class="collapsible-body">
-                          <span><a href="http://192.168.0.8:8080/PREPAGA" target="_blank" class="grey-text text-darken-2">ThinkSoft</a></span><hr>
-
-                    
-                        </div>
-    
-                      </li>
-               
-                  
-                </ul>
-            </ul>
+          <?php echo $__env->make('layouts.rutas', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
             
         </div>
     </div>
@@ -379,7 +271,7 @@ img.agenda-icon{
 <!--  Notifications Plugin    -->
 <script src="<?php echo e(asset('js/bootstrap-notify.js')); ?>"></script>
 <!--  Google Maps Plugin    -->
-<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
 <!-- Material Dashboard javascript methods -->
 <script src="<?php echo e(asset('js/material-dashboard.js?v=1.2.0')); ?>"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->

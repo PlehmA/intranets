@@ -242,7 +242,7 @@ h3{
                                     <button title="Aprobar"  type="submit" class="btn btn-small grey btn-apr hoverable"><i class="fas fa-check"></i></button>
                                 {!! Form::close() !!}
                         @endif
-                        @if(true === $autrrhh->estado_jefe && true === $autrrhh->estado_rrhh)
+                        @if(true === $autrrhh->estado_jefe && true === $autrrhh->estado_rrhh && $autrrhh->autorizacion_id == 13)
                     
                         <a href="{{ action('AutorizationController@show', $autrrhh->id) }}" type="submit" class="btn btn-small" style="border:none; background-color: gray !important;" target="_blank">Descargar formulario <i class="fas fa-download"></i></a>
                          
@@ -300,7 +300,7 @@ h3{
                     <!-- @php var_dump($auser->estado_jefe) @endphp -->
                     @endif
                     <td style="width: 2vh;">
-            @if(true === $auser->estado_jefe && true === $auser->estado_rrhh)
+            @if(true === $auser->estado_jefe && true === $auser->estado_rrhh && $auser->autorizacion_id == 13)
                     
                     <a href="{{ action('AutorizationController@show', $auser->id) }}" type="submit" class="btn btn-small" style="border:none; background-color: gray !important;" target="_blank">Descargar formulario <i class="fas fa-download"></i></a>
                      
@@ -340,7 +340,7 @@ h3{
 <script>
 $(document).ready( function () {
     $('#table_id1').DataTable({
-        "ordering": false,
+        "ordering": true,
         "language": {
             "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -368,7 +368,7 @@ $(document).ready( function () {
     });
 
     $('#table_id2').DataTable({
-        "ordering": false,
+        "ordering": true,
         "language": {
             "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -395,7 +395,7 @@ $(document).ready( function () {
         }
     });
     $('#table_id3').DataTable({
-        "ordering": false,
+        "ordering": true,
         "language": {
             "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",

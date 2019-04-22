@@ -1,5 +1,6 @@
 <?php $__env->startSection('css'); ?>
 <style>
+
 .scrollbar {
     margin-left: 30px;
     float: left;
@@ -121,76 +122,67 @@ a .material-icons {
 * {
   border-bottom: initial;
 }
+.imagen-box{
+  max-width: 100vh;
+}
+.collection .collection-item.active{
+  background-color: #8c8c8c;
+}
+.collection a.collection-item {
+    color: #8c8c8c;
+}
+.collection a.collection-item:not(.active):hover {
+    background-color: #e6e6e6;
+}
 </style>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
   <?php if(Auth::check()): ?>
-<div class="container-fluid"> 
+  <main id="app">
+    <div class="container-fluid">
+      <div class="col s9" style="margin-top: 2vh; text-align: laft; margin-bottom: 2vh;">
+        <a href="<?php echo e(route('tutos.index')); ?>" class="btn grey btn-small">Volver</a>
+      </div>
+      <div class="row">
+        <div class="col s3">
+            <div class="collection">
+                <a href="<?php echo e(url('/correotutos')); ?>" class="collection-item">Creación de carpetas</a>
+                <a href="<?php echo e(url('/correotutos4')); ?>" class="collection-item">Eliminar carpeta</a>
+                <a href="<?php echo e(url('/correotutos2')); ?>" class="collection-item active">Crear contactos</a>
+                
+              </div>
+        </div>
+    
+     
+    <main class="col s9" style="margin-top: -11vh;">
 
-<div class="row" style="margin-bottom: 0px;">
-  <div class="col-sm-9" style="margin-top: 4vh;">
-<a href="<?php echo e(route('tutos.index')); ?>" class="btn grey btn-small">Volver</a>
-  </div>
-
-<div class="col-sm-3">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="Buscar..." id="buscador">
-      <span class="input-group-btn" style="margin-top: 1vh;">
-         <i class="material-icons">search</i>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div>
-
-<?php $__currentLoopData = $calcoffice; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $offcalc): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-<div class="row">
-
-  <div class="col s9">
-<video poster="<?php echo e($offcalc->foto_video); ?>" id="player" playsinline controls>
-    <source src="<?php echo e(url($offcalc->video)); ?>" type="video/mp4">
-</video>
-
-  </div>
-  <div class="right col s3 scrollbar scrollbar-default" style="height: 59vh;">
-    <div class="force-overflow">
-<?php $__currentLoopData = $calcmenu; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $menu): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-    <ul class="collection">
-      <a href="<?php echo e($calcoffice->url($menu->id)); ?>">
-        <li class="collection-item avatar" style="border-bottom: 1px solid #e0e0e0; background-color: #ddd; color: #444; min-height: 70px;">
-          <img src="<?php echo e(asset($menu->foto_video)); ?>" alt="" class="circle">
-          <b><span class="title nombres"><?php echo e($menu->titulo); ?></span></b>
-        </li>
-      </a>
-    </ul>
-
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <div class="row">
+          <div class="col s12">
+            <a href="<?php echo e(asset('img/correo/crear_contacto/1.png')); ?>" target="_blank"><img src="<?php echo e(asset('img/correo/crear_contacto/1.png')); ?>" alt="" class="imagen-box"></a>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <a href="<?php echo e(asset('img/correo/crear_contacto/2.png')); ?>" target="_blank"><img src="<?php echo e(asset('img/correo/crear_contacto/2.png')); ?>" alt="" class="imagen-box"></a>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <a href="<?php echo e(asset('img/correo/crear_contacto/3.png')); ?>" target="_blank"><img src="<?php echo e(asset('img/correo/crear_contacto/3.png')); ?>" alt="" class="imagen-box"></a>
+            </div>
+        </div>
+    </main>
     </div>
-  </div>
-  <div class="col s3 container">
-    <ul class="pagination">
-        <li class="waves-effect"><a href="<?php echo e($calcoffice->previousPageUrl()); ?>" class="anterior" title="Video anterior"><i class="material-icons">skip_previous</i></a></li>
-        <li class="waves-effect"><a href="<?php echo e($calcoffice->url($calcoffice->currentPage())); ?>"><?php echo e($calcoffice->currentPage()); ?></a></li>
-        <li class="waves-effect"><a href="<?php echo e($calcoffice->nextPageUrl()); ?>" class="siguiente" title="Siguiente video"><i class="material-icons">skip_next</i></a></li>
-      </ul>
-  </div>
-</div>
-
-<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-</div>
+    </div>
+  </main>
 
   <?php endif; ?>
   <?php $__env->stopSection(); ?>
   <?php $__env->startSection('script'); ?>
-    <script>
-    tippy('.anterior');
-    tippy('.siguiente');
-    </script>
  <script>
-    $(document).ready(function () {
-        $('.main-panel').perfectScrollbar('destroy');
-    });
-    </script>
+        $('.materialboxed').materialbox();
+ </script>
+
   <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('tutos.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

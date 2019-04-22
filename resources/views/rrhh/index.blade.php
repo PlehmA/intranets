@@ -19,10 +19,20 @@
     
     <div class="panel"><!-- Panel -->
         @if (session('success'))
-        <div class="container alert alert-success text-center" role="alert" data-dismiss="alert">
+        <div class="alert alert-success text-center" style="opacity: 0.6" role="alert" data-dismiss="alert">
             {{ session('success') }}
         </div>
         @endif
+        @if ($errors->any())
+            <div class="alert text-center animated fadeIn" style="background-color: #EEE">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
 
     
           {!! Form::open(['method' => 'POST', 'route' => 'addpers.store', 'class' => 'form-horizontal']) !!}
@@ -204,4 +214,12 @@
     
 </div><!-- Container -->
 
+@endsection
+@section('javascript')
+    <script>
+    $(".alert").click(function (e) { 
+      e.preventDefault();
+      $(".alert").css("display", "none");
+    });
+    </script>
 @endsection

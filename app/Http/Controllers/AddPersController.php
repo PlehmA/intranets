@@ -6,7 +6,10 @@ use Auth;
 use App\Notify;
 use App\Puesto;
 use App\User;
+use App\Friend;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Schema;
+// use Illuminate\Database\Schema\Blueprint;
 
 class AddPersController extends Controller
 {
@@ -49,11 +52,10 @@ class AddPersController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validatedData = $request->validate([
-
+        
+       $request->validate([
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:60',
+            'username' => 'required|string|max:60|unique:users',
             'rol_usuario' => 'required|integer|max:20',
             'num_legajo' => 'required|integer',
             'fecha_nacimiento' => 'nullable|date',
@@ -66,15 +68,10 @@ class AddPersController extends Controller
             'interno' => 'nullable|integer',
 
         ]);
-        
 
-        if ($request->has('username', 'rol_usuario'))
-        {
-            
-        $puesto = Puesto::where('id', $request->input('rol_usuario'))->first();
- 
+        $puesto = Puesto::find($request->input('rol_usuario'));
 
-        User::create([
+         User::create([
             'name' => $request->input('name'),
             'username' => $request->input('username'),
             'rol_usuario' => $request->input('rol_usuario'),
@@ -86,19 +83,38 @@ class AddPersController extends Controller
             'ip_maquina' => $request->input('ip_maquina'),
             'telefono_particular' => $request->input('telefono_per'),
             'telefono_celular' => $request->input('telefono_part'),
-            'password' => 'secreto',
-            'foto' => 'storage/'.$request->input('username').'.png',
+            'password' => 'Odonto$Praxi$13A',
             'puesto' => $puesto->nombre_puesto,
             'cuil' => $request->input('cuil'),
             'interno' => $request->input('interno'),
-            'contra_mail' => 'nada',
-
+            'contra_mail' => 'nada'
         ]);
-        
-    }
 
-        return back()->with('success', 'Usuario cargado exitosamente');
+        $user = User::orderBy('id', 'desc')->first();
 
+        $userId = User::select('id', 'name', 'username', 'rol_usuario', 'num_legajo', 'fecha_ingreso', 'puesto', 'foto', 'password', 'terminos')->orderBy('id', 'asc')->get();
+
+        foreach ($userId as $usersId) {
+
+            Friend::create([
+                        'id_user' => $user->id,
+                        'amigo_de' => $usersId->id,
+                        'name'  =>  $usersId->name,
+                        'username'  =>  $usersId->username,
+                        'rol_usuario'   =>  $usersId->rol_usuario,
+                        'num_legajo'    =>  $usersId->num_legajo,
+                        'fecha_ingreso' =>  $usersId->fecha_ingreso,
+                        'puesto'    =>  $usersId->puesto,
+                        'foto'  =>  $usersId->foto,
+                        'password'  =>  $usersId->password,
+                        'terminos'  =>  $usersId->terminos
+                    ]);
+
+        }
+
+    Friend::where('id_user', $user->id)->where('amigo_de', $user->id)->delete();
+
+    return back()->with('success', 'Usuario cargado exitosamente');
 
     }
 
@@ -144,6 +160,23 @@ class AddPersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario = User::find($id);
+
+        $usuario->delete();
+
+        Friend::where('id_user', $id)->delete();
+
+        return back()->with('success', 'Usuario eliminado correctamente.');
+    }
+
+    public function crearTabla(){
+
+        try {
+           
+            return 'Tabla creada';
+        } catch (\Throwable $th) {
+            return $th;
+        }
+        return 'Tabla terminada 2';
     }
 }

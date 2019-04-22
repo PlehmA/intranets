@@ -77,7 +77,7 @@ class ColumnaController extends Controller
      */
     public function show(Columna $columna, $id)
     {
-      $contactos = Contact::orderBy('nomyap', 'ASC')->paginate(15);
+      $contactos = Contact::where('rol_usuario', Auth::user()->rol_usuario)->orderBy('nomyap', 'ASC')->paginate(15);
 
       $agenda  = Agenda::all()
                         ->where('id_usr_agenda', Auth::user()->id)

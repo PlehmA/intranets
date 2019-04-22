@@ -253,7 +253,7 @@ h3{
                                 <?php echo Form::close(); ?>
 
                         <?php endif; ?>
-                        <?php if(true === $autrrhh->estado_jefe && true === $autrrhh->estado_rrhh): ?>
+                        <?php if(true === $autrrhh->estado_jefe && true === $autrrhh->estado_rrhh && $autrrhh->autorizacion_id == 13): ?>
                     
                         <a href="<?php echo e(action('AutorizationController@show', $autrrhh->id)); ?>" type="submit" class="btn btn-small" style="border:none; background-color: gray !important;" target="_blank">Descargar formulario <i class="fas fa-download"></i></a>
                          
@@ -311,7 +311,7 @@ h3{
                     <!-- <?php var_dump($auser->estado_jefe) ?> -->
                     <?php endif; ?>
                     <td style="width: 2vh;">
-            <?php if(true === $auser->estado_jefe && true === $auser->estado_rrhh): ?>
+            <?php if(true === $auser->estado_jefe && true === $auser->estado_rrhh && $auser->autorizacion_id == 13): ?>
                     
                     <a href="<?php echo e(action('AutorizationController@show', $auser->id)); ?>" type="submit" class="btn btn-small" style="border:none; background-color: gray !important;" target="_blank">Descargar formulario <i class="fas fa-download"></i></a>
                      
@@ -351,7 +351,7 @@ h3{
 <script>
 $(document).ready( function () {
     $('#table_id1').DataTable({
-        "ordering": false,
+        "ordering": true,
         "language": {
             "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -379,7 +379,7 @@ $(document).ready( function () {
     });
 
     $('#table_id2').DataTable({
-        "ordering": false,
+        "ordering": true,
         "language": {
             "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -406,7 +406,7 @@ $(document).ready( function () {
         }
     });
     $('#table_id3').DataTable({
-        "ordering": false,
+        "ordering": true,
         "language": {
             "sProcessing":     "Procesando...",
             "sLengthMenu":     "Mostrar _MENU_ registros",

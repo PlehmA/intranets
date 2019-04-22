@@ -42,10 +42,10 @@
             
             <div class="row">
                     <div class="col-sm-12">
-                        <p style="margin-top: 50px;">Por la presente le expreso mi deseo, pidiendo permiso para ausentarme de mi puesto de trabajo el día {{ date_format($date2 = date_create($data->de), 'd/m/Y') }}.</p>
-                        <p>Motivo: {{$data->tipo_autorizacion}}</p>
-                        <p>Hora: {{date_format($date = date_create($data->hora_de), 'H:i')}} </p>
-                        <p>Lo cual comunico con la suficiente antelación al efecto de causar el menor trastorno en la planificación del trabajo de la empresa, comprometiendome a presentar .</p>
+                        <h5 style="margin-top: 50px;"><b>{{ $data->tipo_autorizacion }}</b></h5>
+                        <p>Por la presente le expreso mi deseo, pidiendo permiso para ausentarme de mi puesto de trabajo el día {{ date_format($date2 = date_create($data->fecha_de), 'd/m/Y') }}.</p>
+                        <p>Motivo: {{$data->motivo}}</p>
+                        <p>Lo cual comunico con la suficiente antelación al efecto de causar el menor trastorno en la planificación del trabajo de la empresa.</p>
 
                     </div>
                 </div>

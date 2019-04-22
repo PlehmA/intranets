@@ -45,7 +45,7 @@ class AutorizationController extends Controller
         ->get();
         //dd($autorizacionesjefe);
 
-        $autojefatura = Autorization::where('tipo_ro', 2)->get();
+        $autojefatura = Autorization::where('tipo_rol', 2)->get();
        
         return view('autorizaciones.list', compact(['notificacion', 'autorizacionesjefe', 'autorirrhh', 'autouser', 'autojefatura']));
     }
@@ -1568,43 +1568,51 @@ class AutorizationController extends Controller
 
                     $date_1 = date_create($request->input('delicjuzcom'));
                     $date_2 = date_create($request->input('hastalicjuzcom'));
+
                     if ($date_1 > $date_2) return FALSE;
+
                     $bussiness_days = array();
+
                     while ($date_1 <= $date_2) {
+
                         $day_week = $date_1->format('w');
+
                         if ($day_week > 0 && $day_week < 7) {
                             $bussiness_days[$date_1->format('Y-m')][] = $date_1->format('d');
                         }
                         date_add($date_1, date_interval_create_from_date_string('1 day'));
                     }
+
                     if (strtolower('array') === 'sum') {
                         array_map(function($k) use(&$bussiness_days) {
                             $bussiness_days[$k] = count($bussiness_days[$k]);
                         }, array_keys($bussiness_days));
                     }
                     $array_dias = [];
+
                     foreach($bussiness_days as $loco){
                        $volador = count($loco);
                     }
                 
                     $jefe = User::where('tipo_rol', 2)->where('rol_usuario', Auth::user()->rol_usuario)->first();
-                $autorization = Autorization::create([
-                    'tipo_ro'  =>  Auth::user()->tipo_rol,
-                    'nombre_usuario'    =>  Auth::user()->name,
-                    'user_id'           =>  Auth::user()->id,
-                    'legajo'            =>  Auth::user()->num_legajo,
-                    'cuil'              =>  Auth::user()->cuil,
-                    'tipo_autorizacion' =>  'Tramites bancarios',
-                    'rol_usuario'       =>  Auth::user()->rol_usuario,
-                    'sector'            =>  $puesto->nombre_puesto,
-                    'autorizacion_id'   =>  $request->input('opcionauto'),
-                    'fecha_de'          =>  $request->input('delicjuzcom'),
-                    'fecha_hasta'       =>  $request->input('delicjuzcom'),
-                    'hora_de'           =>  $request->input('hastalicjuzcom'),
-                    'hora_hasta'        =>  $request->input('hastalicjuzcom'),
-                    'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-                    'dias_count'        =>  $volador
-                ]);
+                        $autorization = Autorization::create([
+                            'tipo_ro'  =>  Auth::user()->tipo_rol,
+                            'nombre_usuario'    =>  Auth::user()->name,
+                            'user_id'           =>  Auth::user()->id,
+                            'legajo'            =>  Auth::user()->num_legajo,
+                            'cuil'              =>  Auth::user()->cuil,
+                            'tipo_autorizacion' =>  'Gestiones personales',
+                            'rol_usuario'       =>  Auth::user()->rol_usuario,
+                            'sector'            =>  $puesto->nombre_puesto,
+                            'autorizacion_id'   =>  $request->input('opcionauto'),
+                            'fecha_de'          =>  $request->input('delicjuzcom'),
+                            'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
+                            // 'hora_de'           =>  $request->input('hastalicjuzcom'),
+                            // 'hora_hasta'        =>  $request->input('hastalicjuzcom'),
+                            'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                            'dias_count'        =>  $volador,
+                            'motivo'            => $request->input('motivo')
+                        ]);
                 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
                 try {
                     
@@ -1661,16 +1669,17 @@ class AutorizationController extends Controller
                     'user_id'           =>  Auth::user()->id,
                     'legajo'            =>  Auth::user()->num_legajo,
                     'cuil'              =>  Auth::user()->cuil,
-                    'tipo_autorizacion' =>  'Tramites bancarios',
+                    'tipo_autorizacion' =>  'Gestiones personales',
                     'rol_usuario'       =>  Auth::user()->rol_usuario,
                     'sector'            =>  $puesto->nombre_puesto,
                     'autorizacion_id'   =>  $request->input('opcionauto'),
                     'dias_count'        =>  $volador,
                     'fecha_de'          =>  $request->input('delicjuzcom'),
-                    'fecha_hasta'       =>  $request->input('delicjuzcom'),
-                    'hora_de'           =>  $request->input('hastalicjuzcom'),
-                    'hora_hasta'        =>  $request->input('hastalicjuzcom'),
-                    'fecha_creacion'    =>  date('Y-m-d H:i:s')
+                    'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
+                    // 'hora_de'           =>  $request->input('hastalicjuzcom'),
+                    // 'hora_hasta'        =>  $request->input('hastalicjuzcom'),
+                    'fecha_creacion'    =>  date('Y-m-d H:i:s'),
+                    'motivo'            => $request->input('motivo')
                 ]);
     
             return back()->with('success', 'Solicitud pendiente de aprobación por Recursos Humanos.');
@@ -1705,16 +1714,17 @@ class AutorizationController extends Controller
                 'user_id'           =>  Auth::user()->id,
                 'legajo'            =>  Auth::user()->num_legajo,
                 'cuil'              =>  Auth::user()->cuil,
-                'tipo_autorizacion' =>  'Tramites bancarios',
+                'tipo_autorizacion' =>  'Gestiones personales',
                 'rol_usuario'       =>  Auth::user()->rol_usuario,
                 'sector'            =>  $puesto->nombre_puesto,
                 'autorizacion_id'   =>  $request->input('opcionauto'),
                 'fecha_de'          =>  $request->input('delicjuzcom'),
-                'fecha_hasta'       =>  $request->input('delicjuzcom'),
-                'hora_de'           =>  $request->input('hastalicjuzcom'),
-                'hora_hasta'        =>  $request->input('hastalicjuzcom'),
+                'fecha_hasta'       =>  $request->input('hastalicjuzcom'),
+                // 'hora_de'           =>  $request->input('hastalicjuzcom'),
+                // 'hora_hasta'        =>  $request->input('hastalicjuzcom'),
                 'fecha_creacion'    =>  date('Y-m-d H:i:s'),
-                'dias_count'        =>  $volador
+                'dias_count'        =>  $volador,
+                'motivo'            => $request->input('motivo')
             ]);
             $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
             try {

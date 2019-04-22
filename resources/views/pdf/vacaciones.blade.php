@@ -50,9 +50,9 @@
                         
                     </div>
                 </div>
-            
-    
-   
+            <div class="row" style="margin-top: 200px;">
+                <p style="margin-left: 150px">Firma </p> <p style="margin-left: 450px">Aclaración </p>
+            </div>
 
 </body>
 </html>

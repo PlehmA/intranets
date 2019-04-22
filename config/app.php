@@ -154,6 +154,7 @@ return [
          */
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class,
         
         /*
          * Application Service Providers...

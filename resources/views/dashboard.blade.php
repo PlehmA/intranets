@@ -3,7 +3,7 @@
 <style>
 @media only screen and (max-width: 1400px){
 .main-panel {
-    padding: 0px 60px;
+    padding: 0px 45px;
 }
 .main-panel>.content {
     padding: 0px 30px;

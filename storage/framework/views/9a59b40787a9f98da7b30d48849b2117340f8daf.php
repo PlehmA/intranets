@@ -1,7 +1,8 @@
+<?php $__env->startSection('css'); ?>
+<?php echo toastr_css(); ?>
+<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 
-
-    
 <div class="container">
 
     <div class="panel">
@@ -35,8 +36,15 @@
     
                            <div class="input-field col s4">
                             
-                           <input id="puesto" type="text" class="validate" name="puesto" autocomplete="off" required value="<?php echo e($user->puesto); ?>">
+                           
+                           <select id="puesto" name="puesto" required>
+                              <option value="<?php echo e($user->rol_usuario); ?>" selected><?php echo e($user->puesto); ?></option>
+                              <?php $__currentLoopData = $puestos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $puesto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                              <option value="<?php echo e($puesto->id); ?>"><?php echo e($puesto->nombre_puesto); ?></option>
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select>
                            <label for="puesto">Área</label>
+
                            </div>
     
                             <div class="input-field col s4">
@@ -88,19 +96,28 @@
     
                           </div><!-- Row -->
                           <div class="row"><!-- Row -->
-    
-                            <div class="input-field col s6">
-                        <input id="ip_maquina" type="text" class="validate" name="ip_maquina" autocomplete="off" pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo e($user->ip_maquina); ?>" readonly>
-                        <label for="ip_maquina">Dirección IP de su PC</label>
-
-                            </div>
-    
+                         
                             <div class="input-field col s6">
                                 <input id="interno" type="number" class="validate" name="interno" autocomplete="off"value="<?php echo e($user->interno); ?>">
                                 <label for="interno">Interno</label>
 
                             </div>
-    
+                            <?php if(Auth::user()->rol_usuario == 3): ?>
+                            <div class="input-field col s6">
+                                <input id="ip_maquina" type="text" class="validate" name="ip_maquina" autocomplete="off" pattern="^([0-9]{1,3}\.){3}[0-9]{1,3}$" value="<?php echo e($user->ip_maquina); ?>">
+                                <label for="ip_maquina">Dirección IP de su PC</label>
+                              </div>
+
+                              <div class="input-field col s12">
+                                <input id="oneCompartido" type="text" name="oneCompartido" autocomplete="off" value="<?php echo e($user->onedrivecompartido); ?>">
+                                <label for="oneCompartido">Onedrive compartido</label>
+                              </div>
+
+                              <div class="input-field col s12">
+                                <input id="onePersonal" type="text" name="onePersonal" autocomplete="off" value="<?php echo e($user->onedrivepersonal); ?>">
+                                <label for="onePersonal">Onedrive personal</label>
+                              </div>
+                          <?php endif; ?>
                           </div><!-- Row -->
                           <div class="row"><!-- Row -->
     
@@ -115,5 +132,13 @@
     </div>
 </div>
 <?php $__env->stopSection(); ?>
-
+<?php $__env->startSection('javascript'); ?>
+<?php echo toastr_js(); ?>
+<?php echo app('toastr')->render(); ?>
+    <script>
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
+    </script>
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('rrhh.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
